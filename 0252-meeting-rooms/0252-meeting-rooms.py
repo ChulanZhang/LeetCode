@@ -8,5 +8,5 @@ class Solution:
                 return False
         return True
 
-
-        
+# Time Complexity: O(NlogN) for sorting
+# Space Complexity: O(logN) for sorting 
