@@ -1,0 +1,3443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LeetCode Blind 75 算法大逃杀</title>
+    <style>
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #2c3e50;
+        background-color: #f8f9fa;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+    h1, h2, h3 {
+        color: #1a365d;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 3em;
+        border-bottom: 3px solid #3182ce;
+        padding-bottom: 20px;
+    }
+    .category-section {
+        margin-top: 60px;
+    }
+    .category-title {
+        font-size: 2em;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 10px;
+        color: #2b6cb0;
+        margin-bottom: 30px;
+    }
+    .problem-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        padding: 30px;
+        margin-bottom: 40px;
+        border-left: 5px solid #4299e1;
+    }
+    .difficulty-Easy {
+        color: #38a169;
+        font-weight: bold;
+    }
+    .difficulty-Medium {
+        color: #dd6b20;
+        font-weight: bold;
+    }
+    .difficulty-Hard {
+        color: #e53e3e;
+        font-weight: bold;
+    }
+    .meta-item {
+        margin-bottom: 10px;
+    }
+    .meta-label {
+        font-weight: bold;
+        color: #4a5568;
+    }
+    .code-block {
+        background-color: #1a202c;
+        color: #f7fafc;
+        padding: 20px;
+        border-radius: 6px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.9em;
+        white-space: pre-wrap;
+        margin-top: 20px;
+        overflow-x: auto;
+    }
+    .analysis-box {
+        background-color: #ebf8ff;
+        border-left: 4px solid #3182ce;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 4px;
+    }
+    .analysis-box p {
+        margin: 5px 0;
+    }
+    .page-break {
+        page-break-before: always;
+    }
+    .toc {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        margin-bottom: 50px;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .toc-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #2d3748;
+    }
+    .toc-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    .toc-item {
+        margin-bottom: 8px;
+    }
+    .toc-link {
+        text-decoration: none;
+        color: #2b6cb0;
+    }
+    .toc-link:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LeetCode "Blind 75" 经典题单深度解析手册</h1>
+        <p style="text-align: center; color: #718096; font-size: 1.2em;">资深后端架构师 & 算法导师联合编撰</p>
+        
+        <div class="toc">
+            <div class="toc-title">目录 (Table of Contents)</div>
+            <ul class="toc-list">
+    <li style="font-weight: bold; margin-top: 15px; color: #2d3748;">数组 (Array)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_01">01. Two Sum (两数之和)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_02">02. Best Time to Buy and Sell Stock (买卖股票的最佳时机)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_03">03. Contains Duplicate (存在重复元素)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_04">04. Product of Array Except Self (除自身以外数组的乘积)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_05">05. Maximum Subarray (最大子数组和)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_06">06. Maximum Product Subarray (乘积最大子数组)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_07">07. Find Minimum in Rotated Sorted Array (寻找旋转排序数组中的最小值)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_08">08. Search in Rotated Sorted Array (搜索旋转排序数组)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_09">09. 3Sum (三数之和)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_10">10. Container With Most Water (盛最多水的容器)</a></li><li style="font-weight: bold; margin-top: 15px; color: #2d3748;">二进制/位运算 (Binary)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_11">11. Sum of Two Integers (两数之和 - 不使用加减号)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_12">12. Number of 1 Bits (位1的个数)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_13">13. Counting Bits (比特位计数)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_14">14. Missing Number (丢失的数字)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_15">15. Reverse Bits (颠倒二进制位)</a></li><li style="font-weight: bold; margin-top: 15px; color: #2d3748;">动态规划 (Dynamic Programming)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_16">16. Climbing Stairs (爬楼梯)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_17">17. Coin Change (零钱兑换)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_18">18. Longest Increasing Subsequence (最长递增子序列 - LIS)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_19">19. Longest Common Subsequence (最长公共子序列 - LCS)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_20">20. Word Break (单词拆分)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_21">21. Combination Sum IV (组合总和 Ⅳ)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_22">22. House Robber (打家劫舍)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_23">23. House Robber II (打家劫舍 Ⅱ)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_24">24. Decode Ways (解码方法)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_25">25. Unique Paths (不同路径)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_26">26. Jump Game (跳跃游戏)</a></li><li style="font-weight: bold; margin-top: 15px; color: #2d3748;">图 (Graph)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_27">27. Clone Graph (克隆图)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_28">28. Course Schedule (课程表)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_29">29. Pacific Atlantic Water Flow (太平洋大西洋水流问题)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_30">30. Number of Islands (岛屿数量)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_31">31. Longest Consecutive Sequence (最长连续序列)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_32">32. Alien Dictionary (外星人词典)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_33">33. Graph Valid Tree (以图判树)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_34">34. Number of Connected Components in an Undirected Graph (无向图中连通分量的数目)</a></li><li style="font-weight: bold; margin-top: 15px; color: #2d3748;">区间 (Interval)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_35">35. Insert Interval (插入区间)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_36">36. Merge Intervals (合并区间)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_37">37. Non-overlapping Intervals (无重叠区间)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_38">38. Meeting Rooms (会议室)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_39">39. Meeting Rooms II (会议室 Ⅱ)</a></li><li style="font-weight: bold; margin-top: 15px; color: #2d3748;">链表 (Linked List)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_40">40. Reverse Linked List (反转链表)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_41">41. Linked List Cycle (环形链表)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_42">42. Merge Two Sorted Lists (合并两个有序链表)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_43">43. Merge k Sorted Lists (合并 k 个升序链表)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_44">44. Remove Nth Node From End of List (删除链表的倒数第 N 个节点)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_45">45. Reorder List (重排链表)</a></li><li style="font-weight: bold; margin-top: 15px; color: #2d3748;">矩阵 (Matrix)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_46">46. Set Matrix Zeroes (矩阵置零)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_47">47. Spiral Matrix (螺旋矩阵)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_48">48. Rotate Image (旋转图像)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_49">49. Word Search (单词搜索)</a></li><li style="font-weight: bold; margin-top: 15px; color: #2d3748;">字符串 (String)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_50">50. Longest Substring Without Repeating Characters (无重复字符的最长子串)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_51">51. Longest Repeating Character Replacement (替换后的最长重复字符)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_52">52. Minimum Window Substring (最小覆盖子串)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_53">53. Valid Anagram (有效的字母异位词)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_54">54. Group Anagrams (字母异位词分组)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_55">55. Valid Parentheses (有效的括号)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_56">56. Valid Palindrome (验证回文串)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_57">57. Longest Palindromic Substring (最长回文子串)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_58">58. Palindromic Substrings (回文子串个数)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_59">59. Encode and Decode Strings (字符串的编码与解码)</a></li><li style="font-weight: bold; margin-top: 15px; color: #2d3748;">树 (Tree)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_60">60. Maximum Depth of Binary Tree (二叉树的最大深度)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_61">61. Same Tree (相同的树)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_62">62. Invert Binary Tree (翻转二叉树)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_63">63. Binary Tree Maximum Path Sum (二叉树中的最大路径和)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_64">64. Binary Tree Level Order Traversal (二叉树的层序遍历)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_65">65. Serialize and Deserialize Binary Tree (二叉树的序列化与反序列化)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_66">66. Subtree of Another Tree (另一棵树的子树)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_67">67. Construct Binary Tree from Preorder and Inorder Traversal (从前序与中序遍历序列构造二叉树)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_68">68. Validate Binary Search Tree (验证二叉搜索树)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_69">69. Kth Smallest Element in a BST (二叉搜索树中第 K 小的元素)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_70">70. Lowest Common Ancestor of a Binary Search Tree (二叉搜索树的最近公共祖先)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_71">71. Implement Trie (Prefix Tree) (实现 Trie (前缀树))</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_72">72. Add and Search Word (添加与搜索单词 - 数据结构设计)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_73">73. Word Search II (单词搜索 Ⅱ)</a></li><li style="font-weight: bold; margin-top: 15px; color: #2d3748;">堆 (Heap)</li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_74">74. Top K Frequent Elements (前 K 个高频元素)</a></li><li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_75">75. Find Median from Data Stream (数据流的中位数)</a></li>
+            </ul>
+        </div>
+        
+        <div class="page-break"></div>
+    <div class="category-section"><div class="category-title">数组 (Array)</div>
+            <div class="problem-card" id="prob_01">
+                <h3>01. Two Sum (两数之和) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 哈希表 (Hash Map) - 空间换时间</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 最容易想到的暴力方法是双重循环（Nested Loops），外层固定元素 A，内层在其余元素中寻找 B 使得 A + B = target。时间复杂度是 O(N^2)。在面试中是无法接受的，尤其是当数组规模达到 10^4 以上时，会直接超时。且要注意避开同一个元素重复使用和重复数值的处理这两个边界。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 为了将复杂度降低到 O(N)，我们需要在一边遍历数组的过程中，一边把已经访问过的元素及其索引存入哈希表中。这样，对于下一个数，我们只需在哈希表中检索它的互补数是否存在即可。利用哈希表进行 O(1) 复杂度的查找。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
+        num_to_idx = {}
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in num_to_idx:
+                return [num_to_idx[complement], i]
+            num_to_idx[num] = i
+        return []
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_02">
+                <h3>02. Best Time to Buy and Sell Stock (买卖股票的最佳时机) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 贪心算法 (Greedy) / 动态规划状态简化 - 一次遍历</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 暴力解法是计算所有可能的买入和卖出组合（即双重循环，外层买入，内层卖出且卖出在买入之后），寻找最大的差值，时间复杂度为 O(N^2)。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 由于你必须先买入，才能卖出，不能简单地找出数组的最小值和最大值然后相减（因为最大值可能出现在最小值之前）。我们在遍历数组时，可以实时维护一个“历史最低买入价” min_price，以及“历史最大利润” max_profit。当我们在第 i 天卖出股票，最大利润就是价格差 price - min_price。我们用它去更新 max_profit 即可。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -&gt; int:
+        if not prices:
+            return 0
+        min_price = float('inf')
+        max_profit = 0
+        for price in prices:
+            if price &lt; min_price:
+                min_price = price
+            elif price - min_price &gt; max_profit:
+                max_profit = price - min_price
+        return max_profit
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_03">
+                <h3>03. Contains Duplicate (存在重复元素) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 哈希集合 (Hash Set) - 早期终止优化</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 暴力解法是双重循环，依次两两比对，时间复杂度为 O(N^2)。如果直接使用 Python 的 len(set(nums)) != len(nums)，大数组下，无法早期终止（Early Return）可能会导致不必要的性能浪费。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 在允许使用额外空间的前提下，为了达到 O(N) 的时间复杂度，我们可以使用哈希集合 visited。一边遍历数组，一边把遇到的数字放入 visited 中。每次放入前先检查它是否已经在 visited 中。如果在，说明找到了重复元素，直接返回 True 早期终止。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -&gt; bool:
+        visited = set()
+        for num in nums:
+            if num in visited:
+                return True
+            visited.add(num)
+        return False
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_04">
+                <h3>04. Product of Array Except Self (除自身以外数组的乘积) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 前缀乘积与后缀乘积 (Prefix & Suffix Products) / 空间优化</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 最直观的方法是把所有数乘起来得到 total_product，然后除以每个位置的 nums[i]。但题目要求不能使用除法，且如果数组中包含 0 会导致除以 0 的错误。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 除了自身之外的所有元素积，可以拆分为：当前元素左边所有数的乘积（前缀积）乘上右边所有数的乘积（后缀积）。我们可以直接用返回的 answer 数组暂存前缀积。接着，反向扫描数组，用一个变量 suffix_product 动态维护右侧乘积，并在遍历过程中乘到对应的位置上，这样实现 O(1) 额外空间。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -&gt; List[int]:
+        n = len(nums)
+        answer = [1] * n
+        prefix_product = 1
+        for i in range(n):
+            answer[i] = prefix_product
+            prefix_product *= nums[i]
+        suffix_product = 1
+        for i in range(n - 1, -1, -1):
+            answer[i] *= suffix_product
+            suffix_product *= nums[i]
+        return answer
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_05">
+                <h3>05. Maximum Subarray (最大子数组和) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 动态规划 (Kadane's Algorithm) / 贪心算法</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 暴力枚举所有的子数组起点 i 和终点 j，时间复杂度为 O(N^2)。如果数组中全为负数，初始化最大值需要注意不能直接设为 0，必须设为首个元素或负无穷。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 在遍历到每个位置时，我们需要决定：是要继续累加当前数字，还是以当前数字为新子数组的起点？如果之前的累加和为负数，对后续累加只会起到削减作用，应当舍弃并从当前数重新开始。状态转移方程为：current_sum = max(num, current_sum + num)。并在过程中维护全局最大值。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -&gt; int:
+        current_sum = nums[0]
+        max_sum = nums[0]
+        for num in nums[1:]:
+            current_sum = max(num, current_sum + num)
+            max_sum = max(max_sum, current_sum)
+        return max_sum
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_06">
+                <h3>06. Maximum Product Subarray (乘积最大子数组) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 动态规划 / 双状态维护（最大与最小值应对负负得正）</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 与最大子数组和不同，乘法中存在“负负得正”。如果之前有一个很大的负数，再乘以一个负数就会变成极大的正数。因此如果只维护最大值，会丢失潜在的最优解。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 我们必须同时维护当前位置的“最大乘积”和“最小乘积”（绝对值很大的负数）。每到一个位置，我们通过当前数、当前数乘上最大积、当前数乘上最小积这三者，分别更新当前位置的最大乘积和最小乘积，从而在 O(N) 时间和 O(1) 空间下得出全局最大乘积。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def maxProduct(self, nums: List[int]) -&gt; int:
+        if not nums:
+            return 0
+        res = nums[0]
+        cur_min = nums[0]
+        cur_max = nums[0]
+        for num in nums[1:]:
+            temp = cur_max
+            cur_max = max(num, num * cur_max, num * cur_min)
+            cur_min = min(num, num * temp, num * cur_min)
+            res = max(res, cur_max)
+        return res
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_07">
+                <h3>07. Find Minimum in Rotated Sorted Array (寻找旋转排序数组中的最小值) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二分查找 (Binary Search)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 在一个旋转过的升序数组中找最小值。直接遍历需要 O(N) 的时间。因为原本是有序的，我们需要在 O(log N) 的时间内解决。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 使用二分查找。如果中间值 nums[mid] 大于右边界 nums[right]，说明旋转折返点在 mid 的右半边，最小值必定在 mid + 1 到 right 之间，因此 left = mid + 1。否则，说明右半边是单调递增的，最小值可能是 mid 本身或者在左半边，因此 right = mid。最终 left == right 即为最小值。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def findMin(self, nums: List[int]) -&gt; int:
+        left, right = 0, len(nums) - 1
+        while left &lt; right:
+            mid = (left + right) // 2
+            if nums[mid] &gt; nums[right]:
+                left = mid + 1
+            else:
+                right = mid
+        return nums[left]
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_08">
+                <h3>08. Search in Rotated Sorted Array (搜索旋转排序数组) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二分查找 / 分段单调性判定</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 旋转数组中检索目标值。若直接遍历复杂度为 O(N)。我们需要利用二分查找达到 O(log N) 复杂度。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 旋转数组有一个特性：如果从中间切开，两半中必然有一半是严格递增的。我们可以比较 nums[left] 和 nums[mid] 来确定哪一半是有序的：
+1. 如果左半部分有序，我们检查 target 是否在左半部分的单调区间内。如果在，我们收缩 right = mid - 1；否则去右半部分寻找（left = mid + 1）。
+2. 同理，如果右半部分有序，我们检查 target 是否在右半部单调区间内，收缩边界。如此这般折半查找。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def search(self, nums: List[int], target: int) -&gt; int:
+        left, right = 0, len(nums) - 1
+        while left &lt;= right:
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                return mid
+            if nums[left] &lt;= nums[mid]:
+                if nums[left] &lt;= target &lt; nums[mid]:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            else:
+                if nums[mid] &lt; target &lt;= nums[right]:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+        return -1
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_09">
+                <h3>09. 3Sum (三数之和) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 双指针 (Two Pointers) / 排序 (Sorting)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 暴力搜索三个数，时间复杂度为 O(N^3)，且去重逻辑极其繁琐。如何进行优化并去重？</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 首先对数组进行升序排序，这是使用双指针的前提。
+2. 固定第一个数 nums[i]，如果 nums[i] > 0 则后面不可能凑出 0，直接终止。如果 nums[i] == nums[i-1] 则跳过以去重。
+3. 在剩下的区间 [i+1, n-1] 中使用双指针 left 和 right 向中间夹逼。若三数之和小于 0 则 left += 1，大于 0 则 right -= 1。若等于 0，则记录答案，并移动双指针同时跳过重复的值去重。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def threeSum(self, nums: List[int]) -&gt; List[List[int]]:
+        nums.sort()
+        res = []
+        n = len(nums)
+        for i in range(n - 2):
+            if nums[i] &gt; 0:
+                break
+            if i &gt; 0 and nums[i] == nums[i - 1]:
+                continue
+            left, right = i + 1, n - 1
+            while left &lt; right:
+                total = nums[i] + nums[left] + nums[right]
+                if total &lt; 0:
+                    left += 1
+                elif total &gt; 0:
+                    right -= 1
+                else:
+                    res.append([nums[i], nums[left], nums[right]])
+                    while left &lt; right and nums[left] == nums[left + 1]:
+                        left += 1
+                    while left &lt; right and nums[right] == nums[right - 1]:
+                        right -= 1
+                    left += 1
+                    right -= 1
+        return res
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_10">
+                <h3>10. Container With Most Water (盛最多水的容器) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 双指针 (Two Pointers) / 贪心决策</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 暴力计算任意两块板组成的容器容量，复杂度为 O(N^2)。如何利用边界性质进行 O(N) 求解？</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 我们使用双指针 left 和 right 分别指向数组两端。容器的宽度是 right - left，高度取决于两板中的短板 min(height[left], height[right])。每次我们将短板那一侧的指针向内移动，因为如果移动长板那一侧，容器的宽度变小了，高度依然受限于保留下的短板，面积绝对不可能增大。因此，移动短板才是唯一有可能让面积增大的贪心策略。直到两指针相遇。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def maxArea(self, height: List[int]) -&gt; int:
+        left, right = 0, len(height) - 1
+        max_water = 0
+        while left &lt; right:
+            width = right - left
+            current_height = min(height[left], height[right])
+            max_water = max(max_water, width * current_height)
+            if height[left] &lt; height[right]:
+                left += 1
+            else:
+                right -= 1
+        return max_water
+</code></div>
+            </div>
+            </div><div class="page-break"></div><div class="category-section"><div class="category-title">二进制/位运算 (Binary)</div>
+            <div class="problem-card" id="prob_11">
+                <h3>11. Sum of Two Integers (两数之和 - 不使用加减号) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 位运算 (Bit Manipulation) - 异或(XOR)求无进位和，与(AND)左移求进位</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：不使用 + 或 -，我们需要在二进制位级别模拟加法器的行为。两个数相加可以拆分为：无进位加法（可以通过 XOR 异或实现）和进位（可以通过 AND 与运算并左移一位实现）。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 对于 a 和 b：
+1. a ^ b 计算出无进位的和（例如 1+1=0, 1+0=1）。
+2. (a & b) << 1 计算出进位（只有 1+1 会产生进位，进位向左移一位）。
+3. 重复这个过程，直到进位为 0。
+在 Python 中，整数是无限精度的，因此我们需要手动使用 32 位掩码 0xFFFFFFFF 来模拟 32 位有符号整数的溢出和负数行为。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def getSum(self, a: int, b: int) -&gt; int:
+        """
+        时间复杂度: O(1) - 因为在 32 位整数范围内，循环最多执行 32 次
+        空间复杂度: O(1)
+        """
+        # 32位最大正整数
+        MAX = 0x7FFFFFFF
+        # 32位掩码
+        mask = 0xFFFFFFFF
+        
+        while b != 0:
+            # 计算无进位和，并限制在32位内
+            carry = (a & b) &lt;&lt; 1
+            a = (a ^ b) & mask
+            b = carry & mask
+            
+        # 如果结果是负数（第31位为1），将其转换为 Python 的负数表示
+        return a if a &lt;= MAX else ~(a ^ mask)
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_12">
+                <h3>12. Number of 1 Bits (位1的个数) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 位运算 (Bit Manipulation) - Brian Kernighan 算法 (n & (n - 1))</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：可以通过循环 32 次，每次将数字右移并判断最低位是否为 1。但这需要固定的 32 次迭代，即使数字中只有一个 1。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 使用 n & (n - 1) 消除最低位的 1：
+对于任意数 n，n - 1 会将 n 最低位的 1 变成 0，并将其右边的所有 0 变成 1。
+当我们执行 n & (n - 1) 时，会将最低位的 1 及其右边所有的位都清零，而保持左边的位不变。
+利用这个特性，我们每次执行 n & (n - 1) 都会且仅会消去一个二进制位中的 1。因此，迭代次数仅等于 1 的个数，效率极高。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def hammingWeight(self, n: int) -&gt; int:
+        """
+        时间复杂度: O(1) - 最多执行 32 次，实际迭代次数等于二进制中 1 的个数
+        空间复杂度: O(1)
+        """
+        count = 0
+        while n:
+            # 消除二进制中最右边的 1
+            n = n & (n - 1)
+            count += 1
+        return count
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_13">
+                <h3>13. Counting Bits (比特位计数) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 动态规划 (DP) + 位运算 (Bit Manipulation)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：对 0 到 n 的每个数分别计算其二进制中 1 的个数，时间复杂度为 O(n log n) 或 O(32n)。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 为了达到 O(n) 的最优时间复杂度，我们应该利用之前已经计算过的数字的结果（动态规划）。
+设 dp[i] 为数字 i 的二进制中 1 的个数。
+1. 奇偶性规律：
+   - 如果 i 是偶数，i 的二进制中 1 的个数与 i // 2 相同（因为偶数相当于 i // 2 左移一位，末尾补 0，不增加 1）。即 dp[i] = dp[i >> 1]。
+   - 如果 i 是奇数，i 的二进制中 1 的个数比 i // 2 多 1（末尾是 1）。即 dp[i] = dp[i >> 1] + 1。
+2. 统一公式：dp[i] = dp[i >> 1] + (i & 1)。这样我们就可以在 O(1) 的时间内从已有的状态推导出新状态。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def countBits(self, n: int) -&gt; List[int]:
+        """
+        时间复杂度: O(n) - 遍历一次 0 到 n
+        空间复杂度: O(1) - 仅使用输出数组，无额外辅助空间
+        """
+        dp = [0] * (n + 1)
+        for i in range(1, n + 1):
+            # dp[i] 等于 dp[i // 2] 加上 i 的最低位是否为 1
+            dp[i] = dp[i &gt;&gt; 1] + (i & 1)
+        return dp
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_14">
+                <h3>14. Missing Number (丢失的数字) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 位运算 (XOR 异或) / 数学求和公式 (Gauss Formula)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：先对数组排序，然后找缺失的数，时间复杂度 O(n log n)。或者使用哈希集合，空间复杂度 O(n)。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 我们要寻找 O(n) 时间和 O(1) 空间的最优解。
+方法一（数学求和）：0 到 n 的理论总和是 n * (n + 1) // 2。我们求出这个理论和，再减去数组中实际所有数的和，差值就是缺失的数。但需要防范大数溢出（Python 自动处理大数，但在 C++/Java 中可能需要防范）。
+方法二（异或运算）：异或满足交换律和结合律，且 x ^ x = 0，x ^ 0 = x。
+如果我们把 0 到 n 的所有数字，以及数组中的所有数字全部异或在一起，出现两次的数字都会抵消为 0，最后剩下的值就是只出现了一次的那个缺失数字。这就避免了求和溢出问题。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def missingNumber(self, nums: List[int]) -&gt; int:
+        """
+        时间复杂度: O(n) - 遍历一次数组
+        空间复杂度: O(1)
+        """
+        missing = len(nums)
+        for i, num in enumerate(nums):
+            # 将索引与数值进行异或
+            missing ^= i ^ num
+        return missing
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_15">
+                <h3>15. Reverse Bits (颠倒二进制位) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 位运算 (Bit Manipulation) - 分步移位</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：循环 32 次。每次取出 n 的最低位，放到结果的对应高位上，然后将 n 右移，将结果左移。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 初始化结果 res = 0。
+2. 进行 32 次循环：
+   - res 向左移动一位，腾出最低位：`res <<= 1`。
+   - 取出 n 的最低位并加到 res 的最低位上：`res |= (n & 1)`。
+   - n 向右移动一位：`n >>= 1`。
+这是一种非常通用且直观的位逆转方法，对于 32 位有符号/无符号整数均适用。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def reverseBits(self, n: int) -&gt; int:
+        """
+        时间复杂度: O(1) - 固定的 32 次迭代
+        空间复杂度: O(1)
+        """
+        res = 0
+        for _ in range(32):
+            # 将结果左移，并把 n 的最低位加到结果中
+            res = (res &lt;&lt; 1) | (n & 1)
+            # n 右移一位，准备处理下一位
+            n &gt;&gt;= 1
+        return res
+</code></div>
+            </div>
+            </div><div class="page-break"></div><div class="category-section"><div class="category-title">动态规划 (Dynamic Programming)</div>
+            <div class="problem-card" id="prob_16">
+                <h3>16. Climbing Stairs (爬楼梯) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 动态规划 (DP) / 斐波那契数列 (Fibonacci)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要爬到第 n 阶，最后一步要么是从第 n-1 阶跨了 1 步，要么是从第 n-2 阶跨了 2 步。所以，爬到第 n 阶的方法数就是爬到第 n-1 阶的方法数与爬到第 n-2 阶的方法数之和。这显然是斐波那契数列的关系。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 状态转移方程：
+`dp[i] = dp[i-1] + dp[i-2]`
+由于计算 `dp[i]` 只需要前两个状态，我们不需要维持一个完整的 dp 数组，而是可以用两个变量 `one` 和 `two` 来交替滚动更新，将空间复杂度从 O(n) 降低到 O(1)。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def climbStairs(self, n: int) -&gt; int:
+        """
+        时间复杂度: O(n) - 线性扫描一次
+        空间复杂度: O(1) - 仅使用两个状态变量
+        """
+        if n &lt;= 2:
+            return n
+            
+        # one 代表 dp[i-1]，two 代表 dp[i-2]
+        one, two = 1, 2
+        for _ in range(3, n + 1):
+            temp = one + two
+            one = two
+            two = temp
+            
+        return two
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_17">
+                <h3>17. Coin Change (零钱兑换) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 完全背包问题 / 动态规划</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：使用贪心策略，优先使用面值最大的硬币。但这种策略对于某些组合不成立。例如 coins = [1, 3, 4], amount = 6，贪心策略会选 4 + 1 + 1 (3枚)，但最优解是 3 + 3 (2枚)。因此必须枚举所有可能的状态，求最优解。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 状态设计：
+设 `dp[i]` 为凑齐金额 `i` 所需的最少硬币数。
+状态转移方程：
+对于凑齐金额 `i`，我们可以尝试使用任何一枚硬币 `coin`。如果使用这枚硬币，剩余需要凑齐的金额就是 `i - coin`。那么此时的最少硬币数就是 `dp[i - coin] + 1`。
+我们需要在所有可用的硬币中取最小值：
+`dp[i] = min(dp[i], dp[i - coin] + 1)` 满足 `i >= coin` 且 `dp[i - coin]` 有效。
+自底向上循环计算，初始化 `dp[0] = 0`，其余设为无穷大。最后检查 `dp[amount]` 是否仍然为无穷大（代表无法凑齐）。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -&gt; int:
+        """
+        时间复杂度: O(n * amount) - n 为硬币种类数，内层循环为硬币遍历
+        空间复杂度: O(amount) - DP 数组大小为 amount + 1
+        """
+        # 初始化为 amount + 1，相当于正无穷大（因为最多使用 amount 枚 1 元硬币）
+        dp = [amount + 1] * (amount + 1)
+        dp[0] = 0
+        
+        for i in range(1, amount + 1):
+            for coin in coins:
+                if i - coin &gt;= 0:
+                    dp[i] = min(dp[i], dp[i - coin] + 1)
+                    
+        return dp[amount] if dp[amount] != amount + 1 else -1
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_18">
+                <h3>18. Longest Increasing Subsequence (最长递增子序列 - LIS) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 动态规划 O(n^2) / 二分查找搭配贪心策略 O(n log n)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：使用动态规划，设 `dp[i]` 是以 `nums[i]` 结尾的最长递增子序列的长度。对于每个 `nums[i]`，遍历它前面的所有数 `nums[j]`（其中 `j < i`），如果 `nums[i] > nums[j]`，则可以把 `nums[i]` 接在以 `nums[j]` 结尾的子序列后面，状态转移为 `dp[i] = max(dp[i], dp[j] + 1)`。这需要 O(n^2) 时间复杂度。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 为了达到最优的 O(n log n) 复杂度，需要结合贪心和二分查找（耐心理牌算法）：
+我们维护一个数组 `sub`，其中 `sub[i]` 存储长度为 `i+1` 的最长递增子序列的结尾元素的最小值。
+遍历 `nums` 中的每个数 `x`：
+- 如果 `x` 比 `sub` 的最后一个元素还要大，直接将 `x` 添加到 `sub` 尾部。
+- 否则，我们在 `sub` 中通过二分查找，找到第一个大于或等于 `x` 的元素，并用 `x` 替换它（贪心：越小的结尾元素，越容易在后面接上新的递增数）。
+最终 `sub` 数组的长度就是所求的最长递增子序列的长度。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+import bisect
+
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -&gt; int:
+        """
+        时间复杂度: O(n log n) - 遍历一次数组，每次进行一次二分查找
+        空间复杂度: O(n) - 维护 sub 数组
+        """
+        if not nums:
+            return 0
+            
+        sub = []
+        for x in nums:
+            # 找到第一个大于或等于 x 的位置
+            idx = bisect.bisect_left(sub, x)
+            if idx == len(sub):
+                sub.append(x)
+            else:
+                sub[idx] = x
+                
+        return len(sub)
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_19">
+                <h3>19. Longest Common Subsequence (最长公共子序列 - LCS) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二维动态规划 (2D DP)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要在两个字符串 `text1` 和 `text2` 中寻找公共子序列。如果使用递归加记忆化的搜索方式，我们可以从两者的末尾开始匹配：如果当前字符相同，这部分可以计入公共子序列；如果不同，则分别尝试跳过其中一个字符串的末尾字符，看哪种方案得到的子序列更长。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 状态设计：
+设 `dp[i][j]` 为 `text1` 的前 `i` 个字符和 `text2` 的前 `j` 个字符的最长公共子序列长度。
+状态转移方程：
+1. 如果 `text1[i - 1] == text2[j - 1]`：则当前字符匹配成功，`dp[i][j] = dp[i - 1][j - 1] + 1`。
+2. 如果 `text1[i - 1] != text2[j - 1]`：当前字符无法匹配，我们需要决策是抛弃 `text1[i-1]` 还是抛弃 `text2[j-1]`，即：`dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])`。
+我们建立一个大小为 `(m+1) * (n+1)` 的二维 DP 矩阵，初始化为 0。自底向上填表，最终 `dp[m][n]` 就是答案。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -&gt; int:
+        """
+        时间复杂度: O(m * n) - 二维网格填表
+        空间复杂度: O(m * n) - DP 矩阵大小
+        """
+        m, n = len(text1), len(text2)
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if text1[i - 1] == text2[j - 1]:
+                    # 字符相同，累加
+                    dp[i][j] = dp[i - 1][j - 1] + 1
+                else:
+                    # 字符不同，取跳过某一侧的最大值
+                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+                    
+        return dp[m][n]
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_20">
+                <h3>20. Word Break (单词拆分) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 动态规划 / 哈希集合 (Set) 快速查找</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：使用 DFS 深度优先搜索，尝试从字符串 `s` 开头切下一个属于 `wordDict` 的单词，然后对剩余部分递归拆分。但这在遇到重叠词时容易产生重复计算，导致时间复杂度爆炸，需要记忆化或动态规划。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 状态设计：
+设 `dp[i]` 为字符串 `s` 的前 `i` 个字符（即子串 `s[0:i]`）是否可以被拆分为字典中的单词。
+状态转移方程：
+如果我们要判断 `dp[i]` 是否为真，可以枚举所有切分点 `j`（其中 `0 <= j < i`）：
+如果 `dp[j]` 为真（即前 `j` 个字符可以被拆分），并且剩余的子串 `s[j:i]` 刚好是字典中的单词，那么 `dp[i]` 也为真。
+公式：`dp[i] = any(dp[j] and s[j:i] in wordSet for j in range(i))`。
+基础情况：`dp[0] = True`（空字符串默认可拆分）。最后返回 `dp[len(s)]`。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -&gt; bool:
+        """
+        时间复杂度: O(n^2) - n 为 s 的长度，两层循环
+        空间复杂度: O(n + m) - n 为 DP 数组大小，m 为字典占用的哈希集合空间
+        """
+        word_set = set(wordDict)
+        dp = [False] * (len(s) + 1)
+        dp[0] = True  # 空串可以被拆分
+        
+        for i in range(1, len(s) + 1):
+            for j in range(i):
+                # 如果前 j 个字符可拆分，且剩余子串在字典中
+                if dp[j] and s[j:i] in word_set:
+                    dp[i] = True
+                    break  # 找到一种有效拆分方案即可
+                    
+        return dp[len(s)]
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_21">
+                <h3>21. Combination Sum IV (组合总和 Ⅳ) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 完全背包排列数 / 动态规划</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：本题与“零钱兑换”有些类似，但它求的是**组合的个数（实际上因为顺序不同算作不同组合，所以是排列数）**。例如 nums = [1, 2, 3], target = 4，(1, 3) 和 (3, 1) 被算作两种不同的结果。由于顺序敏感，我们在状态转移时应当将当前物品的循环放在内层。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 状态设计：
+设 `dp[i]` 为组合成目标整数 `i` 的排列个数。
+状态转移方程：
+为了凑成总和 `i`，我们可以选择数组 `nums` 中的任意一个数 `num` 作为排列的最后一个数。那么在此之前我们需要凑出的总和就是 `i - num`。
+因此，凑成 `i` 的所有方法数就是所有满足 `i >= num` 的 `dp[i - num]` 之和。
+公式：
+`dp[i] = sum(dp[i - num] for num in nums)`
+基础情况：`dp[0] = 1`（凑出 0 的方法只有一种，即什么数都不选）。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def combinationSum4(self, nums: List[int], target: int) -&gt; int:
+        """
+        时间复杂度: O(target * n) - target 为目标和，n 为数组大小
+        空间复杂度: O(target)
+        """
+        dp = [0] * (target + 1)
+        dp[0] = 1  # 基础状态，凑成和为 0 的排列数只有 1 种
+        
+        for i in range(1, target + 1):
+            for num in nums:
+                if i - num &gt;= 0:
+                    dp[i] += dp[i - num]
+                    
+        return dp[target]
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_22">
+                <h3>22. House Robber (打家劫舍) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 动态规划 - 间隔选择状态</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：面对一排房子，我们不能抢劫相邻的房子。在每个房子 `i` 前，我们有两个选择：1. 抢劫这间房，那么就不能抢前一间房，最大收益就是之前抢到 `i-2` 房子的最大收益加上当前房子的金额。2. 不抢这间房，那么最大收益就是抢到前一间房 `i-1` 的最大收益。我们取两者中的最大值。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 状态设计：
+设 `dp[i]` 为抢劫前 `i` 间房能获得的最大金额。
+状态转移方程：
+`dp[i] = max(dp[i-1], dp[i-2] + nums[i])`
+空间优化：由于 `dp[i]` 的计算只取决于前两步的状态，我们可以使用两个滚动变量 `rob1`（相当于 `dp[i-2]`）和 `rob2`（相当于 `dp[i-1]`），在每次遍历时交替更新它们，从而将空间复杂度从 O(N) 降低到 O(1)。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def rob(self, nums: List[int]) -&gt; int:
+        """
+        时间复杂度: O(N) - 一次遍历
+        空间复杂度: O(1) - 滚动变量优化
+        """
+        # rob1 代表 dp[i-2]，rob2 代表 dp[i-1]
+        rob1, rob2 = 0, 0
+        
+        for num in nums:
+            # 决策：是抢这间房子，还是跳过这间房子
+            temp = max(rob1 + num, rob2)
+            rob1 = rob2
+            rob2 = temp
+            
+        return rob2
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_23">
+                <h3>23. House Robber II (打家劫舍 Ⅱ) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 环形数组动态规划</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：这道题和上一题的唯一区别在于房子的排列从一排变成了一个环，这意味着第一间房和最后一间房相邻，不能同时被抢。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 为了破开环形依赖，我们可以把问题拆分为两个线性的子问题：
+1. 如果我们抢了第一间房，我们就绝对不能抢最后一间房。此时问题简化为在第 1 间房到第 n-1 间房中进行正常的线性抢劫规划。
+2. 如果我们不抢第一间房，我们就可以选择抢最后一间房。此时问题简化为在第 2 间房到第 n 间房中进行正常的线性抢劫规划。
+由于所有可能的最优解必然落在这两种情况之中，我们只需要对这两段子区间分别运行一次线性“打家劫舍”的求解器，并取最大值即可。注意边界情况：若只有 1 间房，直接返回其价值。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def rob(self, nums: List[int]) -&gt; int:
+        """
+        时间复杂度: O(N) - 运行两次线性打家劫舍，均为 O(N)
+        空间复杂度: O(1)
+        """
+        if len(nums) == 1:
+            return nums[0]
+            
+        # 线性打家劫舍辅助函数
+        def rob_linear(house_prices: List[int]) -&gt; int:
+            rob1, rob2 = 0, 0
+            for price in house_prices:
+                temp = max(rob1 + price, rob2)
+                rob1 = rob2
+                rob2 = temp
+            return rob2
+            
+        # 结果为：不包含最后一间房的最大值 与 不包含第一间房的最大值 中的较大者
+        return max(rob_linear(nums[:-1]), rob_linear(nums[1:]))
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_24">
+                <h3>24. Decode Ways (解码方法) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 划分动态规划 / 边界与前导零处理</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：输入一个由数字组成的字符串 `s`，我们想要把它拆分成字符解码。这类似于爬楼梯问题，我们每一步可以选择解码 1 个数字，或者解码 2 个数字，但由于数字代表字符（1-26），存在有效性的限制（例如 '0' 无法单独解码，'30' 无法被解码等）。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 状态设计：
+设 `dp[i]` 为字符串前 `i` 个字符构成的子串的解码方法总数。
+状态转移方程：
+1. 如果 `s[i-1]` 不为 `'0'`，那么它可以单独作为一个字符解码：`dp[i] += dp[i-1]`。
+2. 如果双位数 `s[i-2:i]` 在 `'10'` 到 `'26'` 之间，那么它可以作为两个数字的组合解码：`dp[i] += dp[i-2]`。
+初始条件：`dp[0] = 1`（空字符串有 1 种解码方式）。如果字符串以 `'0'` 开头，直接返回 0。我们可以使用滚动变量将空间优化至 O(1)。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def numDecodings(self, s: str) -&gt; int:
+        """
+        时间复杂度: O(n) - n 为 s 的长度，遍历一次
+        空间复杂度: O(1) - 滚动变量优化
+        """
+        if not s or s[0] == '0':
+            return 0
+            
+        # prev2 代表 dp[i-2]，prev1 代表 dp[i-1]
+        prev2, prev1 = 1, 1
+        
+        for i in range(1, len(s)):
+            current = 0
+            # 1. 尝试以单个数字解码
+            if s[i] != '0':
+                current += prev1
+            # 2. 尝试以双位数字解码
+            two_digit = int(s[i-1:i+1])
+            if 10 &lt;= two_digit &lt;= 26:
+                current += prev2
+                
+            prev2 = prev1
+            prev1 = current
+            
+        return prev1
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_25">
+                <h3>25. Unique Paths (不同路径) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 网格动态规划 / 空间压缩</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：机器人要走到位置 `(i, j)`，因为它只能向下或向右移动，所以它只能从它的上方格 `(i-1, j)` 或者它的左侧格 `(i, j-1)` 走过来。因此，走到 `(i, j)` 的路径数就是两者之和。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 状态设计：
+设 `dp[i][j]` 为走到网格 `(i, j)` 的唯一路径数。
+状态转移方程：
+`dp[i][j] = dp[i-1][j] + dp[i][j-1]`
+第一行和第一列都初始化为 1，因为只能一直向右或一直向下走。
+空间优化：由于计算当前行的状态只依赖于当前行的左侧状态和上一行的正上方状态，我们可以只维护一维数组（长度为网格宽度 `n`），不断用 `row[j] = row[j] + row[j-1]`（左侧加上正上方）来更新它，空间复杂度可以降低到 O(n)。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def uniquePaths(self, m: int, n: int) -&gt; int:
+        """
+        时间复杂度: O(m * n) - 填充整个网格
+        空间复杂度: O(n) - 维护一行状态
+        """
+        # 初始第一行路径数均为 1
+        row = [1] * n
+        
+        # 逐行更新
+        for _ in range(m - 1):
+            new_row = [1] * n
+            for j in range(1, n):
+                # new_row[j] = 上方格的值 (new_row[j]) + 左侧格的值 (new_row[j-1])
+                # 注意在行滚动中，row[j] 存的就是上一行正上方格的值
+                new_row[j] = row[j] + new_row[j-1]
+            row = new_row
+            
+        return row[n-1]
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_26">
+                <h3>26. Jump Game (跳跃游戏) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 贪心算法 (Greedy) / 动态规划状态退化</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：使用动态规划，设 `dp[i]` 代表位置 `i` 能否到达终点。但由于我们只需知道“能否”，我们实际上可以从后往前思考，或者维护当前能跳到的最远边界。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 贪心思想（自后向前）：
+我们可以维护一个目标点 `goal`，初始值为数组的最后一个索引 `n-1`（我们想去的地方）。
+我们从右往左倒序遍历数组，如果当前位置 `i` 能够跳到或者跳过当前的 `goal`（即满足 `i + nums[i] >= goal`），说明只要我们能走到位置 `i`，就一定能走到原本的 `goal`。于是，我们可以把目标点前移更新为 `i`，即 `goal = i`。
+当我们遍历完整个数组后，如果 `goal` 成功退回到了起点 `0`，说明我们从起点开始可以一路跳到终点。时间复杂度为 O(N)，空间复杂度为 O(1)。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def canJump(self, nums: List[int]) -&gt; bool:
+        """
+        时间复杂度: O(N) - 从后向前一次遍历
+        空间复杂度: O(1)
+        """
+        # 初始化目标位置为数组的最后一个索引
+        goal = len(nums) - 1
+        
+        for i in range(len(nums) - 1, -1, -1):
+            # 如果当前位置加最大跳跃步数能到达或超过当前目标点
+            if i + nums[i] &gt;= goal:
+                # 目标点前移到当前位置
+                goal = i
+                
+        # 判断最终目标点是否退回到起点
+        return goal == 0
+</code></div>
+            </div>
+            </div><div class="page-break"></div><div class="category-section"><div class="category-title">图 (Graph)</div>
+            <div class="problem-card" id="prob_27">
+                <h3>27. Clone Graph (克隆图) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 图的遍历 - 深度优先搜索 (DFS) / 广度优先搜索 (BFS) + 哈希表映射</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：克隆一个图，我们需要遍历原图的所有节点。但是原图可能存在环（Cycle），所以如果不记录已经克隆过的节点，遍历就会陷入无限死循环。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 我们需要使用一个哈希表 `cloned` 来建立原节点到新克隆节点的映射（`old_node -> new_node`）。
+每次遇到一个节点：
+1. 如果这个节点已经存在于 `cloned` 中，直接返回对应的克隆节点。
+2. 如果不在，说明它是第一次被访问。我们实例化一个值相同的新节点，并存入 `cloned` 中。
+3. 然后，我们遍历原节点的邻居列表 `neighbors`，递归地克隆每一个邻居，并将克隆后的邻居节点添加到新节点的邻居列表中。
+这种 DFS 配合哈希表映射的模式可以确保图的每一个节点和每一条边都被精确复制且不发生死循环。</p>
+                </div>
+                
+                <div class="code-block"><code>class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+
+class Solution:
+    def cloneGraph(self, node: 'Node') -&gt; 'Node':
+        """
+        时间复杂度: O(V + E) - 每个节点和每条边各访问一次
+        空间复杂度: O(V) - 递归调用栈与哈希表占用的空间
+        """
+        if not node:
+            return None
+            
+        cloned = {}
+        
+        def dfs(curr):
+            if curr in cloned:
+                return cloned[curr]
+                
+            # 复制当前节点，并存入映射表以防环路死循环
+            copy = Node(curr.val)
+            cloned[curr] = copy
+            
+            # 递归复制所有的邻居节点
+            for neighbor in curr.neighbors:
+                copy.neighbors.append(dfs(neighbor))
+                
+            return copy
+            
+        return dfs(node)
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_28">
+                <h3>28. Course Schedule (课程表) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 有向图拓扑排序 (Topological Sort) - Kahn 算法 (BFS) / DFS 环路检测</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：先修课程的关系构成了一个有向图。如果课程 `A` 是 `B` 的先修课，就有一条从 `A` 指向 `B` 的有向边。如果我们想修完所有课程，这个有向图中绝对不能存在环路（比如 A 是 B 的先修课，B 是 C 的先修课，C 又是 A 的先修课）。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 检测有向图是否存在环路的经典方法是**拓扑排序**。我们采用基于广度优先搜索 (BFS) 的 Kahn 算法：
+1. 统计每个节点的入度（指向该节点的边数）和构建邻接表。
+2. 将所有入度为 0 的节点（即没有先修课程要求的课程）放入队列。
+3. 当队列不为空时，弹出队列首部的节点，将其加入已修课程，并遍历它的所有邻居节点（受它制约的后续课程）。对于每个邻居，将其入度减 1。如果减 1 后邻居的入度变为 0，则将该邻居加入队列。
+4. 最后，检查已修课程的数量是否等于课程总数 `numCourses`。如果等于，说明拓扑排序成功，无环；否则，说明图中存在环，无法修完。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+from collections import deque
+
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -&gt; bool:
+        """
+        时间复杂度: O(V + E) - V 为课程数，E 为先修关系数
+        空间复杂度: O(V + E) - 存储邻接表与入度数组
+        """
+        # 构建邻接表与入度表
+        adj = {i: [] for i in range(numCourses)}
+        indegree = [0] * numCourses
+        
+        for course, pre in prerequisites:
+            adj[pre].append(course)
+            indegree[course] += 1
+            
+        # 入度为 0 的课程入队
+        queue = deque([i for i in range(numCourses) if indegree[i] == 0])
+        visited_count = 0
+        
+        while queue:
+            curr = queue.popleft()
+            visited_count += 1
+            
+            for neighbor in adj[curr]:
+                indegree[neighbor] -= 1
+                if indegree[neighbor] == 0:
+                    queue.append(neighbor)
+                    
+        return visited_count == numCourses
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_29">
+                <h3>29. Pacific Atlantic Water Flow (太平洋大西洋水流问题) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 多源深度优先搜索 (DFS) / 逆向遍历</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们要找出哪些格子既能流向太平洋（网格左侧和上方），又能流向大西洋（网格右侧和下方）。如果对每个格子分别运行一遍搜索，时间复杂度将是 O((M * N)^2)，会超时。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 逆向思维破局：
+与其从网格的每个点“向下流”寻找海洋，不如**从太平洋和大西洋的边界“向上爬”**（逆水流方向移动，水流是从高往低，所以逆向就是从低往高，只能走到高度大于或等于当前格子的相邻格）。
+1. 我们声明两个布尔矩阵 `pacific_reach` 和 `atlantic_reach`，记录从对应的洋边界出发可以逆向到达的所有网格位置。
+2. 从太平洋的边界（第一行和第一列）出发运行 DFS，标记所有可达的位置。
+3. 从大西洋的边界（最后一行和最后一列）出发运行 DFS，标记所有可达的位置。
+4. 遍历整个网格，若某个格子在两个布尔矩阵中均为 `True`，说明它既能流向太平洋也能流向大西洋，加入结果集。时间复杂度大幅降低为 O(M * N)。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def pacificAtlantic(self, heights: List[List[int]]) -&gt; List[List[int]]:
+        """
+        时间复杂度: O(m * n) - 每个格子最多被 DFS 访问常数次
+        空间复杂度: O(m * n) - 存储可达状态矩阵与调用栈
+        """
+        if not heights or not heights[0]:
+            return []
+            
+        m, n = len(heights), len(heights[0])
+        pacific_reach = [[False] * n for _ in range(m)]
+        atlantic_reach = [[False] * n for _ in range(m)]
+        
+        def dfs(r, c, reach, prev_height):
+            # 边界检查、是否访问过、以及是否满足逆水流方向（新高度必须大于或等于旧高度）
+            if (r &lt; 0 or r &gt;= m or c &lt; 0 or c &gt;= n or 
+                reach[r][c] or heights[r][c] &lt; prev_height):
+                return
+            reach[r][c] = True
+            
+            # 向四个方向扩散
+            dfs(r + 1, c, reach, heights[r][c])
+            dfs(r - 1, c, reach, heights[r][c])
+            dfs(r, c + 1, reach, heights[r][c])
+            dfs(r, c - 1, reach, heights[r][c])
+            
+        # 从太平洋（第一行/第一列）和大西洋（最后一行/最后一列）的边界出发进行逆向 DFS
+        for i in range(m):
+            dfs(i, 0, pacific_reach, heights[i][0])
+            dfs(i, n - 1, atlantic_reach, heights[i][n - 1])
+        for j in range(n):
+            dfs(0, j, pacific_reach, heights[0][j])
+            dfs(m - 1, j, atlantic_reach, heights[m - 1][j])
+            
+        # 筛选出既能到达太平洋也能到达大西洋的网格坐标
+        res = []
+        for r in range(m):
+            for c in range(n):
+                if pacific_reach[r][c] and atlantic_reach[r][c]:
+                    res.append([r, c])
+        return res
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_30">
+                <h3>30. Number of Islands (岛屿数量) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 网格遍历 - 深度优先搜索 (DFS) / 广度优先搜索 (BFS) / 并查集 (Union Find)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要寻找被 '0'（水）包围的 '1'（陆地）组成的连通块的数量。这可以通过遍历网格来完成。当我们遇到一个 '1' 时，就代表找到了一个新岛屿，此时我们需要把与这个陆地相连的所有陆地都标记为已访问，避免重复计数。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 遍历二维网格的每一个格子 `(r, c)`。
+2. 如果 `grid[r][c] == '1'`：
+   - 岛屿计数器加 1。
+   - 启动 DFS 搜索：从当前格子出发，向上下左右四个方向扩散。一旦遇到相邻的 `'1'`，将其修改为 `'0'`（原地标记为已访问，这是一种常见的空间优化手段，避免使用 `visited` 集合）。
+   - DFS 扩散结束后，与该陆地连通的所有陆地都被沉没成了 `'0'`。
+3. 继续遍历网格，后续遇到的 `'1'` 一定是新的独立岛屿。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -&gt; int:
+        """
+        时间复杂度: O(m * n) - 每个格子最多被访问常数次
+        空间复杂度: O(m * n) - 最坏情况下（网格全为陆地）DFS 的递归调用栈深度
+        """
+        if not grid:
+            return 0
+            
+        m, n = len(grid), len(grid[0])
+        island_count = 0
+        
+        def dfs(r, c):
+            # 越界检查或遇到水 '0' 则停止扩散
+            if r &lt; 0 or r &gt;= m or c &lt; 0 or c &gt;= n or grid[r][c] == '0':
+                return
+            # 原地淹没陆地，防止重复访问
+            grid[r][c] = '0'
+            # 递归向四周扩散
+            dfs(r + 1, c)
+            dfs(r - 1, c)
+            dfs(r, c + 1)
+            dfs(r, c - 1)
+            
+        for r in range(m):
+            for c in range(n):
+                if grid[r][c] == '1':
+                    # 发现新岛屿，启动 DFS 将其全部连通区域标记为水
+                    island_count += 1
+                    dfs(r, c)
+                    
+        return island_count
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_31">
+                <h3>31. Longest Consecutive Sequence (最长连续序列) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 哈希集合 (Hash Set) - O(N) 突破排序限制</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：最简单的方法是将数组排序，然后线性扫描寻找最长连续段，但这需要 O(N log N) 的时间复杂度。题目要求我们设计一个时间复杂度为 O(N) 的算法。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 为了在不排序的前提下，在 O(N) 时间内找出最长连续段，我们可以利用哈希集合（查询复杂度为 O(1)）：
+1. 将所有数字存入哈希集合 `num_set`。
+2. 遍历集合中的每一个数 `num`：
+   - **破局点**：如何避免对同一个序列中的每个数字重复计数？我们只需要在遇到**序列的起点**时才开始向后累加。如何判断 `num` 是不是起点？如果 `num - 1` 不在集合中，说明没有比它小 1 的数，那么它就是这个连续序列的起点。
+   - 找到起点后，我们用一个循环不断判断 `num + 1`，`num + 2`... 是否在集合中，从而统计出该序列的长度。
+虽然内部有一个 `while` 循环，但由于我们限定了只有“起点”才会触发 `while` 循环，所以每个数字最多只会被访问两次（一次在外部遍历中，一次在 `while` 累加中）。因此，总时间复杂度依然是严格的 O(N)。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -&gt; int:
+        """
+        时间复杂度: O(N) - 每个数字最多被处理常数次
+        空间复杂度: O(N) - 存储哈希集合
+        """
+        num_set = set(nums)
+        longest_streak = 0
+        
+        for num in num_set:
+            # 只有当 num - 1 不在集合中时，num 才是某段连续序列的起点
+            if num - 1 not in num_set:
+                current_num = num
+                current_streak = 1
+                
+                # 沿起点向后累加
+                while current_num + 1 in num_set:
+                    current_num += 1
+                    current_streak += 1
+                    
+                longest_streak = max(longest_streak, current_streak)
+                
+        return longest_streak
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_32">
+                <h3>32. Alien Dictionary (外星人词典) &nbsp;&nbsp;[<span class="difficulty-Hard">Hard</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 拓扑排序 (Topological Sort) / 环路检测 / 字符串对齐比较</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：词典中单词是有序的，我们需要提取出字符之间的优先顺序。例如在英语字典中，'apple' 在 'banana' 之前是因为 'a' 的优先级高于 'b'。因此我们可以通过对比相邻两个单词的字符来构建字符间的有向边，然后跑拓扑排序。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. **构建图**：相邻单词 `w1` 和 `w2` 对齐比较，找到第一个不同的字符 `c1` 和 `c2`。说明有一条有向边 `c1 -> c2`。如果出现 `w1` 是 `w2` 的前缀但 `len(w1) > len(w2)`（如 'abc' 在 'ab' 之前），这是非法的，直接返回空字符串。
+2. **拓扑排序 (DFS 三色标记法/BFS)**：我们用 DFS 检测环路。在 DFS 中，对每个节点使用三种状态标记：0 代表未访问，1 代表正在访问（递归栈中），2 代表已访问。若在搜索中遇到了状态 1 的节点，说明存在环，返回无效。若无环，DFS 退出时将节点压入结果栈，最后逆序输出即为拓扑排序结果。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def alienOrder(self, words: List[str]) -&gt; str:
+        """
+        时间复杂度: O(C) - C 为所有单词中字符的总长度，建图和拓扑排序的复杂度均与字符总数呈线性关系
+        空间复杂度: O(V + E) - V 为字符种类数（最大为 26），有向图邻接表空间
+        """
+        # 初始化图的邻接表
+        adj = {char: set() for word in words for char in word}
+        
+        # 1. 比较相邻单词，构建有向图
+        for i in range(len(words) - 1):
+            w1, w2 = words[i], words[i + 1]
+            min_len = min(len(w1), len(w2))
+            # 边界异常检查：如果 w1 长于 w2 且 w2 是 w1 的前缀，说明非法（如 'abc' 排在 'ab' 前面）
+            if len(w1) &gt; len(w2) and w1[:min_len] == w2:
+                return ""
+            for j in range(min_len):
+                if w1[j] != w2[j]:
+                    adj[w1[j]].add(w2[j])
+                    break
+                    
+        # 2. DFS 环路检测与拓扑排序
+        # visiting 记录正在递归访问的节点（检测环），visited 记录已处理完毕的节点
+        visiting = set()
+        visited = set()
+        res = []
+        
+        def dfs(char):
+            if char in visiting:
+                return False  # 发现环路
+            if char in visited:
+                return True
+                
+            visiting.add(char)
+            for neighbor in adj[char]:
+                if not dfs(neighbor):
+                    return False
+            visiting.remove(char)
+            visited.add(char)
+            res.append(char)
+            return True
+            
+        # 遍历图的所有节点跑 DFS
+        for char in adj:
+            if not dfs(char):
+                return ""
+                
+        # 因为 DFS 在退出时才将节点入栈，所以拓扑排序结果需要反转
+        return "".join(res[::-1])
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_33">
+                <h3>33. Graph Valid Tree (以图判树) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 无向图环路检测 / 连通性校验 / 并查集 (Union Find)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：一棵树本质上是一个**无环且连通**的无向图。在图论中，一个含有 `n` 个节点的图如果是一棵树，它必须满足两个核心条件：1. 边数刚好是 `n - 1`。 2. 图中没有任何环路（或者所有节点都是连通的）。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 使用并查集 (Union Find) 来高效判断：
+1. 如果边的数量 `len(edges) != n - 1`，则直接判定不可能是树，返回 `False`。
+2. 初始化并查集。遍历所有的边 `(u, v)`，尝试在并查集中将 `u` 和 `v` 的集合合并：
+   - 如果合并前发现 `find(u) == find(v)`，说明 `u` 和 `v` 已经在同一个连通块中了，此时再加上这条边必然会在无向图中形成环。因此直接判定不是树，返回 `False`。
+   - 否则，合并两个连通块。
+3. 因为我们已经做过了边数 `len(edges) == n - 1` 的前置检查，且确认没有环，所以该图必然也是完全连通的。返回 `True` 即可。并查集的平均操作复杂度接近 O(1)。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -&gt; bool:
+        """
+        时间复杂度: O(N * alpha(N)) - alpha 是阿克曼函数的反函数，可视为常数 O(1)
+        空间复杂度: O(N) - 并查集的 parent 数组
+        """
+        # 树的必要条件：边数必须为节点数 - 1
+        if len(edges) != n - 1:
+            return False
+            
+        parent = [i for i in range(n)]
+        
+        def find(i):
+            if parent[i] == i:
+                return i
+            # 路径压缩优化
+            parent[i] = find(parent[i])
+            return parent[i]
+            
+        def union(i, j):
+            root_i = find(i)
+            root_j = find(j)
+            if root_i == root_j:
+                return False  # 已经在同一个集合中，说明有环
+            parent[root_i] = root_j
+            return True
+            
+        for u, v in edges:
+            if not union(u, v):
+                return False  # 检测到环路
+                
+        return True
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_34">
+                <h3>34. Number of Connected Components in an Undirected Graph (无向图中连通分量的数目) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 无向图遍历 / 并查集 (Union Find)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：给定一个无向图和它的所有边，我们需要找出有多少个互不连通的子图。我们可以用 DFS/BFS 遍历整个图，每开始一次遍历就代表找到了一个连通分量。但最简练的做法是使用并查集。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 初始状态下，我们假设图中有 `n` 个独立的节点，即连通分量初始数量为 `count = n`。
+2. 遍历所有的边 `(u, v)`：
+   - 通过并查集的 `find` 操作找到 `u` 和 `v` 的根节点。
+   - 如果它们的根节点不同，说明这两个原本独立的连通块之间有一条边相连。我们使用 `union` 操作将这两个连通块合并为一体，同时连通分量数 `count` 减 1。
+   - 如果根节点相同，说明它们原本就已经连通，不需要做任何改动。
+3. 遍历完所有的边之后，最后的 `count` 值即为无向图中连通分量的总数。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -&gt; int:
+        """
+        时间复杂度: O(N + E * alpha(N)) - N 为节点数，E 为边数，均摊复杂度接近 O(N + E)
+        空间复杂度: O(N) - 并查集 parent 数组
+        """
+        parent = [i for i in range(n)]
+        count = n
+        
+        def find(i):
+            if parent[i] == i:
+                return i
+            parent[i] = find(parent[i])  # 路径压缩
+            return parent[i]
+            
+        def union(i, j):
+            nonlocal count
+            root_i = find(i)
+            root_j = find(j)
+            if root_i != root_j:
+                parent[root_i] = root_j
+                count -= 1  # 成功合并两个原本不连通的部分，连通分量数减 1
+                
+        for u, v in edges:
+            union(u, v)
+            
+        return count
+</code></div>
+            </div>
+            </div><div class="page-break"></div><div class="category-section"><div class="category-title">区间 (Interval)</div>
+            <div class="problem-card" id="prob_35">
+                <h3>35. Insert Interval (插入区间) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 区间遍历合并 / 分段处理</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要在一个已经有序且互不重叠的区间列表中插入一个新区间，并确保插入后列表依然有序且无重叠。如果直接插入再排序，会打乱原本已有的有序性质，时间复杂度退化到 O(N log N)。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 为了在 O(N) 的线性时间内解决问题，我们可以将原列表中的所有区间分为三部分处理：
+1. **左侧无重叠区间**：那些完全在 `newInterval` 左侧的区间（即结束时间 `interval[1] < newInterval[0]`）。这些区间直接加入结果集。
+2. **重叠区间**：那些与 `newInterval` 有交集的区间。只要区间满足 `interval[0] <= newInterval[1]` 且 `interval[1] >= newInterval[0]`，它们就与新区间重叠。我们将所有重叠的区间与新区间合并，更新区间边界为：开始时间取最小值 `min(interval[0], newInterval[0])`，结束时间取最大值 `max(interval[1], newInterval[1])`。合并是一个持续更新 `newInterval` 的过程。
+3. **右侧无重叠区间**：那些完全在合并后的新区间右侧的区间（即开始时间 `interval[0] > newInterval[1]`）。这些区间也直接加入结果集。
+这样我们仅需单次遍历数组即可搞定。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -&gt; List[List[int]]:
+        """
+        时间复杂度: O(N) - 遍历一次区间列表
+        空间复杂度: O(1) - 仅使用输出数组，无额外辅助空间
+        """
+        res = []
+        i = 0
+        n = len(intervals)
+        
+        # 1. 添加所有完全在 newInterval 左侧的区间
+        while i &lt; n and intervals[i][1] &lt; newInterval[0]:
+            res.append(intervals[i])
+            i += 1
+            
+        # 2. 合并所有与 newInterval 重叠的区间
+        while i &lt; n and intervals[i][0] &lt;= newInterval[1]:
+            newInterval[0] = min(newInterval[0], intervals[i][0])
+            newInterval[1] = max(newInterval[1], intervals[i][1])
+            i += 1
+        res.append(newInterval)
+        
+        # 3. 添加所有完全在 newInterval 右侧的区间
+        while i &lt; n:
+            res.append(intervals[i])
+            i += 1
+            
+        return res
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_36">
+                <h3>36. Merge Intervals (合并区间) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 排序 + 单次遍历合并</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：如果区间列表没有顺序，我们很难判断哪些区间存在重叠。因此，我们需要先根据区间的开始时间进行升序排序。排序后，所有可能发生合并的区间就会被排列在相邻位置。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 首先根据区间开始时间排序：`intervals.sort(key=lambda x: x[0])`。
+2. 初始化结果列表 `merged`，并将排序后的第一个区间放入其中。
+3. 遍历后续的每一个区间 `curr`：
+   - 取出 `merged` 列表中最后一个合并区间 `prev`。
+   - **重叠判断**：如果当前区间的开始时间小于或等于前一个区间的结束时间（即 `curr[0] <= prev[1]`），说明这两个区间重叠。由于我们排过序，`curr[0] >= prev[0]` 是必然满足的，所以只需更新前一个区间的结束时间为两者中较大值：`prev[1] = max(prev[1], curr[1])`。
+   - 如果不重叠（即 `curr[0] > prev[1]`），直接将 `curr` 作为一个新的独立区间追加到 `merged` 末尾。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def merge(self, intervals: List[List[int]]) -&gt; List[List[int]]:
+        """
+        时间复杂度: O(N log N) - 排序占主导时间，后续遍历为 O(N)
+        空间复杂度: O(log N) 或 O(N) - 排序算法所需的辅助空间
+        """
+        if not intervals:
+            return []
+            
+        # 按区间起点进行升序排序
+        intervals.sort(key=lambda x: x[0])
+        
+        merged = [intervals[0]]
+        for curr in intervals[1:]:
+            # 获取已合并区间中的最后一个区间
+            prev = merged[-1]
+            # 如果当前区间与前一个区间重叠，更新前一个区间的结束时间
+            if curr[0] &lt;= prev[1]:
+                prev[1] = max(prev[1], curr[1])
+            else:
+                # 否则说明不重叠，直接作为新区间加入
+                merged.append(curr)
+                
+        return merged
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_37">
+                <h3>37. Non-overlapping Intervals (无重叠区间) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 贪心算法 (Greedy) - 区间调度问题 (Interval Scheduling)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要移除最少数量的区间来消除所有重叠。这等价于：**保留最多数量的互不重叠的区间**。对于这类“尽可能保留更多区间”的区间调度问题，贪心策略是解决的最佳方案。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 贪心策略推导：
+为了让后面能容纳更多的区间，我们在每次选择时，应该**优先选择结束时间最早的区间**（结束得越早，留给后面的空间就越大）。
+1. 将所有区间按照**结束时间**进行升序排序。
+2. 维护一个变量 `end` 记录当前已选择的最后一个区间的结束时间，初始为第一个区间的结束时间。维护计数器 `count = 0` 记录需要被移除的区间数。
+3. 遍历后续区间 `curr`：
+   - 如果 `curr[0] >= end`，说明该区间与已选区间不重叠，可以安全保留，我们更新 `end = curr[1]`。
+   - 如果 `curr[0] < end`，说明发生重叠。为了遵循贪心策略，我们应当移除这个当前区间（因为我们排过序，当前区间的结束时间一定大于或等于 `end`，保留它只会让结束时间变得更大，压榨后面的空间），计数器 `count += 1`。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -&gt; int:
+        """
+        时间复杂度: O(N log N) - 排序需要 O(N log N)，单次扫描需要 O(N)
+        空间复杂度: O(log N) - 排序所需的辅助空间
+        """
+        if not intervals:
+            return 0
+            
+        # 核心贪心策略：按区间结束时间进行升序排序
+        intervals.sort(key=lambda x: x[1])
+        
+        count = 0
+        end = intervals[0][1]
+        
+        for i in range(1, len(intervals)):
+            # 如果当前区间起点小于上一个已保留区间的终点，说明重叠了，必须移除当前区间
+            if intervals[i][0] &lt; end:
+                count += 1
+            else:
+                # 否则说明无重叠，更新当前保留区间的边界为当前区间终点
+                end = intervals[i][1]
+                
+        return count
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_38">
+                <h3>38. Meeting Rooms (会议室) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 排序 + 重叠检测</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：一个人如果要能参加所有的会议，那么这些会议的召开时间不能有任何重叠。这就要求我们把会议按时间顺序排好，检查相邻的两个会议是否冲突。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 将会议时间列表按照每个会议的开始时间升序排序。
+2. 遍历排序后的会议，比较相邻两个会议 `i-1` 和 `i`：
+   - 如果会议 `i` 的开始时间小于会议 `i-1` 的结束时间（即 `intervals[i][0] < intervals[i-1][1]`），说明这两个会议的时间存在重叠冲突，返回 `False`。
+3. 如果全部遍历完都没有冲突，返回 `True`。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def canAttendMeetings(self, intervals: List[List[int]]) -&gt; bool:
+        """
+        时间复杂度: O(N log N) - 排序时间复杂度为 O(N log N)
+        空间复杂度: O(log N) - 排序所需的辅助空间
+        """
+        # 按会议开始时间排序
+        intervals.sort(key=lambda x: x[0])
+        
+        for i in range(1, len(intervals)):
+            # 如果当前会议的开始时间早于上一个会议的结束时间，说明冲突了
+            if intervals[i][0] &lt; intervals[i-1][1]:
+                return False
+                
+        return True
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_39">
+                <h3>39. Meeting Rooms II (会议室 Ⅱ) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 堆 (Min-Heap) / 双指针 (Two Pointers) / 差分数组扫描线</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要计算在任何一个时间点，最多有多少个会议同时在进行。这个“最大并发数”就是我们所需要的最少会议室数量。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 双指针扫描线法：
+我们将所有的会议“开始时间”和“结束时间”拆开，分别存入两个数组并单独进行升序排序。
+1. `start_times` 存储所有会议的开始时间并排序。
+2. `end_times` 存储所有会议的结束时间并排序。
+3. 使用两个指针 `s` 和 `e` 分别指向这两个数组的起点。使用 `curr_rooms` 记录当前时刻占用的房间数，`max_rooms` 记录历史最大值。
+4. 逐步推进时间：
+   - 如果 `start_times[s] < end_times[e]`，说明有一场新会议要开始，且此时还没有旧会议结束。我们需要新开一间房间：`curr_rooms += 1`, `s += 1`。
+   - 如果 `start_times[s] >= end_times[e]`，说明有会议结束了，腾出了一间会议室：`curr_rooms -= 1`, `e += 1`。
+   - 在每一步，我们用 `curr_rooms` 更新 `max_rooms = max(max_rooms, curr_rooms)`。遍历结束时 `max_rooms` 即为所求。时间复杂度为 O(N log N)，比用最小堆实现更简洁。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -&gt; int:
+        """
+        时间复杂度: O(N log N) - 主要时间在两个时间数组的排序上
+        空间复杂度: O(N) - 存储分离后的开始时间和结束时间数组
+        """
+        if not intervals:
+            return 0
+            
+        # 分离开始和结束时间并排序
+        start_times = sorted([i[0] for i in intervals])
+        end_times = sorted([i[1] for i in intervals])
+        
+        s, e = 0, 0
+        curr_rooms = 0
+        max_rooms = 0
+        
+        while s &lt; len(intervals):
+            # 如果有新会议开始，且在当前最早会议结束之前
+            if start_times[s] &lt; end_times[e]:
+                curr_rooms += 1
+                s += 1
+            else:
+                # 否则，说明有会议结束了，释放一间会议室
+                curr_rooms -= 1
+                e += 1
+            max_rooms = max(max_rooms, curr_rooms)
+            
+        return max_rooms
+</code></div>
+            </div>
+            </div><div class="page-break"></div><div class="category-section"><div class="category-title">链表 (Linked List)</div>
+            <div class="problem-card" id="prob_40">
+                <h3>40. Reverse Linked List (反转链表) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 链表基本操作 - 双指针迭代</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要反转一个单向链表，我们需要改变每个节点的指针方向，将原本指向下一个节点的指针 `next` 修改为指向它的上一个节点 `prev`。由于是单向的，改变 `next` 指向后我们会“迷失”原链表的后续路径，因此我们需要提前保存下一个节点。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 声明两个指针：`curr` 指向当前节点（初始化为 `head`），`prev` 指向当前节点的前一个节点（初始化为 `None`，因为反转后的头节点指向空）。
+2. 遍历整个链表：
+   - **保护后续节点**：用临时变量记录当前节点的下一个节点 `nxt = curr.next`。
+   - **反转指向**：把当前节点指向前一个节点 `curr.next = prev`。
+   - **双指针移动**：将 `prev` 移动到当前位置 `prev = curr`，将 `curr` 移动到保存的下一个节点位置 `curr = nxt`。
+3. 当 `curr` 为空时，说明链表已经遍历完毕，此时 `prev` 正好指向反转后的链表头节点，返回 `prev` 即可。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -&gt; Optional[ListNode]:
+        """
+        时间复杂度: O(N) - 遍历一次链表
+        空间复杂度: O(1) - 仅使用常数个指针变量
+        """
+        prev = None
+        curr = head
+        
+        while curr:
+            nxt = curr.next     # 暂存当前节点的下一节点，以防链表断裂
+            curr.next = prev    # 反转指针方向
+            prev = curr         # prev 前移
+            curr = nxt          # curr 前移
+            
+        return prev
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_41">
+                <h3>41. Linked List Cycle (环形链表) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 双指针 - 快慢指针 (Floyd's Cycle-Finding Algorithm)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：为了检测链表是否有环，我们可以使用哈希集合 `visited` 来保存我们访问过的所有节点。如果当前节点已经存在于集合中，就说明链表有环。这需要 O(N) 的空间复杂度。是否有 $O(1)$ 空间复杂度的解法？</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 快慢指针（龟兔赛跑算法）破局：
+我们声明两个指针：
+- 慢指针 `slow`，每次前进一步：`slow = slow.next`。
+- 快指针 `fast`，每次前进两步：`fast = fast.next.next`。
+如果链表没有环，快指针 `fast` 必然会率先走到链表尾部（指向 `None`），程序可以判定无环并返回 `False`。
+如果链表有环，那么快指针和慢指针都会进入环中。由于快指针在环内的速度比慢指针快，它们之间的距离在每一轮循环中都会缩短 1 个节点。最终快指针必定会从后方“追上”慢指针（即 `slow == fast`），就像操场跑道上快跑者套圈慢跑者一样。此时判定有环，返回 `True`。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -&gt; bool:
+        """
+        时间复杂度: O(N) - 慢指针最多移动 N 次即可判定
+        空间复杂度: O(1) - 仅使用两个辅助指针
+        """
+        slow = head
+        fast = head
+        
+        while fast and fast.next:
+            slow = slow.next         # 慢指针走一步
+            fast = fast.next.next    # 快指针走两步
+            
+            # 如果快慢指针相遇，说明有环
+            if slow == fast:
+                return True
+                
+        return False  # 快指针到达尾部，无环
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_42">
+                <h3>42. Merge Two Sorted Lists (合并两个有序链表) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 链表合并 / 哑节点 (Dummy Node) 技巧</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要合并两个递增链表，类似于归并排序中的 merge 过程。我们比较两个链表的头节点，取较小的节点连接到新链表上，然后移动指针。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 为了避免在初始化新链表头部时进行大量的空指针（null）特殊判断，我们引入一个**哑节点 (Dummy Node)** `dummy`。
+1. 初始化哑节点 `dummy = ListNode(0)`，定义一个指针 `curr` 指向它。
+2. 在 `list1` 和 `list2` 都不为空的循环中，比对两者的值：
+   - 如果 `list1.val <= list2.val`，则将 `curr.next` 连向 `list1`，并将 `list1` 前移。
+   - 否则，将 `curr.next` 连向 `list2`，并将 `list2` 前移。
+   - 接着把新链表的遍历指针 `curr` 前移。
+3. 当循环退出时，必然有一个链表已经处理完毕。我们直接将未处理完的那部分链表接到 `curr.next` 后面（因为有序，无需继续逐个比对）。
+4. 返回 `dummy.next`，即为合并后有序链表的实际头部。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -&gt; Optional[ListNode]:
+        """
+        时间复杂度: O(N + M) - N 和 M 分别为两条链表的长度
+        空间复杂度: O(1) - 原地拼接指针，无额外分配空间
+        """
+        dummy = ListNode(0)  # 哑节点，简化首节点处理逻辑
+        curr = dummy
+        
+        while list1 and list2:
+            if list1.val &lt;= list2.val:
+                curr.next = list1
+                list1 = list1.next
+            else:
+                curr.next = list2
+                list2 = list2.next
+            curr = curr.next
+            
+        # 拼接剩余未遍历完的链表部分
+        curr.next = list1 if list1 else list2
+        
+        return dummy.next
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_43">
+                <h3>43. Merge k Sorted Lists (合并 k 个升序链表) &nbsp;&nbsp;[<span class="difficulty-Hard">Hard</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 分治归并 (Divide and Conquer) / 最小堆 (Min-Heap)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：可以利用上一道题的“合并两个有序链表”函数。如果每次把第一条链表跟第二条合并，得到的结果再跟第三条合并... 这种朴素算法的时间复杂度是 O(N * k)，其中 N 是所有节点总数，k 是链表条数，效率较低。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 分治法（类似于归并排序）破局：
+不需要挨个合并，我们可以采用**两两配对合并**的方式：
+1. 假设当前有 k 个链表，我们将相邻的链表两两合并（第 0 条和第 1 条合并，第 2 条和第 3 条合并...），将 k 条链表化简为 k/2 条链表。
+2. 重复上述合并过程，链表条数逐渐折半：k/4 -> k/8... 直到只剩下 1 条合并完成的大链表。
+在这种两两分治合并中，合并的总层数为 $\log k$ 层。每一层中所有的节点都会参与一次合并操作，耗时为 O(N)。因此总时间复杂度被成功优化到 O(N \log k)。这种迭代的分治策略空间复杂度为 O(1)，优于使用堆（需要额外的堆空间）。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List, Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -&gt; Optional[ListNode]:
+        """
+        时间复杂度: O(N log k) - N 为所有节点总数，k 为链表总个数
+        空间复杂度: O(1) - 迭代分治合并仅需常数级额外空间
+        """
+        if not lists:
+            return None
+            
+        # 合并两个有序链表的辅助函数
+        def merge2Lists(l1, l2):
+            dummy = ListNode(0)
+            curr = dummy
+            while l1 and l2:
+                if l1.val &lt;= l2.val:
+                    curr.next = l1
+                    l1 = l1.next
+                else:
+                    curr.next = l2
+                    l2 = l2.next
+                curr = curr.next
+            curr.next = l1 if l1 else l2
+            return dummy.next
+            
+        # 两两迭代归并
+        interval = 1
+        n = len(lists)
+        while interval &lt; n:
+            for i in range(0, n - interval, interval * 2):
+                lists[i] = merge2Lists(lists[i], lists[i + interval])
+            interval *= 2
+            
+        return lists[0]
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_44">
+                <h3>44. Remove Nth Node From End of List (删除链表的倒数第 N 个节点) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 双指针 - 快慢指针间距控制</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：先遍历一次链表，统计链表总长度 L，然后第二次遍历到 L-N 位置的节点，进行删除。但这需要遍历两次链表。如何做到只遍历一次？</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 双指针一次遍历破局：
+为了删除倒数第 N 个节点，我们必须能够精确定位到**该节点的前一个节点**。我们可以使用间距为 `N` 的两个指针：
+1. 引入哑节点 `dummy` 指向 `head`（处理删除头节点的情况）。
+2. 定义 `fast` 和 `slow` 指针均初始化为 `dummy`。
+3. 先让 `fast` 指针前移 `N + 1` 步。此时 `fast` 和 `slow` 指针之间相差了 `N + 1` 个节点。
+4. 然后，快慢指针以相同速度同步前进，直到 `fast` 指针指向 `None`（链表末尾的下一个位置）。
+5. 此时，`slow` 指针正好停留在**倒数第 N 个节点的前驱节点**上。我们只需执行 `slow.next = slow.next.next` 即可完成对目标节点的删除。
+6. 返回 `dummy.next` 作为新链表的头节点。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -&gt; Optional[ListNode]:
+        """
+        时间复杂度: O(N) - 单次遍历链表
+        空间复杂度: O(1)
+        """
+        dummy = ListNode(0, head)  # 创建哑节点，应对删除头节点的边界情况
+        fast = dummy
+        slow = dummy
+        
+        # 快指针先向前移动 n + 1 步
+        for _ in range(n + 1):
+            fast = fast.next
+            
+        # 快慢指针同步前移，直到快指针走到末尾
+        while fast:
+            fast = fast.next
+            slow = slow.next
+            
+        # 此时 slow 指向待删除节点的前驱节点，改变其指向即可删除该节点
+        slow.next = slow.next.next
+        
+        return dummy.next
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_45">
+                <h3>45. Reorder List (重排链表) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 快慢指针求中点 + 链表反转 + 交叉合并</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要将 `L0 -> L1 -> ... -> Ln-1 -> Ln` 重新排列为 `L0 -> Ln -> L1 -> Ln-1 -> ...`。如果直接用数组保存节点，可以容易地利用双指针从两端合并，但这需要 O(N) 的额外空间。能否做到 O(1) 额外空间？</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 巧妙的链表拆分反转合并三步走：
+我们发现，这个重排实际上是把链表的后半部分逆序之后，与前半部分交叉插入而成的。
+1. **寻找链表的中点**：使用快慢指针，快指针每次走两步，慢指针每次走一步。当快指针到链表尾部时，慢指针所处的位置正好是前半段链表的末尾。我们将链表切分为 `first`（前半部分）和 `second`（后半部分）两段。
+2. **反转后半部分链表**：对 `second` 链表执行就地反转操作，得到逆序后的后半部分链表。
+3. **交叉合并**：将 `first` 和反转后的 `second` 交替连接：把 `second` 的头插在 `first` 第 1 和第 2 个节点之间，然后再移动指针。直至合并完毕。整个过程只需要修改原指针，不需要额外的节点分配。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -&gt; None:
+        """
+        Do not return anything, modify head in-place instead.
+        时间复杂度: O(N) - 找中点、反转、合并各自需要 O(N) 时间
+        空间复杂度: O(1) - 原地重构链表
+        """
+        if not head or not head.next:
+            return
+            
+        # 1. 快慢指针寻找中点
+        slow, fast = head, head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+        # 此时 slow 指向链表中点，将链表一分为二
+        second_half = slow.next
+        slow.next = None  # 断开前半段和后半段的连接
+        
+        # 2. 反转后半段链表
+        prev = None
+        curr = second_half
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        second_half = prev  # 反转后的后半段链表头节点为 prev
+        
+        # 3. 交叉合并两个链表
+        first_half = head
+        while first_half and second_half:
+            # 暂存两个部分的后续节点
+            tmp1 = first_half.next
+            tmp2 = second_half.next
+            
+            # 交替链接
+            first_half.next = second_half
+            second_half.next = tmp1
+            
+            # 指针前移
+            first_half = tmp1
+            second_half = tmp2
+</code></div>
+            </div>
+            </div><div class="page-break"></div><div class="category-section"><div class="category-title">矩阵 (Matrix)</div>
+            <div class="problem-card" id="prob_46">
+                <h3>46. Set Matrix Zeroes (矩阵置零) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 矩阵标记 / 空间压缩 O(1) 优化</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要将所有包含 0 的行和列全部置零。如果直接在遍历中原地修改为 0，会干扰后面尚未遍历元素的判断，导致整张表都变成 0。如果声明另外的行、列数组来记录哪些行和列应该被置零，需要 $O(M + N)$ 的额外空间。如何优化至 $O(1)$？</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 利用矩阵的**第一行和第一列**来作为状态记录器：
+1. 记录第一行和第一列原本是否包含 0，分别存储在布尔变量 `first_row_zero` 和 `first_col_zero` 中。
+2. 遍历除第一行/第一列之外的整个矩阵，如果 `matrix[r][c] == 0`，就在它对应头部的第一行和第一列中做标记：令 `matrix[r][0] = 0` 和 `matrix[0][c] = 0`。
+3. 再次遍历这部分区间，如果某个位置所在的行首 `matrix[r][0] == 0` 或列首 `matrix[0][c] == 0`，就将该点置零：`matrix[r][c] = 0`。
+4. 最后根据初始的布尔变量，决定是否把第一行和第一列全部置零。
+这样我们就不必开辟任何新的空间，直接借用已有的首行首列内存搞定，空间复杂度为常数级 $O(1)$。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -&gt; None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        时间复杂度: O(M * N) - 需要遍历两遍矩阵
+        空间复杂度: O(1) - 原地在首行首列作标记，无额外存储
+        """
+        if not matrix:
+            return
+            
+        m, n = len(matrix), len(matrix[0])
+        first_row_zero = False
+        first_col_zero = False
+        
+        # 1. 检测第一行和第一列自己是否原本含有 0
+        for c in range(n):
+            if matrix[0][c] == 0:
+                first_row_zero = True
+                break
+        for r in range(m):
+            if matrix[r][0] == 0:
+                first_col_zero = True
+                break
+                
+        # 2. 遍历其余元素，把行列的 0 标记投影到第一行和第一列上
+        for r in range(1, m):
+            for c in range(1, n):
+                if matrix[r][c] == 0:
+                    matrix[r][0] = 0
+                    matrix[0][c] = 0
+                    
+        # 3. 根据第一行第一列的投影标记，将对应的内层元素置零
+        for r in range(1, m):
+            for c in range(1, n):
+                if matrix[r][0] == 0 or matrix[0][c] == 0:
+                    matrix[r][c] = 0
+                    
+        # 4. 最后单独处理第一行和第一列自己
+        if first_row_zero:
+            for c in range(n):
+                matrix[0][c] = 0
+        if first_col_zero:
+            for r in range(m):
+                matrix[r][0] = 0
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_47">
+                <h3>47. Spiral Matrix (螺旋矩阵) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 矩阵遍历边界模拟</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要以螺旋状（顺时针）遍历矩阵。这是一个模拟过程，我们可以通过在运动时动态维护网格当前的四个边界（上、下、左、右）来控制遍历的方向和终止条件。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 初始化四个边界：`top = 0`，`bottom = m - 1`，`left = 0`，`right = n - 1`。
+2. 当四个边界没有交叠（即 `left <= right` 且 `top <= bottom`）时循环执行：
+   - **向右走**：沿着 `top` 行从 `left` 到 `right`，遍历完后 `top += 1`。
+   - **向下走**：沿着 `right` 列从 `top` 到 `bottom`，遍历完后 `right -= 1`。
+   - **向左走**（注意此时需要再次验证 `top <= bottom`，防止单行重复打印）：沿着 `bottom` 行从 `right` 到 `left` 逆向，遍历后 `bottom -= 1`。
+   - **向上走**（同样需要再次验证 `left <= right`，防止单列重复打印）：沿着 `left` 列从 `bottom` 到 `top` 逆向，遍历后 `left += 1`。
+3. 当循环条件不满足时，我们就正好走完了矩阵内的所有元素。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -&gt; List[int]:
+        """
+        时间复杂度: O(M * N) - 刚好访问每个元素一次
+        空间复杂度: O(1) - 仅使用用于辅助的几个边界指针
+        """
+        if not matrix:
+            return []
+            
+        m, n = len(matrix), len(matrix[0])
+        res = []
+        
+        # 定义当前上下左右边界
+        top, bottom = 0, m - 1
+        left, right = 0, n - 1
+        
+        while left &lt;= right and top &lt;= bottom:
+            # 1. 从左到右遍历上边界
+            for col in range(left, right + 1):
+                res.append(matrix[top][col])
+            top += 1
+            
+            # 2. 从上到下遍历右边界
+            for row in range(top, bottom + 1):
+                res.append(matrix[row][right])
+            right -= 1
+            
+            if top &lt;= bottom:
+                # 3. 从右到左遍历下边界
+                for col in range(right, left - 1, -1):
+                    res.append(matrix[bottom][col])
+                bottom -= 1
+                
+            if left &lt;= right:
+                # 4. 从下到上遍历左边界
+                for row in range(bottom, top - 1, -1):
+                    res.append(matrix[row][left])
+                left += 1
+                
+        return res
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_48">
+                <h3>48. Rotate Image (旋转图像) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 原地矩阵转置 + 行逆序</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：将矩阵顺时针旋转 90 度，如果声明一个同样大小的二维矩阵做过渡，可以用一行关系式 `new_matrix[j][n-1-i] = matrix[i][j]` 轻松做出来。但面试官会要求**原地 (In-place)** 修改，限制额外空间为 $O(1)$。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 利用矩阵转置和对称性破局：
+如果仔细观察旋转的性质，我们会发现顺时针旋转 90 度实际上可以拆解为两步简单的基本几何操作：
+1. **矩阵转置**：沿着主对角线把对称的元素两两对调（即交换 `matrix[i][j]` 与 `matrix[j][i]`，保证 `j > i` 避免换回来）。此时，原来的行变成了列，但方向不对（逆了）。
+2. **水平翻转/行逆序**：对于转置后的矩阵，我们把每一行数组从中间一分为二，左右镜像对称翻转。也就是把每一行逆序一遍（即对每行执行 `matrix[i].reverse()`）。
+经过这两步，矩阵刚好就被完全顺时针旋转了 90 度，且所有调换都是原地双指针交换，不需要开辟任何外部存储，空间复杂度为常数级 $O(1)$。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -&gt; None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        时间复杂度: O(N^2) - N 为矩阵的边长，转置和反转操作各自需要 O(N^2)
+        空间复杂度: O(1) - 原地交换
+        """
+        n = len(matrix)
+        
+        # 1. 矩阵转置：交换 matrix[i][j] 与 matrix[j][i]
+        for i in range(n):
+            for j in range(i + 1, n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+                
+        # 2. 行逆序：反转每一行
+        for i in range(n):
+            matrix[i].reverse()
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_49">
+                <h3>49. Word Search (单词搜索) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 回溯算法 (Backtracking) / 深度优先搜索 (DFS)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要在网格中寻找一条能拼写成单词的路径。由于不能重复使用相同的单元格，这是一个典型的图路径搜索问题。我们应当逐个格子检查，一旦第一个字母匹配成功，就启动 DFS 向其四周扩散搜索接下来的字母。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 遍历矩阵的每一个位置 `(r, c)`。若该处的字符与 `word` 的首字母相同，则以此作为起点，调用回溯函数 `dfs(r, c, 0)`（其中 `0` 代表当前要匹配的单词字符索引）。
+2. 回溯函数 `dfs(r, c, index)` 的逻辑：
+   - **基准情况**：如果 `index == len(word)`，说明单词已经全部匹配完毕，返回 `True`。
+   - **越界或不匹配**：如果 `r` 和 `c` 超出边界，或者当前格子已被访问过，或者 `grid[r][c] != word[index]`，说明此路不通，返回 `False`。
+   - **标记访问**：在继续递归之前，我们需要将当前位置标记为“已访问”。为了节省空间，我们原地修改当前元素为特殊符号（如 `'#'`），并在递归结束时撤销修改（回溯恢复现场：`grid[r][c] = word[index]`）。
+   - **四向递归**：向上下左右四个方向尝试继续匹配下一个字符：`index + 1`。只要有一个方向成功，就返回 `True`。
+3. 如果四向探索都失败，当前起点无效，回溯恢复，并尝试下一个网格起点。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -&gt; bool:
+        """
+        时间复杂度: O(M * N * 3^L) - M, N 为网格大小，L 为单词长度。对于每个起点，DFS 最多有 4 个方向，但除去来的方向，实际上分支因子是 3
+        空间复杂度: O(L) - DFS 的最大系统递归调用栈深度为单词长度 L
+        """
+        m, n = len(board), len(board[0])
+        
+        def dfs(r, c, index):
+            # 匹配成功
+            if index == len(word):
+                return True
+                
+            # 边界及不匹配检查
+            if (r &lt; 0 or r &gt;= m or c &lt; 0 or c &gt;= n or 
+                board[r][c] != word[index]):
+                return False
+                
+            # 暂存当前字符，标记为已访问，防止在同一次路径中被重复使用
+            temp = board[r][c]
+            board[r][c] = '#'
+            
+            # 向四个方向进行深度优先搜索
+            found = (dfs(r + 1, c, index + 1) or
+                     dfs(r - 1, c, index + 1) or
+                     dfs(r, c + 1, index + 1) or
+                     dfs(r, c - 1, index + 1))
+                     
+            # 恢复现场（回溯的关键）
+            board[r][c] = temp
+            
+            return found
+            
+        for r in range(m):
+            for c in range(n):
+                # 从与单词首字母相匹配的位置启动搜索
+                if board[r][c] == word[0] and dfs(r, c, 0):
+                    return True
+                    
+        return False
+</code></div>
+            </div>
+            </div><div class="page-break"></div><div class="category-section"><div class="category-title">字符串 (String)</div>
+            <div class="problem-card" id="prob_50">
+                <h3>50. Longest Substring Without Repeating Characters (无重复字符的最长子串) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 滑动窗口 (Sliding Window) / 哈希集合 (Hash Set)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要在一个字符串中找到一个最长的连续子区间，该区间内的所有字符都是唯一的。使用双重循环遍历所有子串再进行判定会耗费 O(N^2) 时间。为了将复杂度降为 O(N)，我们使用双指针滑动窗口。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 滑动窗口原理：
+我们维护一个左指针 `left` 和右指针 `right`，定义它们之间的区间为滑动窗口。我们使用一个哈希集合 `char_set` 存储窗口内的所有字符。
+1. `right` 逐个字符向右移动，扩张窗口。
+2. **冲突收缩**：每当要将字符 `s[right]` 加入窗口时，如果该字符已经在 `char_set` 中，说明窗口内产生了重复字符。此时，我们必须将 `left` 指针向右移动，并同步在 `char_set` 中删除 `s[left]`，直到冲突的那个重复字符被移出窗口。
+3. **窗口合法**：在移除冲突字符后，我们将当前的 `s[right]` 插入集合，并统计当前有效窗口的长度 `right - left + 1`，用其更新最大长度 `max_len`。
+这样每个字符最多只被加入和移出窗口一次，时间复杂度为严格的 O(N)。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def lengthOfLongestSubstring(self, s: str) -&gt; int:
+        """
+        时间复杂度: O(N) - 左右指针分别最多扫描字符串一次
+        空间复杂度: O(min(M, N)) - M 为字符集的大小，N 为字符串的长度
+        """
+        char_set = set()
+        left = 0
+        max_len = 0
+        
+        for right in range(len(s)):
+            # 如果新加入的字符已存在，从左侧收缩窗口直到冲突字符被移出
+            while s[right] in char_set:
+                char_set.remove(s[left])
+                left += 1
+            # 将当前字符加入窗口
+            char_set.add(s[right])
+            # 更新最大无重复子串长度
+            max_len = max(max_len, right - left + 1)
+            
+        return max_len
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_51">
+                <h3>51. Longest Repeating Character Replacement (替换后的最长重复字符) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 滑动窗口 / 双指针 / 局部频数统计优化</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们要找一个最长子串，该子串通过替换不超过 k 个字符后可以全部变成同一个字符。如果窗口大小为 `L`，且窗口中出现频率最高的字符次数为 `max_freq`，那么要让这个窗口内字符全部相同，需要替换的字符数就是 `L - max_freq`。只要 `L - max_freq <= k`，这个窗口就是可行的。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 使用滑动窗口进行优化：
+1. 初始化 `left = 0`，最大频率记录 `max_freq = 0`，以及一个记录窗口内字符频数的哈希表/数组 `count`。
+2. 遍历右指针 `right`：
+   - 更新当前字符 `s[right]` 的频数：`count[s[right]] += 1`。
+   - 更新窗口内的最大字符频数：`max_freq = max(max_freq, count[s[right]])`。
+   - **收缩条件**：如果当前窗口长度减去最大频数大于 k（即 `(right - left + 1) - max_freq > k`），说明即使把所有非最频字符都替换掉，也无法在 k 次内达到全部相同。此时我们必须收缩窗口：将 `left` 对应字符频数减 1，并向右移动 `left` 指针。
+   - 为什么不需要在收缩窗口时重新计算真正的 `max_freq` 最小值？因为我们只想找更长的子串。当窗口变小时，`max_freq` 的变小不会帮助我们找到比目前历史记录更大的最长子串，所以我们在收缩时保持 `max_freq` 不变也是正确且安全的。
+3. 记录窗口历史最大长度并返回。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def characterReplacement(self, s: str, k: int) -&gt; int:
+        """
+        时间复杂度: O(N) - N 为字符串的长度，每个字符最多被扫描两次
+        空间复杂度: O(1) - 仅需大小为 26 的频数哈希表/数组
+        """
+        count = {}
+        max_freq = 0
+        left = 0
+        max_len = 0
+        
+        for right in range(len(s)):
+            # 累加当前字符频数
+            count[s[right]] = count.get(s[right], 0) + 1
+            # 维护窗口内的历史最大频数
+            max_freq = max(max_freq, count[s[right]])
+            
+            # 如果需要替换的字符个数超过 k，收缩左指针
+            # 窗口宽度为 right - left + 1
+            while (right - left + 1) - max_freq &gt; k:
+                count[s[left]] -= 1
+                left += 1
+                
+            max_len = max(max_len, right - left + 1)
+            
+        return max_len
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_52">
+                <h3>52. Minimum Window Substring (最小覆盖子串) &nbsp;&nbsp;[<span class="difficulty-Hard">Hard</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 滑动窗口 / 双哈希计数表 / 双指针最优收缩</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要在 `s` 中找到包含 `t` 中所有字符的最小子串。我们可以先用滑动窗口右指针向右扩展找到一个包含所有 `t` 字符的“可行解”，然后左指针向右收缩，抛弃多余字符，直到窗口刚好不能覆盖 `t`，从而寻找局部最优解。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. **初始化**：用哈希表 `need` 统计 `t` 中所有字符的出现频数，`required` 为 `t` 中不重复字符的总数。哈希表 `window` 记录当前窗口内满足 `t` 所需字符的频数，变量 `have` 表示窗口中已达到 `need` 频数要求的字符数。
+2. **滑动窗口扩张**：移动右指针 `right`，将 `s[right]` 加进 `window`：
+   - 如果 `s[right]` 在 `need` 中，且 `window[s[right]] == need[s[right]]`，说明该字符数量已达标，令 `have += 1`。
+3. **窗口合法与收缩**：只要 `have == required`，说明窗口已完全覆盖 `t`。我们尝试收缩左侧以寻找更小的窗口：
+   - 记录当前最小长度和子串起点。
+   - 移出左侧字符 `s[left]`，更新 `window`。
+   - 如果移出的 `s[left]` 是必需的且导致频数低于 `need`，更新 `have -= 1`。
+   - 左指针向右移动 `left += 1`。
+4. 遍历完毕后返回历史最小窗口子串，若无则返回 `""`。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def minWindow(self, s: str, t: str) -&gt; str:
+        """
+        时间复杂度: O(M + N) - M 和 N 分别为字符串 s 和 t 的长度
+        空间复杂度: O(M + N) - 两张哈希表占用的辅助空间
+        """
+        if not s or not t:
+            return ""
+            
+        # 统计 t 中字符频数
+        need = {}
+        for c in t:
+            need[c] = need.get(c, 0) + 1
+            
+        required = len(need)
+        window = {}
+        have = 0
+        
+        # 记录最小窗口的长度以及起点、终点索引
+        res = float('inf')
+        res_indices = [-1, -1]
+        
+        left = 0
+        for right in range(len(s)):
+            char = s[right]
+            window[char] = window.get(char, 0) + 1
+            
+            # 如果当前字符是所需的，且数量达到了要求
+            if char in need and window[char] == need[char]:
+                have += 1
+                
+            # 当窗口满足所有条件时，尝试收缩左指针
+            while have == required:
+                # 更新历史最小窗口
+                if (right - left + 1) &lt; res:
+                    res = right - left + 1
+                    res_indices = [left, right]
+                    
+                # 抛弃左边字符
+                left_char = s[left]
+                window[left_char] -= 1
+                if left_char in need and window[left_char] &lt; need[left_char]:
+                    have -= 1
+                left += 1
+                
+        l, r = res_indices
+        return s[l:r+1] if res != float('inf') else ""
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_53">
+                <h3>53. Valid Anagram (有效的字母异位词) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 哈希计数表 / 字符统计</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：字母异位词指的是两个字符串所包含的字母及其出现的频数完全相同，只是顺序不同。我们可以直接统计两个字符串的字符个数进行比对。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 快速检查：如果两个字符串的长度不相等，直接返回 `False`。
+2. 使用一个哈希计数表，遍历 `s` 的每个字符令频数加 1，遍历 `t` 的每个字符令频数减 1。
+3. 最后遍历哈希表，如果所有字符的频数都为 0，说明它是合法的异位词，返回 `True`；否则返回 `False`。或者直接使用 Python 的 `collections.Counter` 对比，其底层同样是这一原理。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def isAnagram(self, s: str, t: str) -&gt; bool:
+        """
+        时间复杂度: O(N) - 一次遍历统计字符频数
+        空间复杂度: O(1) - 字符集为 26 个小写字母，哈希表大小最多为 26，为常数空间
+        """
+        if len(s) != len(t):
+            return False
+            
+        count = {}
+        for i in range(len(s)):
+            count[s[i]] = count.get(s[i], 0) + 1
+            count[t[i]] = count.get(t[i], 0) - 1
+            
+        for val in count.values():
+            if val != 0:
+                return False
+                
+        return True
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_54">
+                <h3>54. Group Anagrams (字母异位词分组) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 哈希映射 (Hash Map) / 字符排序键值规范化</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要把彼此为异位词的字符串分在同一组。我们需要为所有的字母异位词找到一个**共同且唯一的“标识键”（Signature）**，然后以这个标识键作为哈希表的 Key，把原始字符串归纳到同一组中。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 如何设计唯一的“标识键”？
+1. **方法一：排序**。对于每个字符串，将其字符按字典序排序。例如对 'eat'、'tea' 和 'ate' 排序后都是 'aet'。我们可以将 `'aet'` 作为 Key。排序对于每个长度为 $L$ 的单词耗时 $O(L \\log L)$。
+2. **方法二：频数统计**。因为只包含小写字母，我们可以用一个长度为 26 的元组记录字符出现的次数，如 `(1, 0, 0, ..., 1, ...)`。元组是可哈希的（immutable），可以作为字典的键。这种方法耗时 $O(L)$。一般面试中排序法已经足够快且更易实现。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -&gt; List[List[str]]:
+        """
+        时间复杂度: O(N * L log L) - N 为字符串列表大小，L 为字符串的最大长度
+        空间复杂度: O(N * L) - 哈希表存储所有单词所需要的内存空间
+        """
+        # 键：排序后的字符串，值：满足该排序形式的所有原始字符串组成的列表
+        anagrams_map = {}
+        
+        for s in strs:
+            # 规范化键值：将单词排序，转为元组或字符串作为哈希表的 Key
+            sorted_s = "".join(sorted(s))
+            if sorted_s not in anagrams_map:
+                anagrams_map[sorted_s] = []
+            anagrams_map[sorted_s].append(s)
+            
+        return list(anagrams_map.values())
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_55">
+                <h3>55. Valid Parentheses (有效的括号) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 数据结构 - 栈 (Stack) / 先进后出 (LIFO)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：括号匹配具有对称和“就近消除”的特性。最后一个开括号应当最先匹配到闭括号。这完全契合**栈（Stack）**先进后出的数据结构性质。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 声明一个空栈 `stack`，以及一个映射字典 `mapping = {')': '(', '}': '{', ']': '['}` 用于检验匹配。
+2. 遍历字符串中的每一个括号 `char`：
+   - 如果 `char` 是一个闭括号（即在字典的 Key 中）：
+     - 弹出栈顶元素。如果栈为空，或者弹出的字符不等于这个闭括号对应的开括号，说明不匹配，返回 `False`。
+   - 如果 `char` 是一个开括号，将其压入栈中。
+3. 遍历结束之后，检查栈是否为空。如果栈为空，说明所有括号都成功匹配并消除了，返回 `True`；如果栈不为空，说明还有多余的开括号未匹配，返回 `False`。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def isValid(self, s: str) -&gt; bool:
+        """
+        时间复杂度: O(N) - 遍历一次字符串，入栈出栈操作均为 O(1)
+        空间复杂度: O(N) - 最坏情况下（全为左括号）栈存储全部字符
+        """
+        stack = []
+        mapping = {")": "(", "}": "{", "]": "["}
+        
+        for char in s:
+            # 如果是右括号，尝试与栈顶匹配
+            if char in mapping:
+                top_element = stack.pop() if stack else '#'
+                if mapping[char] != top_element:
+                    return False
+            else:
+                # 如果是左括号，压入栈中
+                stack.append(char)
+                
+        return not stack  # 只有当栈清空时，才是有效括号
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_56">
+                <h3>56. Valid Palindrome (验证回文串) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 双指针 (Two Pointers) / 字符过滤</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：先过滤掉所有非字母和数字的字符，将所有大写字母转为小写。然后检查新字符串是否与其翻转后的字符串相同。但这需要 $O(N)$ 的额外空间。能否实现 $O(1)$ 的空间复杂度？</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 双指针原地比较破局：
+我们可以在原字符串上使用首尾双指针 `left` 和 `right`：
+1. 初始化 `left = 0`，`right = len(s) - 1`。
+2. 在 `left < right` 的循环中：
+   - 如果 `s[left]` 不是字母或数字，右移：`left += 1`，跳过该字符。
+   - 如果 `s[right]` 不是字母或数字，左移：`right -= 1`，跳过该字符。
+   - 如果两个指针指向的都是合法字符，转换为小写字母比对。若不相等，判定不是回文，直接返回 `False`。
+   - 若相等，双指针相向移动一步：`left += 1`，`right -= 1`。
+3. 顺利走完循环说明是有效回文串，返回 `True`。无需分配额外空间。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def isPalindrome(self, s: str) -&gt; bool:
+        """
+        时间复杂度: O(N) - 每个字符最多被两个指针扫描一次
+        空间复杂度: O(1) - 原地双指针移动，无额外开销
+        """
+        left, right = 0, len(s) - 1
+        
+        while left &lt; right:
+            # 过滤左侧非字母数字的字符
+            while left &lt; right and not s[left].isalnum():
+                left += 1
+            # 过滤右侧非字母数字的字符
+            while left &lt; right and not s[right].isalnum():
+                right -= 1
+                
+            # 比较是否相等（忽略大小写）
+            if s[left].lower() != s[right].lower():
+                return False
+                
+            left += 1
+            right -= 1
+            
+        return True
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_57">
+                <h3>57. Longest Palindromic Substring (最长回文子串) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 中心扩散法 (Expand Around Center) / 动态规划</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：如果使用暴力枚举，找到所有可能的子串并判定是不是回文，需要 O(N^3) 的复杂度。即使使用普通的 2D 动态规划，空间和时间也均为 O(N^2)。我们需要更优的方案。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 中心扩散法（极佳的 O(1) 空间方案）推导：
+回文串具有高度的中心对称性。我们可以尝试**以每个位置作为回文中心，向两边扩散**来寻找最长回文串：
+1. 遍历字符串中的每一个字符索引 `i`。
+2. **奇数长度回文**：以当前字符 `s[i]` 为中心，向两侧扩散（即左右指针初始为 `(i, i)`）。
+3. **偶数长度回文**：以两个相邻字符 `s[i]` 和 `s[i+1]` 之间的空隙为中心，向两侧扩散（即左右指针初始为 `(i, i+1)`）。
+4. 扩散逻辑：如果 `left >= 0` 且 `right < len(s)` 且两端字符相同 `s[left] == s[right]`，则继续扩散：`left -= 1`, `right += 1`。直到不满足条件。此时回文子串为 `s[left+1:right]`。我们统计并记录最长的回文子串。由于只有 2n-1 个可能的中心，总时间复杂度为 O(N^2)，空间为 O(1)。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def longestPalindrome(self, s: str) -&gt; str:
+        """
+        时间复杂度: O(N^2) - 每个中心扩散最多需要 O(N) 步，共有 2N-1 个中心
+        空间复杂度: O(1) - 仅需存储几个指针和边界变量
+        """
+        if not s or len(s) &lt; 1:
+            return ""
+            
+        res = ""
+        
+        # 辅助扩散函数，返回以此为中心的最长回文子串
+        def expand(left, right):
+            while left &gt;= 0 and right &lt; len(s) and s[left] == s[right]:
+                left -= 1
+                right += 1
+            return s[left + 1:right]
+            
+        for i in range(len(s)):
+            # 奇数长度回文 (如 "aba")
+            p1 = expand(i, i)
+            # 偶数长度回文 (如 "abba")
+            p2 = expand(i, i + 1)
+            
+            # 更新全局最长回文子串
+            if len(p1) &gt; len(res):
+                res = p1
+            if len(p2) &gt; len(res):
+                res = p2
+                
+        return res
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_58">
+                <h3>58. Palindromic Substrings (回文子串个数) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 中心扩散法 (Expand Around Center) / 回文计数</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：这道题需要统计字符串中所有回文子串的个数。既然回文子串都是围绕某个中心对称的，我们同样可以采用中心扩散法：每成功向外扩散一步，就说明我们找到了一个新的回文子串，计数器加 1。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 与上一题“最长回文子串”类似，我们利用 2N-1 个回文中心进行扩散：
+1. 遍历字符串中的每一个索引 `i`。
+2. **以第 i 个字符为中心**启动扩散：
+   - 初始化 `l = i`, `r = i`。
+   - 循环检查是否满足 `l >= 0` 且 `r < len(s)` 且 `s[l] == s[r]`。只要满足，说明 `s[l:r+1]` 是回文串，计数器 `count += 1`。然后向外扩散 `l -= 1`, `r += 1`。
+3. **以第 i 和第 i+1 个字符为中心**启动扩散：
+   - 初始化 `l = i`, `r = i + 1`。
+   - 执行同样的扩散条件和计数。
+4. 遍历所有中心结束后，累加的总计数即为全部回文子串的数量。空间复杂度仅为 O(1)。</p>
+                </div>
+                
+                <div class="code-block"><code>class Solution:
+    def countSubstrings(self, s: str) -&gt; int:
+        """
+        时间复杂度: O(N^2) - 每个中心最多扩散 O(N) 步
+        空间复杂度: O(1)
+        """
+        count = 0
+        n = len(s)
+        
+        def expand_and_count(left, right):
+            nonlocal count
+            while left &gt;= 0 and right &lt; n and s[left] == s[right]:
+                count += 1
+                left -= 1
+                right += 1
+                
+        for i in range(n):
+            # 奇数长度中心扩散
+            expand_and_count(i, i)
+            # 偶数长度中心扩散
+            expand_and_count(i, i + 1)
+            
+        return count
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_59">
+                <h3>59. Encode and Decode Strings (字符串的编码与解码) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 序列化与反序列化 / 长度前缀协议 (Length-prefixed encoding)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要将一个字符串列表序列化为一个单一的字符串，之后能完美将其恢复。使用简单的分隔符（如逗号或特殊符号）有很大缺陷——如果原始字符串中本身就包含了该分隔符，解码时就会产生歧义导致切分错误。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 采用网络通信协议中经典的**长度前缀编码 (Length-prefixed encoding)** 彻底破局：
+1. **编码 (Encode)**：对于列表中的每个字符串 `s`，我们先计算它的长度 `len(s)`，然后拼上一个非数字的分隔符（比如字符 `'#'`），再拼上原始字符串本身。最终编码为：`[length] + '#' + s`。
+   - 例如：`["hello", "world"]` 编码为 `"5#hello5#world"`。
+   - 即使原始字符串包含 `#`（例如 `"ab#c"`），也会被编码为 `"4#ab#c"`，解析时不会有歧义。
+2. **解码 (Decode)**：使用一个遍历指针 `i = 0` 扫描编码后的字符串：
+   - 从位置 `i` 开始往后寻找第一个出现的 `'#'`，将其前面的子串提取出来并转换为整数，这代表了接下来那个字符串的精确长度 `length`。
+   - 跳转过字符 `'#'`，从当前位置提取长度为 `length` 的字符，这就是我们需要的原字符串。
+   - 将提取的字符串存入结果集，并将指针移动到下一个编码块的起点：`i = sharp_index + 1 + length`，重复读取，直到字符串结束。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Codec:
+    def encode(self, strs: List[str]) -&gt; str:
+        """Encodes a list of strings to a single string.
+        """
+        res = []
+        for s in strs:
+            # 编码协议：长度 + '#' + 字符串本身
+            res.append(f"{len(s)}#{s}")
+        return "".join(res)
+
+    def decode(self, s: str) -&gt; List[str]:
+        """Decodes a single string to a list of strings.
+        """
+        res = []
+        i = 0
+        
+        while i &lt; len(s):
+            # 寻找当前数据块的长度分隔符 '#'
+            sharp_idx = s.find('#', i)
+            # 提取长度前缀
+            length = int(s[i:sharp_idx])
+            # 根据提取出的长度切割出原字符串
+            start = sharp_idx + 1
+            end = start + length
+            res.append(s[start:end])
+            # 移动指针处理下一个字符串
+            i = end
+            
+        return res
+</code></div>
+            </div>
+            </div><div class="page-break"></div><div class="category-section"><div class="category-title">树 (Tree)</div>
+            <div class="problem-card" id="prob_60">
+                <h3>60. Maximum Depth of Binary Tree (二叉树的最大深度) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二叉树递归遍历 - 深度优先搜索 (DFS)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：一棵二叉树的最大深度等于它的左子树和右子树最大深度中的较大值，加上根节点本身的这一层高度（即 1）。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 可以使用简单的递归 DFS 来描述这一结构关系：
+1. **基准情况**：如果当前节点 `root` 为空，说明已经越过叶子节点，返回高度 `0`。
+2. **递归子问题**：递归计算左子树的最大深度 `left_depth`，以及右子树的最大深度 `right_depth`。
+3. **合并结果**：返回 `max(left_depth, right_depth) + 1`。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -&gt; int:
+        """
+        时间复杂度: O(N) - 每个节点恰好访问一次
+        空间复杂度: O(H) - H 为树的高度，递归系统调用栈的深度
+        """
+        if not root:
+            return 0
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_61">
+                <h3>61. Same Tree (相同的树) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二叉树同步递归遍历</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要判断两棵树是否完全相同，不仅它们的根节点的值要相等，而且它们的左子树也必须相同，右子树也必须相同。我们可以进行同步的递归比较。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 对两棵树的节点 `p` 和 `q` 进行比对：
+1. 如果 `p` 和 `q` 都是 `None`，说明两边都走到了底，在此前的比较中完全一致，返回 `True`。
+2. 如果其中有一个是 `None` 而另一个不是，或者两者的值不相等（`p.val != q.val`），说明树的结构或数值不相同，返回 `False`。
+3. 如果当前节点一致，则递归验证左子树 `self.isSameTree(p.left, q.left)` 与右子树 `self.isSameTree(p.right, q.right)`。两部分都满足才返回 `True`。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -&gt; bool:
+        """
+        时间复杂度: O(N) - N 为两棵树中较小的节点总数
+        空间复杂度: O(H) - 递归调用栈空间
+        """
+        if not p and not q:
+            return True
+        if not p or not q or p.val != q.val:
+            return False
+            
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_62">
+                <h3>62. Invert Binary Tree (翻转二叉树) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二叉树遍历结构就地修改 (In-place swap)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：翻转一棵二叉树（镜像对称），实际上就是把每个节点的左孩子和右孩子进行对调，然后再递归地翻转它们的子树。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. **基准情况**：如果当前节点 `root` 为空，直接返回 `None`。
+2. **交换左右子树**：直接使用 Python 的并口赋值语句，交换当前节点的左右子节点：`root.left, root.right = root.right, root.left`。
+3. **递归处理**：递归地翻转左子树 `self.invertTree(root.left)` 和右子树 `self.invertTree(root.right)`。
+4. 返回当前节点 `root`。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -&gt; Optional[TreeNode]:
+        """
+        时间复杂度: O(N) - 遍历所有节点一次
+        空间复杂度: O(H) - 递归系统栈空间
+        """
+        if not root:
+            return None
+            
+        # 交换左右子树指针
+        root.left, root.right = root.right, root.left
+        
+        # 递归翻转子树
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+        
+        return root
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_63">
+                <h3>63. Binary Tree Maximum Path Sum (二叉树中的最大路径和) &nbsp;&nbsp;[<span class="difficulty-Hard">Hard</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二叉树后序遍历 (Post-order DFS) / 路径贡献值合并</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：一条二叉树的路径，可能在某个节点处发生“折返”（即包括该节点、它的左子树路径和右子树路径）。对于任何一个节点，如果我们要计算经过它的“折返路径”的最大值，那就是 `node.val + left_gain + right_gain`。但需要注意的是，一个折返路径是无法向上汇报给它的父节点的（因为如果继续向上走，就不能在子节点处折返了，二叉树的路径不能有分支）。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 设计后序 DFS 机制：
+1. 声明全局变量 `max_sum` 来记录历史最大的折返路径和，初始化为负无穷。
+2. 对节点进行 DFS，DFS 函数返回当前节点向父节点提供的**单边最大贡献值**（只能选左或者右之一往上连）：
+   - 如果节点为空，贡献值为 0。
+   - 递归计算左子节点的单边贡献 `left = max(0, dfs(node.left))`，小于 0 的贡献抛弃不要，直接当成 0。
+   - 递归计算右子节点的单边贡献 `right = max(0, dfs(node.right))`。
+   - **计算折返路径更新全局最大值**：以当前节点为顶点的最大折返路径和为 `node.val + left + right`，我们用它去更新 `max_sum`。
+   - **向上返回单边贡献值**：由于向上不能有分支，返回给父节点的是 `node.val + max(left, right)`。
+3. 最终 `max_sum` 记录的即为答案。时间复杂度为 O(N)。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -&gt; int:
+        """
+        时间复杂度: O(N) - 每个节点恰好被 DFS 访问一次
+        空间复杂度: O(H) - 递归调用栈占用的辅助空间
+        """
+        max_sum = float('-inf')
+        
+        def dfs(node):
+            nonlocal max_sum
+            if not node:
+                return 0
+                
+            # 计算左右子树能提供的最大单边贡献（如果为负，则选择 0，即不使用该子树）
+            left_gain = max(dfs(node.left), 0)
+            right_gain = max(dfs(node.right), 0)
+            
+            # 计算以当前节点为顶点的最大折返路径和，并更新全局最大值
+            current_path_sum = node.val + left_gain + right_gain
+            max_sum = max(max_sum, current_path_sum)
+            
+            # 返回当前节点向父节点提供的单边最大贡献
+            return node.val + max(left_gain, right_gain)
+            
+        dfs(root)
+        return max_sum
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_64">
+                <h3>64. Binary Tree Level Order Traversal (二叉树的层序遍历) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 广度优先搜索 (BFS) / 队列 (Queue) 按层切分</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要按层输出二叉树的节点。我们应该使用广度优先搜索 (BFS)，用队列来辅助遍历节点。在处理每一层时，我们需要一次性清空当前队列中属于该层的所有节点，这样就能区分开不同层的输出。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 如果 `root` 为空，返回空列表 `[]`。
+2. 初始化队列 `queue` 并将 `root` 入队。
+3. 当队列不为空时：
+   - 获取当前层包含的节点数 `level_size = len(queue)`。这代表了这批出队元素全部属于同一层。
+   - 循环 `level_size` 次，弹出队首节点，将其值加入当前层的列表 `level_nodes` 中，并将其不为空的左右孩子节点依次加入队列尾部。
+   - 将当前层的结果 `level_nodes` 加入全局结果集中。
+4. 循环结束时，结果集中就以二维列表的形式保存了按层划分的节点值。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List, Optional
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -&gt; List[List[int]]:
+        """
+        时间复杂度: O(N) - 遍历所有节点各一次
+        空间复杂度: O(N) - 队列中最多同时存放最底层一层的节点（约 N/2 个）
+        """
+        if not root:
+            return []
+            
+        res = []
+        queue = deque([root])
+        
+        while queue:
+            level_size = len(queue)  # 记录当前层的节点数
+            current_level = []
+            
+            for _ in range(level_size):
+                curr = queue.popleft()
+                current_level.append(curr.val)
+                # 依次将非空子节点加入队列，参与下一层的遍历
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
+            res.append(current_level)
+            
+        return res
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_65">
+                <h3>65. Serialize and Deserialize Binary Tree (二叉树的序列化与反序列化) &nbsp;&nbsp;[<span class="difficulty-Hard">Hard</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 前序遍历 (Pre-order DFS) / 字符串编解码 / 树的就地重构</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：我们需要将一棵二叉树持久化为字符串，且能够完全反向恢复。这就要求我们在序列化时，必须保留树的“结构信息”（包括空子树的位置），否则仅靠一个遍历结果是无法唯一还原树结构的。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 前序 DFS (根 -> 左 -> 右) 机制：
+1. **序列化 (Serialize)**：
+   - 对树运行前序 DFS。如果节点为空，我们将其记录为特定的占位符（如 `'#'` 或 `'N'`）。
+   - 如果不为空，记录其值，并逗号分隔。这样，空节点被记录下来就能完整保留树的几何轮廓。
+   - 例如一棵树序列化结果可能为 `'1,2,#,#,3,4,#,#,5,#,#'`。
+2. **反序列化 (Deserialize)**：
+   - 将生成的序列化字符串按照逗号拆分成一个字符串列表，并转换为一个队列 `queue`。
+   - 我们定义递归恢复函数 `helper(queue)`：每次从队列头部弹出一个元素。
+     - 如果弹出的是 `'#'`，说明这是一个空节点，直接返回 `None`。
+     - 否则，创建一个新节点 `TreeNode(int(val))`。
+     - 然后，**先递归构建左子树，再递归构建右子树**（顺序必须与前序 DFS 写入的顺序完全一致）。
+     - 返回新创建的节点。队列消耗完毕时，整棵树也被完美构建还原。</p>
+                </div>
+                
+                <div class="code-block"><code>from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Codec:
+    def serialize(self, root):
+        """Encodes a tree to a single string.
+        """
+        res = []
+        def dfs(node):
+            if not node:
+                res.append("#")
+                return
+            res.append(str(node.val))
+            dfs(node.left)
+            dfs(node.right)
+        dfs(root)
+        return ",".join(res)
+
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+        """
+        vals = deque(data.split(','))
+        
+        def dfs():
+            val = vals.popleft()
+            if val == '#':
+                return None
+            node = TreeNode(int(val))
+            # 严格按照前序遍历顺序递归创建子树
+            node.left = dfs()
+            node.right = dfs()
+            return node
+            
+        return dfs()
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_66">
+                <h3>66. Subtree of Another Tree (另一棵树的子树) &nbsp;&nbsp;[<span class="difficulty-Easy">Easy</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二叉树递归校验 / 子结构匹配</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要判断 `subRoot` 是不是 `root` 的一个子树，有两种可能：1. `root` 自己和 `subRoot` 是一棵相同的树。 2. `subRoot` 是 `root.left` 的子树。 3. `subRoot` 是 `root.right` 的子树。这又是一个双重递归过程。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 辅助函数 `isSameTree(p, q)`：判断两棵树是否结构和数值完全相同（即 LeetCode 100 题的解法）。
+2. 主函数 `isSubtree(root, subRoot)`：
+   - 如果 `root` 为空，说明已经走到了底，而 `subRoot` 显然不为空（题目保证 subRoot 至少有一个节点），返回 `False`。
+   - 调用 `isSameTree(root, subRoot)`，如果为 `True`，说明匹配成功，直接返回 `True`。
+   - 否则，递归地在左子树和右子树中寻找匹配：`self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)`。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -&gt; bool:
+        """
+        时间复杂度: O(M * N) - M 和 N 分别为两棵树的节点数。最坏情况下需要以 root 的每个节点为起点运行 SameTree
+        空间复杂度: O(H_root) - H_root 为 root 树的高度，系统递归调用栈的深度
+        """
+        if not root:
+            return False
+            
+        # 辅助判断两棵树是否相同的函数
+        def isSame(p, q):
+            if not p and not q:
+                return True
+            if not p or not q or p.val != q.val:
+                return False
+            return isSame(p.left, q.left) and isSame(p.right, q.right)
+            
+        # 检查以当前 root 为头节点是否相同，或者递归去左右子树寻找
+        if isSame(root, subRoot):
+            return True
+        return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_67">
+                <h3>67. Construct Binary Tree from Preorder and Inorder Traversal (从前序与中序遍历序列构造二叉树) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 前中序遍历性质 / 分治递归构建 / 哈希映射定位优化</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：前序遍历的第一个元素永远是这棵树（或子树）的**根节点**。而中序遍历中，根节点正好把树分为左子树部分（左边）和右子树部分（右边）。通过结合这两点，我们可以利用分治法递归构建整棵树。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. **定位根节点**：在前序数组中取第一个数，它是当前的根节点值 `root_val = preorder[0]`。实例化新节点 `root = TreeNode(root_val)`。
+2. **切分子树区间**：在中序数组中找到根节点值所在的索引位置 `mid`：
+   - 中序数组中 `mid` 左边的部分是左子树的中序遍历结果。
+   - 右边的部分是右子树的中序遍历结果。
+3. **计算子树节点数**：左子树有 `left_size = mid` 个节点。因此，在前序数组中，根节点之后的 `left_size` 个元素（即 `preorder[1 : 1 + left_size]`）就是左子树的前序遍历结果，而剩余的部分则是右子树的前序遍历结果。
+4. **递归并优化**：递归调用上述切分，分别构建 `root.left` 和 `root.right`。在实现中，如果频繁在数组中查找索引或者切片，会导致 $O(N^2)$ 复杂度。我们可以使用一个哈希表 `inorder_map = {val: idx}` 来缓存中序数组的元素索引，并仅传递左右边界指针，将时间复杂度优化到严格的 O(N)。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List, Optional
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -&gt; Optional[TreeNode]:
+        """
+        时间复杂度: O(N) - N 为节点总数，借助哈希表实现 O(1) 查找
+        空间复杂度: O(N) - 缓存中序数组的哈希表，以及递归调用栈空间
+        """
+        # 缓存中序遍历的索引映射，避免在递归中重复查找
+        inorder_map = {val: i for i, val in enumerate(inorder)}
+        
+        # 递归构建的指针版辅助函数
+        def build(pre_start, pre_end, in_start, in_end):
+            if pre_start &gt; pre_end:
+                return None
+                
+            root_val = preorder[pre_start]
+            root = TreeNode(root_val)
+            
+            # 定位中序遍历中的根节点位置
+            mid = inorder_map[root_val]
+            left_size = mid - in_start  # 左子树包含的节点个数
+            
+            # 递归构建左子树与右子树
+            root.left = build(pre_start + 1, pre_start + left_size, in_start, mid - 1)
+            root.right = build(pre_start + left_size + 1, pre_end, mid + 1, in_end)
+            
+            return root
+            
+        return build(0, len(preorder) - 1, 0, len(inorder) - 1)
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_68">
+                <h3>68. Validate Binary Search Tree (验证二叉搜索树) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二叉搜索树 (BST) 的性质定义 / 区间边界传递递归</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：很多同学容易走进一个误区：只判定每个节点是否大于左孩子且小于右孩子。这是不够的。因为在 BST 中，**左子树的所有节点都必须小于当前节点，右子树的所有节点都必须大于当前节点**。例如，`[10, 5, 15, None, None, 6, 20]`，节点 6 虽然大于 5，但它在根节点 10 的右子树却小于 10，这违反了 BST 定义。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 区间边界传递破局：
+我们需要在递归时向下传递每个节点必须满足的**上限（upper）和下限（lower）值范围**。
+1. 初始化调用 `dfs(root, -inf, inf)`，根节点可以为任意值。
+2. 在递归的每一步中：
+   - 如果当前节点 `node` 为空，返回 `True`。
+   - 检查当前节点的值是否满足边界：`lower < node.val < upper`。若不满足，说明非法，返回 `False`。
+   - **向下更新边界**：
+     - 当向左子树递归时，所有左节点都必须小于当前节点。因此上限更新为当前节点的值：`dfs(node.left, lower, node.val)`。
+     - 当向右子树递归时，所有右节点都必须大于当前节点。因此下限更新为当前节点的值：`dfs(node.right, node.val, upper)`。
+   - 左右两边都合法才返回 `True`。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -&gt; bool:
+        """
+        时间复杂度: O(N) - 遍历所有节点一次
+        空间复杂度: O(H) - 递归调用栈空间
+        """
+        def validate(node, lower=float('-inf'), upper=float('inf')):
+            if not node:
+                return True
+                
+            # 当前节点值必须落在合法的开放区间内
+            if not (lower &lt; node.val &lt; upper):
+                return False
+                
+            # 左子树所有节点值必须小于 node.val，右子树所有节点值必须大于 node.val
+            return (validate(node.left, lower, node.val) and 
+                    validate(node.right, node.val, upper))
+                    
+        return validate(root)
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_69">
+                <h3>69. Kth Smallest Element in a BST (二叉搜索树中第 K 小的元素) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 二叉搜索树的中序遍历性质 / 栈迭代早期终止</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：BST（二叉搜索树）有一个非常关键的特性：**对 BST 进行中序遍历（左 -> 根 -> 右），得到的结果刚好是一个严格升序的序列**。所以，寻找第 k 小的元素，就是找出中序遍历中的第 k 个被访问节点。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 为了提高性能并做到早期终止，我们可以使用**迭代版的中序遍历**（用一个显式栈模拟系统递归）：
+1. 初始化一个空栈 `stack`，当前指针 `curr = root`。
+2. 在 `curr` 不为空或栈不为空的条件中循环：
+   - **向左倾斜入栈**：一路将当前节点及其所有左侧后代全部压入栈中：`stack.append(curr); curr = curr.left`。这能确保我们总是优先探寻最小的节点。
+   - **出栈处理**：弹出栈顶元素，它就是当前中序遍历中最小的未访问节点。我们对计数器 `k` 减 1（`k -= 1`）。
+   - **早期终止**：如果 `k == 0`，说明找到了第 k 小的元素，直接返回该节点的值。
+   - **转向右子树**：令 `curr = popped_node.right`，准备处理右侧分支。
+由于使用迭代栈，我们一旦访问完第 k 个元素就立即退出，不会遍历整棵树，极佳地优化了时间复杂度。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import Optional
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -&gt; int:
+        """
+        时间复杂度: O(H + k) - H 是树的高度，需要一路向左压栈，然后向后迭代遍历 k 次
+        空间复杂度: O(H) - 栈最大深度等于树的高度
+        """
+        stack = []
+        curr = root
+        
+        while curr or stack:
+            # 1. 一路探寻并入栈最左侧的后代节点
+            while curr:
+                stack.append(curr)
+                curr = curr.left
+                
+            # 2. 弹出栈顶节点（即当前最小节点）
+            curr = stack.pop()
+            k -= 1
+            
+            # 3. 计数达标，早期终止返回
+            if k == 0:
+                return curr.val
+                
+            # 4. 转向右子树分支
+            curr = curr.right
+            
+        return -1
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_70">
+                <h3>70. Lowest Common Ancestor of a Binary Search Tree (二叉搜索树的最近公共祖先) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> BST 的大小偏序性质 / 树的自顶向下分岔</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要在 BST 中找到两个节点 `p` 和 `q` 的最近公共祖先（LCA）。我们可以使用常规二叉树的后序遍历 LCA 算法，复杂度为 O(N)。但由于这是一棵二叉搜索树，我们完全可以利用数值大小关系进行快速的分治判定，把时间复杂度降低到 O(H)（在平衡树中为 O(log N)）。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> BST 性质告诉我们：对于任何节点，其左子树的值都小于它，右子树的值都大于它。
+从根节点 `root` 开始自顶向下迭代检查：
+1. 如果 `p.val` 和 `q.val` 的值都小于当前 `root.val`，说明这两个目标节点一定都在当前节点的左子树中。我们将 `root` 移动到左孩子：`root = root.left`。
+2. 如果 `p.val` 和 `q.val` 的值都大于当前 `root.val`，说明它们一定都在当前节点的右子树中。我们将 `root` 移动到右孩子：`root = root.right`。
+3. **分岔点判定**：如果上面两个条件都不成立（即一个比 `root` 大，一个比 `root` 小；或者其中有一个就是当前 `root` 节点自己），说明在当前节点处，`p` 和 `q` 发生了“分道扬镳”。这个分岔点就是它们的最近公共祖先，直接返回 `root`。</p>
+                </div>
+                
+                <div class="code-block"><code>class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -&gt; 'TreeNode':
+        """
+        时间复杂度: O(H) - 沿着单条分支向下搜索，最坏为 O(N)，平衡树时为 O(log N)
+        空间复杂度: O(1) - 仅需指针移动，无额外栈开销
+        """
+        curr = root
+        
+        while curr:
+            # 如果两个目标值都比当前节点小，往左子树走
+            if p.val &lt; curr.val and q.val &lt; curr.val:
+                curr = curr.left
+            # 如果两个目标值都比当前节点大，往右子树走
+            elif p.val &gt; curr.val and q.val &gt; curr.val:
+                curr = curr.right
+            else:
+                # 出现分岔（或者一个就是当前节点本身），当前节点即为最近公共祖先
+                return curr
+                
+        return None
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_71">
+                <h3>71. Implement Trie (Prefix Tree) (实现 Trie (前缀树)) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 前缀树设计 / 嵌套哈希结构</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：Trie 树（前缀树）是一种哈希树变体，常用于快速检索字符串前缀或进行自动补全。Trie 树的每个节点代表一个字符。根节点不包含字符，除根节点外每一个节点都仅包含一个字符；从根节点到某一个节点，路径上经过的字符连接起来就是该节点对应的字符串。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> Trie 节点结构设计：
+我们可以将每个节点定义为一个字典 `children`，键（Key）为子字符，值（Value）为指向下一个 Trie 节点实例的指针。同时，使用一个布尔变量 `is_word` 记录当前节点是否是一个单词的结束标记。
+1. `insert(word)`：从根节点出发，遍历单词的每个字符 `char`。如果 `char` 不在当前节点的 `children` 字典中，就创建一个新的 Trie 节点加入其中。然后指针移动到该子节点。遍历完后，将最后一个节点的 `is_word` 设为 `True`。
+2. `search(word)`：沿着 `children` 指针向下检索单词的每一个字符，如果中途断掉则说明该单词不存在，返回 `False`；如果顺利到达结尾，返回最后一个节点的 `is_word` 状态。
+3. `startsWith(prefix)`：执行与 `search` 相同的检索过程。如果顺利走完前缀的所有字符，说明前缀存在（无需关注最后一个节点是否是单词结尾），返回 `True`；中途断掉则返回 `False`。</p>
+                </div>
+                
+                <div class="code-block"><code>class TrieNode:
+    def __init__(self):
+        # 存储子节点映射 {字符: TrieNode}
+        self.children = {}
+        # 标记当前节点是否是单词的尾字符
+        self.is_word = False
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word: str) -&gt; None:
+        """插入一个单词
+        时间复杂度: O(L) - L 为单词长度
+        """
+        curr = self.root
+        for char in word:
+            if char not in curr.children:
+                curr.children[char] = TrieNode()
+            curr = curr.children[char]
+        curr.is_word = True
+
+    def search(self, word: str) -&gt; bool:
+        """查询单词是否存在
+        时间复杂度: O(L)
+        """
+        curr = self.root
+        for char in word:
+            if char not in curr.children:
+                return False
+            curr = curr.children[char]
+        return curr.is_word
+
+    def startsWith(self, prefix: str) -&gt; bool:
+        """查询是否存在以该前缀开头的单词
+        时间复杂度: O(L)
+        """
+        curr = self.root
+        for char in prefix:
+            if char not in curr.children:
+                return False
+            curr = curr.children[char]
+        return True
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_72">
+                <h3>72. Add and Search Word (添加与搜索单词 - 数据结构设计) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 前缀树 (Trie) + 带有通配符的递归 DFS 回溯</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：这道题是前缀树的进阶变体。我们需要设计一个单词查找系统，其中查找支持通配符 `'.'`（可以匹配任何单个字母）。如果不使用前缀树，随着添加单词的增加，大文本查询速度会严重变慢。使用前缀树后，我们可以利用 DFS 对通配符进行多路回溯查找。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 1. 节点设计与常规 Trie 一致：包含字典 `children` 和布尔值 `is_word`。
+2. `addWord(word)`：常规前缀树插入操作，耗时 $O(L)$。
+3. `search(word)`：需要处理通配符 `'.'`。我们设计一个递归的 DFS 匹配函数 `dfs(node, i)`，表示当前在 Trie 的 `node` 节点，去尝试匹配单词 `word` 从第 `i` 个索引开始的子串：
+   - 如果 `i == len(word)`，返回当前节点的 `is_word` 标记。
+   - 取出当前要匹配的字符 `char = word[i]`：
+     - **通配符处理**：如果 `char == '.'`，说明它可以代表任何子字符。我们必须遍历当前节点 `node.children` 中的**所有子节点**进行分支尝试：只要其中任何一个子分支调用 `dfs(child, i + 1)` 返回 `True`，当前搜索就判定成功，返回 `True`。如果全部子分支都失败，返回 `False`。
+     - **普通字符处理**：如果 `char` 在 `node.children` 中，递归进入下一层：`dfs(node.children[char], i + 1)`。否则，直接返回 `False`。</p>
+                </div>
+                
+                <div class="code-block"><code>class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_word = False
+
+class WordDictionary:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def addWord(self, word: str) -&gt; None:
+        """添加单词
+        时间复杂度: O(L)
+        """
+        curr = self.root
+        for char in word:
+            if char not in curr.children:
+                curr.children[char] = TrieNode()
+            curr = curr.children[char]
+        curr.is_word = True
+
+    def search(self, word: str) -&gt; bool:
+        """检索单词（支持通配符 '.'）
+        时间复杂度: 最坏为 O(M) - M 为字典中字符总数（通配符较多时深度搜索），通常为 O(L)
+        """
+        def dfs(node, i):
+            if i == len(word):
+                return node.is_word
+                
+            char = word[i]
+            if char == '.':
+                # 通配符匹配：尝试遍历所有的子树分支
+                for child in node.children.values():
+                    if dfs(child, i + 1):
+                        return True
+                return False
+            else:
+                # 常规字符匹配
+                if char not in node.children:
+                    return False
+                return dfs(node.children[char], i + 1)
+                
+        return dfs(self.root, 0)
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_73">
+                <h3>73. Word Search II (单词搜索 Ⅱ) &nbsp;&nbsp;[<span class="difficulty-Hard">Hard</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 前缀树 (Trie) + 二维网格回溯 (Backtracking DFS) + 剪枝优化</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：本题是“单词搜索 I”的升级版。如果对于 `words` 列表中的每个单词都分别在网格里运行一遍回溯 DFS，时间复杂度是 O(W * M * N * 3^L)（W 是单词数量），会严重超时。我们需要一次性在网格中搜索所有的单词。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 前缀树加速网格回溯与剪枝破局：
+与其对单词列表进行外层迭代，不如**将所有待检索的单词构建到一棵前缀树 (Trie) 中**，然后我们在网格的每个位置启动 DFS 搜索时，**让网格的移动与 Trie 树的指针移动同步进行**。
+1. **建树**：将 `words` 写入 Trie 树。为了方便，我们在单词结尾的节点上直接保存该单词的值（如 `node.word = word`），这样一旦在搜索中匹配到单词节点，可以直接获取到完整的单词。
+2. **网格 DFS**：在位置 `(r, c)`：
+   - 如果当前网格字符 `char` 在当前 Trie 节点 `node.children` 中，说明这是一条有潜力的匹配路径。我们移动到 `child_node = node.children[char]`。
+   - 检查 `child_node`：如果它包含 `word` 属性，说明我们找到了一个有效的单词，加入结果集中。**重要优化：立即将 `child_node.word` 设为 `None`，防止同一个单词在不同网格位置被重复搜出来加入结果集。**
+   - 原地标记当前格子已被访问（如 `board[r][c] = '#'`），然后向四周递归继续搜索。
+   - 回溯恢复现场（`board[r][c] = char`）。
+3. **高阶剪枝优化**：当一个叶子节点的单词被找到后，或者一个节点的所有子树都为空时，说明这部分的 Trie 树枝已经没有利用价值了。我们可以在回溯时**就地将该无效子节点从父节点的 children 字典中删除**（剪枝）。这可以极大防止冗余的重复路径探索，是能通过力扣超强测试用例的关键。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.word = None  # 存储匹配成功的完整单词
+
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -&gt; List[str]:
+        """
+        时间复杂度: O(M * N * 4 * 3^(L-1)) - M, N 为网格边长，L 为单词最大长度
+        空间复杂度: O(W * L) - Trie 树占用的存储空间，W 为单词数，L 为最大长度
+        """
+        # 1. 构建前缀树
+        root = TrieNode()
+        for word in words:
+            curr = root
+            for char in word:
+                if char not in curr.children:
+                    curr.children[char] = TrieNode()
+                curr = curr.children[char]
+            curr.word = word
+            
+        m, n = len(board), len(board[0])
+        res = []
+        
+        # 2. 网格回溯 DFS 函数
+        def dfs(r, c, parent_node):
+            char = board[r][c]
+            curr_node = parent_node.children[char]
+            
+            # 如果匹配成功一个单词，将其加入结果
+            if curr_node.word:
+                res.append(curr_node.word)
+                curr_node.word = None  # 防止重复添加
+                
+            # 临时标记已访问
+            board[r][c] = '#'
+            
+            # 探索四周邻居
+            for dr, dc in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                nr, nc = r + dr, c + dc
+                if 0 &lt;= nr &lt; m and 0 &lt;= nc &lt; n:
+                    next_char = board[nr][nc]
+                    if next_char in curr_node.children:
+                        dfs(nr, nc, curr_node)
+                        
+            # 回溯恢复现场
+            board[r][c] = char
+            
+            # 高阶剪枝优化：如果当前节点没有子节点了，从父节点中删除它
+            if not curr_node.children:
+                parent_node.children.pop(char)
+                
+        # 3. 遍历网格每个格子作为起点尝试搜索
+        for r in range(m):
+            for c in range(n):
+                start_char = board[r][c]
+                if start_char in root.children:
+                    dfs(r, c, root)
+                    
+        return res
+</code></div>
+            </div>
+            </div><div class="page-break"></div><div class="category-section"><div class="category-title">堆 (Heap)</div>
+            <div class="problem-card" id="prob_74">
+                <h3>74. Top K Frequent Elements (前 K 个高频元素) &nbsp;&nbsp;[<span class="difficulty-Medium">Medium</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 哈希计数表 + 桶排序 (Bucket Sort) O(N) 最优解 / 最小堆 (Min-Heap) O(N log K)</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：先用哈希表统计每个数字出现的频率，然后对频率排序，取前 k 大的数字。时间复杂度为 O(N log N)。或者，用一个大小为 k 的最小堆，维护当前最高频的 k 个元素，每次遇到新数字插入堆并调整，时间复杂度为 O(N log K)。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 利用桶排序 (Bucket Sort) 实现 O(N) 极致优化破局：
+既然频数（Frequency）的取值范围被严格限定在 `[0, N]` 之间（N 为数组长度），我们完全可以使用**桶排序**的思想：
+1. 用哈希表统计每个数出现的频数。
+2. 创建一个大小为 `N + 1` 的列表 `buckets`。其中 `buckets[i]` 作为一个空列表，用来存放所有**出现频数刚好为 `i`** 的数字。
+3. 遍历哈希表，把数字放到它对应频数的桶 `buckets[frequency]` 中。
+4. **逆序收集**：从后往前（从最高频 `N` 到最低频 `0`）遍历 `buckets` 桶列表，依次将桶里的数搜集出来，直到我们搜集满 `k` 个元素为止。
+由于每个数字最多入桶出桶一次，且无需进行数值排序，总时间复杂度被降到了完美的 $O(N)$，空间复杂度也为 $O(N)$。这在面试中是优于堆排序的满分回答。</p>
+                </div>
+                
+                <div class="code-block"><code>from typing import List
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -&gt; List[int]:
+        """
+        时间复杂度: O(N) - 统计频数、入桶和搜集元素皆为 O(N)
+        空间复杂度: O(N) - 存储频数哈希表与桶数组
+        """
+        # 1. 统计各个数值出现的频数
+        count = {}
+        for num in nums:
+            count[num] = count.get(num, 0) + 1
+            
+        # 2. 创建频数桶，索引 i 代表频数，buckets[i] 存所有频数为 i 的数
+        n = len(nums)
+        buckets = [[] for _ in range(n + 1)]
+        for num, freq in count.items():
+            buckets[freq].append(num)
+            
+        # 3. 从后往前遍历桶（从最高频到最低频），搜集前 k 个元素
+        res = []
+        for i in range(n, -1, -1):
+            for num in buckets[i]:
+                res.append(num)
+                if len(res) == k:
+                    return res
+                    
+        return res
+</code></div>
+            </div>
+            
+            <div class="problem-card" id="prob_75">
+                <h3>75. Find Median from Data Stream (数据流的中位数) &nbsp;&nbsp;[<span class="difficulty-Hard">Hard</span>]</h3>
+                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> 双堆平衡设计 (Dual Heaps) / 大顶堆与小顶堆</div>
+                
+                <div class="analysis-box">
+                    <p><strong>🧠 深入分析与破局点:</strong></p>
+                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> 直觉：要把一个不断增加的数据流的中位数实时算出来，如果每次排序，插入复杂度是 O(N log N)，效率极低。如果用插入排序维护一个有序列表，每次插入是 O(N) 时间，仍然较慢。我们需要寻找能在 $O(\log N)$ 时间内处理插入的方案。</p>
+                    <p style="margin-top: 10px;"><strong>思维推导:</strong> 大顶堆与小顶堆组合（双堆对对碰）破局：
+我们可以把所有数字拆分为**左右对称的两半部分**：
+- **左半部分**（较小的一半）：用一个**大顶堆 `small`** 存储。大顶堆的堆顶是这部分的最大值。
+- **右半部分**（较大的一半）：用一个**小顶堆 `large`** 存储。小顶堆的堆顶是这部分的最小值。
+这样，中位数就只与 `small` 的堆顶和 `large` 的堆顶有关。
+为了实现这个设计，在插入新元素 `num` 时：
+1. 默认先把 `num` 插入 `small`（左半部大顶堆）。为了将其负数化以实现大顶堆，我们压入 `-num`。
+2. 为了保证两堆的顺序，从 `small` 中弹出一个最大值，压入 `large` 中。
+3. **平衡两堆的大小**：我们约定左半部大顶堆 `small` 的元素个数最多比右半部小顶堆 `large`多 1 个，即：`len(small) >= len(large)`。如果刚才的交换导致 `len(large) > len(small)`，我们就从小顶堆 `large` 中弹出一个最小值，压入 `small` 中。
+4. **求中位数**：
+   - 如果 `len(small) > len(large)`，说明总个数为奇数，左侧多一个，中位数就是大顶堆 `small` 的堆顶。
+   - 如果两者长度相等，说明总个数为偶数，中位数就是 `(small 堆顶 + large 堆顶) / 2.0`。
+微调：每次插入和求中位数操作的复杂度均为 $O(\log N)$，性能极高。</p>
+                </div>
+                
+                <div class="code-block"><code>import heapq
+
+class MedianFinder:
+    def __init__(self):
+        # small 是大顶堆，存较小的一半（Python heapq 默认为小顶堆，需将数值取反存储）
+        self.small = []
+        # large 是小顶堆，存较大的一半
+        self.large = []
+
+    def addNum(self, num: int) -&gt; None:
+        """
+        时间复杂度: O(log N) - 堆的压入与弹出操作
+        """
+        # 1. 默认加入左半部大顶堆（压入负值）
+        heapq.heappush(self.small, -num)
+        
+        # 2. 保证左半部的最大值小于或等于右半部的最小值：从左半部移出一个最大值到右半部
+        val = -heapq.heappop(self.small)
+        heapq.heappush(self.large, val)
+        
+        # 3. 维持大小平衡条件：len(small) &gt;= len(large)
+        if len(self.large) &gt; len(self.small):
+            val = heapq.heappop(self.large)
+            heapq.heappush(self.small, -val)
+
+    def findMedian(self) -&gt; float:
+        """
+        时间复杂度: O(1) - 直接取堆顶元素
+        """
+        if len(self.small) &gt; len(self.large):
+            # 奇数个，中位数在左半部最大值
+            return float(-self.small[0])
+            
+        # 偶数个，取两堆顶的平均值
+        return (-self.small[0] + self.large[0]) / 2.0
+</code></div>
+            </div>
+            </div><div class="page-break"></div>
+    </div>
+</body>
+</html>
