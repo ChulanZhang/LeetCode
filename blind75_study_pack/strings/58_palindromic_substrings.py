@@ -1,28 +1,22 @@
 from typing import List, Optional, Dict, Set
 
-# Palindromic Substrings (回文子串个数) - Medium
-# 🔑 核心考点: 中心扩散法 (Expand Around Center) / 回文计数
+# Palindromic Substrings - Medium
+# 🔑 Key Points: Expand Around Center - Palindrome Counter
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：这道题需要统计字符串中所有回文子串的个数。既然回文子串都是围绕某个中心对称的，我们同样可以采用中心扩散法：每成功向外扩散一步，就说明我们找到了一个新的回文子串，计数器加 1。
-#   - 思维推导: 
-#     与上一题“最长回文子串”类似，我们利用 2N-1 个回文中心进行扩散：
-#     1. 遍历字符串中的每一个索引 `i`。
-#     2. **以第 i 个字符为中心**启动扩散：
-#        - 初始化 `l = i`, `r = i`。
-#        - 循环检查是否满足 `l >= 0` 且 `r < len(s)` 且 `s[l] == s[r]`。只要满足，说明 `s[l:r+1]` 是回文串，计数器 `count += 1`。然后向外扩散 `l -= 1`, `r += 1`。
-#     3. **以第 i 和第 i+1 个字符为中心**启动扩散：
-#        - 初始化 `l = i`, `r = i + 1`。
-#        - 执行同样的扩散条件和计数。
-#     4. 遍历所有中心结束后，累加的总计数即为全部回文子串的数量。空间复杂度仅为 O(1)。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     We need to find the total count of palindromic substrings. Since every palindrome expands around a center, we can count palindromes by initiating center expansions and incrementing a counter for each successful step.
+#   - Mathematical Derivation: 
+#     Like the longest palindromic substring problem, we use `2N - 1` centers:
+#     1. Iterate `i` from `0` to `n - 1`.
+#     2. **Odd length center**: Expand from `(i, i)`. Increment `count` each time we expand successfully.
+#     3. **Even length center**: Expand from `(i, i+1)`. Increment `count` each time we expand successfully.
+#     4. Return the total count. This achieves O(N^2) time and O(1) space.
 
 class Solution:
     def countSubstrings(self, s: str) -> int:
-        """
-        时间复杂度: O(N^2) - 每个中心最多扩散 O(N) 步
-        空间复杂度: O(1)
-        """
+        # Time Complexity: O(N^2) - 2N - 1 centers, each can expand up to O(N) steps
+        # Space Complexity: O(1)
         count = 0
         n = len(s)
         
@@ -34,9 +28,9 @@ class Solution:
                 right += 1
                 
         for i in range(n):
-            # 奇数长度中心扩散
+            # Check odd length palindromes centered at index i
             expand_and_count(i, i)
-            # 偶数长度中心扩散
+            # Check even length palindromes centered between i and i + 1
             expand_and_count(i, i + 1)
             
         return count

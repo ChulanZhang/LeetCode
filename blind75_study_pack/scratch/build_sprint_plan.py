@@ -24,23 +24,23 @@ def generate_markdown_plan():
     md_path = os.path.join(plan_dir, "30_day_sprint_plan.md")
     
     content = []
-    content.append("# 30天算法冲刺通关计划 (MLSys PhD 专属定制)\n")
-    content.append("> **冲刺教练寄语**：专为 MLSys 背景定制，在打牢双指针、二分、递归、树、图等算法底子的同时，深度融合系统级缓存（LRU/LFU）、环形队列、并发安全、位运算量化等底层机制，消除代码手生感。\n")
-    content.append("## 30天全景规划看板\n")
+    content.append("# 30-Day Algorithm Sprint Plan (Customized for MLSys PhDs)\n")
+    content.append("> **Coach's Note**: Specially customized for MLSys backgrounds. While strengthening core algorithms like two pointers, binary search, trees, and graphs, we deeply integrate systems-level mechanics (LRU/LFU cache, ring buffers, concurrency, bit quantization) to build high-performance whiteboard muscle memory.\n")
+    content.append("## 30-Day Panorama Roadmap\n")
     
-    # 概览表
-    content.append("| 阶段 | 日期 | 核心主题 | 每日题量 |")
+    # Overview Table
+    content.append("| Phase | Day | Core Theme | Daily Volume |")
     content.append("|---|---|---|---|")
     for idx, phase in enumerate(plan_database.PHASES):
         phase_name = phase["name"]
         for day, info in phase["days"].items():
-            content.append(f"| {phase_name.split(':')[0]} | Day {day:02d} | {info['theme']} | {len(info['problems'])} 题 |")
+            content.append(f"| {phase_name.split(':')[0]} | Day {day:02d} | {info['theme']} | {len(info['problems'])} Qs |")
     content.append("\n---\n")
     
-    # 详细内容
+    # Detailed Content
     for phase in plan_database.PHASES:
         content.append(f"## {phase['name']}")
-        content.append(f"**阶段目标**：{phase['target']}\n")
+        content.append(f"**Phase Target**: {phase['target']}\n")
         
         for day, info in sorted(phase["days"].items()):
             content.append(f"### 📅 Day {day:02d} - {info['theme']}\n")
@@ -49,9 +49,9 @@ def generate_markdown_plan():
                 lc_url = f"https://leetcode.com/problems/{clean_filename(prob['name']).replace('_', '-')}/"
                 template_name = f"day{day:02d}_q{int(prob['id']):03d}_{clean_filename(prob['name'])}.py"
                 content.append(f"- **LeetCode {prob['id']}**: [{prob['name']}]({lc_url}) | **[{prob['difficulty']}]**")
-                content.append(f"  - 🔑 **考点**: {prob['key']}")
-                content.append(f"  - 💻 **本地复盘模板**: [sprint_plan/templates/{template_name}]({FILE_URL_ROOT}/sprint_plan/templates/{template_name})")
-                content.append(f"  - 🧠 **MLSys 底层映射**: {prob['systems_note']}\n")
+                content.append(f"  - 🔑 **Key Points**: {prob['key']}")
+                content.append(f"  - 💻 **Local Template**: [sprint_plan/templates/{template_name}]({FILE_URL_ROOT}/sprint_plan/templates/{template_name})")
+                content.append(f"  - 🧠 **MLSys Connection**: {prob['systems_note']}\n")
             content.append("---")
             
     with open(md_path, "w", encoding="utf-8") as f:
@@ -72,24 +72,25 @@ def generate_templates():
                 
                 template_content = f"""# -*- coding: utf-8 -*-
 # LeetCode {prob['id']} - {prob['name']} ({prob['difficulty']})
-# 核心考点: {prob['key']}
+# Key Points: {prob['key']}
 #
-# MLSys 系统/低底层关联说明:
+# MLSys System/Low-Level Mapping:
 # {prob['systems_note']}
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass
 """
                 with open(filepath, "w", encoding="utf-8") as f:
@@ -104,10 +105,10 @@ def generate_html_plan():
     html_path = os.path.join(plan_dir, "30_day_sprint_plan.html")
     
     html_header = """<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>30天算法白板通关计划 (MLSys PhD 专属)</title>
+    <title>30-Day Algorithm Whiteboard Sprint Plan (MLSys PhD Exclusive)</title>
     <style>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -213,15 +214,15 @@ def generate_html_plan():
     </style>
 </head>
 <body>
-    <h1>30天算法面试高压冲刺计划</h1>
-    <div class="subtitle">针对 MLSys 博士生深度定制 & 硬件系统级联想</div>
+    <h1>30-Day Algorithm Whiteboard Sprint Plan</h1>
+    <div class="subtitle">Tailored for MLSys PhDs & Low-Level Hardware Systems Mapping</div>
 """
     
     html_body = []
     for p_idx, phase in enumerate(plan_database.PHASES):
         html_body.append(f'<div class="phase-card">')
         html_body.append(f'  <div class="phase-title">{phase["name"]}</div>')
-        html_body.append(f'  <div class="phase-target"><strong>阶段冲刺目标：</strong>{phase["target"]}</div>')
+        html_body.append(f'  <div class="phase-target"><strong>Phase Target: </strong>{phase["target"]}</div>')
         
         for day, info in sorted(phase["days"].items()):
             html_body.append(f'  <div class="day-section">')
@@ -230,9 +231,9 @@ def generate_html_plan():
             html_body.append(f'      <thead>')
             html_body.append(f'        <tr>')
             html_body.append(f'          <th style="width: 10%;">ID</th>')
-            html_body.append(f'          <th style="width: 30%;">题目</th>')
-            html_body.append(f'          <th style="width: 15%;">难度</th>')
-            html_body.append(f'          <th style="width: 45%;">核心考点与 MLSys 底层系统映射</th>')
+            html_body.append(f'          <th style="width: 30%;">Problem</th>')
+            html_body.append(f'          <th style="width: 15%;">Difficulty</th>')
+            html_body.append(f'          <th style="width: 45%;">Key Points & MLSys Low-Level Systems Mapping</th>')
             html_body.append(f'        </tr>')
             html_body.append(f'      </thead>')
             html_body.append(f'      <tbody>')
@@ -243,8 +244,8 @@ def generate_html_plan():
                 html_body.append(f'          <td><strong>{prob["name"]}</strong></td>')
                 html_body.append(f'          <td><span class="difficulty-{prob["difficulty"]}">{prob["difficulty"]}</span></td>')
                 html_body.append(f'          <td>')
-                html_body.append(f'            <div><strong>考点：</strong>{prob["key"]}</div>')
-                html_body.append(f'            <div class="systems-box">⚡ <strong>MLSys 关联：</strong>{prob["systems_note"]}</div>')
+                html_body.append(f'            <div><strong>Key Points: </strong>{prob["key"]}</div>')
+                html_body.append(f'            <div class="systems-box">⚡ <strong>MLSys Connection: </strong>{prob["systems_note"]}</div>')
                 html_body.append(f'          </td>')
                 html_body.append(f'        </tr>')
                 

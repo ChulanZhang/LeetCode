@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 588 - Design In-Memory File System (Hard)
-# 核心考点: Trie 树扩展节点设计 + 目录树 DFS
+# Key Points: Trie with File Node Directory Tree
 #
-# MLSys 系统/低底层关联说明:
-# 手撕内存文件系统。核心是设计一个包含 {子目录名: 节点} 且叶子节点能存储具体文件内容的 Trie 树，支持 `ls`, `mkdir`, `addContentToFile`, `readContentFromFile` 等操作。考查了高并发操作系统底层模拟构建。
+# MLSys System/Low-Level Mapping:
+# Designing an OS in-memory file system. Models a directory hierarchy using a Trie where terminal nodes represent file contents, supporting `ls`, `mkdir`, `addContentToFile`, and `readContentFromFile` operations.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

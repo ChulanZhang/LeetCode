@@ -1,34 +1,32 @@
 from typing import List, Optional, Dict, Set
 
-# Meeting Rooms II (会议室 Ⅱ) - Medium
-# 🔑 核心考点: 堆 (Min-Heap) / 双指针 (Two Pointers) / 差分数组扫描线
+# Meeting Rooms II - Medium
+# 🔑 Key Points: Min-Heap / Two Pointers / Chronological Sweep-Line
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：我们需要计算在任何一个时间点，最多有多少个会议同时在进行。这个“最大并发数”就是我们所需要的最少会议室数量。
-#   - 思维推导: 
-#     双指针扫描线法：
-#     我们将所有的会议“开始时间”和“结束时间”拆开，分别存入两个数组并单独进行升序排序。
-#     1. `start_times` 存储所有会议的开始时间并排序。
-#     2. `end_times` 存储所有会议的结束时间并排序。
-#     3. 使用两个指针 `s` 和 `e` 分别指向这两个数组的起点。使用 `curr_rooms` 记录当前时刻占用的房间数，`max_rooms` 记录历史最大值。
-#     4. 逐步推进时间：
-#        - 如果 `start_times[s] < end_times[e]`，说明有一场新会议要开始，且此时还没有旧会议结束。我们需要新开一间房间：`curr_rooms += 1`, `s += 1`。
-#        - 如果 `start_times[s] >= end_times[e]`，说明有会议结束了，腾出了一间会议室：`curr_rooms -= 1`, `e += 1`。
-#        - 在每一步，我们用 `curr_rooms` 更新 `max_rooms = max(max_rooms, curr_rooms)`。遍历结束时 `max_rooms` 即为所求。时间复杂度为 O(N log N)，比用最小堆实现更简洁。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     We need to find the maximum number of concurrent meetings running at any point in time. This maximum concurrency determines the minimum number of meeting rooms required.
+#   - Mathematical Derivation: 
+#     Chronological Sweep-Line approach:
+#     We separate the start times and end times of all meetings into two distinct arrays and sort them individually.
+#     1. `start_times` stores all meeting start times and is sorted.
+#     2. `end_times` stores all meeting end times and is sorted.
+#     3. Place two pointers `s` and `e` at the start of these arrays. Maintain `curr_rooms` (active rooms at current timestamp) and `max_rooms` (the global peak value).
+#     4. Advance through time:
+#        - If `start_times[s] < end_times[e]`, it means a new meeting starts before the earliest active meeting ends. We must allocate a new room: `curr_rooms += 1`, `s += 1`.
+#        - If `start_times[s] >= end_times[e]`, an active meeting ends. A room is freed: `curr_rooms -= 1`, `e += 1`.
+#        - At each step, update `max_rooms = max(max_rooms, curr_rooms)`. This sweep-line approach is O(N log N) and simpler than using a min-heap.
 
 from typing import List
 
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        """
-        时间复杂度: O(N log N) - 主要时间在两个时间数组的排序上
-        空间复杂度: O(N) - 存储分离后的开始时间和结束时间数组
-        """
+        # Time Complexity: O(N log N) - Sorting start and end times dominates the run time
+        # Space Complexity: O(N) - Storage for start and end time arrays
         if not intervals:
             return 0
             
-        # 分离开始和结束时间并排序
+        # Extract and sort start times and end times independently
         start_times = sorted([i[0] for i in intervals])
         end_times = sorted([i[1] for i in intervals])
         
@@ -37,12 +35,12 @@ class Solution:
         max_rooms = 0
         
         while s < len(intervals):
-            # 如果有新会议开始，且在当前最早会议结束之前
+            # If a new meeting starts before the earliest active meeting ends
             if start_times[s] < end_times[e]:
                 curr_rooms += 1
                 s += 1
             else:
-                # 否则，说明有会议结束了，释放一间会议室
+                # Otherwise, a meeting ended, releasing a room
                 curr_rooms -= 1
                 e += 1
             max_rooms = max(max_rooms, curr_rooms)

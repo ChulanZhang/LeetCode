@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 269 - Alien Dictionary (Hard)
-# 核心考点: 手撕拓扑排序有向图环检测 (复习 Day 16)
+# Key Points: Hand-Code Topological Sort & DFS Cycle Detect (Review Day 16)
 #
-# MLSys 系统/低底层关联说明:
-# 系统编译调度的基石，将输入依赖解析、建图、环检测、拓扑排序汇于一体，极其考验白板代码的完整度和鲁棒性。
+# MLSys System/Low-Level Mapping:
+# The foundation of compilation pipeline dependencies scheduling. Combines parsing, directed graph construction, cycle validation, and topological sorting.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

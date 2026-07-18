@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 236 - Lowest Common Ancestor of a Binary Tree (Medium)
-# 核心考点: 常规二叉树后序回溯
+# Key Points: General Binary Tree Post-Order DFS
 #
-# MLSys 系统/低底层关联说明:
-# 常规二叉树没有大小性质，必须通过 DFS 后序遍历向上传递匹配标志。当左子树和右子树各自返回匹配节点时，当前节点就是最近公共祖先。
+# MLSys System/Low-Level Mapping:
+# General trees do not have value ordering, requiring a post-order traversal to bubble up match flags. If left and right subtrees both return non-null, the current node is the LCA.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

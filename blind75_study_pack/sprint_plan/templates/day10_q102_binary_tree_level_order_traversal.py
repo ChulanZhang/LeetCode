@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 102 - Binary Tree Level Order Traversal (Medium)
-# 核心考点: 广度优先搜索 (BFS) + 队列分层
+# Key Points: BFS Level-by-Level Queue
 #
-# MLSys 系统/低底层关联说明:
-# 层序遍历是 BFS 的基础。在图计算引擎和分布式调度系统（如 Ray 调度任务图按依赖层次执行）中，按层推送和合并计算状态是保障时序正确性的通用方案。
+# MLSys System/Low-Level Mapping:
+# Level order traversal is the basis of BFS. In graph execution engines and distributed schedulers (e.g. Ray executing dataflow tasks by dependency layer), processing nodes level-by-level ensures strict causal order.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

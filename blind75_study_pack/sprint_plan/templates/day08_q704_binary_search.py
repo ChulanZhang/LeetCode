@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 704 - Binary Search (Easy)
-# 核心考点: 标准二分查找模板
+# Key Points: Standard Binary Search Template
 #
-# MLSys 系统/低底层关联说明:
-# 二分查找的精髓在于边界区间的划分与防死循环条件。在底层系统设计中，诸如内存页表快速检索、有序键值对存储的检索，二分查找是必不可少的 O(log N) 算法。
+# MLSys System/Low-Level Mapping:
+# The essence of binary search is partition boundary definition and loop condition control. In low-level systems, such as OS memory page table lookup or indexing in sorted key-value databases, binary search is the default O(log N) lookup algorithm.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

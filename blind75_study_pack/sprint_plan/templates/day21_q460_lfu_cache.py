@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 460 - LFU Cache (Hard)
-# 核心考点: 双哈希表 + 频数链表组织
+# Key Points: Double Hash Maps + Frequency Lists
 #
-# MLSys 系统/低底层关联说明:
-# 最难的系统级缓存设计题。当空间已满且存在频数冲突时，需淘汰最久未访问（LRU）的节点。需要维护一个 `min_freq` 变量和 {频数: 该频数对应的双向链表} 的哈希表，是极致的数据结构组装挑战。
+# MLSys System/Low-Level Mapping:
+# Hard cache eviction. Evicts the least frequently used node, breaking ties using LRU. Requires maintaining a `min_freq` integer and a mapping of frequencies to doubly linked lists, challenging data structure composition skills.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

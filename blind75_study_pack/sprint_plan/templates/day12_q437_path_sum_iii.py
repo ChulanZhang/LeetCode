@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 437 - Path Sum III (Medium)
-# 核心考点: 树上 DFS + 前缀和哈希表
+# Key Points: DFS + Prefix Sum Hash Map
 #
-# MLSys 系统/低底层关联说明:
-# 将一维数组的前缀和思想巧妙移植到树结构上。在深度遍历时，用哈希表实时维护从根节点到当前路径的前缀和频数，回溯时清理，实现了 O(N) 时间和 O(H) 空间的高效匹配。
+# MLSys System/Low-Level Mapping:
+# Porting prefix sum logic to trees. During DFS, we maintain running prefix sums in a hash map, backtracking to remove current paths when returning. This yields an O(N) time and O(H) space solution.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

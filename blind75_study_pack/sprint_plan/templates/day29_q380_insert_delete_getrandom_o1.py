@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 380 - Insert Delete GetRandom O(1) (Medium)
-# 核心考点: 哈希表 + 动态数组交换尾部元素删除
+# Key Points: Hash Map + Dynamic Array Tail Swap
 #
-# MLSys 系统/低底层关联说明:
-# 很多 MLSys 的负采样（Negative Sampling）中需要在 O(1) 内随机抽取样本，同时支持 O(1) 的插入和删除。哈希表做映射，数组存储实际元素。删除时将目标与数组尾部元素交换再 pop_back，避免了数组搬移开销。
+# MLSys System/Low-Level Mapping:
+# Used in MLSys negative batch samplers requiring O(1) random draws, inserts, and deletes. A map indexes keys to list offsets. To delete in O(1) time, swap the target element with the last element of the list, then pop back to avoid array shifting.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

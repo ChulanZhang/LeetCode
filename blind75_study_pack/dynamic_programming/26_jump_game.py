@@ -1,34 +1,32 @@
 from typing import List, Optional, Dict, Set
 
-# Jump Game (跳跃游戏) - Medium
-# 🔑 核心考点: 贪心算法 (Greedy) / 动态规划状态退化
+# Jump Game - Medium
+# 🔑 Key Points: Greedy Pointer Shifting
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：使用动态规划，设 `dp[i]` 代表位置 `i` 能否到达终点。但由于我们只需知道“能否”，我们实际上可以从后往前思考，或者维护当前能跳到的最远边界。
-#   - 思维推导: 
-#     贪心思想（自后向前）：
-#     我们可以维护一个目标点 `goal`，初始值为数组的最后一个索引 `n-1`（我们想去的地方）。
-#     我们从右往左倒序遍历数组，如果当前位置 `i` 能够跳到或者跳过当前的 `goal`（即满足 `i + nums[i] >= goal`），说明只要我们能走到位置 `i`，就一定能走到原本的 `goal`。于是，我们可以把目标点前移更新为 `i`，即 `goal = i`。
-#     当我们遍历完整个数组后，如果 `goal` 成功退回到了起点 `0`，说明我们从起点开始可以一路跳到终点。时间复杂度为 O(N)，空间复杂度为 O(1)。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     Let `dp[i]` be whether position `i` can reach the end. However, a greedy strategy traversing backwards from the goal is much more efficient and uses less space.
+#   - Mathematical Derivation: 
+#     Greedy approach (backwards): We define our destination goal `goal` as `n-1` (the last index of the array).
+#     We traverse the array from right to left. If from position `i` we can jump to or beyond the current `goal` (i.e., `i + nums[i] >= goal`), then as long as we can reach `i`, we can reach `goal`. We then shift our `goal` to `i` (`goal = i`).
+#     After checking the whole array, if `goal` successfully shifts back to `0`, we can reach the end from the start in O(N) time and O(1) space.
 
 from typing import List
 
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        """
-        时间复杂度: O(N) - 从后向前一次遍历
-        空间复杂度: O(1)
-        """
-        # 初始化目标位置为数组的最后一个索引
+        # Time Complexity: O(N) - Single pass from right to left
+        # Space Complexity: O(1)
+        
+        # Goal is initialized to the last index of the array
         goal = len(nums) - 1
         
         for i in range(len(nums) - 1, -1, -1):
-            # 如果当前位置加最大跳跃步数能到达或超过当前目标点
+            # If current index + jump reach can hit or exceed the goal
             if i + nums[i] >= goal:
-                # 目标点前移到当前位置
+                # Update goal to be the current index
                 goal = i
                 
-        # 判断最终目标点是否退回到起点
+        # If goal successfully rolled back to index 0, we can reach the end
         return goal == 0
 

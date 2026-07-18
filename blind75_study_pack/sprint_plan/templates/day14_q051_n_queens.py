@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 51 - N-Queens (Hard)
-# 核心考点: 回溯 + 斜线特征数组优化
+# Key Points: Backtracking + Diagonal Hash Tables
 #
-# MLSys 系统/低底层关联说明:
-# 经典的 N 皇后回溯。破局点是利用 `r - c` 和 `r + c` 作为对角线的唯一标识数组进行 O(1) 的冲突检测，这比每次扫描棋盘判断冲突高效得多。
+# MLSys System/Low-Level Mapping:
+# Classic N-Queens backtracking. The key optimization is using arrays for `r - c` and `r + c` to identify diagonals, enabling O(1) conflict validation instead of O(N) board scans.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

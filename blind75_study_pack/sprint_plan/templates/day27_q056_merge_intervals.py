@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 56 - Merge Intervals (Medium)
-# 核心考点: 起点排序 + 顺序区间合并
+# Key Points: Sort by Start Time + Linear Merge
 #
-# MLSys 系统/低底层关联说明:
-# 在操作系统的物理内存分配器中，当多个虚拟页面被释放时，我们需要将相邻且相接的空闲内存区间进行“物理合并”，以减少系统内存碎片。这个合并的核心逻辑就是区间合并。
+# MLSys System/Low-Level Mapping:
+# In OS virtual memory managers, when pages are deallocated, contiguous free blocks are coalesced (merged) to minimize memory fragmentation. Coalescing free blocks is logically equivalent to interval merging.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

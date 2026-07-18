@@ -1,39 +1,37 @@
 from typing import List, Optional, Dict, Set
 
-# Longest Increasing Subsequence (最长递增子序列 - LIS) - Medium
-# 🔑 核心考点: 动态规划 O(n^2) / 二分查找搭配贪心策略 O(n log n)
+# Longest Increasing Subsequence - Medium
+# 🔑 Key Points: Dynamic Programming O(N^2) / Binary Search with Greedy O(N log N)
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：使用动态规划，设 `dp[i]` 是以 `nums[i]` 结尾的最长递增子序列的长度。对于每个 `nums[i]`，遍历它前面的所有数 `nums[j]`（其中 `j < i`），如果 `nums[i] > nums[j]`，则可以把 `nums[i]` 接在以 `nums[j]` 结尾的子序列后面，状态转移为 `dp[i] = max(dp[i], dp[j] + 1)`。这需要 O(n^2) 时间复杂度。
-#   - 思维推导: 
-#     为了达到最优的 O(n log n) 复杂度，需要结合贪心和二分查找（耐心理牌算法）：
-#     我们维护一个数组 `sub`，其中 `sub[i]` 存储长度为 `i+1` 的最长递增子序列的结尾元素的最小值。
-#     遍历 `nums` 中的每个数 `x`：
-#     - 如果 `x` 比 `sub` 的最后一个元素还要大，直接将 `x` 添加到 `sub` 尾部。
-#     - 否则，我们在 `sub` 中通过二分查找，找到第一个大于或等于 `x` 的元素，并用 `x` 替换它（贪心：越小的结尾元素，越容易在后面接上新的递增数）。
-#     最终 `sub` 数组的长度就是所求的最长递增子序列的长度。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     Let `dp[i]` be the length of the longest increasing subsequence ending at `nums[i]`. For each element `nums[i]`, we scan all preceding elements `nums[j]` (where `j < i`). If `nums[i] > nums[j]`, we can append `nums[i]` to the subsequence ending at `nums[j]`, yielding `dp[i] = max(dp[i], dp[j] + 1)`. This takes O(N^2) time.
+#   - Mathematical Derivation: 
+#     To achieve O(N log N) complexity, we use a greedy approach combined with binary search (Patience Sorting):
+#     We maintain an array `sub`, where `sub[i]` stores the smallest tail value of all increasing subsequences of length `i+1` found so far.
+#     For each number `x` in `nums`:
+#     - If `x` is greater than the last element of `sub`, we append `x` to `sub` (increasing the subsequence length).
+#     - Otherwise, we use binary search (`bisect_left`) to find the first element in `sub` that is greater than or equal to `x` and replace it with `x`. (Greedy choice: a smaller tail value makes it easier to append future elements).
+#     The length of `sub` is the length of the LIS.
 
 from typing import List
 import bisect
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        """
-        时间复杂度: O(n log n) - 遍历一次数组，每次进行一次二分查找
-        空间复杂度: O(n) - 维护 sub 数组
-        """
+        # Time Complexity: O(n log n) - Single pass through nums with a binary search in each step
+        # Space Complexity: O(n) - Auxiliary array sub
         if not nums:
             return 0
             
         sub = []
         for x in nums:
-            # 找到第一个大于或等于 x 的位置
+            # Find the index of the first element >= x in sub
             idx = bisect.bisect_left(sub, x)
             if idx == len(sub):
-                sub.append(x)
+                sub.append(x)  # Append if x is larger than all elements in sub
             else:
-                sub[idx] = x
+                sub[idx] = x   # Replace the element at idx with x
                 
         return len(sub)
 

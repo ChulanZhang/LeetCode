@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 1 - Two Sum (Easy)
-# 核心考点: 哈希表 / 双指针
+# Key Points: Hash Map / Two Pointers
 #
-# MLSys 系统/低底层关联说明:
-# 在系统底层或 GPU 算子设计中，利用静态哈希映射或有序双指针进行匹配是快速查表的最基本手段。时间复杂度从 O(N^2) 降至 O(N)，属于空间换时间的典范。
+# MLSys System/Low-Level Mapping:
+# Utilizing static hash maps or sorted two-pointer matching is the standard approach for fast table lookups in low-level systems and GPU kernel designs. Optimizing from O(N^2) to O(N) is a classic space-time tradeoff example.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

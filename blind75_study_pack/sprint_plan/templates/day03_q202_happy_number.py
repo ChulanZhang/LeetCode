@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 202 - Happy Number (Easy)
-# 核心考点: 隐式链表判圈
+# Key Points: Implicit Linked List Cycle Detection
 #
-# MLSys 系统/低底层关联说明:
-# 数字变换过程可抽象为隐式有向图中的单链表。当变换陷入死循环时，即可使用快慢指针检测，无需借助哈希表，实现 O(1) 空间占用。
+# MLSys System/Low-Level Mapping:
+# Transformations of a number can be modeled as a directed graph where nodes have out-degree 1 (analogous to a singly linked list). Circular dependency detection can be solved using fast and slow pointers in O(1) auxiliary space.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

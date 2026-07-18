@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 62 - Unique Paths (Medium)
-# 核心考点: 二维网格自上自左累加 / 一维行滚动压缩
+# Key Points: Grid DP + Row Rolling Compression
 #
-# MLSys 系统/低底层关联说明:
-# 经典的网格路线规划。状态转移 `dp[i][j] = dp[i-1][j] + dp[i][j-1]`。在物理芯片的二维网格布线（NoC - Network on Chip 芯片上路由器数据路由设计）中，分析路由包的流动路径概率与此模型高度重合。可做一维行空间压缩。
+# MLSys System/Low-Level Mapping:
+# Grid routing. Transition: `dp[i][j] = dp[i-1][j] + dp[i][j-1]`. In Network-on-Chip (NoC) hardware routing designs, analyzing packet routing paths matches this model. Space can be compressed to a 1D row array.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

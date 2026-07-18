@@ -1,40 +1,35 @@
 from typing import List, Optional, Dict, Set
 
-# Longest Repeating Character Replacement (替换后的最长重复字符) - Medium
-# 🔑 核心考点: 滑动窗口 / 双指针 / 局部频数统计优化
+# Longest Repeating Character Replacement - Medium
+# 🔑 Key Points: Sliding Window - Dynamic Contraction & Max Freq Optimization
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：我们要找一个最长子串，该子串通过替换不超过 k 个字符后可以全部变成同一个字符。如果窗口大小为 `L`，且窗口中出现频率最高的字符次数为 `max_freq`，那么要让这个窗口内字符全部相同，需要替换的字符数就是 `L - max_freq`。只要 `L - max_freq <= k`，这个窗口就是可行的。
-#   - 思维推导: 
-#     使用滑动窗口进行优化：
-#     1. 初始化 `left = 0`，最大频率记录 `max_freq = 0`，以及一个记录窗口内字符频数的哈希表/数组 `count`。
-#     2. 遍历右指针 `right`：
-#        - 更新当前字符 `s[right]` 的频数：`count[s[right]] += 1`。
-#        - 更新窗口内的最大字符频数：`max_freq = max(max_freq, count[s[right]])`。
-#        - **收缩条件**：如果当前窗口长度减去最大频数大于 k（即 `(right - left + 1) - max_freq > k`），说明即使把所有非最频字符都替换掉，也无法在 k 次内达到全部相同。此时我们必须收缩窗口：将 `left` 对应字符频数减 1，并向右移动 `left` 指针。
-#        - 为什么不需要在收缩窗口时重新计算真正的 `max_freq` 最小值？因为我们只想找更长的子串。当窗口变小时，`max_freq` 的变小不会帮助我们找到比目前历史记录更大的最长子串，所以我们在收缩时保持 `max_freq` 不变也是正确且安全的。
-#     3. 记录窗口历史最大长度并返回。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     We want to find the longest substring that can be converted to all identical characters by replacing at most k characters. If a window has length `L` and the highest frequency of any single character in it is `max_freq`, the number of operations needed is `L - max_freq`. The window is valid if `L - max_freq <= k`.
+#   - Mathematical Derivation: 
+#     Using an optimized Sliding Window:
+#     1. Initialize `left = 0`, a dictionary `count` to store character frequencies in the window, and a variable `max_freq = 0` to track the maximum frequency of any character seen in *any* window so far.
+#     2. Iterate `right` across the string:
+#        - Increment `count[s[right]]`.
+#        - Update `max_freq = max(max_freq, count[s[right]])`.
+#        - **Contraction check**: If the current window length minus `max_freq` exceeds `k` (i.e. `(right - left + 1) - max_freq > k`), the window is invalid. We shrink the window by decrementing `count[s[left]]` and advancing `left`.
+#        - Why do we not decrement `max_freq` when shrinking the window? Because we are searching for a maximum length window. A smaller `max_freq` will only result in smaller windows, which cannot beat our historical maximum. Thus, `max_freq` only needs to be updated when it increases.
 
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        """
-        时间复杂度: O(N) - N 为字符串的长度，每个字符最多被扫描两次
-        空间复杂度: O(1) - 仅需大小为 26 的频数哈希表/数组
-        """
+        # Time Complexity: O(N) - Single pass with left and right pointers
+        # Space Complexity: O(1) - Dictionary size is capped at 26 uppercase English letters
         count = {}
         max_freq = 0
         left = 0
         max_len = 0
         
         for right in range(len(s)):
-            # 累加当前字符频数
             count[s[right]] = count.get(s[right], 0) + 1
-            # 维护窗口内的历史最大频数
+            # Update max frequency found in any window so far
             max_freq = max(max_freq, count[s[right]])
             
-            # 如果需要替换的字符个数超过 k，收缩左指针
-            # 窗口宽度为 right - left + 1
+            # If replacement operations needed exceed k, shrink the window from the left
             while (right - left + 1) - max_freq > k:
                 count[s[left]] -= 1
                 left += 1

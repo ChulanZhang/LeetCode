@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 162 - Find Peak Element (Medium)
-# 核心考点: 寻找局部峰值 / 爬坡法
+# Key Points: Hill Climbing Binary Search
 #
-# MLSys 系统/低底层关联说明:
-# 在机器学习的最优化理论和系统的自适应参数调节中，“爬坡法（Hill Climbing）”是搜索局部最优的基本手段。只要当前位置处于上升趋势，则峰值必然在右侧，从而实现 O(log N) 局部峰值定位。
+# MLSys System/Low-Level Mapping:
+# In optimization theory and adaptive parameter tuning, 'Hill Climbing' is the fundamental local search heuristic. If the slope at `mid` is ascending, the peak must lie to the right, which guarantees locating a peak in O(log N) time.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

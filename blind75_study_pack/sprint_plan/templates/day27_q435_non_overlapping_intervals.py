@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 435 - Non-overlapping Intervals (Medium)
-# 核心考点: 贪心策略 - 终点排序优先保留先结束区间
+# Key Points: Greedy - Sort by End Time
 #
-# MLSys 系统/低底层关联说明:
-# 经典的区间调度问题。为了给后面留出尽可能多的调度空间，应当优先保留结束时间最早的区间。常用于高并发事件调度器和算子流水线调度中。
+# MLSys System/Low-Level Mapping:
+# Classic interval scheduling. To maximize scheduled tasks, prioritize intervals that end earliest. Used in real-time priority task scheduling and instruction pipelines.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

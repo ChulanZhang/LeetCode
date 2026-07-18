@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 134 - Gas Station (Medium)
-# 核心考点: 总余量判定 + 起点自前向后移位
+# Key Points: Net Sum Check + Greedy Pivot Search
 #
-# MLSys 系统/低底层关联说明:
-# 如果总加油量大于总消耗量，必然有解。通过一次遍历，一旦当前油量归负就将起点设为下一站，巧妙地将 O(N^2) 查找降至 O(N) 贪心决策。
+# MLSys System/Low-Level Mapping:
+# If total supply exceeds total consumption, a solution must exist. A single scan shifts the starting candidate to `i + 1` whenever the rolling sum drops below 0, optimizing the O(N^2) search to O(N).
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

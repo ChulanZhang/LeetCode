@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 323 - Number of Connected Components in an Undirected Graph (Medium)
-# 核心考点: 并查集合并缩减计数
+# Key Points: Union-Find Component Counter
 #
-# MLSys 系统/低底层关联说明:
-# 初始化连通分量为 n，每次成功合并两个原本不连通的节点，总连通分量 count 减 1。并查集通过路径压缩和按秩合并，操作几乎达到 O(1) 常数级别。
+# MLSys System/Low-Level Mapping:
+# Initialize component count to n. For each successful merge of disjoint sets, decrement count by 1. Union-Find with path compression and rank-based unioning executes in near-constant O(1) amortized time per operation.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

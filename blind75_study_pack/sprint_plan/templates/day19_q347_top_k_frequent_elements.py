@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 347 - Top K Frequent Elements (Medium)
-# 核心考点: 哈希计数 + 频数桶排序 (O(N) 最优解)
+# Key Points: Hash Map + Bucket Sort (O(N) Optimal)
 #
-# MLSys 系统/低底层关联说明:
-# 尽管可以用最小堆（O(N log K)）完成，但本题最优雅的解法是利用频数范围在 `[0, N]` 之间的性质，使用桶排序实现 O(N) 的极速检索，体现了根据物理限制优化系统性能的思想。
+# MLSys System/Low-Level Mapping:
+# While a min-heap gives O(N log K), the optimal solution uses bucket sort. Because frequencies are bounded by `[0, N]`, bucket sorting allows linear O(N) retrieval, highlighting a data-driven system optimization choice.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

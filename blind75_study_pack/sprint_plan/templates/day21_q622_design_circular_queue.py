@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 622 - Design Circular Queue (Medium)
-# 核心考点: 数组环形缓冲区边界指针
+# Key Points: Circular Array Modulo Arithmetic
 #
-# MLSys 系统/低底层关联说明:
-# 环形缓冲区（Ring Buffer）是操作系统进程间通信（IPC）、生产者-消费者管道、以及 GPU 命令队列（Command Queue）中的核心数据结构。通过 `(tail + 1) % size` 来管理循环写入，实现无锁并发数据交换的基础模型。
+# MLSys System/Low-Level Mapping:
+# Ring buffers are the standard data structures for OS IPC (Inter-Process Communication), producer-consumer loops, and GPU command queues. Modulo index updates `(tail + 1) % size` enable lock-free concurrent ring buffer queues.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

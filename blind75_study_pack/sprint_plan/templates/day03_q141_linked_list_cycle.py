@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 141 - Linked List Cycle (Easy)
-# 核心考点: 快慢指针 (Floyd 判圈算法)
+# Key Points: Floyd's Cycle-Finding Algorithm
 #
-# MLSys 系统/低底层关联说明:
-# 快慢指针在内存管理器中用来判断数据块链表（比如堆内存块分配链表）是否因越界或 Bug 发生了指针环形闭合，是基础防爆内存工具。
+# MLSys System/Low-Level Mapping:
+# Fast and slow pointers are used in OS memory managers to detect if free memory blocks or page descriptors have circular pointer references (which causes memory leak traps or segmentation faults) due to corrupt allocations.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 207 - Course Schedule (Medium)
-# 核心考点:  Kahn 算法 (基于入度的 BFS拓扑排序)
+# Key Points: Kahn's BFS In-Degree Algorithm
 #
-# MLSys 系统/低底层关联说明:
-# 机器学习框架（如 PyTorch、TensorFlow）在执行前向传播和反向传播算子时，算子之间存在严格的输入输出依赖关系，构成了一个 DAG（有向无环图）。编译器正是通过拓扑排序来排定算子执行的先后顺序。
+# MLSys System/Low-Level Mapping:
+# Modern ML frameworks (PyTorch, TensorFlow) structure execution DAGs (Directed Acyclic Graphs). Prerequisite dependencies represent edges. The compiler schedules operator executions in topological order to satisfy dependency constraints.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

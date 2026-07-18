@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 54 - Spiral Matrix (Medium)
-# 核心考点: 边界指针收缩模拟
+# Key Points: Boundary Pointer Shrinking Simulation
 #
-# MLSys 系统/低底层关联说明:
-# 模拟螺旋轨迹访问。对边界条件（上、下、左、右）进行严格的动态收缩，考察了面试中对大矩阵边界控制无 Bug 编写的基本功。
+# MLSys System/Low-Level Mapping:
+# Clockwise spiral traversal. It requires strict boundary checks (top, bottom, left, right) to prevent out-of-bounds access, testing precision in array slicing and boundary control.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

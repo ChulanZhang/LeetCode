@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 1094 - Car Pooling (Medium)
-# 核心考点: 差分数组检验超载边界
+# Key Points: Difference Array Overload Checks
 #
-# MLSys 系统/低底层关联说明:
-# 在分布式系统的并发容量限制（或 GPU 显存分配动态阈值）检测中，将区间分配需求转换为差分数组来一曲校验最大并发数是否超标，是极佳的调度前置步骤。
+# MLSys System/Low-Level Mapping:
+# Used in distributed system concurrency throttling and dynamic GPU memory budget tracking. We convert intervals of resource demands into difference arrays to verify if peak load violates hard hardware capacity constraints.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

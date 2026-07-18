@@ -1,18 +1,18 @@
 from typing import List, Optional, Dict, Set
 
-# Linked List Cycle (环形链表) - Easy
-# 🔑 核心考点: 双指针 - 快慢指针 (Floyd's Cycle-Finding Algorithm)
+# Linked List Cycle - Easy
+# 🔑 Key Points: Two Pointers - Fast & Slow Pointers (Floyd's Cycle-Finding Algorithm)
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：为了检测链表是否有环，我们可以使用哈希集合 `visited` 来保存我们访问过的所有节点。如果当前节点已经存在于集合中，就说明链表有环。这需要 O(N) 的空间复杂度。是否有 $O(1)$ 空间复杂度的解法？
-#   - 思维推导: 
-#     快慢指针（龟兔赛跑算法）破局：
-#     我们声明两个指针：
-#     - 慢指针 `slow`，每次前进一步：`slow = slow.next`。
-#     - 快指针 `fast`，每次前进两步：`fast = fast.next.next`。
-#     如果链表没有环，快指针 `fast` 必然会率先走到链表尾部（指向 `None`），程序可以判定无环并返回 `False`。
-#     如果链表有环，那么快指针和慢指针都会进入环中。由于快指针在环内的速度比慢指针快，它们之间的距离在每一轮循环中都会缩短 1 个节点。最终快指针必定会从后方“追上”慢指针（即 `slow == fast`），就像操场跑道上快跑者套圈慢跑者一样。此时判定有环，返回 `True`。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     To detect if a linked list contains a cycle, we could store visited nodes in a hash set. If we encounter a node already in the set, a cycle exists. However, this takes O(N) auxiliary space. Can we solve this in O(1) space?
+#   - Mathematical Derivation: 
+#     Floyd's Cycle-Finding Algorithm (Tortoise and Hare):
+#     Initialize two pointers at the head:
+#     - Slow pointer `slow` moves 1 step at a time: `slow = slow.next`.
+#     - Fast pointer `fast` moves 2 steps at a time: `fast = fast.next.next`.
+#     If the list is acyclic, `fast` will eventually reach the end of the list (null), and we can return False.
+#     If the list contains a cycle, both pointers will eventually enter the loop. Since `fast` is moving twice as fast as `slow`, the relative distance between them decreases by 1 in each step. Consequently, `fast` will eventually catch up to (or lap) `slow` inside the loop (i.e., `slow == fast`), at which point we return True.
 
 from typing import Optional
 
@@ -23,20 +23,18 @@ class ListNode:
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        """
-        时间复杂度: O(N) - 慢指针最多移动 N 次即可判定
-        空间复杂度: O(1) - 仅使用两个辅助指针
-        """
+        # Time Complexity: O(N) - Slow pointer moves at most N steps
+        # Space Complexity: O(1) - Only two pointers are allocated
         slow = head
         fast = head
         
         while fast and fast.next:
-            slow = slow.next         # 慢指针走一步
-            fast = fast.next.next    # 快指针走两步
+            slow = slow.next         # Slow pointer moves 1 step
+            fast = fast.next.next    # Fast pointer moves 2 steps
             
-            # 如果快慢指针相遇，说明有环
+            # If pointers meet, a cycle exists
             if slow == fast:
                 return True
                 
-        return False  # 快指针到达尾部，无环
+        return False  # Fast pointer reached the end of the list, no cycle
 

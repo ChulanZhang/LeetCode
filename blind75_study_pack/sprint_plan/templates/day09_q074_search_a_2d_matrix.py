@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 74 - Search a 2D Matrix (Medium)
-# 核心考点: 二维矩阵一维化二分
+# Key Points: Matrix 1D Flat Indexing
 #
-# MLSys 系统/低底层关联说明:
-# 行优先存储（Row-major order）的二维矩阵在内存中是一维连续存储的。通过逻辑上的映射 `(row, col) = (mid // n, mid % n)`，可以直接在连续内存上跑标准二分，避免昂贵的行转换开销。
+# MLSys System/Low-Level Mapping:
+# A row-major sorted matrix is stored contiguously in memory as a 1D array. By mapping indices via `(row, col) = (mid // n, mid % n)`, we run standard binary search directly on the flat memory block, avoiding conversion overhead.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 312 - Burst Balloons (Hard)
-# 核心考点: 区间 DP / 自底向上填表
+# Key Points: Interval DP (Bottom-Up)
 #
-# MLSys 系统/低底层关联说明:
-# 区间 DP 巅峰。通过逆向思考“哪一个气球是最后一个被戳破的”，将大区间分割为两个独立子区间加额外收益，从而写出状态转移方程。主要在复杂的算子串联调度优化中作为数学底座。
+# MLSys System/Low-Level Mapping:
+# Advanced interval DP. Reversing the problem to identify 'which balloon is popped last' separates the interval into independent segments, defining the state transition. Crucial for complex compiler scheduler optimizations.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

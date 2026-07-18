@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 136 - Single Number (Easy)
-# 核心考点: 异或自消去性质 (a ^ a = 0)
+# Key Points: Bitwise XOR properties (a ^ a = 0)
 #
-# MLSys 系统/低底层关联说明:
-# 利用异或运算的自消去（x ^ x = 0，x ^ 0 = x）和交换律结合律，可以实现无额外存储空间查找，是嵌入式设备资源极度受限时常用的数据核对技术。
+# MLSys System/Low-Level Mapping:
+# XOR properties (`x ^ x = 0`, `x ^ 0 = x`) and associativity allow O(N) scan in O(1) space. This is a common parity check and data validation technique in hardware-constrained embedded applications.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 105 - Construct Binary Tree from Preorder and Inorder Traversal (Medium)
-# 核心考点: 前中序划分 + 哈希定位 + 递归分治
+# Key Points: Pre/In-Order Partition + Hash Mapping
 #
-# MLSys 系统/低底层关联说明:
-# 在编译原理的 Parser（解析器）实现中，如何根据 Token 序列和语法中序规则构造语法树是核心任务。通过哈希表缓存中序索引，可以将构造复杂度从 O(N^2) 优化至 O(N)。
+# MLSys System/Low-Level Mapping:
+# In compiler parsers, building an AST from a token sequence and in-order grammar rules is a core compiler task. Caching in-order indices in a hash map optimizes reconstruction time complexity from O(N^2) to O(N).
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

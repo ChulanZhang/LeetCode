@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 208 - Implement Trie (Prefix Tree) (Medium)
-# 核心考点: 嵌套哈希结构 / 字符指针字典
+# Key Points: Nested Hash Map Children Nodes
 #
-# MLSys 系统/低底层关联说明:
-# 在大语言模型（LLM）解码生成（LLM Generation）中，推理引擎经常需要利用 Trie 树存储 Token 词表，以进行快速的 Prefix Constraints 搜索或 KV Cache 缓存键值的前缀校验，大幅降低了序列比对的时间。
+# MLSys System/Low-Level Mapping:
+# In Large Language Model (LLM) speculative decoding, serving engines use Tries to index vocabularies, enabling fast prefix constraints validation and KV Cache token matches, drastically reducing sequence comparisons.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

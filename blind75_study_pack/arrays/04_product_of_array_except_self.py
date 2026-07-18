@@ -1,13 +1,13 @@
 from typing import List, Optional, Dict, Set
 
-# Product of Array Except Self (除自身以外数组的乘积) - Medium
-# 🔑 核心考点: 前缀乘积与后缀乘积 (Prefix & Suffix Products) / 空间优化
+# Product of Array Except Self - Medium
+# 🔑 Key Points: Prefix & Suffix Products - Space Optimization
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     最直观的方法是把所有数乘起来得到 total_product，然后除以每个位置的 nums[i]。但题目要求不能使用除法，且如果数组中包含 0 会导致除以 0 的错误。
-#   - 思维推导: 
-#     除了自身之外的所有元素积，可以拆分为：当前元素左边所有数的乘积（前缀积）乘上右边所有数的乘积（后缀积）。我们可以直接用返回的 answer 数组暂存前缀积。接着，反向扫描数组，用一个变量 suffix_product 动态维护右侧乘积，并在遍历过程中乘到对应的位置上，这样实现 O(1) 额外空间。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     The simplest method is to calculate the product of all elements and then divide it by each `nums[i]`. However, division is prohibited, and division by zero errors will occur if the array contains zero.
+#   - Mathematical Derivation: 
+#     The product of all elements except `nums[i]` can be decomposed into: the product of all elements to the left of `i` (prefix product) multiplied by the product of all elements to the right of `i` (suffix product). We can store the prefix products directly in the output array. Then, scanning backwards, we maintain a running suffix product in a variable and multiply it into the output array at each index. This achieves O(1) auxiliary space.
 
 from typing import List
 
@@ -15,13 +15,18 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
         answer = [1] * n
+        
+        # Calculate prefix products and store them in the answer array
         prefix_product = 1
         for i in range(n):
             answer[i] = prefix_product
             prefix_product *= nums[i]
+            
+        # Calculate suffix products on the fly and multiply them into answer
         suffix_product = 1
         for i in range(n - 1, -1, -1):
             answer[i] *= suffix_product
             suffix_product *= nums[i]
+            
         return answer
 

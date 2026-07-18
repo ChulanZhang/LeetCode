@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 496 - Next Greater Element I (Easy)
-# 核心考点: 单调递减栈
+# Key Points: Monotonic Decreasing Stack
 #
-# MLSys 系统/低底层关联说明:
-# 单调栈是解决 '寻找下一个更大元素' 问题的利器。通过栈的单调性，我们可以保证每个元素仅入栈出栈一次，实现时间复杂度 O(N)。
+# MLSys System/Low-Level Mapping:
+# Monotonic stacks are optimal for 'finding the next greater element'. By maintaining stack monotonicity, we guarantee each element is pushed and popped at most once, achieving a linear O(N) time complexity.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

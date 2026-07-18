@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 139 - Word Break (Medium)
-# 核心考点: 前缀切分 DP + 字典 Set 高速查找
+# Key Points: Prefix Partitioning DP + Hash Set
 #
-# MLSys 系统/低底层关联说明:
-# 判断一段连续流是否可以被有效切分。状态转移为 `dp[i] = any(dp[j] and s[j:i] in wordSet for j in range(i))`。在 NLP 分词及算子大图切分生成中，这种前缀切分逻辑扮演重要角色。
+# MLSys System/Low-Level Mapping:
+# Evaluating segmentations of contiguous streams. Transition: `dp[i] = any(dp[j] and s[j:i] in wordSet for j in range(i))`. In compiler lexical parsing and token segmentations, prefix partitioning plays a central role.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

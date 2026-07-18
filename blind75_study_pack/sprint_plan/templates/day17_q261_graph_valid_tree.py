@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 261 - Graph Valid Tree (Medium)
-# 核心考点: 并查集无环检测 & 连通性
+# Key Points: Union-Find Cycle and Connectivity Checks
 #
-# MLSys 系统/低底层关联说明:
-# 并查集是快速合并和检测等价类的数据结构。判断一个无向图是不是一棵树：边数必须等于 `n-1`，且在遍历边合并集合时，如果发现两个点原本就已经属于同一个集合（`find(u) == find(v)`），则说明图中有环，不满足树的定义。
+# MLSys System/Low-Level Mapping:
+# Union-Find is the optimal structure for grouping disjoint equivalence classes. An undirected graph is a tree if edges = n-1 and Union-Find finds no cycles (unioning two nodes already in the same root set `find(u) == find(v)` yields a cycle).
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

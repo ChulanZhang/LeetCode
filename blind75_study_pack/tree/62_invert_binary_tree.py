@@ -1,16 +1,16 @@
 from typing import List, Optional, Dict, Set
 
-# Invert Binary Tree (翻转二叉树) - Easy
-# 🔑 核心考点: 二叉树遍历结构就地修改 (In-place swap)
+# Invert Binary Tree - Easy
+# 🔑 Key Points: Binary Tree - In-Place Node Swapping
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：翻转一棵二叉树（镜像对称），实际上就是把每个节点的左孩子和右孩子进行对调，然后再递归地翻转它们的子树。
-#   - 思维推导: 
-#     1. **基准情况**：如果当前节点 `root` 为空，直接返回 `None`。
-#     2. **交换左右子树**：直接使用 Python 的并口赋值语句，交换当前节点的左右子节点：`root.left, root.right = root.right, root.left`。
-#     3. **递归处理**：递归地翻转左子树 `self.invertTree(root.left)` 和右子树 `self.invertTree(root.right)`。
-#     4. 返回当前节点 `root`。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     Inverting a binary tree (mirroring it) means swapping the left child and right child of every node in the tree recursively.
+#   - Mathematical Derivation: 
+#     1. **Base case**: If the current node `root` is null, return `None`.
+#     2. **Swap children**: Swap the left and right pointers of the current node using a parallel assignment: `root.left, root.right = root.right, root.left`.
+#     3. **Recursive step**: Recursively invert the left subtree `self.invertTree(root.left)` and the right subtree `self.invertTree(root.right)`.
+#     4. Return the mutated `root` node.
 
 from typing import Optional
 
@@ -22,17 +22,15 @@ class TreeNode:
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        """
-        时间复杂度: O(N) - 遍历所有节点一次
-        空间复杂度: O(H) - 递归系统栈空间
-        """
+        # Time Complexity: O(N) - Visit every node once
+        # Space Complexity: O(H) - Recursion stack space
         if not root:
             return None
             
-        # 交换左右子树指针
+        # Swap the left and right child pointers
         root.left, root.right = root.right, root.left
         
-        # 递归翻转子树
+        # Recursively invert the children
         self.invertTree(root.left)
         self.invertTree(root.right)
         

@@ -1,43 +1,40 @@
 from typing import List, Optional, Dict, Set
 
-# Non-overlapping Intervals (无重叠区间) - Medium
-# 🔑 核心考点: 贪心算法 (Greedy) - 区间调度问题 (Interval Scheduling)
+# Non-overlapping Intervals - Medium
+# 🔑 Key Points: Greedy Algorithm - Interval Scheduling Problem
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：我们需要移除最少数量的区间来消除所有重叠。这等价于：**保留最多数量的互不重叠的区间**。对于这类“尽可能保留更多区间”的区间调度问题，贪心策略是解决的最佳方案。
-#   - 思维推导: 
-#     贪心策略推导：
-#     为了让后面能容纳更多的区间，我们在每次选择时，应该**优先选择结束时间最早的区间**（结束得越早，留给后面的空间就越大）。
-#     1. 将所有区间按照**结束时间**进行升序排序。
-#     2. 维护一个变量 `end` 记录当前已选择的最后一个区间的结束时间，初始为第一个区间的结束时间。维护计数器 `count = 0` 记录需要被移除的区间数。
-#     3. 遍历后续区间 `curr`：
-#        - 如果 `curr[0] >= end`，说明该区间与已选区间不重叠，可以安全保留，我们更新 `end = curr[1]`。
-#        - 如果 `curr[0] < end`，说明发生重叠。为了遵循贪心策略，我们应当移除这个当前区间（因为我们排过序，当前区间的结束时间一定大于或等于 `end`，保留它只会让结束时间变得更大，压榨后面的空间），计数器 `count += 1`。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     We need to remove the minimum number of intervals to eliminate all overlaps. This is mathematically equivalent to: **maximizing the number of non-overlapping intervals** we can keep. The greedy approach is optimal for this class of interval scheduling problems.
+#   - Mathematical Derivation: 
+#     Greedy choice: To leave as much room as possible for future intervals, we should **always select the interval that ends earliest**.
+#     1. Sort the intervals in ascending order by their **end times**.
+#     2. Maintain `end` representing the end time of the last chosen interval, initialized to the first interval's end time. Maintain a `count` initialized to 0 representing removed intervals.
+#     3. Iterate through subsequent intervals `curr`:
+#        - If `curr[0] >= end`, it starts after the previous interval ends. We can safely keep it, so we update `end = curr[1]`.
+#        - If `curr[0] < end`, there is an overlap. Based on our greedy choice, we discard `curr` (since its end time is >= `end`, keeping it would only shrink future scheduling space) and increment `count` by 1.
 
 from typing import List
 
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
-        """
-        时间复杂度: O(N log N) - 排序需要 O(N log N)，单次扫描需要 O(N)
-        空间复杂度: O(log N) - 排序所需的辅助空间
-        """
+        # Time Complexity: O(N log N) - Sorting takes O(N log N); single pass scan takes O(N)
+        # Space Complexity: O(log N) - Space complexity of the sorting algorithm
         if not intervals:
             return 0
             
-        # 核心贪心策略：按区间结束时间进行升序排序
+        # Greedy rule: Sort intervals by end times
         intervals.sort(key=lambda x: x[1])
         
         count = 0
-        end = intervals[0][1]
+        end = intervals[0][1]  # Track end time of the last scheduled interval
         
         for i in range(1, len(intervals)):
-            # 如果当前区间起点小于上一个已保留区间的终点，说明重叠了，必须移除当前区间
+            # If current interval starts before last ended, it overlaps. Remove it.
             if intervals[i][0] < end:
                 count += 1
             else:
-                # 否则说明无重叠，更新当前保留区间的边界为当前区间终点
+                # Otherwise, schedule it and update the end boundary
                 end = intervals[i][1]
                 
         return count

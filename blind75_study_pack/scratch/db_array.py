@@ -1,111 +1,123 @@
 # Array category data
 PROBLEMS = {
     "01_two_sum.py": {
-        "title": "Two Sum (两数之和)",
+        "title": "Two Sum",
         "difficulty": "Easy",
-        "key_points": "哈希表 (Hash Map) - 空间换时间",
-        "analysis_intuition": "最容易想到的暴力方法是双重循环（Nested Loops），外层固定元素 A，内层在其余元素中寻找 B 使得 A + B = target。时间复杂度是 O(N^2)。在面试中是无法接受的，尤其是当数组规模达到 10^4 以上时，会直接超时。且要注意避开同一个元素重复使用和重复数值的处理这两个边界。",
-        "analysis_derivation": "为了将复杂度降低到 O(N)，我们需要在一边遍历数组的过程中，一边把已经访问过的元素及其索引存入哈希表中。这样，对于下一个数，我们只需在哈希表中检索它的互补数是否存在即可。利用哈希表进行 O(1) 复杂度的查找。",
+        "key_points": "Hash Map - Space-Time Tradeoff",
+        "analysis_intuition": "The naive approach is using nested loops to check every pair of elements for a sum equal to the target, which costs O(N^2) time complexity. This is inefficient for large inputs. We need to avoid using the same element twice and handle duplicate values correctly.",
+        "analysis_derivation": "To optimize the time complexity to O(N), we can trade space for time. By traversing the array once and storing each visited element and its index in a hash map, we can check if the complement (target - current_value) exists in the hash map in O(1) average time. If it does, we return their indices.",
         "code": """from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # Hash map to store value-to-index mapping
         num_to_idx = {}
         for i, num in enumerate(nums):
             complement = target - num
+            # Check if the complement already exists in the map
             if complement in num_to_idx:
                 return [num_to_idx[complement], i]
+            # Store the current number with its index
             num_to_idx[num] = i
         return []
 """
     },
     "02_best_time_to_buy_and_sell_stock.py": {
-        "title": "Best Time to Buy and Sell Stock (买卖股票的最佳时机)",
+        "title": "Best Time to Buy and Sell Stock",
         "difficulty": "Easy",
-        "key_points": "贪心算法 (Greedy) / 动态规划状态简化 - 一次遍历",
-        "analysis_intuition": "暴力解法是计算所有可能的买入和卖出组合（即双重循环，外层买入，内层卖出且卖出在买入之后），寻找最大的差值，时间复杂度为 O(N^2)。",
-        "analysis_derivation": "由于你必须先买入，才能卖出，不能简单地找出数组的最小值和最大值然后相减（因为最大值可能出现在最小值之前）。我们在遍历数组时，可以实时维护一个“历史最低买入价” min_price，以及“历史最大利润” max_profit。当我们在第 i 天卖出股票，最大利润就是价格差 price - min_price。我们用它去更新 max_profit 即可。",
+        "key_points": "Greedy / Dynamic Programming - Single Pass",
+        "analysis_intuition": "The brute-force solution calculates the profit for every possible buy-and-sell pair (where sell day > buy day) using nested loops, which takes O(N^2) time complexity.",
+        "analysis_derivation": "Since you must buy before you can sell, we can solve this in a single pass. While traversing the prices, we maintain two variables: the minimum price seen so far (`min_price`) and the maximum profit achieved (`max_profit`). For each price, we update `min_price` and calculate the potential profit if we sold on that day (`price - min_price`), updating `max_profit` if this potential profit is larger.",
         "code": """from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if not prices:
             return 0
-        min_price = float('inf')
-        max_profit = 0
+        min_price = float('inf')  # Track the minimum price seen so far
+        max_profit = 0            # Track the maximum profit seen so far
         for price in prices:
             if price < min_price:
-                min_price = price
+                min_price = price  # Update min price if a lower buying price is found
             elif price - min_price > max_profit:
-                max_profit = price - min_price
+                max_profit = price - min_price  # Update max profit if selling today yields more
         return max_profit
 """
     },
     "03_contains_duplicate.py": {
-        "title": "Contains Duplicate (存在重复元素)",
+        "title": "Contains Duplicate",
         "difficulty": "Easy",
-        "key_points": "哈希集合 (Hash Set) - 早期终止优化",
-        "analysis_intuition": "暴力解法是双重循环，依次两两比对，时间复杂度为 O(N^2)。如果直接使用 Python 的 len(set(nums)) != len(nums)，大数组下，无法早期终止（Early Return）可能会导致不必要的性能浪费。",
-        "analysis_derivation": "在允许使用额外空间的前提下，为了达到 O(N) 的时间复杂度，我们可以使用哈希集合 visited。一边遍历数组，一边把遇到的数字放入 visited 中。每次放入前先检查它是否已经在 visited 中。如果在，说明找到了重复元素，直接返回 True 早期终止。",
+        "key_points": "Hash Set - Early Return Optimization",
+        "analysis_intuition": "A brute-force solution compares every pair of elements, resulting in O(N^2) time complexity. Using `len(set(nums)) != len(nums)` is clean but does not allow early return, which might waste memory and computation on large arrays when a duplicate is found early.",
+        "analysis_derivation": "To achieve O(N) time complexity, we can use a hash set to keep track of visited numbers. As we iterate through the array, we check if the current number is already in the set. If it is, we return True immediately (early return). Otherwise, we add it to the set. If the loop completes, it means all elements are unique.",
         "code": """from typing import List
 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        visited = set()
+        visited = set()  # Set to track unique visited numbers
         for num in nums:
+            # If the number is already visited, we found a duplicate
             if num in visited:
                 return True
-            visited.add(num)
+            visited.add(num)  # Add current number to visited set
         return False
 """
     },
     "04_product_of_array_except_self.py": {
-        "title": "Product of Array Except Self (除自身以外数组的乘积)",
+        "title": "Product of Array Except Self",
         "difficulty": "Medium",
-        "key_points": "前缀乘积与后缀乘积 (Prefix & Suffix Products) / 空间优化",
-        "analysis_intuition": "最直观的方法是把所有数乘起来得到 total_product，然后除以每个位置的 nums[i]。但题目要求不能使用除法，且如果数组中包含 0 会导致除以 0 的错误。",
-        "analysis_derivation": "除了自身之外的所有元素积，可以拆分为：当前元素左边所有数的乘积（前缀积）乘上右边所有数的乘积（后缀积）。我们可以直接用返回的 answer 数组暂存前缀积。接着，反向扫描数组，用一个变量 suffix_product 动态维护右侧乘积，并在遍历过程中乘到对应的位置上，这样实现 O(1) 额外空间。",
+        "key_points": "Prefix & Suffix Products - Space Optimization",
+        "analysis_intuition": "The simplest method is to calculate the product of all elements and then divide it by each `nums[i]`. However, division is prohibited, and division by zero errors will occur if the array contains zero.",
+        "analysis_derivation": "The product of all elements except `nums[i]` can be decomposed into: the product of all elements to the left of `i` (prefix product) multiplied by the product of all elements to the right of `i` (suffix product). We can store the prefix products directly in the output array. Then, scanning backwards, we maintain a running suffix product in a variable and multiply it into the output array at each index. This achieves O(1) auxiliary space.",
         "code": """from typing import List
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
         answer = [1] * n
+        
+        # Calculate prefix products and store them in the answer array
         prefix_product = 1
         for i in range(n):
             answer[i] = prefix_product
             prefix_product *= nums[i]
+            
+        # Calculate suffix products on the fly and multiply them into answer
         suffix_product = 1
         for i in range(n - 1, -1, -1):
             answer[i] *= suffix_product
             suffix_product *= nums[i]
+            
         return answer
 """
     },
     "05_maximum_subarray.py": {
-        "title": "Maximum Subarray (最大子数组和)",
+        "title": "Maximum Subarray",
         "difficulty": "Medium",
-        "key_points": "动态规划 (Kadane's Algorithm) / 贪心算法",
-        "analysis_intuition": "暴力枚举所有的子数组起点 i 和终点 j，时间复杂度为 O(N^2)。如果数组中全为负数，初始化最大值需要注意不能直接设为 0，必须设为首个元素或负无穷。",
-        "analysis_derivation": "在遍历到每个位置时，我们需要决定：是要继续累加当前数字，还是以当前数字为新子数组的起点？如果之前的累加和为负数，对后续累加只会起到削减作用，应当舍弃并从当前数重新开始。状态转移方程为：current_sum = max(num, current_sum + num)。并在过程中维护全局最大值。",
+        "key_points": "Dynamic Programming (Kadane's Algorithm)",
+        "analysis_intuition": "Brute-force checks all subarray starting and ending positions, which takes O(N^2) time complexity. If the array contains only negative numbers, initializing the maximum subarray sum to 0 is a common mistake; it must be initialized to the first element or negative infinity.",
+        "analysis_derivation": "At each position in the array, we decide whether to add the current number to the existing subarray sum, or to start a new subarray from the current number. If the previous cumulative sum is negative, it will only decrease the sum of any subsequent subarray, so we discard it and start fresh. The state transition is: `current_sum = max(num, current_sum + num)`. We track the maximum value seen during this process.",
         "code": """from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        current_sum = nums[0]
-        max_sum = nums[0]
+        current_sum = nums[0]  # Max subarray sum ending at current index
+        max_sum = nums[0]      # Global max subarray sum
+        
         for num in nums[1:]:
+            # Choose to extend the previous subarray or start a new one
             current_sum = max(num, current_sum + num)
             max_sum = max(max_sum, current_sum)
+            
         return max_sum
 """
     },
     "06_maximum_product_subarray.py": {
-        "title": "Maximum Product Subarray (乘积最大子数组)",
+        "title": "Maximum Product Subarray",
         "difficulty": "Medium",
-        "key_points": "动态规划 / 双状态维护（最大与最小值应对负负得正）",
-        "analysis_intuition": "与最大子数组和不同，乘法中存在“负负得正”。如果之前有一个很大的负数，再乘以一个负数就会变成极大的正数。因此如果只维护最大值，会丢失潜在的最优解。",
-        "analysis_derivation": "我们必须同时维护当前位置的“最大乘积”和“最小乘积”（绝对值很大的负数）。每到一个位置，我们通过当前数、当前数乘上最大积、当前数乘上最小积这三者，分别更新当前位置的最大乘积和最小乘积，从而在 O(N) 时间和 O(1) 空间下得出全局最大乘积。",
+        "key_points": "Dynamic Programming - Double State Tracking",
+        "analysis_intuition": "Unlike the subarray sum problem, multiplication supports 'two negatives make a positive'. A very small negative number can become a large positive number when multiplied by another negative. Thus, tracking only the maximum product is insufficient.",
+        "analysis_derivation": "We must maintain both the current maximum product and the current minimum product (which could be a large negative number). For each element, we calculate the potential new max and min by comparing the current number, current number * prev_max, and current number * prev_min. This allows us to handle sign flips in O(N) time and O(1) space.",
         "code": """from typing import List
 
 class Solution:
@@ -113,22 +125,25 @@ class Solution:
         if not nums:
             return 0
         res = nums[0]
-        cur_min = nums[0]
-        cur_max = nums[0]
+        cur_min = nums[0]  # Minimum product seen ending at current index
+        cur_max = nums[0]  # Maximum product seen ending at current index
+        
         for num in nums[1:]:
             temp = cur_max
+            # Update current max and min considering possible sign changes
             cur_max = max(num, num * cur_max, num * cur_min)
             cur_min = min(num, num * temp, num * cur_min)
             res = max(res, cur_max)
+            
         return res
 """
     },
     "07_find_minimum_in_rotated_sorted_array.py": {
-        "title": "Find Minimum in Rotated Sorted Array (寻找旋转排序数组中的最小值)",
+        "title": "Find Minimum in Rotated Sorted Array",
         "difficulty": "Medium",
-        "key_points": "二分查找 (Binary Search)",
-        "analysis_intuition": "在一个旋转过的升序数组中找最小值。直接遍历需要 O(N) 的时间。因为原本是有序的，我们需要在 O(log N) 的时间内解决。",
-        "analysis_derivation": "使用二分查找。如果中间值 nums[mid] 大于右边界 nums[right]，说明旋转折返点在 mid 的右半边，最小值必定在 mid + 1 到 right 之间，因此 left = mid + 1。否则，说明右半边是单调递增的，最小值可能是 mid 本身或者在左半边，因此 right = mid。最终 left == right 即为最小值。",
+        "key_points": "Binary Search",
+        "analysis_intuition": "Finding the minimum in a rotated sorted array. A linear scan takes O(N). Because the array was originally sorted, we must solve it in O(log N) time using binary search.",
+        "analysis_derivation": "Using binary search, if the middle value `nums[mid]` is greater than the right boundary `nums[right]`, it means the rotation inflection point lies to the right of `mid`, so the minimum must be in the range `[mid + 1, right]`. Otherwise, the right half is sorted, and the minimum is either `nums[mid]` or lies to the left of `mid`. Thus, we update `right = mid`. We repeat this until `left == right`.",
         "code": """from typing import List
 
 class Solution:
@@ -136,19 +151,21 @@ class Solution:
         left, right = 0, len(nums) - 1
         while left < right:
             mid = (left + right) // 2
+            # Inflection point must be to the right of mid
             if nums[mid] > nums[right]:
                 left = mid + 1
+            # Inflection point is at mid or to the left of mid
             else:
                 right = mid
         return nums[left]
 """
     },
     "08_search_in_rotated_sorted_array.py": {
-        "title": "Search in Rotated Sorted Array (搜索旋转排序数组)",
+        "title": "Search in Rotated Sorted Array",
         "difficulty": "Medium",
-        "key_points": "二分查找 / 分段单调性判定",
-        "analysis_intuition": "旋转数组中检索目标值。若直接遍历复杂度为 O(N)。我们需要利用二分查找达到 O(log N) 复杂度。",
-        "analysis_derivation": "旋转数组有一个特性：如果从中间切开，两半中必然有一半是严格递增的。我们可以比较 nums[left] 和 nums[mid] 来确定哪一半是有序的：\n1. 如果左半部分有序，我们检查 target 是否在左半部分的单调区间内。如果在，我们收缩 right = mid - 1；否则去右半部分寻找（left = mid + 1）。\n2. 同理，如果右半部分有序，我们检查 target 是否在右半部单调区间内，收缩边界。如此这般折半查找。",
+        "key_points": "Binary Search - Split Monotonicity",
+        "analysis_intuition": "Searching for a target in a rotated sorted array. A linear scan takes O(N). We need to leverage binary search to achieve O(log N) complexity.",
+        "analysis_derivation": "A rotated sorted array has a key property: if split in half, at least one half is always strictly sorted. We can compare `nums[left]` and `nums[mid]` to determine which half is sorted:\n1. If the left half is sorted, we check if the target lies within the range of this sorted half. If so, we search left (`right = mid - 1`), else we search right (`left = mid + 1`).\n2. If the right half is sorted, we check if the target lies within the range of this sorted half, adjusting the binary search bounds accordingly.",
         "code": """from typing import List
 
 class Solution:
@@ -158,12 +175,16 @@ class Solution:
             mid = (left + right) // 2
             if nums[mid] == target:
                 return mid
+            # Check if left half is sorted
             if nums[left] <= nums[mid]:
+                # Check if target is inside the sorted left half
                 if nums[left] <= target < nums[mid]:
                     right = mid - 1
                 else:
                     left = mid + 1
+            # Otherwise, right half must be sorted
             else:
+                # Check if target is inside the sorted right half
                 if nums[mid] < target <= nums[right]:
                     left = mid + 1
                 else:
@@ -172,23 +193,24 @@ class Solution:
 """
     },
     "09_three_sum.py": {
-        "title": "3Sum (三数之和)",
+        "title": "3Sum",
         "difficulty": "Medium",
-        "key_points": "双指针 (Two Pointers) / 排序 (Sorting)",
-        "analysis_intuition": "暴力搜索三个数，时间复杂度为 O(N^3)，且去重逻辑极其繁琐。如何进行优化并去重？",
-        "analysis_derivation": "1. 首先对数组进行升序排序，这是使用双指针的前提。\n2. 固定第一个数 nums[i]，如果 nums[i] > 0 则后面不可能凑出 0，直接终止。如果 nums[i] == nums[i-1] 则跳过以去重。\n3. 在剩下的区间 [i+1, n-1] 中使用双指针 left 和 right 向中间夹逼。若三数之和小于 0 则 left += 1，大于 0 则 right -= 1。若等于 0，则记录答案，并移动双指针同时跳过重复的值去重。",
+        "key_points": "Two Pointers - Sorting",
+        "analysis_intuition": "A brute-force search of three numbers takes O(N^3) time complexity and has extremely tedious duplicate removal logic. We need an efficient way to sort, prune, and skip duplicate elements.",
+        "analysis_derivation": "1. First, sort the array in ascending order to use two pointers.\n2. Fix the first number `nums[i]`. If `nums[i] > 0`, it's impossible to sum to 0 with subsequent positive numbers, so we break. If `nums[i] == nums[i-1]`, skip it to avoid duplicate triplets.\n3. For the remaining range `[i + 1, n - 1]`, use two pointers `left` and `right`. If the sum is less than 0, increment `left`; if greater than 0, decrement `right`. If equal to 0, record the triplet, and shift both pointers while skipping duplicate values to prevent duplicates.",
         "code": """from typing import List
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()
+        nums.sort()  # Sort first to enable two pointers
         res = []
         n = len(nums)
         for i in range(n - 2):
             if nums[i] > 0:
-                break
+                break  # Pivot cannot be positive
             if i > 0 and nums[i] == nums[i - 1]:
-                continue
+                continue  # Skip duplicate pivots
+                
             left, right = i + 1, n - 1
             while left < right:
                 total = nums[i] + nums[left] + nums[right]
@@ -198,6 +220,7 @@ class Solution:
                     right -= 1
                 else:
                     res.append([nums[i], nums[left], nums[right]])
+                    # Shift left and right pointers while skipping duplicates
                     while left < right and nums[left] == nums[left + 1]:
                         left += 1
                     while left < right and nums[right] == nums[right - 1]:
@@ -208,11 +231,11 @@ class Solution:
 """
     },
     "10_container_with_most_water.py": {
-        "title": "Container With Most Water (盛最多水的容器)",
+        "title": "Container With Most Water",
         "difficulty": "Medium",
-        "key_points": "双指针 (Two Pointers) / 贪心决策",
-        "analysis_intuition": "暴力计算任意两块板组成的容器容量，复杂度为 O(N^2)。如何利用边界性质进行 O(N) 求解？",
-        "analysis_derivation": "我们使用双指针 left 和 right 分别指向数组两端。容器的宽度是 right - left，高度取决于两板中的短板 min(height[left], height[right])。每次我们将短板那一侧的指针向内移动，因为如果移动长板那一侧，容器的宽度变小了，高度依然受限于保留下的短板，面积绝对不可能增大。因此，移动短板才是唯一有可能让面积增大的贪心策略。直到两指针相遇。",
+        "key_points": "Two Pointers - Greedy Pointer Shifting",
+        "analysis_intuition": "Calculating the volume for every possible pair of lines takes O(N^2) time complexity. We can leverage the boundaries and solve this in O(N) using two pointers.",
+        "analysis_derivation": "We place two pointers at the two ends of the array. The width of the container is `right - left`, and the height is bounded by the shorter line `min(height[left], height[right])`. Each time, we shift the pointer pointing to the shorter line inward. Shifting the pointer pointing to the longer line cannot increase the area because the height is still capped by the shorter line, while the width decreases. Thus, moving the shorter line is the only greedy strategy that could potentially yield a larger area.",
         "code": """from typing import List
 
 class Solution:
@@ -223,6 +246,7 @@ class Solution:
             width = right - left
             current_height = min(height[left], height[right])
             max_water = max(max_water, width * current_height)
+            # Greedily move the pointer pointing to the shorter line
             if height[left] < height[right]:
                 left += 1
             else:

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 304 - Range Sum Query 2D - Immutable (Medium)
-# 核心考点: 二维前缀和积分图
+# Key Points: 2D Prefix Sums / Integral Image
 #
-# MLSys 系统/低底层关联说明:
-# 二维前缀和本质上是计算机视觉和图像处理中的“积分图 (Integral Image)”。在 CNN（卷积神经网络）的池化层或局部求和加速中，利用前缀和可以将任何局部区间求和的复杂度从 O(H*W) 直接降至 O(1)。
+# MLSys System/Low-Level Mapping:
+# A 2D prefix sum is mathematically identical to an 'Integral Image' in computer vision. In CNN (Convolutional Neural Networks) pooling layers or local sum kernels, it optimizes range sum calculations from O(H*W) to O(1).
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

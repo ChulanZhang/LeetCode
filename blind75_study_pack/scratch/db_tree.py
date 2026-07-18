@@ -1,11 +1,11 @@
 # Tree category data
 PROBLEMS = {
     "60_maximum_depth_of_binary_tree.py": {
-        "title": "Maximum Depth of Binary Tree (二叉树的最大深度)",
+        "title": "Maximum Depth of Binary Tree",
         "difficulty": "Easy",
-        "key_points": "二叉树递归遍历 - 深度优先搜索 (DFS)",
-        "analysis_intuition": "直觉：一棵二叉树的最大深度等于它的左子树和右子树最大深度中的较大值，加上根节点本身的这一层高度（即 1）。",
-        "analysis_derivation": "可以使用简单的递归 DFS 来描述这一结构关系：\n1. **基准情况**：如果当前节点 `root` 为空，说明已经越过叶子节点，返回高度 `0`。\n2. **递归子问题**：递归计算左子树的最大深度 `left_depth`，以及右子树的最大深度 `right_depth`。\n3. **合并结果**：返回 `max(left_depth, right_depth) + 1`。",
+        "key_points": "Binary Tree Recursion - Depth-First Search (DFS)",
+        "analysis_intuition": "The maximum depth of a binary tree is the maximum of the depths of its left and right subtrees, plus 1 for the root node itself.",
+        "analysis_derivation": "We can express this relation recursively:\n1. **Base case**: If `root` is null, the subtree is empty, so return height 0.\n2. **Recursion**: Recursively calculate the maximum depth of the left subtree `left_depth` and the right subtree `right_depth`.\n3. **Combine**: The result is `max(left_depth, right_depth) + 1`.",
         "code": """from typing import Optional
 
 class TreeNode:
@@ -16,21 +16,19 @@ class TreeNode:
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        \"\"\"
-        时间复杂度: O(N) - 每个节点恰好访问一次
-        空间复杂度: O(H) - H 为树的高度，递归系统调用栈的深度
-        \"\"\"
+        # Time Complexity: O(N) - Each node is visited exactly once
+        # Space Complexity: O(H) - H is the height of the tree, representing the recursion stack depth
         if not root:
             return 0
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 """
     },
     "61_same_tree.py": {
-        "title": "Same Tree (相同的树)",
+        "title": "Same Tree",
         "difficulty": "Easy",
-        "key_points": "二叉树同步递归遍历",
-        "analysis_intuition": "直觉：要判断两棵树是否完全相同，不仅它们的根节点的值要相等，而且它们的左子树也必须相同，右子树也必须相同。我们可以进行同步的递归比较。",
-        "analysis_derivation": "对两棵树的节点 `p` 和 `q` 进行比对：\n1. 如果 `p` 和 `q` 都是 `None`，说明两边都走到了底，在此前的比较中完全一致，返回 `True`。\n2. 如果其中有一个是 `None` 而另一个不是，或者两者的值不相等（`p.val != q.val`），说明树的结构或数值不相同，返回 `False`。\n3. 如果当前节点一致，则递归验证左子树 `self.isSameTree(p.left, q.left)` 与右子树 `self.isSameTree(p.right, q.right)`。两部分都满足才返回 `True`。",
+        "key_points": "Binary Tree - Synchronous Recursion",
+        "analysis_intuition": "For two trees to be identical, their root values must be equal, and their left subtrees must be identical, and their right subtrees must be identical. We can compare them using synchronous recursion.",
+        "analysis_derivation": "Compare two nodes `p` and `q` simultaneously:\n1. If both `p` and `q` are null, we reached the leaf ends simultaneously with matching structures, return True.\n2. If only one is null, or their values differ (`p.val != q.val`), they are not identical, return False.\n3. Otherwise, recursively verify that the left subtrees match `self.isSameTree(p.left, q.left)` and the right subtrees match `self.isSameTree(p.right, q.right)`. Both must be True.",
         "code": """from typing import Optional
 
 class TreeNode:
@@ -41,24 +39,23 @@ class TreeNode:
 
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        \"\"\"
-        时间复杂度: O(N) - N 为两棵树中较小的节点总数
-        空间复杂度: O(H) - 递归调用栈空间
-        \"\"\"
+        # Time Complexity: O(N) - N is the smaller number of nodes in p and q
+        # Space Complexity: O(H) - Recursion stack space
         if not p and not q:
             return True
         if not p or not q or p.val != q.val:
             return False
             
+        # Check left and right subtrees recursively
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 """
     },
     "62_invert_binary_tree.py": {
-        "title": "Invert Binary Tree (翻转二叉树)",
+        "title": "Invert Binary Tree",
         "difficulty": "Easy",
-        "key_points": "二叉树遍历结构就地修改 (In-place swap)",
-        "analysis_intuition": "直觉：翻转一棵二叉树（镜像对称），实际上就是把每个节点的左孩子和右孩子进行对调，然后再递归地翻转它们的子树。",
-        "analysis_derivation": "1. **基准情况**：如果当前节点 `root` 为空，直接返回 `None`。\n2. **交换左右子树**：直接使用 Python 的并口赋值语句，交换当前节点的左右子节点：`root.left, root.right = root.right, root.left`。\n3. **递归处理**：递归地翻转左子树 `self.invertTree(root.left)` 和右子树 `self.invertTree(root.right)`。\n4. 返回当前节点 `root`。",
+        "key_points": "Binary Tree - In-Place Node Swapping",
+        "analysis_intuition": "Inverting a binary tree (mirroring it) means swapping the left child and right child of every node in the tree recursively.",
+        "analysis_derivation": "1. **Base case**: If the current node `root` is null, return `None`.\n2. **Swap children**: Swap the left and right pointers of the current node using a parallel assignment: `root.left, root.right = root.right, root.left`.\n3. **Recursive step**: Recursively invert the left subtree `self.invertTree(root.left)` and the right subtree `self.invertTree(root.right)`.\n4. Return the mutated `root` node.",
         "code": """from typing import Optional
 
 class TreeNode:
@@ -69,17 +66,15 @@ class TreeNode:
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        \"\"\"
-        时间复杂度: O(N) - 遍历所有节点一次
-        空间复杂度: O(H) - 递归系统栈空间
-        \"\"\"
+        # Time Complexity: O(N) - Visit every node once
+        # Space Complexity: O(H) - Recursion stack space
         if not root:
             return None
             
-        # 交换左右子树指针
+        # Swap the left and right child pointers
         root.left, root.right = root.right, root.left
         
-        # 递归翻转子树
+        # Recursively invert the children
         self.invertTree(root.left)
         self.invertTree(root.right)
         
@@ -87,11 +82,11 @@ class Solution:
 """
     },
     "63_binary_tree_maximum_path_sum.py": {
-        "title": "Binary Tree Maximum Path Sum (二叉树中的最大路径和)",
+        "title": "Binary Tree Maximum Path Sum",
         "difficulty": "Hard",
-        "key_points": "二叉树后序遍历 (Post-order DFS) / 路径贡献值合并",
-        "analysis_intuition": "直觉：一条二叉树的路径，可能在某个节点处发生“折返”（即包括该节点、它的左子树路径和右子树路径）。对于任何一个节点，如果我们要计算经过它的“折返路径”的最大值，那就是 `node.val + left_gain + right_gain`。但需要注意的是，一个折返路径是无法向上汇报给它的父节点的（因为如果继续向上走，就不能在子节点处折返了，二叉树的路径不能有分支）。",
-        "analysis_derivation": "设计后序 DFS 机制：\n1. 声明全局变量 `max_sum` 来记录历史最大的折返路径和，初始化为负无穷。\n2. 对节点进行 DFS，DFS 函数返回当前节点向父节点提供的**单边最大贡献值**（只能选左或者右之一往上连）：\n   - 如果节点为空，贡献值为 0。\n   - 递归计算左子节点的单边贡献 `left = max(0, dfs(node.left))`，小于 0 的贡献抛弃不要，直接当成 0。\n   - 递归计算右子节点的单边贡献 `right = max(0, dfs(node.right))`。\n   - **计算折返路径更新全局最大值**：以当前节点为顶点的最大折返路径和为 `node.val + left + right`，我们用它去更新 `max_sum`。\n   - **向上返回单边贡献值**：由于向上不能有分支，返回给父节点的是 `node.val + max(left, right)`。\n3. 最终 `max_sum` 记录的即为答案。时间复杂度为 O(N)。",
+        "key_points": "Post-Order DFS / Path Contribution Merging",
+        "analysis_intuition": "A path in a binary tree can 'bend' at a node, meaning it can travel from the left subtree, through the node, and into the right subtree. For any node, the maximum sum of a path bending at this node is `node.val + left_gain + right_gain`. However, a path with a bend cannot be extended upward to a parent node because binary tree paths cannot have branches.",
+        "analysis_derivation": "Post-Order DFS Mechanism:\n1. Maintain a global variable `max_sum` to store the maximum path sum found, initialized to negative infinity.\n2. Define a DFS helper that returns the **maximum single-path contribution** the subtree can provide to its parent (i.e. we must choose only *one* branch to extend upward):\n   - If the node is null, return 0.\n   - Calculate the max gain from the left child: `left = max(0, dfs(node.left))`. If a child's gain is negative, we discard it (greedy choice).\n   - Calculate the max gain from the right child: `right = max(0, dfs(node.right))`.\n   - **Calculate the bent path**: The max path sum bending at the current node is `node.val + left + right`. Update `max_sum` with this value.\n   - **Return single-path gain**: Return `node.val + max(left, right)` to the parent node since the path cannot branch.",
         "code": """from typing import Optional
 
 class TreeNode:
@@ -102,10 +97,8 @@ class TreeNode:
 
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        \"\"\"
-        时间复杂度: O(N) - 每个节点恰好被 DFS 访问一次
-        空间复杂度: O(H) - 递归调用栈占用的辅助空间
-        \"\"\"
+        # Time Complexity: O(N) - Each node is visited exactly once during DFS
+        # Space Complexity: O(H) - Auxiliary recursion stack space
         max_sum = float('-inf')
         
         def dfs(node):
@@ -113,15 +106,15 @@ class Solution:
             if not node:
                 return 0
                 
-            # 计算左右子树能提供的最大单边贡献（如果为负，则选择 0，即不使用该子树）
+            # Compute maximum single-path gain from left and right children (ignore negative gains)
             left_gain = max(dfs(node.left), 0)
             right_gain = max(dfs(node.right), 0)
             
-            # 计算以当前节点为顶点的最大折返路径和，并更新全局最大值
+            # Update the global maximum path sum considering a path that splits at the current node
             current_path_sum = node.val + left_gain + right_gain
             max_sum = max(max_sum, current_path_sum)
             
-            # 返回当前节点向父节点提供的单边最大贡献
+            # Return the maximum single-path gain (cannot take both left and right to the parent)
             return node.val + max(left_gain, right_gain)
             
         dfs(root)
@@ -129,11 +122,11 @@ class Solution:
 """
     },
     "64_binary_tree_level_order_traversal.py": {
-        "title": "Binary Tree Level Order Traversal (二叉树的层序遍历)",
+        "title": "Binary Tree Level Order Traversal",
         "difficulty": "Medium",
-        "key_points": "广度优先搜索 (BFS) / 队列 (Queue) 按层切分",
-        "analysis_intuition": "直觉：要按层输出二叉树的节点。我们应该使用广度优先搜索 (BFS)，用队列来辅助遍历节点。在处理每一层时，我们需要一次性清空当前队列中属于该层的所有节点，这样就能区分开不同层的输出。",
-        "analysis_derivation": "1. 如果 `root` 为空，返回空列表 `[]`。\n2. 初始化队列 `queue` 并将 `root` 入队。\n3. 当队列不为空时：\n   - 获取当前层包含的节点数 `level_size = len(queue)`。这代表了这批出队元素全部属于同一层。\n   - 循环 `level_size` 次，弹出队首节点，将其值加入当前层的列表 `level_nodes` 中，并将其不为空的左右孩子节点依次加入队列尾部。\n   - 将当前层的结果 `level_nodes` 加入全局结果集中。\n4. 循环结束时，结果集中就以二维列表的形式保存了按层划分的节点值。",
+        "key_points": "Breadth-First Search (BFS) / Queue Level Splitting",
+        "analysis_intuition": "To output nodes level by level, we use a Breadth-First Search (BFS) facilitated by a queue. When processing a level, we must determine the size of the queue at the start of the level. This allows us to process exactly the nodes belonging to the current level before moving to the next.",
+        "analysis_derivation": "1. If `root` is null, return an empty list `[]`.\n2. Initialize a double-ended queue `queue` containing the `root`.\n3. While the queue is not empty:\n   - Get the number of nodes in the current level: `level_size = len(queue)`.\n   - Iterate `level_size` times. Dequeue a node, append its value to the current level's list `level_nodes`, and enqueue its non-null left and right children.\n   - Append `level_nodes` to the global result list.",
         "code": """from typing import List, Optional
 from collections import deque
 
@@ -145,10 +138,8 @@ class TreeNode:
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        \"\"\"
-        时间复杂度: O(N) - 遍历所有节点各一次
-        空间复杂度: O(N) - 队列中最多同时存放最底层一层的节点（约 N/2 个）
-        \"\"\"
+        # Time Complexity: O(N) - Visit every node once
+        # Space Complexity: O(N) - Queue holds at most N/2 nodes at the bottom level
         if not root:
             return []
             
@@ -156,13 +147,13 @@ class Solution:
         queue = deque([root])
         
         while queue:
-            level_size = len(queue)  # 记录当前层的节点数
+            level_size = len(queue)  # Number of nodes at the current level
             current_level = []
             
             for _ in range(level_size):
                 curr = queue.popleft()
                 current_level.append(curr.val)
-                # 依次将非空子节点加入队列，参与下一层的遍历
+                # Enqueue children for the next level
                 if curr.left:
                     queue.append(curr.left)
                 if curr.right:
@@ -173,11 +164,11 @@ class Solution:
 """
     },
     "65_serialize_and_deserialize_binary_tree.py": {
-        "title": "Serialize and Deserialize Binary Tree (二叉树的序列化与反序列化)",
+        "title": "Serialize and Deserialize Binary Tree",
         "difficulty": "Hard",
-        "key_points": "前序遍历 (Pre-order DFS) / 字符串编解码 / 树的就地重构",
-        "analysis_intuition": "直觉：我们需要将一棵二叉树持久化为字符串，且能够完全反向恢复。这就要求我们在序列化时，必须保留树的“结构信息”（包括空子树的位置），否则仅靠一个遍历结果是无法唯一还原树结构的。",
-        "analysis_derivation": "前序 DFS (根 -> 左 -> 右) 机制：\n1. **序列化 (Serialize)**：\n   - 对树运行前序 DFS。如果节点为空，我们将其记录为特定的占位符（如 `'#'` 或 `'N'`）。\n   - 如果不为空，记录其值，并逗号分隔。这样，空节点被记录下来就能完整保留树的几何轮廓。\n   - 例如一棵树序列化结果可能为 `'1,2,#,#,3,4,#,#,5,#,#'`。\n2. **反序列化 (Deserialize)**：\n   - 将生成的序列化字符串按照逗号拆分成一个字符串列表，并转换为一个队列 `queue`。\n   - 我们定义递归恢复函数 `helper(queue)`：每次从队列头部弹出一个元素。\n     - 如果弹出的是 `'#'`，说明这是一个空节点，直接返回 `None`。\n     - 否则，创建一个新节点 `TreeNode(int(val))`。\n     - 然后，**先递归构建左子树，再递归构建右子树**（顺序必须与前序 DFS 写入的顺序完全一致）。\n     - 返回新创建的节点。队列消耗完毕时，整棵树也被完美构建还原。",
+        "key_points": "Pre-Order DFS / Tree Splicing / Serialization Protocol",
+        "analysis_intuition": "To serialize a binary tree into a string and deserialize it back, the serialized string must store the structure (including null nodes) explicitly. A traversal string without null markers cannot uniquely reconstruct a binary tree.",
+        "analysis_derivation": "Pre-Order DFS (Root -> Left -> Right) Protocol:\n1. **Serialize**:\n   - Run pre-order DFS on the tree. If a node is null, append a placeholder like `'#'` or `'N'` to the result.\n   - If the node is not null, append its value followed by a delimiter (like `','`).\n   - Example: A tree is serialized to `'1,2,#,#,3,4,#,#,5,#,#'`.\n2. **Deserialize**:\n   - Split the serialized string by `','` and convert it into a queue `queue`.\n   - Define a recursive helper `dfs(queue)` that dequeues the first element:\n     - If it is `'#'`, return `None`.\n     - Otherwise, instantiate `node = TreeNode(int(val))`.\n     - Recursively construct the left child: `node.left = dfs()`.\n     - Recursively construct the right child: `node.right = dfs()`.\n     - Return `node`.",
         "code": """from collections import deque
 
 class TreeNode:
@@ -188,8 +179,9 @@ class TreeNode:
 
 class Codec:
     def serialize(self, root):
-        \"\"\"Encodes a tree to a single string.
-        \"\"\"
+        # Encodes a tree to a single string.
+        # Time Complexity: O(N)
+        # Space Complexity: O(N)
         res = []
         def dfs(node):
             if not node:
@@ -202,8 +194,9 @@ class Codec:
         return ",".join(res)
 
     def deserialize(self, data):
-        \"\"\"Decodes your encoded data to tree.
-        \"\"\"
+        # Decodes your encoded data to tree.
+        # Time Complexity: O(N)
+        # Space Complexity: O(N)
         vals = deque(data.split(','))
         
         def dfs():
@@ -211,7 +204,7 @@ class Codec:
             if val == '#':
                 return None
             node = TreeNode(int(val))
-            # 严格按照前序遍历顺序递归创建子树
+            # Construct subtrees in pre-order sequence
             node.left = dfs()
             node.right = dfs()
             return node
@@ -220,11 +213,11 @@ class Codec:
 """
     },
     "66_subtree_of_another_tree.py": {
-        "title": "Subtree of Another Tree (另一棵树的子树)",
+        "title": "Subtree of Another Tree",
         "difficulty": "Easy",
-        "key_points": "二叉树递归校验 / 子结构匹配",
-        "analysis_intuition": "直觉：要判断 `subRoot` 是不是 `root` 的一个子树，有两种可能：1. `root` 自己和 `subRoot` 是一棵相同的树。 2. `subRoot` 是 `root.left` 的子树。 3. `subRoot` 是 `root.right` 的子树。这又是一个双重递归过程。",
-        "analysis_derivation": "1. 辅助函数 `isSameTree(p, q)`：判断两棵树是否结构和数值完全相同（即 LeetCode 100 题的解法）。\n2. 主函数 `isSubtree(root, subRoot)`：\n   - 如果 `root` 为空，说明已经走到了底，而 `subRoot` 显然不为空（题目保证 subRoot 至少有一个节点），返回 `False`。\n   - 调用 `isSameTree(root, subRoot)`，如果为 `True`，说明匹配成功，直接返回 `True`。\n   - 否则，递归地在左子树和右子树中寻找匹配：`self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)`。",
+        "key_points": "Binary Tree Recursion - Substructure Matching",
+        "analysis_intuition": "To check if `subRoot` is a subtree of `root`, three cases are possible: 1. `root` and `subRoot` are identical trees. 2. `subRoot` is a subtree of `root.left`. 3. `subRoot` is a subtree of `root.right`.",
+        "analysis_derivation": "1. Helper `isSameTree(p, q)`: Returns True if two trees have identical structures and values.\n2. Main function `isSubtree(root, subRoot)`:\n   - If `root` is null, we reached the end of the search path without finding a match. Return False (since `subRoot` is non-empty).\n   - Check `isSameTree(root, subRoot)`. If True, return True.\n   - Otherwise, recursively search in the child nodes: `self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)`.",
         "code": """from typing import Optional
 
 class TreeNode:
@@ -235,14 +228,11 @@ class TreeNode:
 
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        \"\"\"
-        时间复杂度: O(M * N) - M 和 N 分别为两棵树的节点数。最坏情况下需要以 root 的每个节点为起点运行 SameTree
-        空间复杂度: O(H_root) - H_root 为 root 树的高度，系统递归调用栈的深度
-        \"\"\"
+        # Time Complexity: O(M * N) - M, N are node counts. Worst case checks isSame for all root nodes
+        # Space Complexity: O(H) - H is height of the root tree (recursion stack depth)
         if not root:
             return False
             
-        # 辅助判断两棵树是否相同的函数
         def isSame(p, q):
             if not p and not q:
                 return True
@@ -250,18 +240,18 @@ class Solution:
                 return False
             return isSame(p.left, q.left) and isSame(p.right, q.right)
             
-        # 检查以当前 root 为头节点是否相同，或者递归去左右子树寻找
+        # Check if identical at current root, otherwise recurse left and right
         if isSame(root, subRoot):
             return True
         return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
 """
     },
     "67_construct_binary_tree_from_preorder_and_inorder_traversal.py": {
-        "title": "Construct Binary Tree from Preorder and Inorder Traversal (从前序与中序遍历序列构造二叉树)",
+        "title": "Construct Binary Tree from Preorder and Inorder Traversal",
         "difficulty": "Medium",
-        "key_points": "前中序遍历性质 / 分治递归构建 / 哈希映射定位优化",
-        "analysis_intuition": "直觉：前序遍历的第一个元素永远是这棵树（或子树）的**根节点**。而中序遍历中，根节点正好把树分为左子树部分（左边）和右子树部分（右边）。通过结合这两点，我们可以利用分治法递归构建整棵树。",
-        "analysis_derivation": "1. **定位根节点**：在前序数组中取第一个数，它是当前的根节点值 `root_val = preorder[0]`。实例化新节点 `root = TreeNode(root_val)`。\n2. **切分子树区间**：在中序数组中找到根节点值所在的索引位置 `mid`：\n   - 中序数组中 `mid` 左边的部分是左子树的中序遍历结果。\n   - 右边的部分是右子树的中序遍历结果。\n3. **计算子树节点数**：左子树有 `left_size = mid` 个节点。因此，在前序数组中，根节点之后的 `left_size` 个元素（即 `preorder[1 : 1 + left_size]`）就是左子树的前序遍历结果，而剩余的部分则是右子树的前序遍历结果。\n4. **递归并优化**：递归调用上述切分，分别构建 `root.left` 和 `root.right`。在实现中，如果频繁在数组中查找索引或者切片，会导致 $O(N^2)$ 复杂度。我们可以使用一个哈希表 `inorder_map = {val: idx}` 来缓存中序数组的元素索引，并仅传递左右边界指针，将时间复杂度优化到严格的 O(N)。",
+        "key_points": "Pre-Order & In-Order Properties / Divide and Conquer / Index Mapping",
+        "analysis_intuition": "In a pre-order traversal, the first element is always the **root node** of the current tree/subtree. In an in-order traversal, the root node partitions the elements into the left subtree (all elements to the left of the root) and the right subtree (all elements to the right). We can use this property to recursively rebuild the tree.",
+        "analysis_derivation": "1. **Root Extraction**: The first element in preorder is the root value: `root_val = preorder[pre_start]`. Instantiate `root = TreeNode(root_val)`.\n2. **Partitioning**: Locate the index of `root_val` in inorder, say `mid`. The elements to the left of `mid` represent the left subtree, and elements to the right represent the right subtree.\n3. **Subproblem division**: The left subtree has size `left_size = mid - in_start`. Thus, the left subtree's preorder values are located at indices `[pre_start + 1 ... pre_start + left_size]`, and the right subtree's preorder values are at indices `[pre_start + left_size + 1 ... pre_end]`.\n4. **Optimization**: Slicing arrays in recursion takes O(N^2) time. We optimize this to O(N) by storing inorder values in a hash map (`inorder_map = {val: idx}`) for O(1) index lookup and passing boundary pointers in recursion.",
         "code": """from typing import List, Optional
 
 class TreeNode:
@@ -272,14 +262,12 @@ class TreeNode:
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        \"\"\"
-        时间复杂度: O(N) - N 为节点总数，借助哈希表实现 O(1) 查找
-        空间复杂度: O(N) - 缓存中序数组的哈希表，以及递归调用栈空间
-        \"\"\"
-        # 缓存中序遍历的索引映射，避免在递归中重复查找
+        # Time Complexity: O(N) - N is the number of nodes. Hash map index lookup is O(1)
+        # Space Complexity: O(N) - Hash map storage and recursion call stack
+        
+        # Cache inorder indices to avoid O(N) searches during recursion
         inorder_map = {val: i for i, val in enumerate(inorder)}
         
-        # 递归构建的指针版辅助函数
         def build(pre_start, pre_end, in_start, in_end):
             if pre_start > pre_end:
                 return None
@@ -287,11 +275,11 @@ class Solution:
             root_val = preorder[pre_start]
             root = TreeNode(root_val)
             
-            # 定位中序遍历中的根节点位置
+            # Locate root in inorder list
             mid = inorder_map[root_val]
-            left_size = mid - in_start  # 左子树包含的节点个数
+            left_size = mid - in_start  # Number of nodes in left subtree
             
-            # 递归构建左子树与右子树
+            # Recursively build left and right subtrees
             root.left = build(pre_start + 1, pre_start + left_size, in_start, mid - 1)
             root.right = build(pre_start + left_size + 1, pre_end, mid + 1, in_end)
             
@@ -301,11 +289,11 @@ class Solution:
 """
     },
     "68_validate_binary_search_tree.py": {
-        "title": "Validate Binary Search Tree (验证二叉搜索树)",
+        "title": "Validate Binary Search Tree",
         "difficulty": "Medium",
-        "key_points": "二叉搜索树 (BST) 的性质定义 / 区间边界传递递归",
-        "analysis_intuition": "直觉：很多同学容易走进一个误区：只判定每个节点是否大于左孩子且小于右孩子。这是不够的。因为在 BST 中，**左子树的所有节点都必须小于当前节点，右子树的所有节点都必须大于当前节点**。例如，`[10, 5, 15, None, None, 6, 20]`，节点 6 虽然大于 5，但它在根节点 10 的右子树却小于 10，这违反了 BST 定义。",
-        "analysis_derivation": "区间边界传递破局：\n我们需要在递归时向下传递每个节点必须满足的**上限（upper）和下限（lower）值范围**。\n1. 初始化调用 `dfs(root, -inf, inf)`，根节点可以为任意值。\n2. 在递归的每一步中：\n   - 如果当前节点 `node` 为空，返回 `True`。\n   - 检查当前节点的值是否满足边界：`lower < node.val < upper`。若不满足，说明非法，返回 `False`。\n   - **向下更新边界**：\n     - 当向左子树递归时，所有左节点都必须小于当前节点。因此上限更新为当前节点的值：`dfs(node.left, lower, node.val)`。\n     - 当向右子树递归时，所有右节点都必须大于当前节点。因此下限更新为当前节点的值：`dfs(node.right, node.val, upper)`。\n   - 左右两边都合法才返回 `True`。",
+        "key_points": "BST Definition - Interval Bounds DFS Propagation",
+        "analysis_intuition": "A common mistake is validating only that a node is greater than its left child and smaller than its right child. This is incorrect. In a Binary Search Tree (BST), **all nodes in the left subtree must be less than the parent node, and all nodes in the right subtree must be greater than the parent node**.",
+        "analysis_derivation": "To enforce this definition globally, we propagate valid open intervals `(lower, upper)` down during DFS:\n1. Initialize `validate(root, -inf, inf)`.\n2. In each step:\n   - If the node is null, return True.\n   - Verify if the node's value falls inside the open interval: `lower < node.val < upper`. If not, return False.\n   - **Update bounds for children**:\n     - When validating the left child, its value must be less than the current node's value. The upper bound shifts to `node.val`: `validate(node.left, lower, node.val)`.\n     - When validating the right child, its value must be greater than the current node's value. The lower bound shifts to `node.val`: `validate(node.right, node.val, upper)`.\n   - Return True if both children are valid BSTs.",
         "code": """from typing import Optional
 
 class TreeNode:
@@ -316,19 +304,17 @@ class TreeNode:
 
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        \"\"\"
-        时间复杂度: O(N) - 遍历所有节点一次
-        空间复杂度: O(H) - 递归调用栈空间
-        \"\"\"
+        # Time Complexity: O(N) - Visit every node once
+        # Space Complexity: O(H) - Recursion stack space
         def validate(node, lower=float('-inf'), upper=float('inf')):
             if not node:
                 return True
                 
-            # 当前节点值必须落在合法的开放区间内
+            # Node value must be strictly within the allowed range
             if not (lower < node.val < upper):
                 return False
                 
-            # 左子树所有节点值必须小于 node.val，右子树所有节点值必须大于 node.val
+            # Left child values must be in (lower, node.val); right child values in (node.val, upper)
             return (validate(node.left, lower, node.val) and 
                     validate(node.right, node.val, upper))
                     
@@ -336,11 +322,11 @@ class Solution:
 """
     },
     "69_kth_smallest_element_in_a_bst.py": {
-        "title": "Kth Smallest Element in a BST (二叉搜索树中第 K 小的元素)",
+        "title": "Kth Smallest Element in a BST",
         "difficulty": "Medium",
-        "key_points": "二叉搜索树的中序遍历性质 / 栈迭代早期终止",
-        "analysis_intuition": "直觉：BST（二叉搜索树）有一个非常关键的特性：**对 BST 进行中序遍历（左 -> 根 -> 右），得到的结果刚好是一个严格升序的序列**。所以，寻找第 k 小的元素，就是找出中序遍历中的第 k 个被访问节点。",
-        "analysis_derivation": "为了提高性能并做到早期终止，我们可以使用**迭代版的中序遍历**（用一个显式栈模拟系统递归）：\n1. 初始化一个空栈 `stack`，当前指针 `curr = root`。\n2. 在 `curr` 不为空或栈不为空的条件中循环：\n   - **向左倾斜入栈**：一路将当前节点及其所有左侧后代全部压入栈中：`stack.append(curr); curr = curr.left`。这能确保我们总是优先探寻最小的节点。\n   - **出栈处理**：弹出栈顶元素，它就是当前中序遍历中最小的未访问节点。我们对计数器 `k` 减 1（`k -= 1`）。\n   - **早期终止**：如果 `k == 0`，说明找到了第 k 小的元素，直接返回该节点的值。\n   - **转向右子树**：令 `curr = popped_node.right`，准备处理右侧分支。\n由于使用迭代栈，我们一旦访问完第 k 个元素就立即退出，不会遍历整棵树，极佳地优化了时间复杂度。",
+        "key_points": "BST In-Order Traversal Properties / Iterative Stack with Early Termination",
+        "analysis_intuition": "An in-order traversal (Left -> Root -> Right) of a Binary Search Tree (BST) visits nodes in strictly ascending order. Thus, finding the k-th smallest element is equivalent to finding the k-th node visited during an in-order traversal.",
+        "analysis_derivation": "To optimize performance, we use an **iterative in-order traversal** utilizing an explicit stack. This allows us to stop the traversal immediately once the k-th element is reached:\n1. Initialize an empty stack and set `curr = root`.\n2. In a loop while `curr` is not null or the stack is not empty:\n   - **Go left**: Push the current node and all its left descendants onto the stack: `stack.append(curr); curr = curr.left`. This ensures we always process the smallest element next.\n   - **Pop and process**: Pop from the stack. This is the next smallest element in in-order. Decrement `k` by 1.\n   - **Check target**: If `k == 0`, we have found the k-th smallest element. Return its value immediately.\n   - **Go right**: Set `curr = popped_node.right` to process its right subtree.",
         "code": """from typing import Optional
 
 class TreeNode:
@@ -351,39 +337,37 @@ class TreeNode:
 
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        \"\"\"
-        时间复杂度: O(H + k) - H 是树的高度，需要一路向左压栈，然后向后迭代遍历 k 次
-        空间复杂度: O(H) - 栈最大深度等于树的高度
-        \"\"\"
+        # Time Complexity: O(H + k) - H is the height of the tree. We traverse down to the leftmost leaf, then perform k pop operations
+        # Space Complexity: O(H) - Stack stores at most H nodes
         stack = []
         curr = root
         
         while curr or stack:
-            # 1. 一路探寻并入栈最左侧的后代节点
+            # 1. Travel to the leftmost node, pushing all nodes along the path to the stack
             while curr:
                 stack.append(curr)
                 curr = curr.left
                 
-            # 2. 弹出栈顶节点（即当前最小节点）
+            # 2. Process the top of the stack (smallest unvisited node)
             curr = stack.pop()
             k -= 1
             
-            # 3. 计数达标，早期终止返回
+            # 3. If we've popped k elements, we have found the target
             if k == 0:
                 return curr.val
                 
-            # 4. 转向右子树分支
+            # 4. Move to the right child
             curr = curr.right
             
         return -1
 """
     },
     "70_lowest_common_ancestor_of_a_binary_search_tree.py": {
-        "title": "Lowest Common Ancestor of a Binary Search Tree (二叉搜索树的最近公共祖先)",
+        "title": "Lowest Common Ancestor of a Binary Search Tree",
         "difficulty": "Medium",
-        "key_points": "BST 的大小偏序性质 / 树的自顶向下分岔",
-        "analysis_intuition": "直觉：要在 BST 中找到两个节点 `p` 和 `q` 的最近公共祖先（LCA）。我们可以使用常规二叉树的后序遍历 LCA 算法，复杂度为 O(N)。但由于这是一棵二叉搜索树，我们完全可以利用数值大小关系进行快速的分治判定，把时间复杂度降低到 O(H)（在平衡树中为 O(log N)）。",
-        "analysis_derivation": "BST 性质告诉我们：对于任何节点，其左子树的值都小于它，右子树的值都大于它。\n从根节点 `root` 开始自顶向下迭代检查：\n1. 如果 `p.val` 和 `q.val` 的值都小于当前 `root.val`，说明这两个目标节点一定都在当前节点的左子树中。我们将 `root` 移动到左孩子：`root = root.left`。\n2. 如果 `p.val` 和 `q.val` 的值都大于当前 `root.val`，说明它们一定都在当前节点的右子树中。我们将 `root` 移动到右孩子：`root = root.right`。\n3. **分岔点判定**：如果上面两个条件都不成立（即一个比 `root` 大，一个比 `root` 小；或者其中有一个就是当前 `root` 节点自己），说明在当前节点处，`p` 和 `q` 发生了“分道扬镳”。这个分岔点就是它们的最近公共祖先，直接返回 `root`。",
+        "key_points": "BST Partial Order / Binary Search-like Node Splitting",
+        "analysis_intuition": "Finding the Lowest Common Ancestor (LCA) in a general binary tree takes O(N) time and O(H) space. However, because this is a Binary Search Tree (BST), we can use the value ordering property to find the LCA in O(H) time and O(1) space.",
+        "analysis_derivation": "In a BST, a node's left child has a smaller value and its right child has a larger value.\nTraverse starting from the `root`:\n1. If both `p.val` and `q.val` are less than the current node's value, the LCA must reside in the left subtree. Move left: `curr = curr.left`.\n2. If both `p.val` and `q.val` are greater than the current node's value, the LCA must reside in the right subtree. Move right: `curr = curr.right`.\n3. **Split Point**: If neither condition is met (one value is larger and the other is smaller, or one value equals the current node's value), the paths to `p` and `q` split here. The current node is the LCA. Return it.",
         "code": """class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -392,37 +376,35 @@ class Solution:
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        \"\"\"
-        时间复杂度: O(H) - 沿着单条分支向下搜索，最坏为 O(N)，平衡树时为 O(log N)
-        空间复杂度: O(1) - 仅需指针移动，无额外栈开销
-        \"\"\"
+        # Time Complexity: O(H) - We traverse down a single branch of the tree. H is O(log N) for balanced trees
+        # Space Complexity: O(1) - Constant auxiliary space
         curr = root
         
         while curr:
-            # 如果两个目标值都比当前节点小，往左子树走
+            # If both targets are in the left subtree
             if p.val < curr.val and q.val < curr.val:
                 curr = curr.left
-            # 如果两个目标值都比当前节点大，往右子树走
+            # If both targets are in the right subtree
             elif p.val > curr.val and q.val > curr.val:
                 curr = curr.right
             else:
-                # 出现分岔（或者一个就是当前节点本身），当前节点即为最近公共祖先
+                # Split point found (or current is one of p or q)
                 return curr
                 
         return None
 """
     },
     "71_implement_trie_prefix_tree.py": {
-        "title": "Implement Trie (Prefix Tree) (实现 Trie (前缀树))",
+        "title": "Implement Trie (Prefix Tree)",
         "difficulty": "Medium",
-        "key_points": "前缀树设计 / 嵌套哈希结构",
-        "analysis_intuition": "直觉：Trie 树（前缀树）是一种哈希树变体，常用于快速检索字符串前缀或进行自动补全。Trie 树的每个节点代表一个字符。根节点不包含字符，除根节点外每一个节点都仅包含一个字符；从根节点到某一个节点，路径上经过的字符连接起来就是该节点对应的字符串。",
-        "analysis_derivation": "Trie 节点结构设计：\n我们可以将每个节点定义为一个字典 `children`，键（Key）为子字符，值（Value）为指向下一个 Trie 节点实例的指针。同时，使用一个布尔变量 `is_word` 记录当前节点是否是一个单词的结束标记。\n1. `insert(word)`：从根节点出发，遍历单词的每个字符 `char`。如果 `char` 不在当前节点的 `children` 字典中，就创建一个新的 Trie 节点加入其中。然后指针移动到该子节点。遍历完后，将最后一个节点的 `is_word` 设为 `True`。\n2. `search(word)`：沿着 `children` 指针向下检索单词的每一个字符，如果中途断掉则说明该单词不存在，返回 `False`；如果顺利到达结尾，返回最后一个节点的 `is_word` 状态。\n3. `startsWith(prefix)`：执行与 `search` 相同的检索过程。如果顺利走完前缀的所有字符，说明前缀存在（无需关注最后一个节点是否是单词结尾），返回 `True`；中途断掉则返回 `False`。",
+        "key_points": "Trie Structure / Nested Dictionaries",
+        "analysis_intuition": "A Trie (Prefix Tree) is a tree structure used for fast string retrieval and autocomplete queries. Each node in the Trie represents a character. A path from the root to a node spells out a word.",
+        "analysis_derivation": "Trie Node Structure Design:\nWe can implement a Trie node using a dictionary `children` mapping characters to child `TrieNode` objects, and a boolean flag `is_word` indicating if the node marks the end of a complete word.\n1. `insert(word)`: Iterate through the word's characters. If a character is not in the current node's `children`, insert a new `TrieNode`. Move the pointer to the child node. At the end of the word, set `is_word = True`.\n2. `search(word)`: Traverse the Trie following the word's characters. If a character is missing, return False. At the end, return `is_word` (which must be True for the word to exist).\n3. `startsWith(prefix)`: Traverse the Trie following the prefix. If the traversal succeeds, the prefix exists. Return True.",
         "code": """class TrieNode:
     def __init__(self):
-        # 存储子节点映射 {字符: TrieNode}
+        # Map of children nodes {char: TrieNode}
         self.children = {}
-        # 标记当前节点是否是单词的尾字符
+        # Boolean to check if node marks the end of a word
         self.is_word = False
 
 class Trie:
@@ -430,9 +412,7 @@ class Trie:
         self.root = TrieNode()
 
     def insert(self, word: str) -> None:
-        \"\"\"插入一个单词
-        时间复杂度: O(L) - L 为单词长度
-        \"\"\"
+        # Time Complexity: O(L) - L is word length
         curr = self.root
         for char in word:
             if char not in curr.children:
@@ -441,9 +421,7 @@ class Trie:
         curr.is_word = True
 
     def search(self, word: str) -> bool:
-        \"\"\"查询单词是否存在
-        时间复杂度: O(L)
-        \"\"\"
+        # Time Complexity: O(L)
         curr = self.root
         for char in word:
             if char not in curr.children:
@@ -452,9 +430,7 @@ class Trie:
         return curr.is_word
 
     def startsWith(self, prefix: str) -> bool:
-        \"\"\"查询是否存在以该前缀开头的单词
-        时间复杂度: O(L)
-        \"\"\"
+        # Time Complexity: O(L)
         curr = self.root
         for char in prefix:
             if char not in curr.children:
@@ -464,11 +440,11 @@ class Trie:
 """
     },
     "72_add_and_search_word_data_structure_design.py": {
-        "title": "Add and Search Word (添加与搜索单词 - 数据结构设计)",
+        "title": "Add and Search Word",
         "difficulty": "Medium",
-        "key_points": "前缀树 (Trie) + 带有通配符的递归 DFS 回溯",
-        "analysis_intuition": "直觉：这道题是前缀树的进阶变体。我们需要设计一个单词查找系统，其中查找支持通配符 `'.'`（可以匹配任何单个字母）。如果不使用前缀树，随着添加单词的增加，大文本查询速度会严重变慢。使用前缀树后，我们可以利用 DFS 对通配符进行多路回溯查找。",
-        "analysis_derivation": "1. 节点设计与常规 Trie 一致：包含字典 `children` 和布尔值 `is_word`。\n2. `addWord(word)`：常规前缀树插入操作，耗时 $O(L)$。\n3. `search(word)`：需要处理通配符 `'.'`。我们设计一个递归的 DFS 匹配函数 `dfs(node, i)`，表示当前在 Trie 的 `node` 节点，去尝试匹配单词 `word` 从第 `i` 个索引开始的子串：\n   - 如果 `i == len(word)`，返回当前节点的 `is_word` 标记。\n   - 取出当前要匹配的字符 `char = word[i]`：\n     - **通配符处理**：如果 `char == '.'`，说明它可以代表任何子字符。我们必须遍历当前节点 `node.children` 中的**所有子节点**进行分支尝试：只要其中任何一个子分支调用 `dfs(child, i + 1)` 返回 `True`，当前搜索就判定成功，返回 `True`。如果全部子分支都失败，返回 `False`。\n     - **普通字符处理**：如果 `char` 在 `node.children` 中，递归进入下一层：`dfs(node.children[char], i + 1)`。否则，直接返回 `False`。",
+        "key_points": "Trie + Wildcard DFS Backtracking",
+        "analysis_intuition": "This problem adds wildcard searches to the standard Trie, where `'.'` can match any single character. While adding words is identical to insertion in a Trie, searching requires a DFS-based backtracking approach to handle the `'.'` character.",
+        "analysis_derivation": "1. Node structure: Standard Trie node (`children` dict, `is_word` boolean).\n2. `addWord(word)`: Standard Trie word insertion.\n3. `search(word)`: Define a recursive helper `dfs(node, i)` that checks matching starting from character index `i` of `word` at Trie node `node`:\n   - If `i == len(word)`, return `node.is_word`.\n   - Let `char = word[i]`:\n     - **Wildcard dot**: If `char == '.'`, we must try all branches in `node.children.values()`. If any branch returns True for `dfs(child, i + 1)`, search is successful. Return True. If all fail, return False.\n     - **Standard character**: If `char` exists in `node.children`, recursively check the child: `dfs(node.children[char], i + 1)`. Otherwise, return False.",
         "code": """class TrieNode:
     def __init__(self):
         self.children = {}
@@ -479,9 +455,7 @@ class WordDictionary:
         self.root = TrieNode()
 
     def addWord(self, word: str) -> None:
-        \"\"\"添加单词
-        时间复杂度: O(L)
-        \"\"\"
+        # Time Complexity: O(L) - L is word length
         curr = self.root
         for char in word:
             if char not in curr.children:
@@ -490,22 +464,20 @@ class WordDictionary:
         curr.is_word = True
 
     def search(self, word: str) -> bool:
-        \"\"\"检索单词（支持通配符 '.'）
-        时间复杂度: 最坏为 O(M) - M 为字典中字符总数（通配符较多时深度搜索），通常为 O(L)
-        \"\"\"
+        # Time Complexity: O(M) worst case - M is total nodes in the Trie (wildcard search), usually O(L)
         def dfs(node, i):
             if i == len(word):
                 return node.is_word
                 
             char = word[i]
             if char == '.':
-                # 通配符匹配：尝试遍历所有的子树分支
+                # Wildcard search: try all possible child paths
                 for child in node.children.values():
                     if dfs(child, i + 1):
                         return True
                 return False
             else:
-                # 常规字符匹配
+                # Direct character match
                 if char not in node.children:
                     return False
                 return dfs(node.children[char], i + 1)
@@ -514,25 +486,24 @@ class WordDictionary:
 """
     },
     "73_word_search_ii.py": {
-        "title": "Word Search II (单词搜索 Ⅱ)",
+        "title": "Word Search II",
         "difficulty": "Hard",
-        "key_points": "前缀树 (Trie) + 二维网格回溯 (Backtracking DFS) + 剪枝优化",
-        "analysis_intuition": "直觉：本题是“单词搜索 I”的升级版。如果对于 `words` 列表中的每个单词都分别在网格里运行一遍回溯 DFS，时间复杂度是 O(W * M * N * 3^L)（W 是单词数量），会严重超时。我们需要一次性在网格中搜索所有的单词。",
-        "analysis_derivation": "前缀树加速网格回溯与剪枝破局：\n与其对单词列表进行外层迭代，不如**将所有待检索的单词构建到一棵前缀树 (Trie) 中**，然后我们在网格的每个位置启动 DFS 搜索时，**让网格的移动与 Trie 树的指针移动同步进行**。\n1. **建树**：将 `words` 写入 Trie 树。为了方便，我们在单词结尾的节点上直接保存该单词的值（如 `node.word = word`），这样一旦在搜索中匹配到单词节点，可以直接获取到完整的单词。\n2. **网格 DFS**：在位置 `(r, c)`：\n   - 如果当前网格字符 `char` 在当前 Trie 节点 `node.children` 中，说明这是一条有潜力的匹配路径。我们移动到 `child_node = node.children[char]`。\n   - 检查 `child_node`：如果它包含 `word` 属性，说明我们找到了一个有效的单词，加入结果集中。**重要优化：立即将 `child_node.word` 设为 `None`，防止同一个单词在不同网格位置被重复搜出来加入结果集。**\n   - 原地标记当前格子已被访问（如 `board[r][c] = '#'`），然后向四周递归继续搜索。\n   - 回溯恢复现场（`board[r][c] = char`）。\n3. **高阶剪枝优化**：当一个叶子节点的单词被找到后，或者一个节点的所有子树都为空时，说明这部分的 Trie 树枝已经没有利用价值了。我们可以在回溯时**就地将该无效子节点从父节点的 children 字典中删除**（剪枝）。这可以极大防止冗余的重复路径探索，是能通过力扣超强测试用例的关键。",
+        "key_points": "Trie + Grid DFS Backtracking + Node Deletion Pruning",
+        "analysis_intuition": "This is Word Search I with a list of words. Searching for each word individually takes O(W * M * N * 3^L) time (where W is word count), which will time out. We must search for all words in a single grid scan.",
+        "analysis_derivation": "Trie-Accelerated Grid DFS Backtracking:\nInstead of looping through words, we **store all target words in a Trie**. During the grid DFS traversal, we synchronize the grid position shifts with navigation in the Trie.\n1. **Trie building**: Insert all words into the Trie. For convenience, store the actual word string at its leaf node: `node.word = word`.\n2. **Grid DFS**: At `(r, c)`:\n   - If `board[r][c] = char` is in the Trie node's children, move to `child_node = node.children[char]`.\n   - If `child_node` has a `word` attribute, we found a match. Add it to results and **immediately clear `child_node.word = None` to prevent duplicate matches**.\n   - Mark the grid cell as visited (`board[r][c] = '#'`), recursively call DFS in 4 directions, then restore the cell's character (backtrack).\n3. **Trie Pruning Optimization**: If a node has no children (`not curr_node.children`), it is a dead end. We can delete it from its parent's `children` map on backtracking. This pruning prevents exploring redundant grid paths and is crucial to passing strict constraints.",
         "code": """from typing import List
 
 class TrieNode:
     def __init__(self):
         self.children = {}
-        self.word = None  # 存储匹配成功的完整单词
+        self.word = None  # Stores the word if the node marks a word's end
 
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-        \"\"\"
-        时间复杂度: O(M * N * 4 * 3^(L-1)) - M, N 为网格边长，L 为单词最大长度
-        空间复杂度: O(W * L) - Trie 树占用的存储空间，W 为单词数，L 为最大长度
-        \"\"\"
-        # 1. 构建前缀树
+        # Time Complexity: O(M * N * 4 * 3^(L-1)) - M, N are board dimensions, L is maximum word length
+        # Space Complexity: O(W * L) - Space to store words in the Trie
+        
+        # 1. Build the Trie
         root = TrieNode()
         for word in words:
             curr = root
@@ -545,20 +516,20 @@ class Solution:
         m, n = len(board), len(board[0])
         res = []
         
-        # 2. 网格回溯 DFS 函数
+        # 2. Backtracking DFS
         def dfs(r, c, parent_node):
             char = board[r][c]
             curr_node = parent_node.children[char]
             
-            # 如果匹配成功一个单词，将其加入结果
+            # Match found, record word and clear to prevent duplicate matches
             if curr_node.word:
                 res.append(curr_node.word)
-                curr_node.word = None  # 防止重复添加
+                curr_node.word = None
                 
-            # 临时标记已访问
+            # Temporarily mark grid cell as visited
             board[r][c] = '#'
             
-            # 探索四周邻居
+            # Explore 4 directions
             for dr, dc in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                 nr, nc = r + dr, c + dc
                 if 0 <= nr < m and 0 <= nc < n:
@@ -566,14 +537,14 @@ class Solution:
                     if next_char in curr_node.children:
                         dfs(nr, nc, curr_node)
                         
-            # 回溯恢复现场
+            # Restore grid cell (Backtrack)
             board[r][c] = char
             
-            # 高阶剪枝优化：如果当前节点没有子节点了，从父节点中删除它
+            # Trie Pruning: Remove leaf nodes with no children
             if not curr_node.children:
                 parent_node.children.pop(char)
                 
-        # 3. 遍历网格每个格子作为起点尝试搜索
+        # 3. Scan the grid and trigger DFS from matching start characters
         for r in range(m):
             for c in range(n):
                 start_char = board[r][c]

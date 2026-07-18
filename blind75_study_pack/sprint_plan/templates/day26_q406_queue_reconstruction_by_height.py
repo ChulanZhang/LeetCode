@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 406 - Queue Reconstruction by Height (Medium)
-# 核心考点: 排序 + 贪心插入位置
+# Key Points: Greedy Insertion after Multi-Key Sort
 #
-# MLSys 系统/低底层关联说明:
-# 在多资源争抢的优先级队列调度中，根据两个维度的权重动态安排优先级。通过先降序排高度、再按 K 索引插入的方法，实现了局部的最优队列重构。
+# MLSys System/Low-Level Mapping:
+# Scheduling multi-resource allocations with two priorities. Sorting height descending and queue index ascending, then executing index insertions, yields the local queue reconstruction.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

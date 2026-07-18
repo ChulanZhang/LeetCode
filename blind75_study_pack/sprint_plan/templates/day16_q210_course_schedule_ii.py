@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 210 - Course Schedule II (Medium)
-# 核心考点: 拓扑排序结果搜集
+# Key Points: Topological Sequence Output
 #
-# MLSys 系统/低底层关联说明:
-# 与 207 题类似，Kahn 算法中节点出队时依次记录，若出队的总节点数等于课程数，则说明无环，返回拓扑序列，否则说明循环依赖，返回空。
+# MLSys System/Low-Level Mapping:
+# Similar to 207, but collects dequeued nodes. If the sequence length matches the total nodes, the graph is a DAG, return the sorted list, otherwise return empty due to circular deadlock dependencies.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

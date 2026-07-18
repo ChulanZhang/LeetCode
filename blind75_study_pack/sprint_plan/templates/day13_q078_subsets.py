@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 78 - Subsets (Medium)
-# 核心考点: 递归回溯 / 二进制状态压缩
+# Key Points: Backtracking / Bitmasking
 #
-# MLSys 系统/低底层关联说明:
-# 子集生成是典型的决策树生成。在 AI 编译器的算子融合搜索中，我们需要评估所有可能的算子融合子集，并选择最优的执行方式。状态数达 2^N。
+# MLSys System/Low-Level Mapping:
+# Generating subsets is equivalent to traversing a decision tree. In AI compiler operator fusion search space, we evaluate all subset combinations of nodes to find the best kernel fusion plan. Search space size is 2^N.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 142 - Linked List Cycle II (Medium)
-# 核心考点: 快慢指针寻找环起点
+# Key Points: Floyd's Algorithm for Loop Entry
 #
-# MLSys 系统/低底层关联说明:
-# 数学推导：从头节点到环起点的距离等于快慢指针相遇点到环起点的距离。本题展示了指针距离计算的绝对控制能力。
+# MLSys System/Low-Level Mapping:
+# Mathematical proof shows that the distance from the head to the loop entry equals the distance from the pointer meeting point to the loop entry. This demonstrates precise pointer distance manipulation.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 642 - Design Search Autocomplete System (Hard)
-# 核心考点: Trie 树保存词频 + 最小堆过滤 Top-3
+# Key Points: Trie + Min-Heap Top-K Filter
 #
-# MLSys 系统/低底层关联说明:
-# 模拟搜索引擎的自动补全。在 LLM 投机采样（Speculative Decoding）或多任务前缀分类中，根据前缀快速过滤和提取高频预测词是核心性能模块。
+# MLSys System/Low-Level Mapping:
+# Simulating search engine auto-complete. In speculative decoding or prefix tuning, filtering high-frequency predictions based on string prefixes represents a critical performance path.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

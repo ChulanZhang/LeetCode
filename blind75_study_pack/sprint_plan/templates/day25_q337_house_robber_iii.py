@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 337 - House Robber III (Medium)
-# 核心考点: 树形 DP + 节点状态元组传递
+# Key Points: Tree DP + State Tuple DFS Propagation
 #
-# MLSys 系统/低底层关联说明:
-# 在计算图（Computational Graph）的算子融合选择中，如果相邻的算子不能同时参与某种全局优化，那么最大优化收益的计算就是典型的树形 DP。DFS 返回 `(抢当前节点的最大值, 不抢当前节点的最大值)` 的元组，将复杂度限制在完美的 O(N)。
+# MLSys System/Low-Level Mapping:
+# In computational graph kernel fusions, selecting optimal operator combinations where adjacent nodes cannot be fused matches tree DP. DFS returns a tuple `(fuse, skip)`, constraining time complexity to O(N).
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 1143 - Longest Common Subsequence (Medium)
-# 核心考点: 二维子序列比对矩阵
+# Key Points: 2D Alignment DP Matrix
 #
-# MLSys 系统/低底层关联说明:
-# 在比较两个大规模神经网络结构差异（或两份编译代码相似度 Diff 工具）时，LCS 是核心底层比对算法。时间复杂度为 O(M*N)，通常会涉及空间维度的滚动压缩面试追问。
+# MLSys System/Low-Level Mapping:
+# LCS is the core algorithm for compiler code-diff checkers and structural network similarity evaluations. Time complexity is O(M*N), and rolling row array updates are often asked in system memory optimization rounds.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

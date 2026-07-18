@@ -1,35 +1,36 @@
 from typing import List, Optional, Dict, Set
 
-# Sum of Two Integers (两数之和 - 不使用加减号) - Medium
-# 🔑 核心考点: 位运算 (Bit Manipulation) - 异或(XOR)求无进位和，与(AND)左移求进位
+# Sum of Two Integers - Medium
+# 🔑 Key Points: Bit Manipulation - XOR for carry-less addition, AND and Shift for carry
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：不使用 + 或 -，我们需要在二进制位级别模拟加法器的行为。两个数相加可以拆分为：无进位加法（可以通过 XOR 异或实现）和进位（可以通过 AND 与运算并左移一位实现）。
-#   - 思维推导: 
-#     对于 a 和 b：
-#     1. a ^ b 计算出无进位的和（例如 1+1=0, 1+0=1）。
-#     2. (a & b) << 1 计算出进位（只有 1+1 会产生进位，进位向左移一位）。
-#     3. 重复这个过程，直到进位为 0。
-#     在 Python 中，整数是无限精度的，因此我们需要手动使用 32 位掩码 0xFFFFFFFF 来模拟 32 位有符号整数的溢出和负数行为。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     To add two integers without using '+' or '-', we must simulate adder circuits at the binary level. Addition of two numbers can be split into: carry-less sum (which can be calculated using XOR) and the carry bits (which can be calculated using AND followed by a left shift of 1).
+#   - Mathematical Derivation: 
+#     For two integers a and b:
+#     1. `a ^ b` calculates the carry-less sum (e.g., 1+1=0, 1+0=1).
+#     2. `(a & b) << 1` calculates the carry bits (since only 1+1 creates a carry, which is shifted left by 1).
+#     3. Repeat this process recursively/iteratively until the carry `b` becomes 0.
+#     In Python, integers have arbitrary precision, so we must manually apply a 32-bit mask `0xFFFFFFFF` to simulate the overflow and negative bounds of a standard 32-bit signed integer.
 
 class Solution:
     def getSum(self, a: int, b: int) -> int:
-        """
-        时间复杂度: O(1) - 因为在 32 位整数范围内，循环最多执行 32 次
-        空间复杂度: O(1)
-        """
-        # 32位最大正整数
+        # Time Complexity: O(1) - Loop runs at most 32 times for a 32-bit integer
+        # Space Complexity: O(1)
+        
+        # Max positive 32-bit signed integer
         MAX = 0x7FFFFFFF
-        # 32位掩码
+        # 32-bit mask to handle Python's arbitrary precision
         mask = 0xFFFFFFFF
         
         while b != 0:
-            # 计算无进位和，并限制在32位内
+            # Carry bits are computed by ANDing and shifting left by 1
             carry = (a & b) << 1
+            # Carry-less sum is computed by XORing and masked to 32 bits
             a = (a ^ b) & mask
+            # Update b to hold the carry bits for the next iteration
             b = carry & mask
             
-        # 如果结果是负数（第31位为1），将其转换为 Python 的负数表示
+        # If the result is negative (MSB is 1, i.e., > MAX), map it back to Python's negative representation
         return a if a <= MAX else ~(a ^ mask)
 

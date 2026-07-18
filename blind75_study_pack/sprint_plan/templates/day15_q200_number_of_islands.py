@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 200 - Number of Islands (Medium)
-# 核心考点: 二维网格 DFS / BFS 连通分量
+# Key Points: Grid BFS / DFS Connectivity
 #
-# MLSys 系统/低底层关联说明:
-# 在 MLSys 的张量计算图分割（Compute Graph Partitioning）中，将计算任务切分为多个独立计算子图的逻辑，与寻找岛屿连通块本质相同。原地把 '1' 改为 '0' 可实现空间零开销。
+# MLSys System/Low-Level Mapping:
+# In MLSys tensor computational graph partitioning, splitting massive execution graphs into independent subgraphs for distributed training is identical to finding connected island components. In-place modification is used to save memory.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

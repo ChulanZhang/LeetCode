@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 235 - Lowest Common Ancestor of a Binary Search Tree (Medium)
-# 核心考点: BST 的数值分岔特性
+# Key Points: BST Path Partitioning
 #
-# MLSys 系统/低底层关联说明:
-# 若 p 和 q 的值都比当前节点小，往左走；若都比当前节点大，往右走；否则当前节点就是 LCA。借助 BST 性质可以实现 O(H) 时间且 O(1) 空间的最优解。
+# MLSys System/Low-Level Mapping:
+# If both targets are smaller than current, go left; if larger, go right; else the paths split and current is the LCA. Leveraging BST ordering yields an O(H) time and O(1) space optimal solution.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

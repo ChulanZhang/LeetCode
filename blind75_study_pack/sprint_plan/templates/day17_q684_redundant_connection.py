@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 684 - Redundant Connection (Medium)
-# 核心考点: 并查集定位冗余环路边
+# Key Points: Union-Find Cycle Pinpointing
 #
-# MLSys 系统/低底层关联说明:
-# 在冗余网络拓扑或冗余通信路由优化中，找出最后一条导致环路产生的边并剪枝。利用并查集按边顺序处理，首次触发环路的边即为所求。
+# MLSys System/Low-Level Mapping:
+# In redundant network routing path pruning, we locate the final edge that creates a loop. Processing edges sequentially with Union-Find identifies the first cycle-creating edge in O(E) time.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

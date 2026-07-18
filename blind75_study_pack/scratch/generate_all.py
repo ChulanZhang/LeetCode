@@ -17,16 +17,16 @@ import db_tree
 import db_heap
 
 CATEGORIES = {
-    "arrays": (db_array.PROBLEMS, "数组 (Array)"),
-    "binary": (db_binary.PROBLEMS, "二进制/位运算 (Binary)"),
-    "dynamic_programming": (db_dp.PROBLEMS, "动态规划 (Dynamic Programming)"),
-    "graph": (db_graph.PROBLEMS, "图 (Graph)"),
-    "interval": (db_interval.PROBLEMS, "区间 (Interval)"),
-    "linked_list": (db_linked_list.PROBLEMS, "链表 (Linked List)"),
-    "matrix": (db_matrix.PROBLEMS, "矩阵 (Matrix)"),
-    "strings": (db_string.PROBLEMS, "字符串 (String)"),
-    "tree": (db_tree.PROBLEMS, "树 (Tree)"),
-    "heap": (db_heap.PROBLEMS, "堆 (Heap)")
+    "arrays": (db_array.PROBLEMS, "Arrays"),
+    "binary": (db_binary.PROBLEMS, "Binary"),
+    "dynamic_programming": (db_dp.PROBLEMS, "Dynamic Programming"),
+    "graph": (db_graph.PROBLEMS, "Graphs"),
+    "interval": (db_interval.PROBLEMS, "Intervals"),
+    "linked_list": (db_linked_list.PROBLEMS, "Linked Lists"),
+    "matrix": (db_matrix.PROBLEMS, "Matrices"),
+    "strings": (db_string.PROBLEMS, "Strings"),
+    "tree": (db_tree.PROBLEMS, "Trees"),
+    "heap": (db_heap.PROBLEMS, "Heaps")
 }
 
 WORKSPACE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -52,16 +52,16 @@ def write_solutions():
         for filename, data in problems.items():
             file_path = os.path.join(folder_path, filename)
             
-            # 组装带详细中文注释的 Python 代码
+            # Assemble Python code with detailed English comments
             content = f'''from typing import List, Optional, Dict, Set
 
 # {data["title"]} - {data["difficulty"]}
-# 🔑 核心考点: {data["key_points"]}
+# 🔑 Key Points: {data["key_points"]}
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
 #     {data["analysis_intuition"].replace(chr(10), chr(10) + "#     ")}
-#   - 思维推导: 
+#   - Mathematical Derivation: 
 #     {data["analysis_derivation"].replace(chr(10), chr(10) + "#     ")}
 
 {data["code"]}
@@ -706,11 +706,11 @@ def compile_study_guide_html():
 </head>
 <body>
     <div class="container">
-        <h1>LeetCode "Blind 75" 经典题单深度解析手册</h1>
-        <p style="text-align: center; color: #718096; font-size: 1.2em;">资深后端架构师 & 算法导师联合编撰</p>
+        <h1>LeetCode "Blind 75" Deep Dive Study Guide</h1>
+        <p style="text-align: center; color: #718096; font-size: 1.2em;">Curated by Senior FAANG Interviewers & MLSys Engineers</p>
         
         <div class="toc">
-            <div class="toc-title">目录 (Table of Contents)</div>
+            <div class="toc-title">Table of Contents</div>
             <ul class="toc-list">
     """
     
@@ -738,12 +738,12 @@ def compile_study_guide_html():
             html_content += f"""
             <div class="problem-card" id="prob_{prob_num}">
                 <h3>{prob_num}. {data["title"]} &nbsp;&nbsp;[<span class="difficulty-{data["difficulty"]}">{data["difficulty"]}</span>]</h3>
-                <div class="meta-item"><span class="meta-label">🔑 核心考点:</span> {data["key_points"]}</div>
+                <div class="meta-item"><span class="meta-label">🔑 Key Points:</span> {data["key_points"]}</div>
                 
                 <div class="analysis-box">
-                    <p><strong>🧠 深入分析与破局点:</strong></p>
-                    <p style="margin-top: 10px;"><strong>直觉与陷阱:</strong> {data["analysis_intuition"]}</p>
-                    <p style="margin-top: 10px;"><strong>思维推导:</strong> {data["analysis_derivation"]}</p>
+                    <p><strong>🧠 Intuition & Breaking Points:</strong></p>
+                    <p style="margin-top: 10px;"><strong>Intuition & Pitfalls:</strong> {data["analysis_intuition"]}</p>
+                    <p style="margin-top: 10px;"><strong>Mathematical Derivation:</strong> {data["analysis_derivation"]}</p>
                 </div>
                 
                 <div class="code-block"><code>{escaped_code}</code></div>

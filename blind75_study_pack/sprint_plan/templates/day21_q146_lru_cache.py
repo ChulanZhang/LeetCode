@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 146 - LRU Cache (Medium)
-# 核心考点: 哈希表 + 双向循环链表 (O(1) 实战)
+# Key Points: Hash Map + Doubly Linked List (O(1))
 #
-# MLSys 系统/低底层关联说明:
-# MLSys 中的核心考点。大模型推理中的 KV Cache 换入换出机制、分布式深度学习参数服务器（Parameter Server）中的冷热权重同步，全部依赖于 LRU 缓存架构。必须能熟练、快速地在白板上实现哈希表与双向链表的就地解耦与重连操作，保证查询和插入均为 O(1)。在面试中，常被追问如何通过读写锁（`shared_mutex`）或细粒度锁使其实现并发安全。
+# MLSys System/Low-Level Mapping:
+# A primary MLSys design challenge. LRU page eviction is the default mechanism for LLM KV Cache paging (e.g. vLLM's PagedAttention) and deep learning Parameter Server weight swapping. You must hand-code it in O(1) time using a hash map and a doubly linked list. Often extended to discuss thread safety via shared reader-writer locks (shared_mutex) or fine-grained bucket locks in concurrent implementations.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

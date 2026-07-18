@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 76 - Minimum Window Substring (Hard)
-# 核心考点: 双哈希表计数 + 最优窗口收缩
+# Key Points: Sliding Window + Dual Hash Maps
 #
-# MLSys 系统/低底层关联说明:
-# Hard 级别的滑动窗口标杆。在编译器词法分析（Lexical Analysis）和编译器底层字符串匹配扫描器中，此类逻辑经常被用来作为高性能语法解析的核心组件。
+# MLSys System/Low-Level Mapping:
+# A benchmark problem for hard sliding windows. In compiler lexical analyzers and low-level pattern scanners, similar sliding window logic is used for high-performance syntax token parsing.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 322 - Coin Change (Medium)
-# 核心考点: 完全背包问题自底向上迭代
+# Key Points: Unbounded Knapsack - Bottom-Up DP
 #
-# MLSys 系统/低底层关联说明:
-# 无法使用贪心策略求解的最优组合问题。状态转移方程 `dp[i] = min(dp[i], dp[i - coin] + 1)`，初始化为无穷大。在计算资源分配优化中，这种背包分配模型极为常见。
+# MLSys System/Low-Level Mapping:
+# Optimization problem where greedy choices fail. Transition equation: `dp[i] = min(dp[i], dp[i - coin] + 1)`. In runtime system resource scheduler budget allocations, knapsack allocation models are widely applied.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

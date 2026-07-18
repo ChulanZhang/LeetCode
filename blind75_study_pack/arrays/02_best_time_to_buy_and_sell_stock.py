@@ -1,13 +1,13 @@
 from typing import List, Optional, Dict, Set
 
-# Best Time to Buy and Sell Stock (买卖股票的最佳时机) - Easy
-# 🔑 核心考点: 贪心算法 (Greedy) / 动态规划状态简化 - 一次遍历
+# Best Time to Buy and Sell Stock - Easy
+# 🔑 Key Points: Greedy / Dynamic Programming - Single Pass
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     暴力解法是计算所有可能的买入和卖出组合（即双重循环，外层买入，内层卖出且卖出在买入之后），寻找最大的差值，时间复杂度为 O(N^2)。
-#   - 思维推导: 
-#     由于你必须先买入，才能卖出，不能简单地找出数组的最小值和最大值然后相减（因为最大值可能出现在最小值之前）。我们在遍历数组时，可以实时维护一个“历史最低买入价” min_price，以及“历史最大利润” max_profit。当我们在第 i 天卖出股票，最大利润就是价格差 price - min_price。我们用它去更新 max_profit 即可。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     The brute-force solution calculates the profit for every possible buy-and-sell pair (where sell day > buy day) using nested loops, which takes O(N^2) time complexity.
+#   - Mathematical Derivation: 
+#     Since you must buy before you can sell, we can solve this in a single pass. While traversing the prices, we maintain two variables: the minimum price seen so far (`min_price`) and the maximum profit achieved (`max_profit`). For each price, we update `min_price` and calculate the potential profit if we sold on that day (`price - min_price`), updating `max_profit` if this potential profit is larger.
 
 from typing import List
 
@@ -15,12 +15,12 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if not prices:
             return 0
-        min_price = float('inf')
-        max_profit = 0
+        min_price = float('inf')  # Track the minimum price seen so far
+        max_profit = 0            # Track the maximum profit seen so far
         for price in prices:
             if price < min_price:
-                min_price = price
+                min_price = price  # Update min price if a lower buying price is found
             elif price - min_price > max_profit:
-                max_profit = price - min_price
+                max_profit = price - min_price  # Update max profit if selling today yields more
         return max_profit
 

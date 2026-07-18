@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 72 - Edit Distance (Hard)
-# 核心考点: 二维操作决策 (插入、删除、替换)
+# Key Points: 2D Match Decision Matrix
 #
-# MLSys 系统/低底层关联说明:
-# 字符编辑的最佳路径代价计算。通过分析三种状态来源 `dp[i-1][j]`、`dp[i][j-1]` 和 `dp[i-1][j-1]` 构造全局转移网格。是高阶 DP 状态分析功底的试金石。
+# MLSys System/Low-Level Mapping:
+# Minimum edit cost calculation. Analyzing state transitions from three cells `dp[i-1][j]`, `dp[i][j-1]`, and `dp[i-1][j-1]` evaluates comprehensive 2D dynamic programming logic.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 239 - Sliding Window Maximum (Hard)
-# 核心考点: 单调队列 (双端队列 deque)
+# Key Points: Monotonic Queue (Double-Ended Queue)
 #
-# MLSys 系统/低底层关联说明:
-# 在 MLSys 的推理服务器中，我们需要计算滑动时间窗口内的最大推理耗时或吞吐量。基于双端队列的单调队列算法，保证每个元素入队出队最多一次，实现了完美的 O(N) 实时监控统计。
+# MLSys System/Low-Level Mapping:
+# In MLSys inference servers, we must compute sliding window metrics such as peak inference latency or throughput. Using a double-ended queue (deque) to maintain monotonicity ensures O(N) time complexity for real-time monitoring statistics.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

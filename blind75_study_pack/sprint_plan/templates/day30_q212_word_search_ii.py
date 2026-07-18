@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 212 - Word Search II (Hard)
-# 核心考点: 手撕 Trie + Grid DFS (复习 Day 14)
+# Key Points: Hand-Code Trie + Backtracking Grid DFS (Review Day 14)
 #
-# MLSys 系统/低底层关联说明:
-# 综合考察前缀树、矩阵 DFS、回溯算法和叶子树枝剪枝优化，是考察复杂路径探索的压轴题。
+# MLSys System/Low-Level Mapping:
+# Integrates Tries, matrix traversals, backtracking, and recursive parent pruning optimizations. Evaluates graph searches and pruning under tight limits.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

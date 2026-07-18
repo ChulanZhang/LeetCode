@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 739 - Daily Temperatures (Medium)
-# 核心考点: 单调递减栈保存索引
+# Key Points: Monotonic Stack Storing Indices
 #
-# MLSys 系统/低底层关联说明:
-# 在时间轴分析与系统性能指标监控（如计算延迟首次下降的天数）中，基于单调栈的后向距离计算是经典的流处理计算节点结构。
+# MLSys System/Low-Level Mapping:
+# In time-series analysis and system latency metric telemetry (e.g. finding the next timestamp where queue latency drops below a threshold), monotonic stack-based index tracking is a fundamental building block.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

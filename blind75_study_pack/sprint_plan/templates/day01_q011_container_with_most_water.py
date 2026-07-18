@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 11 - Container With Most Water (Medium)
-# 核心考点: 双指针 + 贪心移动短板
+# Key Points: Two Pointers + Greedy Shifting
 #
-# MLSys 系统/低底层关联说明:
-# 贪心策略在分布式系统的调度决策（例如最少网络开销节点选择）中极为常见。移动高度低的一侧是唯一能让后续面积增大的可能。
+# MLSys System/Low-Level Mapping:
+# Greedy algorithms are crucial in system scheduling (e.g. choosing nodes with the lowest network latency). Moving the pointer pointing to the shorter line is the only action that can potentially yield a larger area.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

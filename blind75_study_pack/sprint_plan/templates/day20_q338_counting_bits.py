@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 338 - Counting Bits (Easy)
-# 核心考点: 动态规划 + 位运算偏置转移
+# Key Points: DP Bitwise Recurrence
 #
-# MLSys 系统/低底层关联说明:
-# 利用 `dp[i] = dp[i >> 1] + (i & 1)` 实现在 O(N) 时间内输出大批整数二进制 1 的个数。在神经网络中的二进制网络（Binary Neural Network）或量化权重的位宽统计中，这是基础算子。
+# MLSys System/Low-Level Mapping:
+# Using `dp[i] = dp[i >> 1] + (i & 1)` computes set bits for all numbers from 0 to N in O(N) time. Used in quantized weights bitwidth profiling for Binary Neural Networks (BNNs) and INT8 model quantization.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

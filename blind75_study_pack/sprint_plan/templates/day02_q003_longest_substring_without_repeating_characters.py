@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 3 - Longest Substring Without Repeating Characters (Medium)
-# 核心考点: 双指针滑动窗口 + 哈希集合
+# Key Points: Sliding Window + Hash Set
 #
-# MLSys 系统/低底层关联说明:
-# 滑动窗口用于处理连续子区间问题。在网络协议层（例如 TCP 滑动窗口接收缓冲区管理）和流处理系统（比如计算过去 10s 的平均推理请求率）中，这是基本的操作模式。
+# MLSys System/Low-Level Mapping:
+# Sliding window is the standard pattern for contiguous sub-array problems. It is widely used in network protocol layers (e.g. TCP sliding window congestion control) and stream processing systems (e.g. computing average request rates over a sliding temporal window).
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

@@ -1,22 +1,21 @@
 from typing import List, Optional, Dict, Set
 
-# Validate Binary Search Tree (验证二叉搜索树) - Medium
-# 🔑 核心考点: 二叉搜索树 (BST) 的性质定义 / 区间边界传递递归
+# Validate Binary Search Tree - Medium
+# 🔑 Key Points: BST Definition - Interval Bounds DFS Propagation
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：很多同学容易走进一个误区：只判定每个节点是否大于左孩子且小于右孩子。这是不够的。因为在 BST 中，**左子树的所有节点都必须小于当前节点，右子树的所有节点都必须大于当前节点**。例如，`[10, 5, 15, None, None, 6, 20]`，节点 6 虽然大于 5，但它在根节点 10 的右子树却小于 10，这违反了 BST 定义。
-#   - 思维推导: 
-#     区间边界传递破局：
-#     我们需要在递归时向下传递每个节点必须满足的**上限（upper）和下限（lower）值范围**。
-#     1. 初始化调用 `dfs(root, -inf, inf)`，根节点可以为任意值。
-#     2. 在递归的每一步中：
-#        - 如果当前节点 `node` 为空，返回 `True`。
-#        - 检查当前节点的值是否满足边界：`lower < node.val < upper`。若不满足，说明非法，返回 `False`。
-#        - **向下更新边界**：
-#          - 当向左子树递归时，所有左节点都必须小于当前节点。因此上限更新为当前节点的值：`dfs(node.left, lower, node.val)`。
-#          - 当向右子树递归时，所有右节点都必须大于当前节点。因此下限更新为当前节点的值：`dfs(node.right, node.val, upper)`。
-#        - 左右两边都合法才返回 `True`。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     A common mistake is validating only that a node is greater than its left child and smaller than its right child. This is incorrect. In a Binary Search Tree (BST), **all nodes in the left subtree must be less than the parent node, and all nodes in the right subtree must be greater than the parent node**.
+#   - Mathematical Derivation: 
+#     To enforce this definition globally, we propagate valid open intervals `(lower, upper)` down during DFS:
+#     1. Initialize `validate(root, -inf, inf)`.
+#     2. In each step:
+#        - If the node is null, return True.
+#        - Verify if the node's value falls inside the open interval: `lower < node.val < upper`. If not, return False.
+#        - **Update bounds for children**:
+#          - When validating the left child, its value must be less than the current node's value. The upper bound shifts to `node.val`: `validate(node.left, lower, node.val)`.
+#          - When validating the right child, its value must be greater than the current node's value. The lower bound shifts to `node.val`: `validate(node.right, node.val, upper)`.
+#        - Return True if both children are valid BSTs.
 
 from typing import Optional
 
@@ -28,19 +27,17 @@ class TreeNode:
 
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        """
-        时间复杂度: O(N) - 遍历所有节点一次
-        空间复杂度: O(H) - 递归调用栈空间
-        """
+        # Time Complexity: O(N) - Visit every node once
+        # Space Complexity: O(H) - Recursion stack space
         def validate(node, lower=float('-inf'), upper=float('inf')):
             if not node:
                 return True
                 
-            # 当前节点值必须落在合法的开放区间内
+            # Node value must be strictly within the allowed range
             if not (lower < node.val < upper):
                 return False
                 
-            # 左子树所有节点值必须小于 node.val，右子树所有节点值必须大于 node.val
+            # Left child values must be in (lower, node.val); right child values in (node.val, upper)
             return (validate(node.left, lower, node.val) and 
                     validate(node.right, node.val, upper))
                     

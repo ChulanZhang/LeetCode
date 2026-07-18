@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 48 - Rotate Image (Medium)
-# 核心考点: 矩阵原地转置 + 水平翻转
+# Key Points: In-Place Transpose + Reflection
 #
-# MLSys 系统/低底层关联说明:
-# 转置和反转的操作完全符合计算机系统结构中“缓存局部性 (Cache Locality)”的考察。在 MLSys 底层中，Tensor 维度的置换（Transpose/Permute）是高频算子，如何实现一维连续内存的高速 stride 寻址和原地调换是 GPU 算子优化的核心。
+# MLSys System/Low-Level Mapping:
+# Matrix transpose and reflection inspect Cache Locality. In MLSys, tensor dimensions permutes (Transpose/Permute) are extremely common. Fast strided addressing and in-place swapping on contiguous 1D memory buffers are central to GPU kernel optimization.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

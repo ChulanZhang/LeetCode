@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 416 - Partition Equal Subset Sum (Medium)
-# 核心考点: 0-1 背包问题状态压缩
+# Key Points: 0-1 Knapsack with Space Compression
 #
-# MLSys 系统/低底层关联说明:
-# 典型的 0-1 背包。为了防止空间溢出，我们需要使用从右往左的一维 DP 倒序更新，将空间复杂度降到 O(target)。在分布式计算中，任务划分以实现负载均衡通常可退化为此类背包分割。
+# MLSys System/Low-Level Mapping:
+# Classic 0-1 knapsack. To compress space, we update a 1D DP array backwards (from right to left) to prevent using values updated in the current iteration, dropping space from O(target) to O(target).
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

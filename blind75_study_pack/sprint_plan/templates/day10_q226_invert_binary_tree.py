@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 226 - Invert Binary Tree (Easy)
-# 核心考点: 原地交换子树 (In-place Swap)
+# Key Points: In-Place Subtree Swapping
 #
-# MLSys 系统/低底层关联说明:
-# 典型的二叉树就地结构反转，考察了基础递归函数的返回值处理和就地指针修改机制。
+# MLSys System/Low-Level Mapping:
+# A classic structural transformation. It tests fundamental binary tree recursion, return values handling, and in-place child pointer swaps.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

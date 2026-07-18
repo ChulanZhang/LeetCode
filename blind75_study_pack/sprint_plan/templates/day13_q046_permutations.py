@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 46 - Permutations (Medium)
-# 核心考点: 回溯决策树 + visited 标记
+# Key Points: Decision Tree + Visited Array
 #
-# MLSys 系统/低底层关联说明:
-# 全排列代表无重复元素的排列组合问题。用于调度器尝试所有可能的执行顺序以进行指令级别重排优化。
+# MLSys System/Low-Level Mapping:
+# Permutations represent task scheduling setups. Schedulers run permutations to evaluate all potential task execution orders for instruction-level scheduling optimizations.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

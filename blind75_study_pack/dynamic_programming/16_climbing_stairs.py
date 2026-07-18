@@ -1,26 +1,24 @@
 from typing import List, Optional, Dict, Set
 
-# Climbing Stairs (爬楼梯) - Easy
-# 🔑 核心考点: 动态规划 (DP) / 斐波那契数列 (Fibonacci)
+# Climbing Stairs - Easy
+# 🔑 Key Points: Dynamic Programming (DP) / Fibonacci Sequence
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：要爬到第 n 阶，最后一步要么是从第 n-1 阶跨了 1 步，要么是从第 n-2 阶跨了 2 步。所以，爬到第 n 阶的方法数就是爬到第 n-1 阶的方法数与爬到第 n-2 阶的方法数之和。这显然是斐波那契数列的关系。
-#   - 思维推导: 
-#     状态转移方程：
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     To reach the n-th step, your last step must be either a 1-step jump from the (n-1)-th step, or a 2-step jump from the (n-2)-th step. Thus, the total ways to reach the n-th step is the sum of ways to reach step n-1 and step n-2. This is the definition of the Fibonacci recurrence.
+#   - Mathematical Derivation: 
+#     State transition equation:
 #     `dp[i] = dp[i-1] + dp[i-2]`
-#     由于计算 `dp[i]` 只需要前两个状态，我们不需要维持一个完整的 dp 数组，而是可以用两个变量 `one` 和 `two` 来交替滚动更新，将空间复杂度从 O(n) 降低到 O(1)。
+#     Since calculating `dp[i]` only depends on the previous two states, we do not need to maintain a full dp array. Instead, we can use two variables `one` and `two` and scroll them forward to update, reducing the space complexity from O(N) to O(1).
 
 class Solution:
     def climbStairs(self, n: int) -> int:
-        """
-        时间复杂度: O(n) - 线性扫描一次
-        空间复杂度: O(1) - 仅使用两个状态变量
-        """
+        # Time Complexity: O(n) - Single pass loop
+        # Space Complexity: O(1) - Only two state variables are maintained
         if n <= 2:
             return n
             
-        # one 代表 dp[i-1]，two 代表 dp[i-2]
+        # 'one' represents dp[i-2], 'two' represents dp[i-1]
         one, two = 1, 2
         for _ in range(3, n + 1):
             temp = one + two

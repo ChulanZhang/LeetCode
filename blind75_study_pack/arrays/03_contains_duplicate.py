@@ -1,22 +1,23 @@
 from typing import List, Optional, Dict, Set
 
-# Contains Duplicate (存在重复元素) - Easy
-# 🔑 核心考点: 哈希集合 (Hash Set) - 早期终止优化
+# Contains Duplicate - Easy
+# 🔑 Key Points: Hash Set - Early Return Optimization
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     暴力解法是双重循环，依次两两比对，时间复杂度为 O(N^2)。如果直接使用 Python 的 len(set(nums)) != len(nums)，大数组下，无法早期终止（Early Return）可能会导致不必要的性能浪费。
-#   - 思维推导: 
-#     在允许使用额外空间的前提下，为了达到 O(N) 的时间复杂度，我们可以使用哈希集合 visited。一边遍历数组，一边把遇到的数字放入 visited 中。每次放入前先检查它是否已经在 visited 中。如果在，说明找到了重复元素，直接返回 True 早期终止。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     A brute-force solution compares every pair of elements, resulting in O(N^2) time complexity. Using `len(set(nums)) != len(nums)` is clean but does not allow early return, which might waste memory and computation on large arrays when a duplicate is found early.
+#   - Mathematical Derivation: 
+#     To achieve O(N) time complexity, we can use a hash set to keep track of visited numbers. As we iterate through the array, we check if the current number is already in the set. If it is, we return True immediately (early return). Otherwise, we add it to the set. If the loop completes, it means all elements are unique.
 
 from typing import List
 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        visited = set()
+        visited = set()  # Set to track unique visited numbers
         for num in nums:
+            # If the number is already visited, we found a duplicate
             if num in visited:
                 return True
-            visited.add(num)
+            visited.add(num)  # Add current number to visited set
         return False
 

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 104 - Maximum Depth of Binary Tree (Easy)
-# 核心考点: 递归后序遍历 (DFS)
+# Key Points: DFS Post-Order Recursion
 #
-# MLSys 系统/低底层关联说明:
-# 二叉树的递归深度决定了函数系统调用栈的深度。在设计编译器 AST（抽象语法树）解析器和图引擎计算流时，必须理解递归带来的栈内存开销（若树退化为链表，栈深度可达 O(N)）。
+# MLSys System/Low-Level Mapping:
+# The recursion depth of a binary tree determines the call stack depth. When writing AST (Abstract Syntax Tree) parsers or computational graph execution engines, we must account for call stack limits (worst-case stack overflow if the tree degenerates into a list of size N).
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

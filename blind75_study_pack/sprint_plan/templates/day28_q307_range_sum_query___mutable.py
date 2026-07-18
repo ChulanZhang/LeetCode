@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# LeetCode 137 - Single Number II (Medium)
-# Key Points: Bit-position Modulo Arithmetic
+# LeetCode 307 - Range Sum Query - Mutable (Hard)
+# Key Points: Segment Tree / Binary Indexed Tree
 #
 # MLSys System/Low-Level Mapping:
-# Simulating logic gates in hardware accelerators (ASICs/FPGAs) or SIMD vector optimizations to track duplicate cycles without using general registers.
+# In dynamic ML tensors where values are frequently mutated and range sums are queried, prefix sums cost O(N) updates. Segment Trees or Fenwick Trees optimize both operations to O(log N) time, demonstrating query-update balance.
 #
 # ==========================================
 # 🧠 Interview Review Area

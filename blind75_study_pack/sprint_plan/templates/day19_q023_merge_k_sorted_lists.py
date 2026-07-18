@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 23 - Merge k Sorted Lists (Hard)
-# 核心考点: 最小堆动态维护头节点 / 分治合并
+# Key Points: Min-Heap Node Tracking / Divide & Conquer
 #
-# MLSys 系统/低底层关联说明:
-# 在分布式数据流的合并（或流式排序数据块合并）中，使用最小堆来动态跟踪多条有序队列的当前最小头部元素，可以将复杂度控制在 O(N log k)，是大数据处理框架的最核心调度手段。
+# MLSys System/Low-Level Mapping:
+# In distributed stream mergers or log consolidation engines, a min-heap tracks the current head of k sorted streams. This runs in O(N log k) time and represents a core scheduling technique in database log mergers.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

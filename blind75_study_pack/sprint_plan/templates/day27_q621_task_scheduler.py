@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 621 - Task Scheduler (Medium)
-# 核心考点: 桶模型贪心 / 冷却时间公式计算
+# Key Points: Greedy Bucket Fill with Cooldowns
 #
-# MLSys 系统/低底层关联说明:
-# 在操作系统的 CPU 核心任务调度或 GPU 算子多通道流水发射中，相同类型的任务必须间隔一定的 Cooldown 冷却时间才能再次发射。通过统计最高频任务填充桶的方法，可实现在 O(N) 时间内计算出最小执行总周期。
+# MLSys System/Low-Level Mapping:
+# In CPU schedulers or GPU thread dispatchers, tasks of the same type must wait for a Cooldown cycle. Estimating cycles by filling buckets with high-frequency tasks resolves the scheduling pattern in O(N) time.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

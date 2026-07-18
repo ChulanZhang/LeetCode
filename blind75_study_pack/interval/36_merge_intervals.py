@@ -1,42 +1,39 @@
 from typing import List, Optional, Dict, Set
 
-# Merge Intervals (合并区间) - Medium
-# 🔑 核心考点: 排序 + 单次遍历合并
+# Merge Intervals - Medium
+# 🔑 Key Points: Sorting + Single Pass Merging
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：如果区间列表没有顺序，我们很难判断哪些区间存在重叠。因此，我们需要先根据区间的开始时间进行升序排序。排序后，所有可能发生合并的区间就会被排列在相邻位置。
-#   - 思维推导: 
-#     1. 首先根据区间开始时间排序：`intervals.sort(key=lambda x: x[0])`。
-#     2. 初始化结果列表 `merged`，并将排序后的第一个区间放入其中。
-#     3. 遍历后续的每一个区间 `curr`：
-#        - 取出 `merged` 列表中最后一个合并区间 `prev`。
-#        - **重叠判断**：如果当前区间的开始时间小于或等于前一个区间的结束时间（即 `curr[0] <= prev[1]`），说明这两个区间重叠。由于我们排过序，`curr[0] >= prev[0]` 是必然满足的，所以只需更新前一个区间的结束时间为两者中较大值：`prev[1] = max(prev[1], curr[1])`。
-#        - 如果不重叠（即 `curr[0] > prev[1]`），直接将 `curr` 作为一个新的独立区间追加到 `merged` 末尾。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     If the intervals are unsorted, we cannot easily determine which ones overlap. By sorting the intervals by their start times, any potentially overlapping intervals will be grouped adjacent to each other.
+#   - Mathematical Derivation: 
+#     1. Sort the intervals by their start times: `intervals.sort(key=lambda x: x[0])`.
+#     2. Initialize a list `merged` with the first sorted interval.
+#     3. For each subsequent interval `curr`:
+#        - Retrieve the last merged interval `prev` from `merged`.
+#        - **Overlapping condition**: If `curr[0] <= prev[1]`, the current interval starts before or at the end of the previous interval. Since the list is sorted, `curr[0] >= prev[0]` is guaranteed. We simply update the end time of `prev` to `max(prev[1], curr[1])`.
+#        - **Non-overlapping condition**: If `curr[0] > prev[1]`, append `curr` as a new independent interval in `merged`.
 
 from typing import List
 
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        """
-        时间复杂度: O(N log N) - 排序占主导时间，后续遍历为 O(N)
-        空间复杂度: O(log N) 或 O(N) - 排序算法所需的辅助空间
-        """
+        # Time Complexity: O(N log N) - Sorting dominates the time complexity; linear traversal is O(N)
+        # Space Complexity: O(log N) or O(N) - Auxiliary space required by sorting algorithms
         if not intervals:
             return []
             
-        # 按区间起点进行升序排序
+        # Sort intervals by their start times in ascending order
         intervals.sort(key=lambda x: x[0])
         
         merged = [intervals[0]]
         for curr in intervals[1:]:
-            # 获取已合并区间中的最后一个区间
             prev = merged[-1]
-            # 如果当前区间与前一个区间重叠，更新前一个区间的结束时间
+            # If the current interval overlaps with the previous one, merge them
             if curr[0] <= prev[1]:
                 prev[1] = max(prev[1], curr[1])
             else:
-                # 否则说明不重叠，直接作为新区间加入
+                # Otherwise, append current interval as a new entry
                 merged.append(curr)
                 
         return merged

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 424 - Longest Repeating Character Replacement (Medium)
-# 核心考点: 滑动窗口 + 局部频数统计优化
+# Key Points: Sliding Window + Freq Tracking
 #
-# MLSys 系统/低底层关联说明:
-# 窗口大小 L 减去出现最多的字符频数 max_freq 必须小于等于 k。通过维护历史最大频数 max_freq 避免了在窗口收缩时重新统计频数的 O(26) 扫描。
+# MLSys System/Low-Level Mapping:
+# The window condition is that window length L minus the frequency of the most frequent character `max_freq` must be <= k. We maintain a historical `max_freq` to avoid scanning the frequency map of size 26 on every window contraction.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

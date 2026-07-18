@@ -1,20 +1,20 @@
 from typing import List, Optional, Dict, Set
 
-# Remove Nth Node From End of List (删除链表的倒数第 N 个节点) - Medium
-# 🔑 核心考点: 双指针 - 快慢指针间距控制
+# Remove Nth Node From End of List - Medium
+# 🔑 Key Points: Two Pointers - Fast & Slow Pointers Gap Control
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：先遍历一次链表，统计链表总长度 L，然后第二次遍历到 L-N 位置的节点，进行删除。但这需要遍历两次链表。如何做到只遍历一次？
-#   - 思维推导: 
-#     双指针一次遍历破局：
-#     为了删除倒数第 N 个节点，我们必须能够精确定位到**该节点的前一个节点**。我们可以使用间距为 `N` 的两个指针：
-#     1. 引入哑节点 `dummy` 指向 `head`（处理删除头节点的情况）。
-#     2. 定义 `fast` 和 `slow` 指针均初始化为 `dummy`。
-#     3. 先让 `fast` 指针前移 `N + 1` 步。此时 `fast` 和 `slow` 指针之间相差了 `N + 1` 个节点。
-#     4. 然后，快慢指针以相同速度同步前进，直到 `fast` 指针指向 `None`（链表末尾的下一个位置）。
-#     5. 此时，`slow` 指针正好停留在**倒数第 N 个节点的前驱节点**上。我们只需执行 `slow.next = slow.next.next` 即可完成对目标节点的删除。
-#     6. 返回 `dummy.next` 作为新链表的头节点。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     A naive approach is to perform a first pass to count the list length L, and a second pass to traverse to the (L-N)-th node to remove it. This requires scanning the list twice. How can we achieve this in a single pass?
+#   - Mathematical Derivation: 
+#     Two Pointers in a Single Pass:
+#     To remove the N-th node from the end, we need to locate its **immediate predecessor**. We can maintain a gap of `N` nodes between two pointers:
+#     1. Initialize a `dummy` node pointing to `head` (to handle cases where the head itself is removed).
+#     2. Place `fast` and `slow` pointers at the `dummy` node.
+#     3. Advance `fast` by `N + 1` steps. This establishes a gap of `N + 1` nodes between `fast` and `slow`.
+#     4. Advance both pointers at the same speed until `fast` reaches null (the end of the list).
+#     5. At this point, `slow` will be pointing exactly to the predecessor of the target node. We remove the target node by executing `slow.next = slow.next.next`.
+#     6. Return `dummy.next`.
 
 from typing import Optional
 
@@ -25,24 +25,22 @@ class ListNode:
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        """
-        时间复杂度: O(N) - 单次遍历链表
-        空间复杂度: O(1)
-        """
-        dummy = ListNode(0, head)  # 创建哑节点，应对删除头节点的边界情况
+        # Time Complexity: O(N) - Single pass traversal
+        # Space Complexity: O(1)
+        dummy = ListNode(0, head)  # Dummy node to handle deletion of head node
         fast = dummy
         slow = dummy
         
-        # 快指针先向前移动 n + 1 步
+        # Advance fast pointer by n + 1 steps to create a gap of n nodes
         for _ in range(n + 1):
             fast = fast.next
             
-        # 快慢指针同步前移，直到快指针走到末尾
+        # Move both pointers simultaneously until fast reaches the end
         while fast:
             fast = fast.next
             slow = slow.next
             
-        # 此时 slow 指向待删除节点的前驱节点，改变其指向即可删除该节点
+        # slow now points to the node preceding the target. Delete the target node.
         slow.next = slow.next.next
         
         return dummy.next

@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 33 - Search in Rotated Sorted Array (Medium)
-# 核心考点: 分段单调性二分查找
+# Key Points: Monotonic Half Partitioning
 #
-# MLSys 系统/低底层关联说明:
-# 经典的旋转数组检索。核心破局点是：如果从中间剖开，旋转有序数组的左右两半必然有一半是严格升序的。通过判断哪半边有序，可以照样将搜索范围折半。
+# MLSys System/Low-Level Mapping:
+# Search in rotated arrays. If split in half, at least one half of the rotated sorted array is guaranteed to be strictly sorted. Detecting which half is sorted allows us to halve the search space at each step.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

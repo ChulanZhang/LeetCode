@@ -1,28 +1,27 @@
 from typing import List, Optional, Dict, Set
 
-# Course Schedule (课程表) - Medium
-# 🔑 核心考点: 有向图拓扑排序 (Topological Sort) - Kahn 算法 (BFS) / DFS 环路检测
+# Course Schedule - Medium
+# 🔑 Key Points: Topological Sort - Kahn's Algorithm (BFS) / DFS Cycle Detection
 #
-# 🧠 深入分析与破局点:
-#   - 直觉与陷阱: 
-#     直觉：先修课程的关系构成了一个有向图。如果课程 `A` 是 `B` 的先修课，就有一条从 `A` 指向 `B` 的有向边。如果我们想修完所有课程，这个有向图中绝对不能存在环路（比如 A 是 B 的先修课，B 是 C 的先修课，C 又是 A 的先修课）。
-#   - 思维推导: 
-#     检测有向图是否存在环路的经典方法是**拓扑排序**。我们采用基于广度优先搜索 (BFS) 的 Kahn 算法：
-#     1. 统计每个节点的入度（指向该节点的边数）和构建邻接表。
-#     2. 将所有入度为 0 的节点（即没有先修课程要求的课程）放入队列。
-#     3. 当队列不为空时，弹出队列首部的节点，将其加入已修课程，并遍历它的所有邻居节点（受它制约的后续课程）。对于每个邻居，将其入度减 1。如果减 1 后邻居的入度变为 0，则将该邻居加入队列。
-#     4. 最后，检查已修课程的数量是否等于课程总数 `numCourses`。如果等于，说明拓扑排序成功，无环；否则，说明图中存在环，无法修完。
+# 🧠 Intuition & Breaking Points:
+#   - Intuition & Pitfalls: 
+#     The course prerequisite dependencies can be modeled as a directed graph where an edge from `A` to `B` means course `A` is a prerequisite for course `B`. To finish all courses, this directed graph must be a Directed Acyclic Graph (DAG) containing no cycles.
+#   - Mathematical Derivation: 
+#     A standard way to detect cycles in a directed graph is Topological Sort. We use Kahn's Algorithm (BFS-based):
+#     1. Build an adjacency list and compute the in-degrees (number of incoming edges) for all nodes.
+#     2. Add all nodes with an in-degree of 0 (courses with no prerequisites) to a queue.
+#     3. While the queue is not empty, dequeue a node, increment the count of visited courses, and iterate through its neighbors. For each neighbor, decrement its in-degree by 1. If its in-degree drops to 0, enqueue it.
+#     4. Finally, check if the visited count equals the total number of courses `numCourses`. If it does, a valid topological sort exists (no cycles); otherwise, there is a cycle.
 
 from typing import List
 from collections import deque
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        """
-        时间复杂度: O(V + E) - V 为课程数，E 为先修关系数
-        空间复杂度: O(V + E) - 存储邻接表与入度数组
-        """
-        # 构建邻接表与入度表
+        # Time Complexity: O(V + E) - V is the number of courses, E is the number of prerequisites
+        # Space Complexity: O(V + E) - Adjacency list and in-degree table
+        
+        # Build adjacency list and in-degree array
         adj = {i: [] for i in range(numCourses)}
         indegree = [0] * numCourses
         
@@ -30,7 +29,7 @@ class Solution:
             adj[pre].append(course)
             indegree[course] += 1
             
-        # 入度为 0 的课程入队
+        # Dequeue starting courses with 0 prerequisites (in-degree = 0)
         queue = deque([i for i in range(numCourses) if indegree[i] == 0])
         visited_count = 0
         
@@ -38,8 +37,10 @@ class Solution:
             curr = queue.popleft()
             visited_count += 1
             
+            # Decrement in-degree for all depending neighbors
             for neighbor in adj[curr]:
                 indegree[neighbor] -= 1
+                # Enqueue neighbor if all its prerequisites are completed
                 if indegree[neighbor] == 0:
                     queue.append(neighbor)
                     

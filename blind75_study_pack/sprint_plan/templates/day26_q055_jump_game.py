@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 55 - Jump Game (Medium)
-# 核心考点: 贪心策略 - 自后向前更新 goal
+# Key Points: Greedy - Backwards Goal Shifting
 #
-# MLSys 系统/低底层关联说明:
-# 在资源管理中判定任务能否在一系列具有最大跳转能力的节点间安全传递。自后向前维护当前的“最前可达点” goal，时间复杂度 O(N)，空间复杂度 O(1)，大幅优于一维 DP 的 O(N^2) 方案。
+# MLSys System/Low-Level Mapping:
+# Evaluating if a resource packet can route across nodes with variable reach capabilities. Shifting `goal` backwards from the end runs in O(N) time and O(1) space, which is far superior to standard 1D DP (O(N^2)).
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

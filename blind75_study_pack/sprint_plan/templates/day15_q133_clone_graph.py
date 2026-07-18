@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 133 - Clone Graph (Medium)
-# 核心考点: 哈希表映射 + DFS/BFS 深拷贝
+# Key Points: Hash Map + DFS / BFS Deep Copy
 #
-# MLSys 系统/低底层关联说明:
-# 在编译器中间表示（IR）的优化或深度学习模型序列化中，我们需要完全深拷贝一个包含环路的有向图（如循环神经网络的计算图）。使用哈希表保存 `old_node -> new_node` 的映射，能有效破除环路无限死循环。
+# MLSys System/Low-Level Mapping:
+# In deep learning compiler IR optimizations or computational graph serialization, we must copy graphs containing cycles (e.g. recurrent neural networks). Maintaining an `old_node -> new_node` hash map prevents infinite recursion loop traps.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

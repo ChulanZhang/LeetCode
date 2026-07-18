@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 1109 - Corporate Flight Bookings (Medium)
-# 核心考点: 一维差分数组
+# Key Points: 1D Difference Array
 #
-# MLSys 系统/低底层关联说明:
-# 差分数组用于高效处理“区间批量加减运算”。在系统调度中，如果要在某个时间区间内给所有任务分配相同的算力资源，使用差分数组可实现 O(1) 的记录，并在最后通过一次前缀和扫描还原，复杂度为 O(N)。
+# MLSys System/Low-Level Mapping:
+# Difference arrays are used to handle batch range addition/subtraction. In task scheduling, if we need to allocate resources over a time window, difference arrays allow O(1) updates per request and reconstruction in O(N) time via prefix sums.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

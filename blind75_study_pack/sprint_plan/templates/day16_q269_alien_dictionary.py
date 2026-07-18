@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 269 - Alien Dictionary (Hard)
-# 核心考点: 字符邻接表建图 + DFS 环检测 + 拓扑逆序输出
+# Key Points: DFS Cycle Detection + Reverse Finish Order
 #
-# MLSys 系统/低底层关联说明:
-# 深度学习编译器中进行多后端算子指令转换时，需要推断各算子执行的绝对偏序关系。通过对比相邻单词推导字符优先级，再跑拓扑排序。
+# MLSys System/Low-Level Mapping:
+# In deep learning compiler instruction schedulers, we infer instruction dependency constraints from adjacent operations. Constructing directed edges and running a topological sort resolves execution priorities.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

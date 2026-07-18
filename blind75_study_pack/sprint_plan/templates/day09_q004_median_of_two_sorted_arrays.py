@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 4 - Median of Two Sorted Arrays (Hard)
-# 核心考点: 双数组划分 + 对角二分
+# Key Points: Binary Search on Array Partitioning
 #
-# MLSys 系统/低底层关联说明:
-# 在分布式数据库或多机多卡 Tensor 拆分中，经常需要对两个异构且分别有序的数据块进行合并定位中位数。利用二分较小数组划分线的方法，可在 O(log(min(M, N))) 时间内精确分割。
+# MLSys System/Low-Level Mapping:
+# In distributed databases or multi-GPU pipeline parallelisms, we often need to merge and find the median of sorted, partitioned chunks. Performing binary search on partition lines in the smaller array resolves this in O(log(min(M, N))) time.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass

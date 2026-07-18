@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # LeetCode 124 - Binary Tree Maximum Path Sum (Hard)
-# 核心考点: 后序遍历 + 全局最大值折返更新
+# Key Points: DFS + Bent Path Global Update
 #
-# MLSys 系统/低底层关联说明:
-# 树形 DP 的经典代表。在图的计算图关键路径分析（Critical Path Method, CPM - 用于决定多算子计算图中哪个分支执行最慢、是瓶颈）中，折返路径累加算法是寻找系统最慢执行链的基础。
+# MLSys System/Low-Level Mapping:
+# A classic tree dynamic programming problem. In Critical Path Method (CPM) analyses of computation graphs (determining which sequence of operators is the bottlenecks), this path accumulation logic is used to identify the slowest execution chain.
 #
 # ==========================================
-# 🧠 复盘记录区 (请在 LeetCode 网页端 Accepted 后拉取到本地，在此处粘贴代码并撰写复盘)
+# 🧠 Interview Review Area
+# (After getting Accepted on LeetCode web, paste your code and write comments below)
 # ==========================================
-# 1. 为什么会卡壳（或卡了多久）：
+# 1. Where did you get stuck or how long did you spend debugging?
 # 
-# 2. 时空复杂度推导与内存局部性分析：
+# 2. Time/Space Complexity Derivation & Memory Locality Analysis:
 # 
-# 3. 核心边界情况与易错用例：
+# 3. Edge Cases & Trap Test Cases:
 # 
 # ==========================================
 
 class Solution:
-    # TODO: 请在网页端白板 Accepted 后，将最终代码贴回此处
+    # TODO: Paste your Accepted code here
     pass
