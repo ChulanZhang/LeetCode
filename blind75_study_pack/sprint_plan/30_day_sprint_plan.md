@@ -129,7 +129,7 @@
 ---
 ### 📅 Day 06 - Prefix Sums & Difference Arrays
 
-- **LeetCode 304**: [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d---immutable/) | **[Medium]**
+- **LeetCode 304**: [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) | **[Medium]**
   - 🔑 **Key Points**: 2D Prefix Sums / Integral Image
   - 💻 **Local Template**: [sprint_plan/templates/day06_q304_range_sum_query_2d___immutable.py](file:///D:/OneDrive - purdue.edu/Academic/GitHub/blind75/blind75_study_pack/sprint_plan/templates/day06_q304_range_sum_query_2d___immutable.py)
   - 🧠 **MLSys Connection**: A 2D prefix sum is mathematically identical to an 'Integral Image' in computer vision. In CNN (Convolutional Neural Networks) pooling layers or local sum kernels, it optimizes range sum calculations from O(H*W) to O(1).
@@ -534,7 +534,7 @@
 ---
 ### 📅 Day 28 - Mock Simulator Day 1 (Google/Meta Core Systems)
 
-- **LeetCode 307**: [Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query---mutable/) | **[Hard]**
+- **LeetCode 307**: [Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable/) | **[Hard]**
   - 🔑 **Key Points**: Segment Tree / Binary Indexed Tree
   - 💻 **Local Template**: [sprint_plan/templates/day28_q307_range_sum_query___mutable.py](file:///D:/OneDrive - purdue.edu/Academic/GitHub/blind75/blind75_study_pack/sprint_plan/templates/day28_q307_range_sum_query___mutable.py)
   - 🧠 **MLSys Connection**: In dynamic ML tensors where values are frequently mutated and range sums are queried, prefix sums cost O(N) updates. Segment Trees or Fenwick Trees optimize both operations to O(log N) time, demonstrating query-update balance.

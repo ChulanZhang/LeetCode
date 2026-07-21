@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Meeting Rooms - Easy
+# LeetCode 252: Meeting Rooms - Easy
+# 🔗 Link: https://leetcode.com/problems/meeting-rooms/
 # 🔑 Key Points: Sorting + Overlap Check
 #
 # 🧠 Intuition & Breaking Points:

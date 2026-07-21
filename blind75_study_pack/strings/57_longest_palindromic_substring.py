@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Longest Palindromic Substring - Medium
+# LeetCode 5: Longest Palindromic Substring - Medium
+# 🔗 Link: https://leetcode.com/problems/longest-palindromic-substring/
 # 🔑 Key Points: Expand Around Center - O(1) Space Optimization
 #
 # 🧠 Intuition & Breaking Points:

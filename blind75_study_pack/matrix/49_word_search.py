@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Word Search - Medium
+# LeetCode 79: Word Search - Medium
+# 🔗 Link: https://leetcode.com/problems/word-search/
 # 🔑 Key Points: Backtracking / DFS
 #
 # 🧠 Intuition & Breaking Points:

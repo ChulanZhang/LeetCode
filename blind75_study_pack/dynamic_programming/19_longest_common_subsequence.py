@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Longest Common Subsequence - Medium
+# LeetCode 1143: Longest Common Subsequence - Medium
+# 🔗 Link: https://leetcode.com/problems/longest-common-subsequence/
 # 🔑 Key Points: 2D Dynamic Programming (2D DP)
 #
 # 🧠 Intuition & Breaking Points:

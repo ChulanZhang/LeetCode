@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Reverse Linked List - Easy
+# LeetCode 206: Reverse Linked List - Easy
+# 🔗 Link: https://leetcode.com/problems/reverse-linked-list/
 # 🔑 Key Points: Linked List Basics - Two Pointers Iterative
 #
 # 🧠 Intuition & Breaking Points:

@@ -16,6 +16,84 @@ import db_string
 import db_tree
 import db_heap
 
+PROBLEMS_METADATA = {
+    "01_two_sum.py": ("1", "two-sum"),
+    "02_best_time_to_buy_and_sell_stock.py": ("121", "best-time-to-buy-and-sell-stock"),
+    "03_contains_duplicate.py": ("217", "contains-duplicate"),
+    "04_product_of_array_except_self.py": ("238", "product-of-array-except-self"),
+    "05_maximum_subarray.py": ("53", "maximum-subarray"),
+    "06_maximum_product_subarray.py": ("152", "maximum-product-subarray"),
+    "07_find_minimum_in_rotated_sorted_array.py": ("153", "find-minimum-in-rotated-sorted-array"),
+    "08_search_in_rotated_sorted_array.py": ("33", "search-in-rotated-sorted-array"),
+    "09_three_sum.py": ("15", "3sum"),
+    "10_container_with_most_water.py": ("11", "container-with-most-water"),
+    "11_sum_of_two_integers.py": ("371", "sum-of-two-integers"),
+    "12_number_of_1_bits.py": ("191", "number-of-1-bits"),
+    "13_counting_bits.py": ("338", "counting-bits"),
+    "14_missing_number.py": ("268", "missing-number"),
+    "15_reverse_bits.py": ("190", "reverse-bits"),
+    "16_climbing_stairs.py": ("70", "climbing-stairs"),
+    "17_coin_change.py": ("322", "coin-change"),
+    "18_longest_increasing_subsequence.py": ("300", "longest-increasing-subsequence"),
+    "19_longest_common_subsequence.py": ("1143", "longest-common-subsequence"),
+    "20_word_break.py": ("139", "word-break"),
+    "21_combination_sum_iv.py": ("377", "combination-sum-iv"),
+    "22_house_robber.py": ("198", "house-robber"),
+    "23_house_robber_ii.py": ("213", "house-robber-ii"),
+    "24_decode_ways.py": ("91", "decode-ways"),
+    "25_unique_paths.py": ("62", "unique-paths"),
+    "26_jump_game.py": ("55", "jump-game"),
+    "27_clone_graph.py": ("133", "clone-graph"),
+    "28_course_schedule.py": ("207", "course-schedule"),
+    "29_pacific_atlantic_water_flow.py": ("417", "pacific-atlantic-water-flow"),
+    "30_number_of_islands.py": ("200", "number-of-islands"),
+    "31_longest_consecutive_sequence.py": ("128", "longest-consecutive-sequence"),
+    "32_alien_dictionary.py": ("269", "alien-dictionary"),
+    "33_graph_valid_tree.py": ("261", "graph-valid-tree"),
+    "34_number_of_connected_components_in_an_undirected_graph.py": ("323", "number-of-connected-components-in-an-undirected-graph"),
+    "35_insert_interval.py": ("57", "insert-interval"),
+    "36_merge_intervals.py": ("56", "merge-intervals"),
+    "37_non_overlapping_intervals.py": ("435", "non-overlapping-intervals"),
+    "38_meeting_rooms.py": ("252", "meeting-rooms"),
+    "39_meeting_rooms_ii.py": ("253", "meeting-rooms-ii"),
+    "40_reverse_linked_list.py": ("206", "reverse-linked-list"),
+    "41_linked_list_cycle.py": ("141", "linked-list-cycle"),
+    "42_merge_two_sorted_lists.py": ("21", "merge-two-sorted-lists"),
+    "43_merge_k_sorted_lists.py": ("23", "merge-k-sorted-lists"),
+    "44_remove_nth_node_from_end_of_list.py": ("19", "remove-nth-node-from-end-of-list"),
+    "45_reorder_list.py": ("143", "reorder-list"),
+    "46_set_matrix_zeroes.py": ("73", "set-matrix-zeroes"),
+    "47_spiral_matrix.py": ("54", "spiral-matrix"),
+    "48_rotate_image.py": ("48", "rotate-image"),
+    "49_word_search.py": ("79", "word-search"),
+    "50_longest_substring_without_repeating_characters.py": ("3", "longest-substring-without-repeating-characters"),
+    "51_longest_repeating_character_replacement.py": ("424", "longest-repeating-character-replacement"),
+    "52_minimum_window_substring.py": ("76", "minimum-window-substring"),
+    "53_valid_anagram.py": ("242", "valid-anagram"),
+    "54_group_anagrams.py": ("49", "group-anagrams"),
+    "55_valid_parentheses.py": ("20", "valid-parentheses"),
+    "56_valid_palindrome.py": ("125", "valid-palindrome"),
+    "57_longest_palindromic_substring.py": ("5", "longest-palindromic-substring"),
+    "58_palindromic_substrings.py": ("647", "palindromic-substrings"),
+    "59_encode_and_decode_strings.py": ("271", "encode-and-decode-strings"),
+    "60_maximum_depth_of_binary_tree.py": ("104", "maximum-depth-of-binary-tree"),
+    "61_same_tree.py": ("100", "same-tree"),
+    "62_invert_binary_tree.py": ("226", "invert-binary-tree"),
+    "63_binary_tree_maximum_path_sum.py": ("124", "binary-tree-maximum-path-sum"),
+    "64_binary_tree_level_order_traversal.py": ("102", "binary-tree-level-order-traversal"),
+    "65_serialize_and_deserialize_binary_tree.py": ("297", "serialize-and-deserialize-binary-tree"),
+    "66_subtree_of_another_tree.py": ("572", "subtree-of-another-tree"),
+    "67_construct_binary_tree_from_preorder_and_inorder_traversal.py": ("105", "construct-binary-tree-from-preorder-and-inorder-traversal"),
+    "68_validate_binary_search_tree.py": ("98", "validate-binary-search-tree"),
+    "69_kth_smallest_element_in_a_bst.py": ("230", "kth-smallest-element-in-a-bst"),
+    "70_lowest_common_ancestor_of_a_binary_search_tree.py": ("235", "lowest-common-ancestor-of-a-binary-search-tree"),
+    "71_implement_trie_prefix_tree.py": ("208", "implement-trie-prefix-tree"),
+    "72_add_and_search_word_data_structure_design.py": ("211", "design-add-and-search-words-data-structure"),
+    "73_word_search_ii.py": ("212", "word-search-ii"),
+    "74_top_k_frequent_elements.py": ("347", "top-k-frequent-elements"),
+    "75_find_median_from_data_stream.py": ("295", "find-median-from-data-stream")
+}
+
 CATEGORIES = {
     "arrays": (db_array.PROBLEMS, "Arrays"),
     "binary": (db_binary.PROBLEMS, "Binary"),
@@ -52,10 +130,14 @@ def write_solutions():
         for filename, data in problems.items():
             file_path = os.path.join(folder_path, filename)
             
+            lc_id, lc_slug = PROBLEMS_METADATA.get(filename, ("", ""))
+            lc_url = f"https://leetcode.com/problems/{lc_slug}/" if lc_slug else ""
+            
             # Assemble Python code with detailed English comments
             content = f'''from typing import List, Optional, Dict, Set
 
-# {data["title"]} - {data["difficulty"]}
+# LeetCode {lc_id}: {data["title"]} - {data["difficulty"]}
+# 🔗 Link: {lc_url}
 # 🔑 Key Points: {data["key_points"]}
 #
 # 🧠 Intuition & Breaking Points:
@@ -719,7 +801,8 @@ def compile_study_guide_html():
         html_content += f'<li style="font-weight: bold; margin-top: 15px; color: #2d3748;">{cat_name}</li>'
         for filename, data in problems.items():
             prob_num = filename.split("_")[0]
-            html_content += f'<li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_{prob_num}">{prob_num}. {data["title"]}</a></li>'
+            lc_id, lc_slug = PROBLEMS_METADATA.get(filename, ("", ""))
+            html_content += f'<li class="toc-item" style="padding-left: 20px;"><a class="toc-link" href="#prob_{prob_num}">{prob_num}. LeetCode {lc_id}: {data["title"]}</a></li>'
             
     html_content += """
             </ul>
@@ -735,9 +818,12 @@ def compile_study_guide_html():
             prob_num = filename.split("_")[0]
             escaped_code = data["code"].replace("<", "&lt;").replace(">", "&gt;")
             
+            lc_id, lc_slug = PROBLEMS_METADATA.get(filename, ("", ""))
+            lc_url = f"https://leetcode.com/problems/{lc_slug}/" if lc_slug else ""
+            
             html_content += f"""
             <div class="problem-card" id="prob_{prob_num}">
-                <h3>{prob_num}. {data["title"]} &nbsp;&nbsp;[<span class="difficulty-{data["difficulty"]}">{data["difficulty"]}</span>]</h3>
+                <h3>{prob_num}. <a href="{lc_url}" target="_blank">LeetCode {lc_id}: {data["title"]}</a> &nbsp;&nbsp;[<span class="difficulty-{data["difficulty"]}">{data["difficulty"]}</span>]</h3>
                 <div class="meta-item"><span class="meta-label">🔑 Key Points:</span> {data["key_points"]}</div>
                 
                 <div class="analysis-box">

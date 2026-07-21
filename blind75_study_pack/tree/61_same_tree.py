@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Same Tree - Easy
+# LeetCode 100: Same Tree - Easy
+# 🔗 Link: https://leetcode.com/problems/same-tree/
 # 🔑 Key Points: Binary Tree - Synchronous Recursion
 #
 # 🧠 Intuition & Breaking Points:

@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Top K Frequent Elements - Medium
+# LeetCode 347: Top K Frequent Elements - Medium
+# 🔗 Link: https://leetcode.com/problems/top-k-frequent-elements/
 # 🔑 Key Points: Hash Map Frequencies + Bucket Sort O(N) Optimal / Min-Heap O(N log K)
 #
 # 🧠 Intuition & Breaking Points:

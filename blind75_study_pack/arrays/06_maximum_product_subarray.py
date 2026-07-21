@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Maximum Product Subarray - Medium
+# LeetCode 152: Maximum Product Subarray - Medium
+# 🔗 Link: https://leetcode.com/problems/maximum-product-subarray/
 # 🔑 Key Points: Dynamic Programming - Double State Tracking
 #
 # 🧠 Intuition & Breaking Points:

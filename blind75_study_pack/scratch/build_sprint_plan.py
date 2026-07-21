@@ -46,7 +46,10 @@ def generate_markdown_plan():
             content.append(f"### 📅 Day {day:02d} - {info['theme']}\n")
             
             for prob in info["problems"]:
-                lc_url = f"https://leetcode.com/problems/{clean_filename(prob['name']).replace('_', '-')}/"
+                slug = clean_filename(prob['name']).replace('_', '-')
+                while '--' in slug:
+                    slug = slug.replace('--', '-')
+                lc_url = f"https://leetcode.com/problems/{slug}/"
                 template_name = f"day{day:02d}_q{int(prob['id']):03d}_{clean_filename(prob['name'])}.py"
                 content.append(f"- **LeetCode {prob['id']}**: [{prob['name']}]({lc_url}) | **[{prob['difficulty']}]**")
                 content.append(f"  - 🔑 **Key Points**: {prob['key']}")
@@ -239,9 +242,14 @@ def generate_html_plan():
             html_body.append(f'      <tbody>')
             
             for prob in info["problems"]:
+                slug = clean_filename(prob['name']).replace('_', '-')
+                while '--' in slug:
+                    slug = slug.replace('--', '-')
+                lc_url = f"https://leetcode.com/problems/{slug}/"
+                
                 html_body.append(f'        <tr>')
                 html_body.append(f'          <td>{prob["id"]}</td>')
-                html_body.append(f'          <td><strong>{prob["name"]}</strong></td>')
+                html_body.append(f'          <td><a href="{lc_url}" target="_blank"><strong>{prob["name"]}</strong></a></td>')
                 html_body.append(f'          <td><span class="difficulty-{prob["difficulty"]}">{prob["difficulty"]}</span></td>')
                 html_body.append(f'          <td>')
                 html_body.append(f'            <div><strong>Key Points: </strong>{prob["key"]}</div>')

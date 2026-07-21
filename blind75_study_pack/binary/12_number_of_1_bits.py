@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Number of 1 Bits - Easy
+# LeetCode 191: Number of 1 Bits - Easy
+# 🔗 Link: https://leetcode.com/problems/number-of-1-bits/
 # 🔑 Key Points: Bit Manipulation - Brian Kernighan's Algorithm (n & (n - 1))
 #
 # 🧠 Intuition & Breaking Points:

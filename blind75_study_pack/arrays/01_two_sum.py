@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Two Sum - Easy
+# LeetCode 1: Two Sum - Easy
+# 🔗 Link: https://leetcode.com/problems/two-sum/
 # 🔑 Key Points: Hash Map - Space-Time Tradeoff
 #
 # 🧠 Intuition & Breaking Points:

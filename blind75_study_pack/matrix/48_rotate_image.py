@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Rotate Image - Medium
+# LeetCode 48: Rotate Image - Medium
+# 🔗 Link: https://leetcode.com/problems/rotate-image/
 # 🔑 Key Points: In-Place Matrix Transpose + Row Reverse
 #
 # 🧠 Intuition & Breaking Points:

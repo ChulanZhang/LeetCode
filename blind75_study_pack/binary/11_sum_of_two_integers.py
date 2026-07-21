@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Sum of Two Integers - Medium
+# LeetCode 371: Sum of Two Integers - Medium
+# 🔗 Link: https://leetcode.com/problems/sum-of-two-integers/
 # 🔑 Key Points: Bit Manipulation - XOR for carry-less addition, AND and Shift for carry
 #
 # 🧠 Intuition & Breaking Points:

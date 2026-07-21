@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Merge Two Sorted Lists - Easy
+# LeetCode 21: Merge Two Sorted Lists - Easy
+# 🔗 Link: https://leetcode.com/problems/merge-two-sorted-lists/
 # 🔑 Key Points: Linked List Merging / Dummy Node Technique
 #
 # 🧠 Intuition & Breaking Points:

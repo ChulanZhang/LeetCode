@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Palindromic Substrings - Medium
+# LeetCode 647: Palindromic Substrings - Medium
+# 🔗 Link: https://leetcode.com/problems/palindromic-substrings/
 # 🔑 Key Points: Expand Around Center - Palindrome Counter
 #
 # 🧠 Intuition & Breaking Points:

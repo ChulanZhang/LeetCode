@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Unique Paths - Medium
+# LeetCode 62: Unique Paths - Medium
+# 🔗 Link: https://leetcode.com/problems/unique-paths/
 # 🔑 Key Points: Grid Dynamic Programming / Space Compression
 #
 # 🧠 Intuition & Breaking Points:

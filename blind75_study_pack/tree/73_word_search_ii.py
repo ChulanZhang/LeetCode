@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Word Search II - Hard
+# LeetCode 212: Word Search II - Hard
+# 🔗 Link: https://leetcode.com/problems/word-search-ii/
 # 🔑 Key Points: Trie + Grid DFS Backtracking + Node Deletion Pruning
 #
 # 🧠 Intuition & Breaking Points:

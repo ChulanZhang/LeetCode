@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Course Schedule - Medium
+# LeetCode 207: Course Schedule - Medium
+# 🔗 Link: https://leetcode.com/problems/course-schedule/
 # 🔑 Key Points: Topological Sort - Kahn's Algorithm (BFS) / DFS Cycle Detection
 #
 # 🧠 Intuition & Breaking Points:

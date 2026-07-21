@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Longest Increasing Subsequence - Medium
+# LeetCode 300: Longest Increasing Subsequence - Medium
+# 🔗 Link: https://leetcode.com/problems/longest-increasing-subsequence/
 # 🔑 Key Points: Dynamic Programming O(N^2) / Binary Search with Greedy O(N log N)
 #
 # 🧠 Intuition & Breaking Points:

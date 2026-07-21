@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Climbing Stairs - Easy
+# LeetCode 70: Climbing Stairs - Easy
+# 🔗 Link: https://leetcode.com/problems/climbing-stairs/
 # 🔑 Key Points: Dynamic Programming (DP) / Fibonacci Sequence
 #
 # 🧠 Intuition & Breaking Points:

@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Product of Array Except Self - Medium
+# LeetCode 238: Product of Array Except Self - Medium
+# 🔗 Link: https://leetcode.com/problems/product-of-array-except-self/
 # 🔑 Key Points: Prefix & Suffix Products - Space Optimization
 #
 # 🧠 Intuition & Breaking Points:

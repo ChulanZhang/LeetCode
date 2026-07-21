@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Longest Consecutive Sequence - Medium
+# LeetCode 128: Longest Consecutive Sequence - Medium
+# 🔗 Link: https://leetcode.com/problems/longest-consecutive-sequence/
 # 🔑 Key Points: Hash Set - O(N) Time Optimization
 #
 # 🧠 Intuition & Breaking Points:

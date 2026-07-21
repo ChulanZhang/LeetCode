@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Find Median from Data Stream - Hard
+# LeetCode 295: Find Median from Data Stream - Hard
+# 🔗 Link: https://leetcode.com/problems/find-median-from-data-stream/
 # 🔑 Key Points: Dual Heaps Balance Design / Max-Heap & Min-Heap
 #
 # 🧠 Intuition & Breaking Points:

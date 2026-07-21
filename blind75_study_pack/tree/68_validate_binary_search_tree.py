@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Validate Binary Search Tree - Medium
+# LeetCode 98: Validate Binary Search Tree - Medium
+# 🔗 Link: https://leetcode.com/problems/validate-binary-search-tree/
 # 🔑 Key Points: BST Definition - Interval Bounds DFS Propagation
 #
 # 🧠 Intuition & Breaking Points:

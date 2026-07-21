@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Combination Sum IV - Medium
+# LeetCode 377: Combination Sum IV - Medium
+# 🔗 Link: https://leetcode.com/problems/combination-sum-iv/
 # 🔑 Key Points: Unbounded Knapsack Permutations / Dynamic Programming
 #
 # 🧠 Intuition & Breaking Points:

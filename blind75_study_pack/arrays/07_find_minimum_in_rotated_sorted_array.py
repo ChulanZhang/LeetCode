@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Find Minimum in Rotated Sorted Array - Medium
+# LeetCode 153: Find Minimum in Rotated Sorted Array - Medium
+# 🔗 Link: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 # 🔑 Key Points: Binary Search
 #
 # 🧠 Intuition & Breaking Points:

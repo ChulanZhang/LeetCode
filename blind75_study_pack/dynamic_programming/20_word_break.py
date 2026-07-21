@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Word Break - Medium
+# LeetCode 139: Word Break - Medium
+# 🔗 Link: https://leetcode.com/problems/word-break/
 # 🔑 Key Points: Dynamic Programming - Substring Checking via Hash Set
 #
 # 🧠 Intuition & Breaking Points:

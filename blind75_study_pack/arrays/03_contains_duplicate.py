@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Contains Duplicate - Easy
+# LeetCode 217: Contains Duplicate - Easy
+# 🔗 Link: https://leetcode.com/problems/contains-duplicate/
 # 🔑 Key Points: Hash Set - Early Return Optimization
 #
 # 🧠 Intuition & Breaking Points:

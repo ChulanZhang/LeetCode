@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Remove Nth Node From End of List - Medium
+# LeetCode 19: Remove Nth Node From End of List - Medium
+# 🔗 Link: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 # 🔑 Key Points: Two Pointers - Fast & Slow Pointers Gap Control
 #
 # 🧠 Intuition & Breaking Points:

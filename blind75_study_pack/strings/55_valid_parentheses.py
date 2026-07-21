@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Valid Parentheses - Easy
+# LeetCode 20: Valid Parentheses - Easy
+# 🔗 Link: https://leetcode.com/problems/valid-parentheses/
 # 🔑 Key Points: Stack Data Structure - LIFO
 #
 # 🧠 Intuition & Breaking Points:

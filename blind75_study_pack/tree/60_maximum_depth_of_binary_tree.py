@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Maximum Depth of Binary Tree - Easy
+# LeetCode 104: Maximum Depth of Binary Tree - Easy
+# 🔗 Link: https://leetcode.com/problems/maximum-depth-of-binary-tree/
 # 🔑 Key Points: Binary Tree Recursion - Depth-First Search (DFS)
 #
 # 🧠 Intuition & Breaking Points:

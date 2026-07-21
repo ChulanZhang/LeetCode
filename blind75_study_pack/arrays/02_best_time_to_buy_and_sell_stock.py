@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Best Time to Buy and Sell Stock - Easy
+# LeetCode 121: Best Time to Buy and Sell Stock - Easy
+# 🔗 Link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 # 🔑 Key Points: Greedy / Dynamic Programming - Single Pass
 #
 # 🧠 Intuition & Breaking Points:

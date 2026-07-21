@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Alien Dictionary - Hard
+# LeetCode 269: Alien Dictionary - Hard
+# 🔗 Link: https://leetcode.com/problems/alien-dictionary/
 # 🔑 Key Points: Topological Sort / Cycle Detection / Directed Graphs
 #
 # 🧠 Intuition & Breaking Points:

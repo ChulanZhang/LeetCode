@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# 3Sum - Medium
+# LeetCode 15: 3Sum - Medium
+# 🔗 Link: https://leetcode.com/problems/3sum/
 # 🔑 Key Points: Two Pointers - Sorting
 #
 # 🧠 Intuition & Breaking Points:

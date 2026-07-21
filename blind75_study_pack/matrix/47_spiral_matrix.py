@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Spiral Matrix - Medium
+# LeetCode 54: Spiral Matrix - Medium
+# 🔗 Link: https://leetcode.com/problems/spiral-matrix/
 # 🔑 Key Points: Matrix Boundary Simulation
 #
 # 🧠 Intuition & Breaking Points:

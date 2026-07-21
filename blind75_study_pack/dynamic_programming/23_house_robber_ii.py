@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# House Robber II - Medium
+# LeetCode 213: House Robber II - Medium
+# 🔗 Link: https://leetcode.com/problems/house-robber-ii/
 # 🔑 Key Points: Circular Array Dynamic Programming
 #
 # 🧠 Intuition & Breaking Points:

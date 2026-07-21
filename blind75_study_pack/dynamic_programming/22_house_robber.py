@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# House Robber - Medium
+# LeetCode 198: House Robber - Medium
+# 🔗 Link: https://leetcode.com/problems/house-robber/
 # 🔑 Key Points: Dynamic Programming - Space Optimization
 #
 # 🧠 Intuition & Breaking Points:

@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Encode and Decode Strings - Medium
+# LeetCode 271: Encode and Decode Strings - Medium
+# 🔗 Link: https://leetcode.com/problems/encode-and-decode-strings/
 # 🔑 Key Points: Serialization & Deserialization / Length-Prefixed Protocol
 #
 # 🧠 Intuition & Breaking Points:

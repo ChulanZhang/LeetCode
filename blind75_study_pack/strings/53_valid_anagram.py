@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Valid Anagram - Easy
+# LeetCode 242: Valid Anagram - Easy
+# 🔗 Link: https://leetcode.com/problems/valid-anagram/
 # 🔑 Key Points: Hash Map Frequencies / Character Counter
 #
 # 🧠 Intuition & Breaking Points:

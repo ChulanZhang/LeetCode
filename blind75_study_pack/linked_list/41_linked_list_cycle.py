@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Linked List Cycle - Easy
+# LeetCode 141: Linked List Cycle - Easy
+# 🔗 Link: https://leetcode.com/problems/linked-list-cycle/
 # 🔑 Key Points: Two Pointers - Fast & Slow Pointers (Floyd's Cycle-Finding Algorithm)
 #
 # 🧠 Intuition & Breaking Points:

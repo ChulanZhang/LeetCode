@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Search in Rotated Sorted Array - Medium
+# LeetCode 33: Search in Rotated Sorted Array - Medium
+# 🔗 Link: https://leetcode.com/problems/search-in-rotated-sorted-array/
 # 🔑 Key Points: Binary Search - Split Monotonicity
 #
 # 🧠 Intuition & Breaking Points:

@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Meeting Rooms II - Medium
+# LeetCode 253: Meeting Rooms II - Medium
+# 🔗 Link: https://leetcode.com/problems/meeting-rooms-ii/
 # 🔑 Key Points: Min-Heap / Two Pointers / Chronological Sweep-Line
 #
 # 🧠 Intuition & Breaking Points:

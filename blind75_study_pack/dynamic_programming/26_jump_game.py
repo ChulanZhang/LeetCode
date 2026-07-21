@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Jump Game - Medium
+# LeetCode 55: Jump Game - Medium
+# 🔗 Link: https://leetcode.com/problems/jump-game/
 # 🔑 Key Points: Greedy Pointer Shifting
 #
 # 🧠 Intuition & Breaking Points:

@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Longest Repeating Character Replacement - Medium
+# LeetCode 424: Longest Repeating Character Replacement - Medium
+# 🔗 Link: https://leetcode.com/problems/longest-repeating-character-replacement/
 # 🔑 Key Points: Sliding Window - Dynamic Contraction & Max Freq Optimization
 #
 # 🧠 Intuition & Breaking Points:

@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Insert Interval - Medium
+# LeetCode 57: Insert Interval - Medium
+# 🔗 Link: https://leetcode.com/problems/insert-interval/
 # 🔑 Key Points: Interval Traversal & Merging - Three-Stage Partitioning
 #
 # 🧠 Intuition & Breaking Points:

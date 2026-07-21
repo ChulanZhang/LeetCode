@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Kth Smallest Element in a BST - Medium
+# LeetCode 230: Kth Smallest Element in a BST - Medium
+# 🔗 Link: https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 # 🔑 Key Points: BST In-Order Traversal Properties / Iterative Stack with Early Termination
 #
 # 🧠 Intuition & Breaking Points:

@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Binary Tree Maximum Path Sum - Hard
+# LeetCode 124: Binary Tree Maximum Path Sum - Hard
+# 🔗 Link: https://leetcode.com/problems/binary-tree-maximum-path-sum/
 # 🔑 Key Points: Post-Order DFS / Path Contribution Merging
 #
 # 🧠 Intuition & Breaking Points:

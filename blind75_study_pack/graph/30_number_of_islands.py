@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Number of Islands - Medium
+# LeetCode 200: Number of Islands - Medium
+# 🔗 Link: https://leetcode.com/problems/number-of-islands/
 # 🔑 Key Points: Grid Search - DFS / BFS / Union-Find
 #
 # 🧠 Intuition & Breaking Points:

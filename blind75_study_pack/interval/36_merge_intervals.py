@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Merge Intervals - Medium
+# LeetCode 56: Merge Intervals - Medium
+# 🔗 Link: https://leetcode.com/problems/merge-intervals/
 # 🔑 Key Points: Sorting + Single Pass Merging
 #
 # 🧠 Intuition & Breaking Points:

@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Graph Valid Tree - Medium
+# LeetCode 261: Graph Valid Tree - Medium
+# 🔗 Link: https://leetcode.com/problems/graph-valid-tree/
 # 🔑 Key Points: Undirected Graph - Cycle Detection & Connectivity / Union-Find
 #
 # 🧠 Intuition & Breaking Points:

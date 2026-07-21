@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Missing Number - Easy
+# LeetCode 268: Missing Number - Easy
+# 🔗 Link: https://leetcode.com/problems/missing-number/
 # 🔑 Key Points: Bit Manipulation (XOR) / Gauss Sum Formula
 #
 # 🧠 Intuition & Breaking Points:

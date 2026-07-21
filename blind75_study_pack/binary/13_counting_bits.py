@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Counting Bits - Easy
+# LeetCode 338: Counting Bits - Easy
+# 🔗 Link: https://leetcode.com/problems/counting-bits/
 # 🔑 Key Points: Dynamic Programming + Bit Manipulation
 #
 # 🧠 Intuition & Breaking Points:

@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Serialize and Deserialize Binary Tree - Hard
+# LeetCode 297: Serialize and Deserialize Binary Tree - Hard
+# 🔗 Link: https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
 # 🔑 Key Points: Pre-Order DFS / Tree Splicing / Serialization Protocol
 #
 # 🧠 Intuition & Breaking Points:

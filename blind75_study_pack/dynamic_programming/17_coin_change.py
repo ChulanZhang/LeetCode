@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Coin Change - Medium
+# LeetCode 322: Coin Change - Medium
+# 🔗 Link: https://leetcode.com/problems/coin-change/
 # 🔑 Key Points: Complete Knapsack Problem / Dynamic Programming
 #
 # 🧠 Intuition & Breaking Points:

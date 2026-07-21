@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Non-overlapping Intervals - Medium
+# LeetCode 435: Non-overlapping Intervals - Medium
+# 🔗 Link: https://leetcode.com/problems/non-overlapping-intervals/
 # 🔑 Key Points: Greedy Algorithm - Interval Scheduling Problem
 #
 # 🧠 Intuition & Breaking Points:

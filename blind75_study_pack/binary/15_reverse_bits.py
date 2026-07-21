@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Reverse Bits - Easy
+# LeetCode 190: Reverse Bits - Easy
+# 🔗 Link: https://leetcode.com/problems/reverse-bits/
 # 🔑 Key Points: Bit Manipulation - Shift and Accumulate
 #
 # 🧠 Intuition & Breaking Points:

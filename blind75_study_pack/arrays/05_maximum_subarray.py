@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Maximum Subarray - Medium
+# LeetCode 53: Maximum Subarray - Medium
+# 🔗 Link: https://leetcode.com/problems/maximum-subarray/
 # 🔑 Key Points: Dynamic Programming (Kadane's Algorithm)
 #
 # 🧠 Intuition & Breaking Points:

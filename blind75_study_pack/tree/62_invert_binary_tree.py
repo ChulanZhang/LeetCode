@@ -1,6 +1,7 @@
 from typing import List, Optional, Dict, Set
 
-# Invert Binary Tree - Easy
+# LeetCode 226: Invert Binary Tree - Easy
+# 🔗 Link: https://leetcode.com/problems/invert-binary-tree/
 # 🔑 Key Points: Binary Tree - In-Place Node Swapping
 #
 # 🧠 Intuition & Breaking Points:
