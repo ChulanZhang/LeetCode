@@ -3,7 +3,7 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        # rotation = transpose + flip
+        # rotation = transpose + flip column
         n = len(matrix)
         
         # transpose
@@ -15,7 +15,6 @@ class Solution:
         for i in range(n):
             for j in range(n // 2):
                 matrix[i][j], matrix[i][n - 1 - j] = matrix[i][n - 1 - j], matrix[i][j]
-
 
 # dry run
 # 1 2 3
@@ -29,6 +28,9 @@ class Solution:
 # 7 4 1
 # 8 5 2
 # 9 6 3
+
+# what if it is counter clockwise rotate
+# counter clockwise rotate = transpose + flip row
 
 # time complexity: O(N^2)
 # space complexity: O(1) inplace rotate
