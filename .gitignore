@@ -1,0 +1,15 @@
+# Bytecode / interpreter cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*$py.class
+
+# Python tooling cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# System
+.DS_Store
