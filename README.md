@@ -44,4 +44,12 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0011-container-with-most-water](https://github.com/ChulanZhang/LeetCode/tree/main/0011-container-with-most-water/) | Medium |
+## Math
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0371-sum-of-two-integers](https://github.com/ChulanZhang/LeetCode/tree/main/0371-sum-of-two-integers/) | Medium |
+## Bit Manipulation
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0371-sum-of-two-integers](https://github.com/ChulanZhang/LeetCode/tree/main/0371-sum-of-two-integers/) | Medium |
 <!---LeetCode Topics End-->
