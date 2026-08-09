@@ -88,4 +88,4 @@ class Solution:
         # ~(0xFFFFFFFF ^ 0xFFFFFFFF)
         # = ~0
         # = -1
-        return ~(a ^ MASK)
+        return ~(a ^ MASK) 
