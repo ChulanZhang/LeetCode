@@ -17,6 +17,7 @@
 | [0053-maximum-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0053-maximum-subarray/) | Medium |
 | [0152-maximum-product-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/ChulanZhang/LeetCode/tree/main/0153-find-minimum-in-rotated-sorted-array/) | Medium |
+| [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
 ## Divide and Conquer
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -42,10 +43,12 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0015-3sum](https://github.com/ChulanZhang/LeetCode/tree/main/0015-3sum/) | Medium |
+| [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
 ## Greedy
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0011-container-with-most-water](https://github.com/ChulanZhang/LeetCode/tree/main/0011-container-with-most-water/) | Medium |
+| [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -56,4 +59,8 @@
 | [0191-number-of-1-bits](https://github.com/ChulanZhang/LeetCode/tree/main/0191-number-of-1-bits/) | Easy |
 | [0338-counting-bits](https://github.com/ChulanZhang/LeetCode/tree/main/0338-counting-bits/) | Easy |
 | [0371-sum-of-two-integers](https://github.com/ChulanZhang/LeetCode/tree/main/0371-sum-of-two-integers/) | Medium |
+## Heap (Priority Queue)
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
 <!---LeetCode Topics End-->
