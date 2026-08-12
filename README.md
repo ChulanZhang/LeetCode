@@ -28,6 +28,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0053-maximum-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0053-maximum-subarray/) | Medium |
+| [0070-climbing-stairs](https://github.com/ChulanZhang/LeetCode/tree/main/0070-climbing-stairs/) | Easy |
 | [0152-maximum-product-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
 | [0338-counting-bits](https://github.com/ChulanZhang/LeetCode/tree/main/0338-counting-bits/) | Easy |
 ## Binary Search
@@ -53,6 +54,7 @@
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0070-climbing-stairs](https://github.com/ChulanZhang/LeetCode/tree/main/0070-climbing-stairs/) | Easy |
 | [0371-sum-of-two-integers](https://github.com/ChulanZhang/LeetCode/tree/main/0371-sum-of-two-integers/) | Medium |
 ## Bit Manipulation
 | Problem Name | Difficulty |
@@ -69,4 +71,8 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0078-subsets](https://github.com/ChulanZhang/LeetCode/tree/main/0078-subsets/) | Medium |
+## Memoization
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0070-climbing-stairs](https://github.com/ChulanZhang/LeetCode/tree/main/0070-climbing-stairs/) | Easy |
 <!---LeetCode Topics End-->
