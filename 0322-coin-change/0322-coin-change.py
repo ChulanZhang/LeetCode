@@ -11,9 +11,13 @@ class Solution:
             for coin in coins:
                 # the remaining amount should be non-negative
                 if i >= coin:
+                    # transition function
                     dp[i] = min(dp[i], dp[i - coin] + 1)
         
         if dp[amount] == float("inf"):
             return -1
         else:
             return dp[amount]
+
+# TC: O(nk) 
+# SC: O(n)
