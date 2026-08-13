@@ -18,6 +18,7 @@
 | [0078-subsets](https://github.com/ChulanZhang/LeetCode/tree/main/0078-subsets/) | Medium |
 | [0152-maximum-product-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/ChulanZhang/LeetCode/tree/main/0153-find-minimum-in-rotated-sorted-array/) | Medium |
+| [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
 | [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
 ## Divide and Conquer
 | Problem Name | Difficulty |
@@ -30,6 +31,7 @@
 | [0053-maximum-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0053-maximum-subarray/) | Medium |
 | [0070-climbing-stairs](https://github.com/ChulanZhang/LeetCode/tree/main/0070-climbing-stairs/) | Easy |
 | [0152-maximum-product-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
+| [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
 | [0338-counting-bits](https://github.com/ChulanZhang/LeetCode/tree/main/0338-counting-bits/) | Easy |
 ## Binary Search
 | Problem Name | Difficulty |
@@ -75,4 +77,16 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0070-climbing-stairs](https://github.com/ChulanZhang/LeetCode/tree/main/0070-climbing-stairs/) | Easy |
+## Breadth-First Search
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
+## Knapsack Problem
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
+## Complete Knapsack
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
 <!---LeetCode Topics End-->
