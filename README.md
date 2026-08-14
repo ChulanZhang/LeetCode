@@ -15,6 +15,7 @@
 | [0015-3sum](https://github.com/ChulanZhang/LeetCode/tree/main/0015-3sum/) | Medium |
 | [0033-search-in-rotated-sorted-array](https://github.com/ChulanZhang/LeetCode/tree/main/0033-search-in-rotated-sorted-array/) | Medium |
 | [0053-maximum-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0053-maximum-subarray/) | Medium |
+| [0073-set-matrix-zeroes](https://github.com/ChulanZhang/LeetCode/tree/main/0073-set-matrix-zeroes/) | Medium |
 | [0078-subsets](https://github.com/ChulanZhang/LeetCode/tree/main/0078-subsets/) | Medium |
 | [0152-maximum-product-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/ChulanZhang/LeetCode/tree/main/0153-find-minimum-in-rotated-sorted-array/) | Medium |
@@ -89,4 +90,12 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
+## Hash Table
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0073-set-matrix-zeroes](https://github.com/ChulanZhang/LeetCode/tree/main/0073-set-matrix-zeroes/) | Medium |
+## Matrix
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0073-set-matrix-zeroes](https://github.com/ChulanZhang/LeetCode/tree/main/0073-set-matrix-zeroes/) | Medium |
 <!---LeetCode Topics End-->
