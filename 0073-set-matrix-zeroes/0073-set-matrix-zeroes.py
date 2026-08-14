@@ -28,7 +28,8 @@ class Solution:
             for i in range(m):
                 matrix[i][0] = 0
 
-
+# TC: O(m*n)
+# SC: O(1)
 
 #         m, n = len(matrix), len(matrix[0])
 #         rows, cols = set(), set()
