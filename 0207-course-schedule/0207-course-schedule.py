@@ -1,16 +1,16 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        # DAG without cycles
         # graph[i] represent the courses unlocked by course i
         graph = [[] for _ in range(numCourses)]
         # indegree[i] is the number of unfinished prerequisites
         indegree = [0] * numCourses
 
+        # Build the graph
         for course, prereq in prerequisites:
             graph[prereq].append(course)
             indegree[course] += 1
         
-        # Courses without any prereq
+        # Create the queue with courses without requiring any prereq
         queue = deque([i for i in range(numCourses) if indegree[i] == 0])
 
         visited = 0
