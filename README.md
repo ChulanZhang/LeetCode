@@ -23,6 +23,7 @@
 | [0200-number-of-islands](https://github.com/ChulanZhang/LeetCode/tree/main/0200-number-of-islands/) | Medium |
 | [0253-meeting-rooms-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0253-meeting-rooms-ii/) | Medium |
 | [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
+| [0416-partition-equal-subset-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0416-partition-equal-subset-sum/) | Medium |
 | [2395-find-subarrays-with-equal-sum](https://github.com/ChulanZhang/LeetCode/tree/main/2395-find-subarrays-with-equal-sum/) | Easy |
 | [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
 ## Divide and Conquer
@@ -38,6 +39,7 @@
 | [0152-maximum-product-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
 | [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
 | [0338-counting-bits](https://github.com/ChulanZhang/LeetCode/tree/main/0338-counting-bits/) | Easy |
+| [0416-partition-equal-subset-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0416-partition-equal-subset-sum/) | Medium |
 ## Binary Search
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -96,6 +98,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
+| [0416-partition-equal-subset-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0416-partition-equal-subset-sum/) | Medium |
 ## Complete Knapsack
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -136,4 +139,8 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0200-number-of-islands](https://github.com/ChulanZhang/LeetCode/tree/main/0200-number-of-islands/) | Medium |
+## 0-1 Knapsack
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0416-partition-equal-subset-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0416-partition-equal-subset-sum/) | Medium |
 <!---LeetCode Topics End-->
