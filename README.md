@@ -112,6 +112,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0001-two-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0001-two-sum/) | Easy |
+| [0003-longest-substring-without-repeating-characters](https://github.com/ChulanZhang/LeetCode/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 | [0073-set-matrix-zeroes](https://github.com/ChulanZhang/LeetCode/tree/main/0073-set-matrix-zeroes/) | Medium |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 | [2395-find-subarrays-with-equal-sum](https://github.com/ChulanZhang/LeetCode/tree/main/2395-find-subarrays-with-equal-sum/) | Easy |
@@ -162,4 +163,12 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
+## String
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0003-longest-substring-without-repeating-characters](https://github.com/ChulanZhang/LeetCode/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
+## Sliding Window
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0003-longest-substring-without-repeating-characters](https://github.com/ChulanZhang/LeetCode/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 <!---LeetCode Topics End-->
