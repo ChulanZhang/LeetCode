@@ -15,6 +15,7 @@
 | [0011-container-with-most-water](https://github.com/ChulanZhang/LeetCode/tree/main/0011-container-with-most-water/) | Medium |
 | [0015-3sum](https://github.com/ChulanZhang/LeetCode/tree/main/0015-3sum/) | Medium |
 | [0033-search-in-rotated-sorted-array](https://github.com/ChulanZhang/LeetCode/tree/main/0033-search-in-rotated-sorted-array/) | Medium |
+| [0040-combination-sum-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0040-combination-sum-ii/) | Medium |
 | [0053-maximum-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0053-maximum-subarray/) | Medium |
 | [0055-jump-game](https://github.com/ChulanZhang/LeetCode/tree/main/0055-jump-game/) | Medium |
 | [0056-merge-intervals](https://github.com/ChulanZhang/LeetCode/tree/main/0056-merge-intervals/) | Medium |
@@ -98,6 +99,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0017-letter-combinations-of-a-phone-number](https://github.com/ChulanZhang/LeetCode/tree/main/0017-letter-combinations-of-a-phone-number/) | Medium |
+| [0040-combination-sum-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0040-combination-sum-ii/) | Medium |
 | [0078-subsets](https://github.com/ChulanZhang/LeetCode/tree/main/0078-subsets/) | Medium |
 | [0679-24-game](https://github.com/ChulanZhang/LeetCode/tree/main/0679-24-game/) | Hard |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
