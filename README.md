@@ -153,6 +153,7 @@
 | [0101-symmetric-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0101-symmetric-tree/) | Easy |
 | [0200-number-of-islands](https://github.com/ChulanZhang/LeetCode/tree/main/0200-number-of-islands/) | Medium |
 | [0207-course-schedule](https://github.com/ChulanZhang/LeetCode/tree/main/0207-course-schedule/) | Medium |
+| [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 ## Graph Theory
 | Problem Name | Difficulty |
@@ -180,6 +181,7 @@
 | [0100-same-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0100-same-tree/) | Easy |
 | [0101-symmetric-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0101-symmetric-tree/) | Easy |
 | [0102-binary-tree-level-order-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0102-binary-tree-level-order-traversal/) | Medium |
+| [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 ## Binary Search Tree
 | Problem Name | Difficulty |
@@ -191,6 +193,7 @@
 | [0100-same-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0100-same-tree/) | Easy |
 | [0101-symmetric-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0101-symmetric-tree/) | Easy |
 | [0102-binary-tree-level-order-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0102-binary-tree-level-order-traversal/) | Medium |
+| [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 ## String
 | Problem Name | Difficulty |
@@ -218,4 +221,12 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
+## Binary Lifting
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
+## Lowest Common Ancestor
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 <!---LeetCode Topics End-->
