@@ -19,14 +19,15 @@ class Solution:
                 parents[node.right] = node
                 stack.append(node.right)
 
-        p_ancestors = set()
+        p_ancestor = set()
 
         while p:
-            p_ancestors.add(p)
+            p_ancestor.add(p)
             p = parents[p]
 
-        while q not in p_ancestors:
+        while q not in p_ancestor:
             q = parents[q]
 
         return q
+
         
