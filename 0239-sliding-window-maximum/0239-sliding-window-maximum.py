@@ -4,7 +4,7 @@ class Solution:
         result = []
 
         for i, num in enumerate(nums):
-            while queue and queue[0] <= i - k:
+            if queue and queue[0] <= i - k:
                 queue.popleft()
 
             while queue and nums[queue[-1]] <= num:
