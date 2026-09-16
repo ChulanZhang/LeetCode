@@ -28,6 +28,7 @@
 | [0239-sliding-window-maximum](https://github.com/ChulanZhang/LeetCode/tree/main/0239-sliding-window-maximum/) | Hard |
 | [0253-meeting-rooms-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0253-meeting-rooms-ii/) | Medium |
 | [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
+| [0334-increasing-triplet-subsequence](https://github.com/ChulanZhang/LeetCode/tree/main/0334-increasing-triplet-subsequence/) | Medium |
 | [0416-partition-equal-subset-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0416-partition-equal-subset-sum/) | Medium |
 | [0679-24-game](https://github.com/ChulanZhang/LeetCode/tree/main/0679-24-game/) | Hard |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
@@ -76,6 +77,7 @@
 | [0011-container-with-most-water](https://github.com/ChulanZhang/LeetCode/tree/main/0011-container-with-most-water/) | Medium |
 | [0055-jump-game](https://github.com/ChulanZhang/LeetCode/tree/main/0055-jump-game/) | Medium |
 | [0253-meeting-rooms-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0253-meeting-rooms-ii/) | Medium |
+| [0334-increasing-triplet-subsequence](https://github.com/ChulanZhang/LeetCode/tree/main/0334-increasing-triplet-subsequence/) | Medium |
 | [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
 ## Math
 | Problem Name | Difficulty |
@@ -244,4 +246,8 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0239-sliding-window-maximum](https://github.com/ChulanZhang/LeetCode/tree/main/0239-sliding-window-maximum/) | Hard |
+## Longest Increasing Subsequence
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0334-increasing-triplet-subsequence](https://github.com/ChulanZhang/LeetCode/tree/main/0334-increasing-triplet-subsequence/) | Medium |
 <!---LeetCode Topics End-->
