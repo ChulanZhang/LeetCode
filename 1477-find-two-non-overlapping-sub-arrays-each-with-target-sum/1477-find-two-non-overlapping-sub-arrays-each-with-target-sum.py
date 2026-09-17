@@ -3,20 +3,20 @@ class Solution:
         # sliding window + dp
         best = [float('inf')] * len(arr)
         ans = float('inf')
-        prefix_sum = 0
+        curr_sum = 0
         left = 0
 
         for right in range(len(arr)):
-            prefix_sum += arr[right]
+            curr_sum += arr[right]
             
             # we want to find a subarray that has a sum of target
             # when prefix <= target, jump out of the while loop 
-            while prefix_sum > target:
-                prefix_sum -= arr[left]
+            while curr_sum > target:
+                curr_sum -= arr[left]
                 left += 1
 
-            # when prefix_sum == target, we try to update the answer
-            if prefix_sum == target:
+            # when curr_sum == target, we try to update the answer
+            if curr_sum == target:
                 curr_len = right - left + 1
 
                 # left > 0 means this cannot be the first subarray we found
@@ -31,7 +31,7 @@ class Solution:
 
         return ans if ans != float('inf') else -1
 
-
+        # prefix_sum + hashmap + dp 
         # prefix_to_index = {0: -1}
         # best = [float('inf')] * len(arr)
         # ans = float('inf')
