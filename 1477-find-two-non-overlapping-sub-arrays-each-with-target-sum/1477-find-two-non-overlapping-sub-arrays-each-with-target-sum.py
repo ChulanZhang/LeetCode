@@ -1,50 +1,59 @@
 class Solution:
     def minSumOfLengths(self, arr: List[int], target: int) -> int:
-        prefix_to_index = {0: -1}
+        # sliding window + dp
         best = [float('inf')] * len(arr)
-        prefix = 0
         ans = float('inf')
-        
-        for i, num in enumerate(arr):
-            prefix += num
-            if prefix - target in prefix_to_index:
-                j = prefix_to_index[prefix - target]
-                curr_len = i - j
+        prefix_sum = 0
+        left = 0
 
-                if j >= 0 and best[j] != float('inf'):
-                    ans = min(ans, curr_len + best[j])
-
-                best[i] = curr_len
-
-            if i > 0:
-                best[i] = min(best[i], best[i - 1])
+        for right in range(len(arr)):
+            prefix_sum += arr[right]
             
-            prefix_to_index[prefix] = i
+            # we want to find a subarray that has a sum of target
+            # when prefix <= target, jump out of the while loop 
+            while prefix_sum > target:
+                prefix_sum -= arr[left]
+                left += 1
+
+            # when prefix_sum == target, we try to update the answer
+            if prefix_sum == target:
+                curr_len = right - left + 1
+
+                # left > 0 means this cannot be the first subarray we found
+                # best[left - 1] != float('inf') means we need an existing subarray that has a sum of target
+                if left > 0 and best[left - 1] != float('inf'):
+                    ans = min(ans, best[left - 1] + curr_len)
+                
+                best[right] = curr_len
+                
+            if right > 0:
+                best[right] = min(best[right], best[right - 1])
+
+        return ans if ans != float('inf') else -1
+
+
+        # prefix_to_index = {0: -1}
+        # best = [float('inf')] * len(arr)
+        # ans = float('inf')
+        # prefix_sum = 0
         
-        if ans == float('inf'):
-            return -1
-        else:
-            return ans
+        # for i, num in enumerate(arr):
+        #     prefix_sum += num
+        #     if prefix_sum - target in prefix_to_index:
+        #         j = prefix_to_index[prefix_sum - target]
+        #         curr_len = i - j
+
+        #         if j >= 0 and best[j] != float('inf'):
+        #             ans = min(ans, curr_len + best[j])
+
+        #         best[i] = curr_len
+
+        #     if i > 0:
+        #         best[i] = min(best[i], best[i - 1])
             
-
-
-
-        # dic = {0: [1, -1, 0]}
-        # count = 0
-        # sub_array_len = []
-        # s = 0
-        # for idx, num in enumerate(arr):
-        #     s += num
-        #     dic[s] = [1, idx, 0]
-        #     if s - target in dic and dic[s-target][2]==0:
-        #         count += 1
-        #         sub_array_len.append(idx- dic[s-target][1])
-        #         dic[s-target][2] = 1
-        #         dic[s][2] = 1
+        #     prefix_to_index[prefixsum] = i
         
-        # if count < 2:
+        # if ans == float('inf'):
         #     return -1
         # else:
-        #     sub_array_len.sort()
-        #     return sum(sub_array_len[:2])
-        
+        #     return ans
