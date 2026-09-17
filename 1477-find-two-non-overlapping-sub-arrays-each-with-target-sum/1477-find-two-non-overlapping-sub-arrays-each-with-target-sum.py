@@ -1,35 +1,92 @@
 class Solution:
     def minSumOfLengths(self, arr: List[int], target: int) -> int:
         # sliding window + dp
+        # prefix_sum + hashmap + dp
+        # prefix_sum: idx
+        prefix_sum = {0: -1}
+        # until this idx, what is the minimum length of a subarry has sum of target
         best = [float('inf')] * len(arr)
-        ans = float('inf')
+        answer = float('inf')
         curr_sum = 0
-        left = 0
+        for i, num in enumerate(arr):
+            curr_sum += num
+            curr_subarr_len = float('inf')
+            if curr_sum - target in prefix_sum:
+                j = prefix_sum[curr_sum - target]
+                curr_subarr_len = i - j
+                # j > 0
+                # best[j] != float('inf')
+                if j > 0 and best[j] != float('inf'):
+                    answer = min(answer, best[j] + curr_subarr_len)
 
-        for right in range(len(arr)):
-            curr_sum += arr[right]
+            prefix_sum[curr_sum] = i
+
+            if i == 0:
+                best[i] = curr_subarr_len
+            else:
+                best[i] = min(best[i - 1], curr_subarr_len)
+
+        if answer != float('inf'):
+            return answer
+        else:
+            return -1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # # sliding window + dp
+        # best = [float('inf')] * len(arr)
+        # ans = float('inf')
+        # curr_sum = 0
+        # left = 0
+
+        # for right in range(len(arr)):
+        #     curr_sum += arr[right]
             
-            # we want to find a subarray that has a sum of target
-            # when prefix <= target, jump out of the while loop 
-            while curr_sum > target:
-                curr_sum -= arr[left]
-                left += 1
+        #     # we want to find a subarray that has a sum of target
+        #     # when prefix <= target, jump out of the while loop 
+        #     while curr_sum > target:
+        #         curr_sum -= arr[left]
+        #         left += 1
 
-            # when curr_sum == target, we try to update the answer
-            if curr_sum == target:
-                curr_len = right - left + 1
+        #     # when curr_sum == target, we try to update the answer
+        #     if curr_sum == target:
+        #         curr_len = right - left + 1
 
-                # left > 0 means this cannot be the first subarray we found
-                # best[left - 1] != float('inf') means we need an existing subarray that has a sum of target
-                if left > 0 and best[left - 1] != float('inf'):
-                    ans = min(ans, best[left - 1] + curr_len)
+        #         # left > 0 means this cannot be the first subarray we found
+        #         # best[left - 1] != float('inf') means we need an existing subarray that has a sum of target
+        #         if left > 0 and best[left - 1] != float('inf'):
+        #             ans = min(ans, best[left - 1] + curr_len)
                 
-                best[right] = curr_len
+        #         best[right] = curr_len
                 
-            if right > 0:
-                best[right] = min(best[right], best[right - 1])
+        #     if right > 0:
+        #         best[right] = min(best[right], best[right - 1])
 
-        return ans if ans != float('inf') else -1
+        # return ans if ans != float('inf') else -1
 
         # prefix_sum + hashmap + dp 
         # prefix_to_index = {0: -1}
