@@ -10,7 +10,7 @@ class Solution:
             if not node:
                 return True
             
-            if node.val <= low or node.val >= high:
+            if not low < node.val < high:
                 return False
             
             return (
