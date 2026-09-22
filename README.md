@@ -21,6 +21,7 @@
 | [0056-merge-intervals](https://github.com/ChulanZhang/LeetCode/tree/main/0056-merge-intervals/) | Medium |
 | [0073-set-matrix-zeroes](https://github.com/ChulanZhang/LeetCode/tree/main/0073-set-matrix-zeroes/) | Medium |
 | [0078-subsets](https://github.com/ChulanZhang/LeetCode/tree/main/0078-subsets/) | Medium |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0105-construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/ChulanZhang/LeetCode/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
 | [0128-longest-consecutive-sequence](https://github.com/ChulanZhang/LeetCode/tree/main/0128-longest-consecutive-sequence/) | Medium |
 | [0152-maximum-product-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
@@ -45,6 +46,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0053-maximum-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0053-maximum-subarray/) | Medium |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0105-construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | [0191-number-of-1-bits](https://github.com/ChulanZhang/LeetCode/tree/main/0191-number-of-1-bits/) | Easy |
 ## Dynamic Programming
 | Problem Name | Difficulty |
@@ -153,6 +155,7 @@
 | [0003-longest-substring-without-repeating-characters](https://github.com/ChulanZhang/LeetCode/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 | [0017-letter-combinations-of-a-phone-number](https://github.com/ChulanZhang/LeetCode/tree/main/0017-letter-combinations-of-a-phone-number/) | Medium |
 | [0073-set-matrix-zeroes](https://github.com/ChulanZhang/LeetCode/tree/main/0073-set-matrix-zeroes/) | Medium |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0105-construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | [0128-longest-consecutive-sequence](https://github.com/ChulanZhang/LeetCode/tree/main/0128-longest-consecutive-sequence/) | Medium |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
@@ -206,6 +209,7 @@
 | [0100-same-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0100-same-tree/) | Easy |
 | [0101-symmetric-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0101-symmetric-tree/) | Easy |
 | [0102-binary-tree-level-order-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0102-binary-tree-level-order-traversal/) | Medium |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0105-construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0337-house-robber-iii](https://github.com/ChulanZhang/LeetCode/tree/main/0337-house-robber-iii/) | Medium |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
@@ -221,6 +225,7 @@
 | [0100-same-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0100-same-tree/) | Easy |
 | [0101-symmetric-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0101-symmetric-tree/) | Easy |
 | [0102-binary-tree-level-order-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0102-binary-tree-level-order-traversal/) | Medium |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0105-construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0337-house-robber-iii](https://github.com/ChulanZhang/LeetCode/tree/main/0337-house-robber-iii/) | Medium |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
