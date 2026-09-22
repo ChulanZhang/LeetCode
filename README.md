@@ -180,6 +180,7 @@
 | [0207-course-schedule](https://github.com/ChulanZhang/LeetCode/tree/main/0207-course-schedule/) | Medium |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0337-house-robber-iii](https://github.com/ChulanZhang/LeetCode/tree/main/0337-house-robber-iii/) | Medium |
+| [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 ## Graph Theory
 | Problem Name | Difficulty |
@@ -212,6 +213,7 @@
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0105-construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0337-house-robber-iii](https://github.com/ChulanZhang/LeetCode/tree/main/0337-house-robber-iii/) | Medium |
+| [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 ## Binary Search Tree
 | Problem Name | Difficulty |
@@ -228,6 +230,7 @@
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/ChulanZhang/LeetCode/tree/main/0105-construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0337-house-robber-iii](https://github.com/ChulanZhang/LeetCode/tree/main/0337-house-robber-iii/) | Medium |
+| [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 ## String
 | Problem Name | Difficulty |
@@ -299,4 +302,12 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0337-house-robber-iii](https://github.com/ChulanZhang/LeetCode/tree/main/0337-house-robber-iii/) | Medium |
+## String Matching
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
+## Hash Function
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 <!---LeetCode Topics End-->
