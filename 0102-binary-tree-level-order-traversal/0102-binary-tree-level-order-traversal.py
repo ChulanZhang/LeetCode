@@ -8,23 +8,21 @@ class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root:
             return []
-
         results = []
-        queue = deque([root])
-
-        while queue:
-            curr_level = []
-            curr_level_length = len(queue)
-
-            for _ in range(curr_level_length):
-                node = queue.popleft()
-                curr_level.append(node.val)
-
+        def bfs(nodes):
+            if not nodes:
+                return
+            tmp = []
+            next_level = []
+            for node in nodes:
+                tmp.append(node.val)
                 if node.left:
-                    queue.append(node.left)
-
+                    next_level.append(node.left)
                 if node.right:
-                    queue.append(node.right)
+                    next_level.append(node.right)
+            results.append(tmp)
 
-            results.append(curr_level)
-        return results 
+            bfs(next_level)
+
+        bfs([root])
+        return results
