@@ -1,21 +1,23 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        res = nums[0]
-        prefix = 1
-        suffix = 1
         n = len(nums)
-        
+        prefix_max = nums[0]
+        prefix = 1
         for i in range(n):
             # 如果前缀积为 0，则重置为 1，然后乘以当前元素
             prefix = (prefix if prefix != 0 else 1) * nums[i]
             
-            # 如果后缀积为 0，则重置为 1，然后乘以对应的反向元素
-            suffix = (suffix if suffix != 0 else 1) * nums[n - 1 - i]
-            
             # 更新全局最大值
-            res = max(res, prefix, suffix)
-            
-        return res
+            prefix_max = max(prefix_max, prefix)
+
+        suffix_max = nums[-1]
+        suffix = 1
+        for i in range(n):
+             # 如果后缀积为 0，则重置为 1，然后乘以对应的反向元素
+            suffix = (suffix if suffix != 0 else 1) * nums[n - 1 - i]
+
+            suffix_max = max(suffix_max, suffix)
+        return max(prefix_max, suffix_max)
         # # max_product stores the maximum product
         # # found anywhere in the array so far.
         # #
