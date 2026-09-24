@@ -42,6 +42,7 @@
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/ChulanZhang/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
 | [2395-find-subarrays-with-equal-sum](https://github.com/ChulanZhang/LeetCode/tree/main/2395-find-subarrays-with-equal-sum/) | Easy |
 | [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
+| [3550-smallest-index-with-digit-sum-equal-to-index](https://github.com/ChulanZhang/LeetCode/tree/main/3550-smallest-index-with-digit-sum-equal-to-index/) | Easy |
 ## Divide and Conquer
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -102,6 +103,7 @@
 | [0070-climbing-stairs](https://github.com/ChulanZhang/LeetCode/tree/main/0070-climbing-stairs/) | Easy |
 | [0371-sum-of-two-integers](https://github.com/ChulanZhang/LeetCode/tree/main/0371-sum-of-two-integers/) | Medium |
 | [0679-24-game](https://github.com/ChulanZhang/LeetCode/tree/main/0679-24-game/) | Hard |
+| [3550-smallest-index-with-digit-sum-equal-to-index](https://github.com/ChulanZhang/LeetCode/tree/main/3550-smallest-index-with-digit-sum-equal-to-index/) | Easy |
 ## Bit Manipulation
 | Problem Name | Difficulty |
 | ------- | ------- |
