@@ -39,6 +39,7 @@
 | [0679-24-game](https://github.com/ChulanZhang/LeetCode/tree/main/0679-24-game/) | Hard |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
 | [0853-car-fleet](https://github.com/ChulanZhang/LeetCode/tree/main/0853-car-fleet/) | Medium |
+| [0994-rotting-oranges](https://github.com/ChulanZhang/LeetCode/tree/main/0994-rotting-oranges/) | Medium |
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/ChulanZhang/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
 | [2395-find-subarrays-with-equal-sum](https://github.com/ChulanZhang/LeetCode/tree/main/2395-find-subarrays-with-equal-sum/) | Easy |
 | [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
@@ -142,6 +143,7 @@
 | [0207-course-schedule](https://github.com/ChulanZhang/LeetCode/tree/main/0207-course-schedule/) | Medium |
 | [0322-coin-change](https://github.com/ChulanZhang/LeetCode/tree/main/0322-coin-change/) | Medium |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
+| [0994-rotting-oranges](https://github.com/ChulanZhang/LeetCode/tree/main/0994-rotting-oranges/) | Medium |
 ## Knapsack Problem
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -169,6 +171,7 @@
 | ------- | ------- |
 | [0073-set-matrix-zeroes](https://github.com/ChulanZhang/LeetCode/tree/main/0073-set-matrix-zeroes/) | Medium |
 | [0200-number-of-islands](https://github.com/ChulanZhang/LeetCode/tree/main/0200-number-of-islands/) | Medium |
+| [0994-rotting-oranges](https://github.com/ChulanZhang/LeetCode/tree/main/0994-rotting-oranges/) | Medium |
 ## Prefix Sum
 | Problem Name | Difficulty |
 | ------- | ------- |
