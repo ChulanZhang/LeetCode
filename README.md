@@ -59,6 +59,7 @@
 | [0055-jump-game](https://github.com/ChulanZhang/LeetCode/tree/main/0055-jump-game/) | Medium |
 | [0070-climbing-stairs](https://github.com/ChulanZhang/LeetCode/tree/main/0070-climbing-stairs/) | Easy |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/ChulanZhang/LeetCode/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
+| [0131-palindrome-partitioning](https://github.com/ChulanZhang/LeetCode/tree/main/0131-palindrome-partitioning/) | Medium |
 | [0152-maximum-product-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
 | [0198-house-robber](https://github.com/ChulanZhang/LeetCode/tree/main/0198-house-robber/) | Medium |
 | [0213-house-robber-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0213-house-robber-ii/) | Medium |
@@ -128,6 +129,7 @@
 | [0017-letter-combinations-of-a-phone-number](https://github.com/ChulanZhang/LeetCode/tree/main/0017-letter-combinations-of-a-phone-number/) | Medium |
 | [0040-combination-sum-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0040-combination-sum-ii/) | Medium |
 | [0078-subsets](https://github.com/ChulanZhang/LeetCode/tree/main/0078-subsets/) | Medium |
+| [0131-palindrome-partitioning](https://github.com/ChulanZhang/LeetCode/tree/main/0131-palindrome-partitioning/) | Medium |
 | [0679-24-game](https://github.com/ChulanZhang/LeetCode/tree/main/0679-24-game/) | Hard |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
 ## Memoization
@@ -250,6 +252,7 @@
 | [0003-longest-substring-without-repeating-characters](https://github.com/ChulanZhang/LeetCode/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 | [0017-letter-combinations-of-a-phone-number](https://github.com/ChulanZhang/LeetCode/tree/main/0017-letter-combinations-of-a-phone-number/) | Medium |
 | [0020-valid-parentheses](https://github.com/ChulanZhang/LeetCode/tree/main/0020-valid-parentheses/) | Easy |
+| [0131-palindrome-partitioning](https://github.com/ChulanZhang/LeetCode/tree/main/0131-palindrome-partitioning/) | Medium |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
 ## Sliding Window
 | Problem Name | Difficulty |
