@@ -17,6 +17,7 @@
 | [0033-search-in-rotated-sorted-array](https://github.com/ChulanZhang/LeetCode/tree/main/0033-search-in-rotated-sorted-array/) | Medium |
 | [0040-combination-sum-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0040-combination-sum-ii/) | Medium |
 | [0045-jump-game-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0045-jump-game-ii/) | Medium |
+| [0048-rotate-image](https://github.com/ChulanZhang/LeetCode/tree/main/0048-rotate-image/) | Medium |
 | [0053-maximum-subarray](https://github.com/ChulanZhang/LeetCode/tree/main/0053-maximum-subarray/) | Medium |
 | [0054-spiral-matrix](https://github.com/ChulanZhang/LeetCode/tree/main/0054-spiral-matrix/) | Medium |
 | [0055-jump-game](https://github.com/ChulanZhang/LeetCode/tree/main/0055-jump-game/) | Medium |
@@ -106,6 +107,7 @@
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0048-rotate-image](https://github.com/ChulanZhang/LeetCode/tree/main/0048-rotate-image/) | Medium |
 | [0070-climbing-stairs](https://github.com/ChulanZhang/LeetCode/tree/main/0070-climbing-stairs/) | Easy |
 | [0371-sum-of-two-integers](https://github.com/ChulanZhang/LeetCode/tree/main/0371-sum-of-two-integers/) | Medium |
 | [0679-24-game](https://github.com/ChulanZhang/LeetCode/tree/main/0679-24-game/) | Hard |
@@ -175,6 +177,7 @@
 ## Matrix
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0048-rotate-image](https://github.com/ChulanZhang/LeetCode/tree/main/0048-rotate-image/) | Medium |
 | [0054-spiral-matrix](https://github.com/ChulanZhang/LeetCode/tree/main/0054-spiral-matrix/) | Medium |
 | [0073-set-matrix-zeroes](https://github.com/ChulanZhang/LeetCode/tree/main/0073-set-matrix-zeroes/) | Medium |
 | [0200-number-of-islands](https://github.com/ChulanZhang/LeetCode/tree/main/0200-number-of-islands/) | Medium |
