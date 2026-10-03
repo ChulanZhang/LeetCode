@@ -206,6 +206,7 @@
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0337-house-robber-iii](https://github.com/ChulanZhang/LeetCode/tree/main/0337-house-robber-iii/) | Medium |
 | [0339-nested-list-weight-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0339-nested-list-weight-sum/) | Medium |
+| [0545-boundary-of-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0545-boundary-of-binary-tree/) | Medium |
 | [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 ## Graph Theory
@@ -241,6 +242,7 @@
 | [0230-kth-smallest-element-in-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0230-kth-smallest-element-in-a-bst/) | Medium |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0337-house-robber-iii](https://github.com/ChulanZhang/LeetCode/tree/main/0337-house-robber-iii/) | Medium |
+| [0545-boundary-of-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0545-boundary-of-binary-tree/) | Medium |
 | [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 ## Binary Search Tree
@@ -261,6 +263,7 @@
 | [0230-kth-smallest-element-in-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0230-kth-smallest-element-in-a-bst/) | Medium |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0236-lowest-common-ancestor-of-a-binary-tree/) | Medium |
 | [0337-house-robber-iii](https://github.com/ChulanZhang/LeetCode/tree/main/0337-house-robber-iii/) | Medium |
+| [0545-boundary-of-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0545-boundary-of-binary-tree/) | Medium |
 | [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 ## String
