@@ -33,7 +33,7 @@ class Solution:
                 if not is_leaf(curr):
                     right_boundry.append(curr.val)
                 curr = curr.right if curr.right else curr.left
-            res.extend(reversed(right_boundry))
+            res.extend(right_boundry[::-1])
         
         if not root:
             return []
