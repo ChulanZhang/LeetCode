@@ -6,37 +6,42 @@
 #         self.right = right
 class Solution:
     def boundaryOfBinaryTree(self, root: Optional[TreeNode]) -> List[int]:
-        results = [root.val]
-        if not root.left and not root.right:
-            return results
 
-        curr = root.left
-        while curr:
-            if curr.left or curr.right:
-                results.append(curr.val)
-            curr = curr.left if curr.left else curr.right
+        def is_leaf(node):
+            return not node.left and not node.right
         
-        def add_leaves(node):
+        def get_left_boundry(node, res):
+            curr = node
+            while curr:
+                if not is_leaf(curr):
+                    res.append(curr.val)
+                curr = curr.left if curr.left else curr.right
+        
+        def get_leaves(node, res):
             if not node:
                 return
-            if not node.left and not node.right:
-                results.append(node.val)
+            if is_leaf(node):
+                res.append(node.val)
                 return
-            add_leaves(node.left)
-            add_leaves(node.right)
+            get_leaves(node.left, res)
+            get_leaves(node.right, res)
 
-        add_leaves(root)
-
-        right_boundry = []
-        curr = root.right
-        while curr:
-            if curr.left or curr.right:
-                right_boundry.append(curr.val)
-            curr = curr.right if curr.right else curr.left
+        def get_right_boundry(node, res):
+            right_boundry = []  
+            curr = node
+            while curr:
+                if not is_leaf(curr):
+                    right_boundry.append(curr.val)
+                curr = curr.right if curr.right else curr.left
+            res.extend(reversed(right_boundry))
         
-        results.extend(right_boundry[::-1])
+        if not root:
+            return []
+        if is_leaf(root):
+            return [root.val]
         
-        return results
-
-
-        
+        res = [root.val]
+        get_left_boundry(root.left, res)
+        get_leaves(root, res)
+        get_right_boundry(root.right, res)
+        return res
