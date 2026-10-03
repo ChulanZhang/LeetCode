@@ -85,6 +85,7 @@
 | ------- | ------- |
 | [0011-container-with-most-water](https://github.com/ChulanZhang/LeetCode/tree/main/0011-container-with-most-water/) | Medium |
 | [0015-3sum](https://github.com/ChulanZhang/LeetCode/tree/main/0015-3sum/) | Medium |
+| [0061-rotate-list](https://github.com/ChulanZhang/LeetCode/tree/main/0061-rotate-list/) | Medium |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/ChulanZhang/LeetCode/tree/main/0167-two-sum-ii-input-array-is-sorted/) | Medium |
 | [0253-meeting-rooms-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0253-meeting-rooms-ii/) | Medium |
 | [0283-move-zeroes](https://github.com/ChulanZhang/LeetCode/tree/main/0283-move-zeroes/) | Easy |
@@ -282,6 +283,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0024-swap-nodes-in-pairs](https://github.com/ChulanZhang/LeetCode/tree/main/0024-swap-nodes-in-pairs/) | Medium |
+| [0061-rotate-list](https://github.com/ChulanZhang/LeetCode/tree/main/0061-rotate-list/) | Medium |
 ## Recursion
 | Problem Name | Difficulty |
 | ------- | ------- |
