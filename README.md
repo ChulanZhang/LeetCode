@@ -14,6 +14,7 @@
 | [0001-two-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0001-two-sum/) | Easy |
 | [0011-container-with-most-water](https://github.com/ChulanZhang/LeetCode/tree/main/0011-container-with-most-water/) | Medium |
 | [0015-3sum](https://github.com/ChulanZhang/LeetCode/tree/main/0015-3sum/) | Medium |
+| [0031-next-permutation](https://github.com/ChulanZhang/LeetCode/tree/main/0031-next-permutation/) | Medium |
 | [0033-search-in-rotated-sorted-array](https://github.com/ChulanZhang/LeetCode/tree/main/0033-search-in-rotated-sorted-array/) | Medium |
 | [0040-combination-sum-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0040-combination-sum-ii/) | Medium |
 | [0045-jump-game-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0045-jump-game-ii/) | Medium |
@@ -85,6 +86,7 @@
 | ------- | ------- |
 | [0011-container-with-most-water](https://github.com/ChulanZhang/LeetCode/tree/main/0011-container-with-most-water/) | Medium |
 | [0015-3sum](https://github.com/ChulanZhang/LeetCode/tree/main/0015-3sum/) | Medium |
+| [0031-next-permutation](https://github.com/ChulanZhang/LeetCode/tree/main/0031-next-permutation/) | Medium |
 | [0061-rotate-list](https://github.com/ChulanZhang/LeetCode/tree/main/0061-rotate-list/) | Medium |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/ChulanZhang/LeetCode/tree/main/0167-two-sum-ii-input-array-is-sorted/) | Medium |
 | [0253-meeting-rooms-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0253-meeting-rooms-ii/) | Medium |
