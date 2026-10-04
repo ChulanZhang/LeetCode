@@ -1,5 +1,6 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # Kahn's Algorithm
         # graph[i] represent the courses unlocked by course i
         graph = [[] for _ in range(numCourses)]
         # indegree[i] is the number of unfinished prerequisites
@@ -10,7 +11,7 @@ class Solution:
             graph[prereq].append(course)
             indegree[course] += 1
         
-        # Create the queue with courses without requiring any prereq
+        # Create the queue with courses does not require any prereq
         queue = deque([i for i in range(numCourses) if indegree[i] == 0])
 
         visited = 0
@@ -27,5 +28,7 @@ class Solution:
         
         return visited == numCourses
 
+# TC: O(N + M) for n course and m prereq
+# SC: O(N + M) 
 
         
