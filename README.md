@@ -221,6 +221,7 @@
 | [0545-boundary-of-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0545-boundary-of-binary-tree/) | Medium |
 | [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
+| [2265-count-nodes-equal-to-average-of-subtree](https://github.com/ChulanZhang/LeetCode/tree/main/2265-count-nodes-equal-to-average-of-subtree/) | Medium |
 ## Graph Theory
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -258,6 +259,7 @@
 | [0545-boundary-of-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0545-boundary-of-binary-tree/) | Medium |
 | [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
+| [2265-count-nodes-equal-to-average-of-subtree](https://github.com/ChulanZhang/LeetCode/tree/main/2265-count-nodes-equal-to-average-of-subtree/) | Medium |
 ## Binary Search Tree
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -279,6 +281,7 @@
 | [0545-boundary-of-binary-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0545-boundary-of-binary-tree/) | Medium |
 | [0572-subtree-of-another-tree](https://github.com/ChulanZhang/LeetCode/tree/main/0572-subtree-of-another-tree/) | Easy |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
+| [2265-count-nodes-equal-to-average-of-subtree](https://github.com/ChulanZhang/LeetCode/tree/main/2265-count-nodes-equal-to-average-of-subtree/) | Medium |
 ## String
 | Problem Name | Difficulty |
 | ------- | ------- |
