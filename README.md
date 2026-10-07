@@ -44,6 +44,7 @@
 | [0416-partition-equal-subset-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0416-partition-equal-subset-sum/) | Medium |
 | [0679-24-game](https://github.com/ChulanZhang/LeetCode/tree/main/0679-24-game/) | Hard |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
+| [0704-binary-search](https://github.com/ChulanZhang/LeetCode/tree/main/0704-binary-search/) | Easy |
 | [0853-car-fleet](https://github.com/ChulanZhang/LeetCode/tree/main/0853-car-fleet/) | Medium |
 | [0994-rotting-oranges](https://github.com/ChulanZhang/LeetCode/tree/main/0994-rotting-oranges/) | Medium |
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/ChulanZhang/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
@@ -82,6 +83,7 @@
 | [0074-search-a-2d-matrix](https://github.com/ChulanZhang/LeetCode/tree/main/0074-search-a-2d-matrix/) | Medium |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/ChulanZhang/LeetCode/tree/main/0153-find-minimum-in-rotated-sorted-array/) | Medium |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/ChulanZhang/LeetCode/tree/main/0167-two-sum-ii-input-array-is-sorted/) | Medium |
+| [0704-binary-search](https://github.com/ChulanZhang/LeetCode/tree/main/0704-binary-search/) | Easy |
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/ChulanZhang/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
 ## Two Pointers
 | Problem Name | Difficulty |
