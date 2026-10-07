@@ -47,6 +47,7 @@
 | [0704-binary-search](https://github.com/ChulanZhang/LeetCode/tree/main/0704-binary-search/) | Easy |
 | [0853-car-fleet](https://github.com/ChulanZhang/LeetCode/tree/main/0853-car-fleet/) | Medium |
 | [0994-rotting-oranges](https://github.com/ChulanZhang/LeetCode/tree/main/0994-rotting-oranges/) | Medium |
+| [1004-max-consecutive-ones-iii](https://github.com/ChulanZhang/LeetCode/tree/main/1004-max-consecutive-ones-iii/) | Medium |
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/ChulanZhang/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
 | [2395-find-subarrays-with-equal-sum](https://github.com/ChulanZhang/LeetCode/tree/main/2395-find-subarrays-with-equal-sum/) | Easy |
 | [2542-maximum-subsequence-score](https://github.com/ChulanZhang/LeetCode/tree/main/2542-maximum-subsequence-score/) | Medium |
@@ -84,6 +85,7 @@
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/ChulanZhang/LeetCode/tree/main/0153-find-minimum-in-rotated-sorted-array/) | Medium |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/ChulanZhang/LeetCode/tree/main/0167-two-sum-ii-input-array-is-sorted/) | Medium |
 | [0704-binary-search](https://github.com/ChulanZhang/LeetCode/tree/main/0704-binary-search/) | Easy |
+| [1004-max-consecutive-ones-iii](https://github.com/ChulanZhang/LeetCode/tree/main/1004-max-consecutive-ones-iii/) | Medium |
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/ChulanZhang/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
 ## Two Pointers
 | Problem Name | Difficulty |
@@ -201,6 +203,7 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0253-meeting-rooms-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0253-meeting-rooms-ii/) | Medium |
+| [1004-max-consecutive-ones-iii](https://github.com/ChulanZhang/LeetCode/tree/main/1004-max-consecutive-ones-iii/) | Medium |
 ## Depth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -289,6 +292,7 @@
 | ------- | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/ChulanZhang/LeetCode/tree/main/0003-longest-substring-without-repeating-characters/) | Medium |
 | [0239-sliding-window-maximum](https://github.com/ChulanZhang/LeetCode/tree/main/0239-sliding-window-maximum/) | Hard |
+| [1004-max-consecutive-ones-iii](https://github.com/ChulanZhang/LeetCode/tree/main/1004-max-consecutive-ones-iii/) | Medium |
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/ChulanZhang/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
 ## Quicksort
 | Problem Name | Difficulty |
