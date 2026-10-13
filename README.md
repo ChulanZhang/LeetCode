@@ -44,6 +44,7 @@
 | [0334-increasing-triplet-subsequence](https://github.com/ChulanZhang/LeetCode/tree/main/0334-increasing-triplet-subsequence/) | Medium |
 | [0416-partition-equal-subset-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0416-partition-equal-subset-sum/) | Medium |
 | [0525-contiguous-array](https://github.com/ChulanZhang/LeetCode/tree/main/0525-contiguous-array/) | Medium |
+| [0560-subarray-sum-equals-k](https://github.com/ChulanZhang/LeetCode/tree/main/0560-subarray-sum-equals-k/) | Medium |
 | [0679-24-game](https://github.com/ChulanZhang/LeetCode/tree/main/0679-24-game/) | Hard |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
 | [0704-binary-search](https://github.com/ChulanZhang/LeetCode/tree/main/0704-binary-search/) | Easy |
@@ -190,6 +191,7 @@
 | [0133-clone-graph](https://github.com/ChulanZhang/LeetCode/tree/main/0133-clone-graph/) | Medium |
 | [0311-sparse-matrix-multiplication](https://github.com/ChulanZhang/LeetCode/tree/main/0311-sparse-matrix-multiplication/) | Medium |
 | [0525-contiguous-array](https://github.com/ChulanZhang/LeetCode/tree/main/0525-contiguous-array/) | Medium |
+| [0560-subarray-sum-equals-k](https://github.com/ChulanZhang/LeetCode/tree/main/0560-subarray-sum-equals-k/) | Medium |
 | [0653-two-sum-iv-input-is-a-bst](https://github.com/ChulanZhang/LeetCode/tree/main/0653-two-sum-iv-input-is-a-bst/) | Easy |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
 | [1477-find-two-non-overlapping-sub-arrays-each-with-target-sum](https://github.com/ChulanZhang/LeetCode/tree/main/1477-find-two-non-overlapping-sub-arrays-each-with-target-sum/) | Medium |
@@ -209,6 +211,7 @@
 | ------- | ------- |
 | [0253-meeting-rooms-ii](https://github.com/ChulanZhang/LeetCode/tree/main/0253-meeting-rooms-ii/) | Medium |
 | [0525-contiguous-array](https://github.com/ChulanZhang/LeetCode/tree/main/0525-contiguous-array/) | Medium |
+| [0560-subarray-sum-equals-k](https://github.com/ChulanZhang/LeetCode/tree/main/0560-subarray-sum-equals-k/) | Medium |
 | [1004-max-consecutive-ones-iii](https://github.com/ChulanZhang/LeetCode/tree/main/1004-max-consecutive-ones-iii/) | Medium |
 ## Depth-First Search
 | Problem Name | Difficulty |
