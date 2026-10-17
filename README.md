@@ -45,6 +45,7 @@
 | [0416-partition-equal-subset-sum](https://github.com/ChulanZhang/LeetCode/tree/main/0416-partition-equal-subset-sum/) | Medium |
 | [0525-contiguous-array](https://github.com/ChulanZhang/LeetCode/tree/main/0525-contiguous-array/) | Medium |
 | [0560-subarray-sum-equals-k](https://github.com/ChulanZhang/LeetCode/tree/main/0560-subarray-sum-equals-k/) | Medium |
+| [0665-non-decreasing-array](https://github.com/ChulanZhang/LeetCode/tree/main/0665-non-decreasing-array/) | Medium |
 | [0679-24-game](https://github.com/ChulanZhang/LeetCode/tree/main/0679-24-game/) | Hard |
 | [0691-stickers-to-spell-word](https://github.com/ChulanZhang/LeetCode/tree/main/0691-stickers-to-spell-word/) | Hard |
 | [0704-binary-search](https://github.com/ChulanZhang/LeetCode/tree/main/0704-binary-search/) | Easy |
